@@ -202,38 +202,105 @@ a{color:var(--acc)}
 .hov .ft{color:var(--mut);font-size:11.5px;margin-top:8px}
 .tl{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
 /* compare */
-.cmphead{margin:4px 0 10px}
-.cmppick{padding:8px 12px 10px}
-.cmppick .fsh span{display:flex;gap:4px}
 .cmpopts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:4px 2px 10px;font-size:13.5px}
 .tg{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
 .tg input{width:18px;height:18px;-webkit-appearance:auto;appearance:auto;accent-color:var(--acc);margin:0}
-.cmpw{overflow:auto;max-height:70vh;border:1px solid var(--line);border-radius:14px;background:var(--card);box-shadow:var(--shadow);overscroll-behavior:contain}
-.ctab{border-collapse:separate;border-spacing:0;font-size:13px;min-width:100%}
-.ctab th,.ctab td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;max-width:220px}
-.ctab thead th{position:sticky;top:0;z-index:3;background:var(--card);border-bottom:2px solid var(--line);min-width:120px}
-.ctab tbody th{position:sticky;left:0;z-index:2;background:var(--card);font-weight:600;color:var(--mut);white-space:nowrap;border-right:1px solid var(--line)}
-.ctab thead th.corner{left:0;z-index:4;color:var(--mut);font-weight:600;font-size:12px;border-right:1px solid var(--line)}
-.ctab .ph{cursor:pointer}.ctab .ph:hover .pn{color:var(--acc)}
-.ctab .ph .pn{white-space:nowrap;margin-bottom:4px}
-.ctab td.c{text-align:center}
-.ctab .cy{color:var(--ok);font-weight:800;font-size:15px}
-.ctab .cn{color:var(--line);font-weight:700}
-.ctab td.best{font-weight:800;color:var(--ok)}
-.ctab .cov{text-align:center;color:var(--mut);font-size:12px;white-space:nowrap;background:color-mix(in srgb,var(--chip) 60%,var(--card))}
-.ctab .cov.gp{color:var(--warn);font-weight:600}
-.ctab .cov.g0{color:var(--bad);font-weight:800}
-.ctab tr.gap th{color:var(--bad)}
-.ctab tr.csec td{position:sticky;left:0;background:var(--chip);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);padding:6px 10px}
 .vchart{width:100%;height:auto;max-height:340px;margin:10px 0 4px}
 .vchart .gl{stroke:var(--line)}.vchart .tk{font-size:10.5px;fill:var(--mut)}.vchart .ax{font-size:11.5px;fill:var(--mut);font-weight:600}
 .vchart .vl{stroke:var(--mut);stroke-dasharray:5 5;opacity:.6}
 .vchart .pt{cursor:pointer}.vchart .pt circle{stroke:var(--card);stroke-width:2}.vchart .pl{font-size:11.5px;font-weight:700;fill:var(--ink)}
-@media (max-width:600px){
-  .ctab th,.ctab td{padding:6px 8px;font-size:12.5px}
-  .ctab tbody th{white-space:normal;min-width:92px;max-width:108px;font-size:12px}
-  .ctab thead th{min-width:104px}
-  .ctab thead th.corner{min-width:92px;max-width:108px}
+/* compare (redesign) */
+.cxbar{padding:12px 14px;margin:0 0 14px}
+.cxtop{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
+.cxt{font-size:15px;white-space:nowrap}
+.cxchips{display:flex;flex-wrap:wrap;gap:8px;flex:1;min-width:0;align-items:center}
+.cxchip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:10px;padding:4px 4px 4px 6px;background:var(--card);font-size:13px;font-weight:600;box-shadow:var(--shadow);max-width:240px}
+.cxchip>span:not(.cxi){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cxchip button{border:0;background:none;color:var(--mut);font-size:17px;line-height:1;padding:2px 6px;border-radius:6px;cursor:pointer}
+.cxchip button:hover{background:var(--chip);color:var(--ink)}
+.cxi{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;background:var(--chip);color:var(--ink);flex:none}
+.cxi .ic{width:16px;height:16px;stroke-width:1.7}
+.cxact{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.cxact .btn,.cxadd{display:inline-flex;align-items:center;gap:6px}
+.cxact .btn:disabled{opacity:.45;cursor:default}
+.cxsv{display:flex;align-items:center;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:13px;color:var(--mut)}
+.cxsv b{color:var(--ink)}.cxsv span{flex:1;min-width:0}.cxsv .warnt{color:var(--warn);font-weight:600;flex:none}
+.cxempty{display:flex;flex-direction:column;align-items:center;gap:6px;padding:34px 16px}
+.cxempty>.ic{width:34px;height:34px;stroke-width:1.5;color:var(--mut)}.cxempty b{color:var(--ink);font-size:16px}
+.cxgrid{display:grid;grid-template-columns:210px minmax(0,1fr);gap:16px;align-items:start}
+.cxnav{position:sticky;top:12px;display:flex;flex-direction:column;gap:2px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:var(--shadow)}
+.cxnav button{display:flex;align-items:center;gap:10px;border:0;background:none;color:var(--ink);text-align:left;padding:9px 10px;border-radius:9px;font-size:14px;cursor:pointer;white-space:nowrap}
+.cxnav button .ic{width:18px;height:18px;color:var(--mut)}
+.cxnav button:hover{background:var(--chip)}
+.cxnav button.on{background:var(--pri);color:var(--pri-ink);font-weight:600}.cxnav button.on .ic{color:inherit}
+.cxmain{min-width:0}
+.cxnote{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--mut);background:var(--chip);border-radius:10px;padding:8px 12px;margin:0 0 8px}
+.cxnote .ic{margin-top:1px}
+.cxw{overflow:auto;max-height:calc(100vh - 230px);min-height:300px;border:1px solid var(--line);border-radius:14px;background:var(--card);box-shadow:var(--shadow);overscroll-behavior:contain}
+.cxt2{border-collapse:separate;border-spacing:0;font-size:13.5px;width:100%;min-width:calc(170px + var(--n) * 210px);table-layout:fixed}
+.cxt2 th,.cxt2 td{padding:8px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle;overflow-wrap:anywhere}
+.cxt2 td+td,.cxt2 thead th+th{border-left:1px solid var(--line)}
+.cxt2 thead th{position:sticky;top:0;z-index:3;background:var(--card);border-bottom:1px solid var(--line);padding:12px}
+.cxt2 thead th.corner{left:0;z-index:5;width:170px;color:var(--mut);font-weight:600;font-size:12px;vertical-align:bottom}
+.cxt2 tbody th{position:sticky;left:0;z-index:2;background:color-mix(in srgb,var(--chip) 55%,var(--card));font-weight:650;color:var(--ink);font-size:13px;border-right:1px solid var(--line)}
+.cxt2 tr.cxsec th{position:sticky;left:0;background:var(--chip);font-size:12px;font-weight:750;text-transform:uppercase;letter-spacing:.07em;color:var(--ink);padding:9px 12px;scroll-margin-top:80px}
+.cxt2 tr.cxsec th span,.cxt2 tr.cxsub th span{position:sticky;left:12px}
+.cxt2 tr.cxsub th{background:var(--card);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);padding:12px 12px 5px;border-bottom:1px solid var(--line)}
+.cxh{display:flex;align-items:flex-start;gap:10px}
+.cxh .cxi{width:40px;height:40px;border-radius:10px}.cxh .cxi .ic{width:22px;height:22px}
+.cxn{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.cxn b{font-size:15.5px;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.cxn b:hover{color:var(--acc)}
+.cxn .pnsel{max-width:100%}
+.cxm{border:0;background:none;color:var(--mut);padding:4px;border-radius:8px;cursor:pointer;flex:none}
+.cxm:hover{background:var(--chip);color:var(--ink)}.cxm .ic{width:20px;height:20px;stroke-width:2.6}
+.cxt2 td.c{text-align:left}
+.cxt2 .cy{color:var(--ok);font-weight:800;font-size:15px}.cxt2 .cn{color:var(--mut);opacity:.6}
+.cxt2 .na{color:var(--mut);font-style:italic;font-size:12.5px;opacity:.8}
+.cxt2 td.cna{background:repeating-linear-gradient(135deg,transparent 0 6px,color-mix(in srgb,var(--line) 45%,transparent) 6px 7px)}
+.cxt2 td.best{font-weight:800;color:var(--ok)}
+.cxt2 tr.gap th{color:var(--bad)}.cxt2 tr.gap td{background:color-mix(in srgb,var(--bad) 5%,transparent)}
+.gapt{font-size:10.5px;font-weight:700;color:var(--bad);border:1px solid color-mix(in srgb,var(--bad) 40%,transparent);border-radius:5px;padding:0 4px;margin-left:4px}
+.cxt2 .tags{margin:0}.cxs{display:block}
+.cxnotes{white-space:pre-wrap;max-height:7.5em;overflow:auto;font-size:13px}
+.cxt2 tr.cxtl td{padding:14px 14px 8px}
+.mtl{min-width:150px}
+.mtr{position:relative;height:9px;border-radius:5px;background:color-mix(in srgb,var(--line) 70%,transparent)}
+.mseg{position:absolute;top:0;bottom:0;border-radius:5px}
+.mnd{position:absolute;left:8px;top:-17px;font-size:11px;color:var(--mut);white-space:nowrap}
+.mtd{position:absolute;top:-4px;bottom:-4px;width:2px;margin-left:-1px;background:var(--ink);border-radius:1px}
+.mms{position:absolute;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;background:var(--card);border:2.5px solid var(--c);transform:rotate(45deg);border-radius:2px;z-index:1}
+.mtx{position:relative;height:22px;margin-top:4px}
+.mtx span{position:absolute;top:5px;transform:translateX(-50%);font-size:11px;color:var(--mut)}
+.mtx i{position:absolute;top:0;width:1px;height:5px;background:var(--line)}
+.cxpanel{position:fixed;z-index:46;width:420px;max-width:calc(100vw - 24px);max-height:min(560px,calc(100vh - 140px));display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 34px rgba(20,25,35,.22);padding:10px;animation:fade .12s}
+.cxpanel .tsearch{margin:6px 0 8px;flex:none}
+.cxlist{overflow:auto;min-height:0;flex:1;margin:0 -4px}
+.cxog{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);padding:10px 10px 4px}
+.cxo{display:flex;align-items:center;gap:10px;width:100%;border:0;background:none;text-align:left;padding:7px 10px;border-radius:9px;color:var(--ink);cursor:pointer}
+.cxo:hover{background:var(--chip)}.cxo.on{background:color-mix(in srgb,var(--acc) 9%,transparent)}
+.cxot{display:flex;flex-direction:column;min-width:0;flex:1}.cxot b{font-size:14px}.cxot span{font-size:12px;color:var(--mut);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cxck{width:16px;color:var(--acc);font-weight:800;text-align:center}
+.cxmenu{width:220px}.cxmenu .mi:disabled{opacity:.4;cursor:default}
+.cxsi{align-items:center}.cxsi .grow{cursor:pointer}.cxsi.on b{color:var(--acc)}
+@media (max-width:1199px){.cxact{margin-left:0;width:100%}}
+@media (max-width:899px){
+  .cxgrid{grid-template-columns:1fr;gap:8px}
+  .cxnav{position:static;flex-direction:row;overflow-x:auto;padding:6px;scrollbar-width:none}
+  .cxnav::-webkit-scrollbar{display:none}
+  .cxnav button{flex:none;padding:7px 11px;font-size:13px}
+  .cxnav button .ic{display:none}
+  .cxt2{min-width:calc(112px + var(--n) * 172px)}
+  .cxt2 thead th.corner{width:112px}
+  .cxt2 th,.cxt2 td{padding:7px 9px;font-size:12.5px}
+  .cxt2 tbody th{font-size:12px}
+  .cxh .cxi{display:none}.cxh{gap:4px}.cxt2 thead th{padding:9px}
+  .cxn b{font-size:14px}
+  .cxw{max-height:calc(100vh - 240px)}
+  .cxact{margin-left:0;width:100%}
+  .cxact .btn span{display:none}.cxact .btn{padding:8px 10px}
+  .cxact .btn.ghost{margin-left:auto}
+  .cxt{width:100%}
+  .cxpanel{left:12px;right:12px;width:auto;top:calc(env(safe-area-inset-top) + 64px);bottom:calc(84px + env(safe-area-inset-bottom));max-height:none}
 }
 /* timeline / list switch + desktop table */
 .vbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:14px 0 4px}
@@ -314,7 +381,6 @@ a{color:var(--acc)}
   .narrow{max-width:900px}
   .vadd{display:inline-block}
   body.wide .fab[data-arg=products]{display:none}
-  .cmpw{max-height:calc(100vh - 260px)}
   .sheet{left:auto;right:0;top:0;width:min(620px,100vw);max-width:none;border-radius:0;box-shadow:-10px 0 34px rgba(2,6,23,.18)}
   .sheet.anim{animation:slide .24s ease-out}
 }
@@ -580,8 +646,8 @@ const MIGC={not_started:'#94a3b8',notified:'#0ea5e9',evaluating:'#8b5cf6',sampli
 const EVK=[['announcement','Supplier announcement'],['pcn','PCN / change notice'],['release','Release'],['nrnd','NRND'],['ltb','Last-time buy'],['eol','End of life'],['milestone','Milestone'],['note','Note']];
 const EVC={milestone:'#2563eb',announcement:'#0ea5e9',pcn:'#8b5cf6',release:'#16a34a',nrnd:'#d97706',ltb:'#ea580c',eol:'#dc2626',note:'#64748b'};
 const IDEA_TABLES=['ideas','idea_links','idea_comments','idea_attachments','idea_votes','idea_activity','idea_watchers'];
-const TABLES=['suppliers','markets','products','transitions','customers','customer_products','events','part_numbers','dev_items',...IDEA_TABLES];
-const OPTIONAL=['part_numbers','dev_items',...IDEA_TABLES]; // added in schema upgrade v2 — app still loads if it hasn't been run
+const TABLES=['suppliers','markets','products','transitions','customers','customer_products','events','part_numbers','dev_items',...IDEA_TABLES,'comparisons'];
+const OPTIONAL=['part_numbers','dev_items',...IDEA_TABLES,'comparisons']; // added in schema upgrade v2 — app still loads if it hasn't been run
 const WIDEQ='(min-width:900px), (orientation:landscape) and (min-width:700px)';
 const wide=()=>matchMedia(WIDEQ).matches;
 let LW=118;                       // label column width (wider on desktop)
@@ -591,10 +657,12 @@ const PHG_OF={development:'dev',evaluating:'pipeline',onboarding:'pipeline',acti
 
 /* ---------- state ---------- */
 const S={mode:'demo',sb:null,user:null,role:'admin',tab:'roadmap',stack:[],data:{},
-  f:{group:'category'},F:{q:'',sup:[],cat:[],ph:[],mkt:[],can:[]},mw:wide()?30:22,fOpen:false,tlScroll:null,rows:[],cmp:{cat:'controller',sel:{},diff:false,gaps:true,metric:'io',priceBy:'list'},rmView:'timeline',pView:'table',det:{sup:true,mkt:true},hz:'12',coll:[],fpop:null,ipop:false,lsort:{k:'part',dir:1},incOnly:false,
+  f:{group:'category'},F:{q:'',sup:[],cat:[],ph:[],mkt:[],can:[]},mw:wide()?30:22,fOpen:false,tlScroll:null,rows:[],cmp:{ids:[],diff:false,gaps:true,metric:'io',priceBy:'list',sec:'overview',saved:null},rmView:'timeline',pView:'table',det:{sup:true,mkt:true},hz:'12',coll:[],fpop:null,ipop:false,lsort:{k:'part',dir:1},incOnly:false,
   iv:{q:'',st:'all',type:[],mine:false,waiting:false,sort:'value',dir:1,view:'table'}};
 try{const v=JSON.parse(localStorage.getItem('rm_view')||'null');if(v){Object.assign(S.F,v.F||{});if(v.group)S.f.group=v.group;if(v.mw)S.mw=v.mw;if(v.sideCol)S.sideCol=true;if(v.cmp)Object.assign(S.cmp,v.cmp);if(v.rmView)S.rmView=v.rmView;if(v.pView)S.pView=v.pView;if(v.det)S.det=v.det;if(v.hz)S.hz=v.hz;if(Array.isArray(v.coll))S.coll=v.coll;if(v.lsort)S.lsort=v.lsort;S.incOnly=!!v.incOnly;if(v.iv)Object.assign(S.iv,v.iv,{q:''})}}catch(e){}
 // Ideas view saved by older versions: 'list' is now the table; status groups are now status tabs
+// Compare saved by older versions: one product list per category → one ordered list
+{const c=S.cmp;if(!Array.isArray(c.ids)){const o=c.sel&&c.cat&&c.sel[c.cat];c.ids=Array.isArray(o)?o.slice():[]}delete c.sel;delete c.cat;if(!c.sec)c.sec='overview';if(c.saved===undefined)c.saved=null}
 if(S.iv.view!=='board')S.iv.view='table';if(!S.iv.st)S.iv.st='all';if(!S.iv.dir)S.iv.dir=1;delete S.iv.grp;
 function saveView(){try{localStorage.setItem('rm_view',JSON.stringify({F:S.F,group:S.f.group,mw:S.mw,sideCol:!!S.sideCol,cmp:S.cmp,rmView:S.rmView,pView:S.pView,det:S.det,hz:S.hz,coll:S.coll,lsort:S.lsort,incOnly:S.incOnly,iv:{...S.iv,q:''}}))}catch(e){}}
 TABLES.forEach(t=>S.data[t]=[]);
@@ -644,8 +712,14 @@ function errMsg(e){let m=e?.message||String(e);if(/schema/i.test(m)&&/must be on
 /* ---------- data layer (Supabase or local demo) ---------- */
 function cfg(){let s={};try{s=JSON.parse(localStorage.getItem('rm_cfg')||'{}')}catch(e){}return{url:CONFIG.SUPABASE_URL||s.url||'',key:CONFIG.SUPABASE_ANON_KEY||s.key||'',hard:!!CONFIG.SUPABASE_URL}}
 const Demo={key:'rm_demo_v1',
-  load(){let x=null;try{x=JSON.parse(localStorage.getItem(this.key))}catch(e){}if(!x){x=seed();this.save(x)}if(!x.ideas){x.customers=x.customers||[];seedIdeas(x);this.save(x)}if(!x.pn_seeded){seedPNs(x);x.pn_seeded=true;this.save(x)}TABLES.forEach(t=>x[t]=x[t]||[]);return x},
+  load(){let x=null;try{x=JSON.parse(localStorage.getItem(this.key))}catch(e){}if(!x){x=seed();this.save(x)}if(!x.ideas){x.customers=x.customers||[];seedIdeas(x);this.save(x)}if(!x.pn_seeded){seedPNs(x);x.pn_seeded=true;this.save(x)}TABLES.forEach(t=>x[t]=x[t]||[]);if(!x.cmp_seeded){seedCmp(x);x.cmp_seeded=true;this.save(x)}return x},
   save(x){try{localStorage.setItem(this.key,JSON.stringify(x))}catch(e){}}};
+// one shared comparison from a colleague, so demo users see how saved and shared comparisons work
+function seedCmp(x){
+  const c=x.products.filter(p=>p.category==='controller'&&!['rejected'].includes(p.lifecycle)).sort((a,b)=>a.part_number.localeCompare(b.part_number)).slice(0,3);
+  if(c.length<2)return;const now=new Date().toISOString();
+  x.comparisons.push({id:uid(),name:'Controller line-up',product_ids:c.map(p=>p.id),options:{diff:false,gaps:true},owner:'pm@stw-technic.com',shared:true,created_at:now,updated_at:now});
+}
 async function loadAll(){
   if(S.mode==='demo'){S.data=Demo.load();
     S.data.product_options=S.data.products.map(p=>({id:p.id,part_number:p.part_number,name:p.name,category:p.category}));
@@ -654,7 +728,7 @@ async function loadAll(){
   const T=isContrib()?[...IDEA_TABLES,'product_options','customer_options']:TABLES;
   const res=await Promise.all(T.map(t=>S.sb.from(t).select('*').range(0,9999)));
   if(isContrib())TABLES.forEach(t=>S.data[t]=[]);
-  res.forEach((r,i)=>{const t=T[i];if(r.error){if(OPTIONAL.includes(t)||isContrib()&&!IDEA_TABLES.includes(t)){S.data[t]=[];return}
+  S.cmpNoDb=false;res.forEach((r,i)=>{const t=T[i];if(r.error){if(t==='comparisons')S.cmpNoDb=true;if(OPTIONAL.includes(t)||isContrib()&&!IDEA_TABLES.includes(t)){S.data[t]=[];return}
     if(IDEA_TABLES.includes(t)){S.data[t]=[];return}throw r.error}S.data[t]=r.data||[]});
 }
 function clean(row){const o={};for(const[k,v]of Object.entries(row)){if(['created_at','updated_at','updated_by'].includes(k)||v===undefined)continue;o[k]=v===''?null:v}return o}
@@ -907,7 +981,7 @@ const ICONS={roadmap:'<path d="M12 3 21 8l-9 5-9-5z"/><path d="m3 12.5 9 5 9-5"/
 const TITLES={roadmap:'Portfolio',products:'Products',transitions:'Transitions',ideas:'Ideas',compare:'Compare',customers:'Customers',more:'Settings'};
 const SUBS={roadmap:'Your products, their lifecycle, and what\'s coming next.',products:'Your product catalog, lifecycle stages and missing data.',
   transitions:'Outgoing products, their successors and customer migrations.',ideas:'Capture, size and prioritize product ideas from the team.',
-  compare:'Evaluate products side by side.',customers:'Customers and the products they use.',more:'Your account, suppliers, markets, events and data connection.'};
+  compare:'Evaluate two or more products side by side: specifications, lifecycle and key differences.',customers:'Customers and the products they use.',more:'Your account, suppliers, markets, events and data connection.'};
 const NAV=['roadmap','products','transitions','ideas','compare'];
 const navTabs=()=>isContrib()?['ideas']:NAV;
 const allowedTabs=()=>[...navTabs(),'more',...(isContrib()?[]:['customers'])];
@@ -961,7 +1035,7 @@ function umenuHTML(){
     ${wide()&&!document.body.classList.contains('solo')?`<div class="ml">Menu position</div>${menuPos()}`:''}
     ${mi('tab','more','more','Settings')}${isContrib()?'':mi('tab','customers','customers','Customers')}${S.mode==='live'?mi('signout','','signout','Sign out'):''}</div>`;
 }
-document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if($('#umenu')?.innerHTML)$('#umenu').innerHTML='';if(S.fpop)A.fpclose();if(S.ipop)A.ipclose()});
+document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if($('#umenu')?.innerHTML)$('#umenu').innerHTML='';if(S.fpop)A.fpclose();if(S.ipop)A.ipclose();if(S.cxpop)A.cxclose()});
 
 /* ---------- shared filters (Portfolio + Products) ---------- */
 const PHC={dev:LC.development.c,pipeline:LC.evaluating.c,active:LC.active.c,phasing:LC.nrnd.c,ltb:LC.ltb.c,eol:LC.eol.c,rejected:LC.rejected.c};
@@ -1430,126 +1504,6 @@ function setZoom(mw,clientX){hovHide();
   clearTimeout(setZoom.t);setZoom.t=setTimeout(saveView,300);
 }
 
-/* ---------- Compare tab ---------- */
-// S.cmp = {cat, sel:{[cat]:[ids]}, diff, gaps, metric, priceBy}
-function cmpBase(){return S.data.products.filter(p=>p.category===S.cmp.cat).sort((a,b)=>a.part_number.localeCompare(b.part_number))}
-function cmpSel(){
-  const base=cmpBase();let ids=S.cmp.sel[S.cmp.cat];
-  if(!ids){ // default: current + upcoming products, no accessories, max 8
-    const pick=base.filter(p=>['development','evaluating','onboarding','active'].includes(phase(p))&&!/accessor/i.test(p.sub_type||''));
-    ids=(pick.length?pick:base).map(p=>p.id).slice(0,8);S.cmp.sel[S.cmp.cat]=ids}
-  return base.filter(p=>ids.includes(p.id));
-}
-const yes='<span class="cy">✓</span>',no='<span class="cn">—</span>';
-function cmpRows(cols){
-  const fmtD=v=>v?fmtMY(v):'';
-  const R=[];const sec=t=>R.push({sec:t});
-  const row=(label,get,o={})=>R.push({label,get,...o});
-  sec('Overview');
-  row('Supplier',p=>sup(p)?.name||'');row('Status',p=>LC[phase(p)]?.l||'',{html:p=>badge(phase(p))});
-  row('Family',p=>p.family||'');row('Sub-type',p=>p.sub_type||'');row('Markets',p=>(p.markets||[]).join(', '));
-  sec('Hardware');
-  [...new Set(cols.flatMap(p=>hwKeys(S.cmp.cat,p.hardware)))].forEach(k=>row(k,p=>(p.hardware||{})[k]||''));
-  row('IP rating',p=>p.ip_rating||'');row('Connectors',p=>p.connector||'');
-  sec('Pricing');
-  row('List price',p=>p.list_price??null,{num:1,best:'min',html:p=>money(p.list_price,p.currency)});
-  row('Our cost',p=>p.cost??null,{num:1,best:'min',html:p=>money(p.cost,p.currency)});
-  row('Margin',p=>margin(p),{num:1,best:'max',html:p=>margin(p)==null?'':Math.round(margin(p)*100)+'%'});
-  row('Price basis',p=>p.price_basis||'');
-  sec('I/O');
-  row('Inputs',p=>p.inputs??null,{num:1,best:'max'});row('Outputs',p=>p.outputs??null,{num:1,best:'max'});
-  row('Total I/O',p=>totalIO(p),{num:1,best:'max'});
-  row('CAN ports',p=>p.can_ports??null,{num:1,best:'max'});row('Ethernet ports',p=>p.ethernet_ports??null,{num:1,best:'max'});
-  if(['controller','module','telematics'].includes(S.cmp.cat)||cols.some(p=>(p.io_types||[]).length))
-    [...new Set([...IOG_ALL,...cols.flatMap(p=>p.io_types||[])])].forEach(x=>row(x,p=>(p.io_types||[]).includes(x),{bool:1}));
-  const ifSec=g=>{const opts=g==='Other interfaces'?[...new Set(cols.flatMap(p=>ifIn(p,g)))]:(IFG.find(x=>x[0]===g)||[,[]])[1];
-    if(!opts.length)return;sec(g);opts.forEach(x=>row(x,p=>(p.interfaces||[]).includes(x),{bool:1}))};
-  ifSec('Wired networking');
-  sec('CAN protocols');
-  [...new Set([...CANP,...cols.flatMap(p=>p.can_protocols||[])])].forEach(x=>row(x,p=>(p.can_protocols||[]).includes(x),{bool:1}));
-  ifSec('Wireless');ifSec('Sensor & video links');ifSec('Other interfaces');
-  sec('Software & safety');
-  row('Software',p=>p.software_platform||'');row('Functional safety',p=>p.functional_safety||'');
-  row('openSYDE',p=>!!p.opensyde_compatible,{bool:1,noGap:1});row('Beacon',p=>!!p.beacon_compatible,{bool:1,noGap:1});
-  sec('Lifecycle');
-  row('Supplier release',p=>fmtD(p.supplier_release_date));row('NRND',p=>fmtD(p.nrnd_date));row('Last-time buy',p=>fmtD(p.ltb_date));row('End of life',p=>fmtD(p.eol_date));
-  row('Successor',p=>S.data.transitions.filter(t=>t.from_product_id===p.id).map(t=>pnOf(t.to_product_id)).join(', '));
-  const sk=[...new Set(cols.flatMap(p=>Object.keys(p.specs||{})))].filter(k=>k!=='Notes'&&!HW_RAW.has(k));
-  if(sk.length){sec('Datasheet specs');sk.forEach(k=>row(k,p=>(p.specs||{})[k]??''))}
-  return R;
-}
-function viewCompare(){
-  const cats=CATEGORIES.filter(([k])=>S.data.products.some(p=>p.category===k));
-  if(!cats.some(c=>c[0]===S.cmp.cat))S.cmp.cat=cats[0]?.[0];
-  return`<div class="cmphead">
-    <div class="chips wrap">${cats.map(([k,l])=>`<button class="chip ${S.cmp.cat===k?'on':''}" data-act="cmpcat" data-arg="${k}">${l} <span class="cnt">${S.data.products.filter(p=>p.category===k).length}</span></button>`).join('')}</div>
-  </div><div id="cmpres">${compareResults()}</div>`;
-}
-function compareResults(){
-  const base=cmpBase(),cols=cmpSel(),ids=new Set(cols.map(p=>p.id));
-  const picker=`<div class="card cmppick"><div class="fsh">Products to compare <span><button class="btn ghost sm" data-act="cmpall">All</button><button class="btn ghost sm" data-act="cmpnone">None</button></span></div>
-    <div class="chips wrap">${base.map(p=>`<button class="chip fchip ${ids.has(p.id)?'on':''}" data-act="cmpsel" data-id="${p.id}"><i class="dot" style="background:${esc(sup(p)?.color||'#999')};width:8px;height:8px"></i>${esc(p.part_number)}${['eol','rejected'].includes(phase(p))?' <span class="cnt">EOL</span>':''}</button>`).join('')}</div></div>`;
-  if(cols.length<1)return picker+'<div class="card empty">Pick at least one product to compare.</div>';
-  const R=cmpRows(cols);let body='',cur=null,secRows=[];
-  const flush=()=>{if(cur&&secRows.length)body+=`<tr class="csec"><td colspan="${cols.length+2}">${esc(cur)}</td></tr>`+secRows.join('');secRows=[]};
-  R.forEach(r=>{
-    if(r.sec){flush();cur=r.sec;return}
-    const vals=cols.map(p=>r.get(p));
-    if(r.bool){
-      const n=vals.filter(Boolean).length;
-      if(n===0&&(r.noGap||!S.cmp.gaps))return;
-      if(S.cmp.diff&&(n===cols.length||n===0)&&cols.length>1)return;
-      const gap=n===0;
-      secRows.push(`<tr class="${gap?'gap':''}"><th>${esc(r.label)}</th>${vals.map(v=>`<td class="c">${v?yes:no}</td>`).join('')}<td class="cov ${gap?'g0':n<cols.length?'gp':''}">${gap?'Gap':`${n}/${cols.length}`}</td></tr>`);
-      return;
-    }
-    const str=vals.map(v=>v==null?'':String(v));
-    if(str.every(v=>v===''))return;
-    if(S.cmp.diff&&cols.length>1&&str.every(v=>v===str[0]))return;
-    let best=null;
-    if(r.best){const nums=vals.filter(v=>typeof v==='number');if(nums.length>1){const b=r.best==='max'?Math.max(...nums):Math.min(...nums);if(nums.some(v=>v!==b))best=b}}
-    const filled=str.filter(Boolean).length;
-    secRows.push(`<tr><th>${esc(r.label)}</th>${cols.map((p,i)=>{const v=vals[i];const h=r.html?r.html(p):(v==null||v===''?'':esc(v));return`<td class="${best!=null&&v===best?'best':''}">${h||'<span class="cn">—</span>'}</td>`}).join('')}<td class="cov ${filled<cols.length?'gp':''}">${filled}/${cols.length}</td></tr>`);
-  });
-  flush();
-  const head=`<tr><th class="corner">${cols.length} of ${base.length}</th>${cols.map(p=>`<th class="ph" data-act="product" data-id="${p.id}"><div class="pn"><i class="dot" style="background:${esc(sup(p)?.color||'#999')};width:7px;height:7px"></i> ${esc(p.part_number)}</div><div>${badge(phase(p))}</div></th>`).join('')}<th class="cov">Coverage</th></tr>`;
-  const opts=`<div class="cmpopts">
-    <label class="tg"><input type="checkbox" data-change="cmpopt" data-arg="diff" ${S.cmp.diff?'checked':''}> Differences only</label>
-    <label class="tg"><input type="checkbox" data-change="cmpopt" data-arg="gaps" ${S.cmp.gaps?'checked':''}> Show gaps <span class="mut">(features none of these have)</span></label></div>`;
-  return picker+opts+`<div class="cmpw"><table class="ctab"><thead>${head}</thead><tbody>${body}</tbody></table></div>`+valueChart(cols);
-}
-/* value vs capability scatter */
-function valueChart(cols){
-  const M={io:['Total I/O',p=>totalIO(p)],feat:['Interfaces + protocols + I/O types',p=>(p.interfaces||[]).length+(p.can_protocols||[]).length+(p.io_types||[]).length],can:['CAN ports',p=>p.can_ports]};
-  const PB={list:['List price',p=>p.list_price],cost:['Our cost',p=>p.cost]};
-  const [ml,mf]=M[S.cmp.metric]||M.io,[pl,pf]=PB[S.cmp.priceBy]||PB.list;
-  const pts=cols.map(p=>({p,x:pf(p),y:mf(p)})).filter(o=>o.x!=null&&o.x!==''&&o.y!=null);
-  const ctl=`<div class="row" style="gap:8px;flex-wrap:wrap"><div class="segc" style="margin:0">${Object.entries(PB).map(([k,[l]])=>`<button class="${(S.cmp.priceBy||'list')===k?'on':''}" data-act="cmpprice" data-arg="${k}">${l}</button>`).join('')}</div>
-    <span class="mut">vs</span><div class="segc" style="margin:0">${Object.entries(M).map(([k,[l]])=>`<button class="${(S.cmp.metric||'io')===k?'on':''}" data-act="cmpmetric" data-arg="${k}">${l}</button>`).join('')}</div></div>`;
-  const missing=cols.filter(p=>pf(p)==null).length;
-  let svg;
-  if(pts.length<2){svg=`<div class="empty" style="padding:22px">Add ${pl.toLowerCase()} and ${ml.toLowerCase()} to at least two of these products to see value vs capability.<br><span class="mut">${missing} of ${cols.length} have no ${pl.toLowerCase()} yet — open a product → Edit → Pricing.</span></div>`}
-  else{
-    const W=640,H=300,L=56,B=40,T=16,Rr=16,xs=pts.map(o=>+o.x),ys=pts.map(o=>+o.y);
-    const nice=m=>{const raw=Math.max(m,1)/4,mag=Math.pow(10,Math.floor(Math.log10(raw))),st=[1,2,2.5,5,10].find(k=>k*mag>=raw)*mag;return[st,Math.ceil(m*1.05/st)*st||st]};
-    const [xs_,x1]=nice(Math.max(...xs)),[ys_,y1]=nice(Math.max(...ys)),x0=0,y0=0;
-    const X=v=>L+(v-x0)/(x1-x0)*(W-L-Rr),Y=v=>H-B-(v-y0)/(y1-y0)*(H-B-T);
-    const tick=(a,b,st)=>Array.from({length:Math.round((b-a)/st)+1},(_,i)=>a+st*i);
-    const cur=pts[0].p.currency;
-    let g=tick(x0,x1,xs_).map(v=>`<line x1="${X(v)}" y1="${T}" x2="${X(v)}" y2="${H-B}" class="gl"/><text x="${X(v)}" y="${H-B+16}" text-anchor="middle" class="tk">${money(Math.round(v),cur)}</text>`).join('')
-      +tick(y0,y1,ys_).map(v=>`<line x1="${L}" y1="${Y(v)}" x2="${W-Rr}" y2="${Y(v)}" class="gl"/><text x="${L-8}" y="${Y(v)+4}" text-anchor="end" class="tk">${+v.toFixed(2)}</text>`).join('');
-    // value line: capability per unit price, through the origin at the median ratio
-    const ratios=pts.map(o=>o.y/o.x).sort((a,b)=>a-b),med=ratios[Math.floor(ratios.length/2)];
-    g+=`<line x1="${X(0)}" y1="${Y(0)}" x2="${X(x1)}" y2="${Y(Math.min(y1,med*x1))}" class="vl"/>`;
-    g+=pts.map(o=>`<g data-act="product" data-id="${o.p.id}" class="pt"><circle cx="${X(o.x)}" cy="${Y(o.y)}" r="6" fill="${esc(sup(o.p)?.color||'#2563eb')}"/><text x="${X(o.x)+9}" y="${Y(o.y)-8}" class="pl">${esc(o.p.part_number)}</text></g>`).join('');
-    svg=`<svg viewBox="0 0 ${W} ${H}" class="vchart" role="img" aria-label="${esc(ml)} versus ${esc(pl)}">${g}
-      <text x="${(L+W-Rr)/2}" y="${H-4}" text-anchor="middle" class="ax">${esc(pl)}</text>
-      <text transform="translate(14 ${(T+H-B)/2}) rotate(-90)" text-anchor="middle" class="ax">${esc(ml)}</text></svg>
-      <div class="mut" style="font-size:12px">Above the dashed line = more ${esc(ml)} per ${cur} than the middle of this group (better value); below = less.${missing?` ${missing} selected product${missing>1?'s have':' has'} no ${pl.toLowerCase()} yet, so ${missing>1?'they are':'it is'} not shown.`:''}</div>`;
-  }
-  return`<div class="sec"><h2>Value vs capability</h2></div><div class="card">${ctl}${svg}</div>`;
-}
-function refreshCompare(){const r=$('#cmpres');if(r)r.innerHTML=compareResults();saveView()}
 
 /* Transitions tab */
 function cpsFor(t){return S.data.customer_products.filter(c=>c.transition_id===t.id||(c.product_id===t.from_product_id&&!c.transition_id))}
@@ -1650,7 +1604,7 @@ const SHEETS={
     ${p.opensyde_compatible||p.beacon_compatible?kvItem('Compatible with',[p.opensyde_compatible&&'openSYDE',p.beacon_compatible&&'Beacon'].filter(Boolean).join(', ')):''}</div>
    ${p.markets?.length?`<div class="chips wrap" style="margin-top:4px">${p.markets.map(m=>`<span class="chip">${esc(m)}</span>`).join('')}</div>`:''}
    ${p.list_price!=null||p.cost!=null?`<div class="sec"><h2>Pricing</h2>${p.price_date?`<span class="mut">as of ${fmt(p.price_date)}</span>`:''}</div><div class="card kv">${kvItem('List price',money(p.list_price,p.currency),p.price_basis?esc(p.price_basis):'')}${kvItem('Our cost',money(p.cost,p.currency))}${margin(p)!=null?kvItem('Margin',Math.round(margin(p)*100)+'%',money(p.list_price-p.cost,p.currency)+' per unit'):''}</div>`:''}
-   <button class="btn sm" data-act="cmpgo" data-id="${p.id}" style="margin-top:12px">⇆ Compare with other ${esc((CATEGORIES.find(c=>c[0]===p.category)||[,'products'])[1].toLowerCase())}</button>
+   <button class="btn sm" data-act="cmpgo" data-id="${p.id}" style="margin-top:12px">⇆ ${S.cmp.ids.includes(p.id)?'Open in Compare':'Add to Compare'}</button>
    ${spec.length?`<details class="card" style="margin-top:10px"><summary style="font-weight:600;cursor:pointer">Original datasheet capture (${spec.length})</summary><table class="cmp" style="margin-top:8px">${spec.map(([k,v])=>`<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join('')}</table></details>`:''}
    ${p.product_url||p.datasheet_url?`<p class="row" style="gap:16px">${p.product_url?`<a href="${esc(p.product_url)}" target="_blank" rel="noopener">Product page ↗</a>`:''}${p.datasheet_url?`<a href="${esc(p.datasheet_url)}" target="_blank" rel="noopener">Datasheet ↗</a>`:''}</p>`:''}
    ${p.notes?`<div class="card" style="margin-top:10px;white-space:pre-wrap">${esc(p.notes)}</div>`:''}
@@ -1726,7 +1680,7 @@ const SHEETS={
 /* ---------- actions ---------- */
 async function reload(){try{await loadAll();renderMain();renderSheet()}catch(e){toast(errMsg(e))}}
 const A={
- tab:(id,arg)=>{S.tab=arg;S.stack=[];S.tlScroll=null;S.fpop=null;S.ipop=false;renderAll();window.scrollTo(0,0)},
+ tab:(id,arg)=>{S.tab=arg;S.stack=[];S.tlScroll=null;S.fpop=null;S.ipop=false;S.cxpop=null;S.cxq='';renderAll();window.scrollTo(0,0)},
  product:id=>push({type:'product',id}),transition:id=>push({type:'transition',id}),customer:id=>push({type:'customer',id}),
  edit:(id,arg)=>push({type:'form',table:arg,id}),
  new:(id,arg,el)=>push({type:'form',table:arg,defaults:el.dataset.def?JSON.parse(el.dataset.def):{}}),
@@ -1735,12 +1689,6 @@ const A={
  fx:(v,k)=>{const L=S.F[k];const i=L.indexOf(v);if(i>=0)L.splice(i,1);else L.push(v);refreshResults()},
  fclr:(id,k)=>{S.F[k]=[];refreshResults()},
  fq:()=>{S.F.q='';const q=$('#q');if(q)q.value='';refreshResults()},
- cmpcat:(id,k)=>{S.cmp.cat=k;saveView();renderMain()},
- cmpsel:id=>{cmpSel();const L=S.cmp.sel[S.cmp.cat],i=L.indexOf(id);if(i>=0)L.splice(i,1);else L.push(id);refreshCompare()},
- cmpall:()=>{S.cmp.sel[S.cmp.cat]=cmpBase().map(p=>p.id);refreshCompare()},
- cmpnone:()=>{S.cmp.sel[S.cmp.cat]=[];refreshCompare()},
- cmpmetric:(id,k)=>{S.cmp.metric=k;refreshCompare()},cmpprice:(id,k)=>{S.cmp.priceBy=k;refreshCompare()},
- cmpgo:id=>{const p=byId('products',id);if(!p)return;S.cmp.cat=p.category;cmpSel();const L=S.cmp.sel[p.category];if(!L.includes(id))L.unshift(id);S.tab='compare';S.stack=[];saveView();renderAll();window.scrollTo(0,0)},
  fclrall:()=>{FGROUPS.forEach(g=>S.F[g.k]=[]);S.F.q='';S.hsel=null;const q=$('#q');if(q)q.value='';refreshResults()},
  fpop:(id,k)=>{S.fpop=S.fpop===k?null:k;const c=$('#fctl');if(c)c.innerHTML=fctl();renderFpop()},
  fpclose:()=>{S.fpop=null;const c=$('#fctl');if(c)c.innerHTML=fctl();renderFpop()},
@@ -1781,6 +1729,377 @@ document.addEventListener('change',async e=>{
   if(t.dataset.change==='mig'){try{await save('customer_products',{id:t.dataset.id,transition_status:t.value});t.style.borderLeftColor=MIGC[t.value];toast('Status updated');renderMain()}catch(err){toast(errMsg(err))}}
 });
 document.addEventListener('input',e=>{if(e.target.id==='q'){S.F.q=e.target.value;clearTimeout(refreshResults.t);refreshResults.t=setTimeout(refreshResults,120)}});
+/* ---------- Compare tab ---------- */
+// S.cmp = {ids:[product ids, in column order], diff, gaps, metric, priceBy, sec, saved:<comparison id or null>}
+// Fields that do not apply to a product's category show "n/a" and never count as a gap.
+// Gaps (a feature none of the products has) are flagged only when all products share one category.
+const CATICO={controller:'<rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/>',
+ telematics:'<path d="M12 13v8M8.5 21h7"/><circle cx="12" cy="10.5" r="1.8"/><path d="M8.3 6.8a5.2 5.2 0 0 0 0 7.4M15.7 6.8a5.2 5.2 0 0 1 0 7.4M5.4 3.9a9.3 9.3 0 0 0 0 13.2M18.6 3.9a9.3 9.3 0 0 1 0 13.2"/>',
+ display:'<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>',
+ module:'<rect x="3" y="6" width="5" height="12" rx="1"/><rect x="9.5" y="6" width="5" height="12" rx="1"/><rect x="16" y="6" width="5" height="12" rx="1"/><path d="M5.5 9v1.5M12 9v1.5M18.5 9v1.5"/>',
+ sensor:'<circle cx="12" cy="12" r="2.6"/><circle cx="12" cy="12" r="7.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22"/>',
+ software:'<path d="m8 7-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/>',
+ other:'<path d="M12 3 21 7.5v9L12 21 3 16.5v-9z"/><path d="m3 7.5 9 4.5 9-4.5M12 12v9"/>'};
+const catIc=p=>`<span class="cxi" title="${esc(CATS1[p.category]||'')}">${ic(CATICO[p.category]||CATICO.other)}</span>`;
+const CXSEC=[['overview','Overview','<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/>'],
+  ['specs','Specifications','<path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="1.6"/><circle cx="15" cy="12" r="1.6"/><circle cx="7" cy="18" r="1.6"/>'],
+  ['lifecycle','Lifecycle & roadmap','<path d="m12 3 9 9-9 9-9-9z"/>'],
+  ['pricing','Pricing','<path d="M20.5 13.5 13.5 20.5a2 2 0 0 1-2.8 0L3 12.8V3h9.8l7.7 7.7a2 2 0 0 1 0 2.8z"/><circle cx="8" cy="8" r="1.5"/>'],
+  ['notes','Notes & links','<path d="M10 14a4 4 0 0 0 5.7 0l3.6-3.6a4 4 0 0 0-5.7-5.7L12 6.3M14 10a4 4 0 0 0-5.7 0l-3.6 3.6a4 4 0 0 0 5.7 5.7L12 17.7"/>'],
+  ['value','Value vs capability','<path d="M4 20V4M4 20h16"/><circle cx="9" cy="14" r="1.5"/><circle cx="13" cy="9" r="1.5"/><circle cx="17" cy="12" r="1.5"/>']];
+const KEYSPEC={controller:['Processor','RAM','Flash / storage'],telematics:['Processor','RAM','Flash / storage'],display:['Screen size','Resolution','Touch'],
+  sensor:['Measurand / technology','Range','Output signal'],module:['Channels','Max current'],software:['License model','Supported hardware / OS'],other:[]};
+const SPEC_LBL={'Flash / storage':'Storage'};
+const IO_CATS=['controller','module','telematics'];
+const isSw=p=>p.category==='software';
+const hwAp=k=>p=>(HWT[p.category]||HWT.other).includes(k);
+const apIO=p=>IO_CATS.includes(p.category);
+const apHW=p=>!isSw(p);
+const cmpCols=()=>(S.cmp.ids||[]).map(id=>byId('products',id)).filter(Boolean);
+const cmpSaved=()=>S.cmp.saved?byId('comparisons',S.cmp.saved):null;
+const cmpDirty=()=>{const c=cmpSaved();return!!c&&(c.product_ids||[]).join()!==(S.cmp.ids||[]).join()};
+const cmpOpts=()=>({diff:!!S.cmp.diff,gaps:S.cmp.gaps!==false,metric:S.cmp.metric||'io',priceBy:S.cmp.priceBy||'list'});
+const succOf=p=>S.data.transitions.filter(t=>t.from_product_id===p.id).map(t=>byId('products',t.to_product_id)).filter(Boolean);
+const predOf=p=>S.data.transitions.filter(t=>t.to_product_id===p.id).map(t=>byId('products',t.from_product_id)).filter(Boolean);
+const plink=q=>`<a data-act="product" data-id="${q.id}">${esc(q.part_number)}</a>`;
+const ports=p=>[p.can_ports&&`${p.can_ports} × CAN`,p.ethernet_ports&&`${p.ethernet_ports} × Ethernet`].filter(Boolean).join(', ');
+const ulink=(u,l)=>u&&/^https?:\/\//i.test(u)?`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(l)} ↗</a>`:'';
+
+/* small lifecycle bar: 4 calendar years, last year to 3 years ahead, with today and the next milestone marked */
+function miniTl(p){
+  const y0=today.getFullYear()-1,s=new Date(y0,0,1),e=new Date(y0+4,0,1),X=t=>Math.max(0,Math.min(100,(t-s)/(e-s)*100));
+  const ph=phase(p),pts=[],rd=d(p.supplier_release_date),od=d(p.onboard_date),nd=d(p.nrnd_date),ld=d(p.ltb_date),ed=d(p.eol_date);
+  if(p.lifecycle==='development'&&rd&&rd>today){pts.push([today,'development']);pts.push([rd,'evaluating'])}
+  else if(rd)pts.push([rd,od?'evaluating':(RANK[p.lifecycle]>=2?'active':p.lifecycle)]);
+  if(od)pts.push([od,'active']);if(nd)pts.push([nd,'nrnd']);if(ld)pts.push([ld,'ltb']);if(ed)pts.push([ed,'end']);
+  pts.sort((a,b)=>a[0]-b[0]);
+  let bars='';
+  if(!pts.length)bars=`<i class="mseg" style="left:0;width:100%;background:${LC[ph]?.c||'#999'};opacity:.22"></i><span class="mnd">No lifecycle dates</span>`;
+  pts.forEach(([t,k],i)=>{const x0=X(t),x1=k==='end'?100:pts[i+1]?X(pts[i+1][0]):100;if(x1-x0<=0)return;
+    const c=k==='end'?LC.eol.c:LC[k]?.c||'#999',plan=['development','evaluating','onboarding'].includes(k);
+    bars+=`<i class="mseg" style="left:${x0}%;width:${x1-x0}%;${plan?`background:repeating-linear-gradient(135deg,${c}66 0 4px,transparent 4px 8px);box-shadow:inset 0 0 0 1.5px ${c}`:k==='end'?`background:${c};opacity:.45`:`background:${c}`}"></i>`});
+  const m=nextMs(p);
+  if(m&&d(m.date)<e)bars+=`<i class="mms" style="left:${X(d(m.date))}%;--c:${m.c||LC.active.c}" title="${esc(m.l)} ${fmt(m.date)}"></i>`;
+  bars+=`<i class="mtd" style="left:${X(today)}%" title="Today"></i>`;
+  let ax='';for(let y=y0;y<y0+4;y++)ax+=`<span style="left:${X(new Date(y,6,1))}%">${y}</span><i style="left:${X(new Date(y,0,1))}%"></i>`;
+  return`<div class="mtl" title="${esc(LC[ph]?.l||'')}"><div class="mtr">${bars}</div><div class="mtx">${ax}<i style="left:100%"></i></div></div>`;
+}
+
+/* the row model. get(p) = plain value (also used for CSV and "Differences only"); html(p) = cell; ap(p) = does the field apply to this product */
+function cmpRows(cols){
+  const R=[],sec=(id,t)=>R.push({sec:id,t}),sub=t=>R.push({sub:t}),row=(label,get,o={})=>R.push({label,get,...o});
+  const cats=[...new Set(cols.map(p=>p.category))],fD=k=>p=>p[k]?fmt(p[k]):'';
+  sec('overview','Overview');
+  row('Lifecycle',p=>LC[phase(p)]?.l||'',{html:p=>badge(phase(p))});
+  row('Next milestone',p=>{const m=nextMs(p);return m?`${m.l}: ${fmt(m.date)}`:''},{html:p=>nextMs(p)?nmCell(p):''});
+  row('Successor(s)',p=>succOf(p).map(q=>q.part_number).join(', '),{html:p=>succOf(p).map(q=>`<span class="cxs">→ ${plink(q)}</span>`).join('')});
+  row('Market / Industry',p=>(p.markets||[]).join(', '),{html:p=>(p.markets||[]).length?`<div class="tags">${mktTags(p)}</div>`:''});
+  row('Supplier',p=>sup(p)?.name||'',{html:p=>supTag(p)});
+  row('Lifecycle timeline',p=>'',{tl:1});
+  sub('Key specifications');
+  [...new Set(cats.flatMap(c=>KEYSPEC[c]||[]))].forEach(k=>row(SPEC_LBL[k]||k,p=>(p.hardware||{})[k]||'',{ap:hwAp(k)}));
+  row('Ports',ports,{ap:apHW});
+  row('Operating temperature',p=>(p.hardware||{})['Operating temperature']||'',{ap:hwAp('Operating temperature')});
+
+  sec('specs','Specifications');
+  sub('Hardware');
+  const ORD=[...new Set(cats.flatMap(c=>HWT[c]||HWT.other))];
+  [...new Set([...ORD,...cols.flatMap(p=>Object.keys(p.hardware||{}))])].forEach(k=>row(k,p=>(p.hardware||{})[k]||'',{ap:hwAp(k)}));
+  row('IP rating',p=>p.ip_rating||'',{ap:apHW});row('Connectors',p=>p.connector||'',{ap:apHW});
+  sub('I/O');
+  row('Inputs',p=>p.inputs??null,{num:1,best:'max',ap:apIO});row('Outputs',p=>p.outputs??null,{num:1,best:'max',ap:apIO});
+  row('Total I/O',p=>totalIO(p),{num:1,best:'max',ap:apIO});
+  [...new Set([...IOG_ALL,...cols.flatMap(p=>p.io_types||[])])].forEach(x=>row(x,p=>(p.io_types||[]).includes(x),{bool:1,ap:apIO}));
+  sub('Ports');
+  row('CAN ports',p=>p.can_ports??null,{num:1,best:'max',ap:apHW});row('Ethernet ports',p=>p.ethernet_ports??null,{num:1,best:'max',ap:apHW});
+  const ifSec=g=>{const opts=g==='Other interfaces'?[...new Set(cols.flatMap(p=>ifIn(p,g)))]:(IFG.find(x=>x[0]===g)||[,[]])[1];
+    if(!opts.length)return;sub(g);opts.forEach(x=>row(x,p=>(p.interfaces||[]).includes(x),{bool:1,ap:apHW}))};
+  ifSec('Wired networking');
+  sub('CAN protocols');
+  [...new Set([...CANP,...cols.flatMap(p=>p.can_protocols||[])])].forEach(x=>row(x,p=>(p.can_protocols||[]).includes(x),{bool:1,ap:apHW}));
+  ifSec('Wireless');ifSec('Sensor & video links');ifSec('Other interfaces');
+  sub('Software & safety');
+  row('Software',p=>p.software_platform||'');row('Functional safety',p=>p.functional_safety||'',{ap:apHW});
+  row('openSYDE',p=>!!p.opensyde_compatible,{bool:1,noGap:1,ap:apHW});row('Beacon',p=>!!p.beacon_compatible,{bool:1,noGap:1,ap:apHW});
+  const sk=[...new Set(cols.flatMap(p=>Object.keys(p.specs||{})))].filter(k=>k!=='Notes'&&!HW_RAW.has(k));
+  if(sk.length){sub('Datasheet specs');sk.forEach(k=>row(k,p=>(p.specs||{})[k]??''))}
+
+  sec('lifecycle','Lifecycle & roadmap');
+  row('Supplier release',fD('supplier_release_date'));row('Onboarded',fD('onboard_date'));row('Phasing out (NRND)',fD('nrnd_date'));
+  row('Last-time buy',fD('ltb_date'));row('Last ship',fD('last_ship_date'));row('End of life',fD('eol_date'));
+  row('Replaces',p=>predOf(p).map(q=>q.part_number).join(', '),{html:p=>predOf(p).map(plink).join(', ')});
+  row('Customers using it',p=>S.data.customer_products.filter(c=>c.product_id===p.id).length||'');
+  row('Open customer migrations',p=>S.data.customer_products.filter(c=>c.product_id===p.id&&needsMig(c)).length||'');
+  row('Roadmap items open',p=>S.data.dev_items.filter(x=>x.product_id===p.id&&!['done','cancelled'].includes(x.status)).length||'');
+
+  sec('pricing','Pricing');
+  row('List price',p=>p.list_price??null,{num:1,best:'min',html:p=>money(p.list_price,p.currency)});
+  row('Our cost',p=>p.cost??null,{num:1,best:'min',html:p=>money(p.cost,p.currency)});
+  row('Margin',p=>margin(p)==null?null:Math.round(margin(p)*100),{num:1,best:'max',html:p=>margin(p)==null?'':Math.round(margin(p)*100)+'%'});
+  row('Price basis',p=>p.price_basis||'');row('Price date',fD('price_date'));
+
+  sec('notes','Notes & links');
+  row('Notes',p=>p.notes||'',{html:p=>p.notes?`<div class="cxnotes">${esc(p.notes)}</div>`:''});
+  row('Datasheet',p=>p.datasheet_url||'',{html:p=>ulink(p.datasheet_url,'Datasheet')});
+  row('Product page',p=>p.product_url||'',{html:p=>ulink(p.product_url,'Website')});
+  row('Website status',p=>p.website_status||'');row('Data last verified',fD('last_verified'));
+  return R;
+}
+const yes='<span class="cy">✓</span>',no='<span class="cn">—</span>';
+const emptyV=v=>v==null||v===''||v===false;
+/* decide which rows show and what each cell holds; used by the table and by the CSV export */
+function cmpModel(cols){
+  const same=new Set(cols.map(p=>p.category)).size===1,gapsOn=same&&S.cmp.gaps!==false&&cols.length>0,multi=cols.length>1;
+  const out=[];let secOpen=null,subOpen=null;
+  cmpRows(cols).forEach(r=>{
+    if(r.sec){secOpen=r;subOpen=null;return}
+    if(r.sub){subOpen=r;return}
+    let cells,gap=false;
+    if(r.tl)cells=cols.map(p=>({h:miniTl(p),t:''}));
+    else{
+      const raw=cols.map(p=>r.get(p)),na=cols.map((p,i)=>!!r.ap&&!r.ap(p)&&emptyV(raw[i]));
+      if(na.every(Boolean))return;
+      if(r.bool){
+        const n=raw.filter((v,i)=>v&&!na[i]).length;
+        if(n===0){if(!gapsOn||r.noGap)return;gap=true}
+      }else if(raw.every((v,i)=>na[i]||emptyV(v)))return;
+      const key=raw.map((v,i)=>na[i]?'n/a':r.bool?(v?'yes':'no'):String(v??''));
+      if(S.cmp.diff&&multi&&key.every(k=>k===key[0]))return;
+      let best=null;
+      if(r.best&&same){const nums=raw.filter((v,i)=>!na[i]&&typeof v==='number');if(nums.length>1){const b=r.best==='max'?Math.max(...nums):Math.min(...nums);if(nums.some(v=>v!==b))best=b}}
+      cells=cols.map((p,i)=>{
+        if(na[i])return{h:'<span class="na">n/a</span>',t:'n/a',cls:'cna'};
+        const v=raw[i];
+        if(r.bool)return{h:v?yes:no,t:v?'Yes':'No',cls:'c'};
+        const h=emptyV(v)?'':(r.html?r.html(p):esc(v));
+        return{h:h||'<span class="cn">—</span>',t:emptyV(v)?'':String(v)+(r.label==='Margin'?'%':''),cls:best!=null&&v===best?'best':''}});
+    }
+    if(secOpen){out.push({sec:secOpen.sec,t:secOpen.t});secOpen=null}
+    if(subOpen){out.push({sub:subOpen.sub});subOpen=null}
+    out.push({label:r.label,cells,gap,tl:!!r.tl});
+  });
+  return{rows:out,same};
+}
+
+function viewCompare(){return`<div id="cmpres">${compareResults()}</div><div id="cxpop"></div>`}
+function cmpBar(cols){
+  const c=cmpSaved(),nSaved=(S.data.comparisons||[]).length;
+  const chips=cols.map(p=>`<span class="cxchip" title="${esc(p.name)}">${catIc(p)}<span>${esc(p.part_number)}</span><button data-act="cmprm" data-id="${p.id}" aria-label="Remove ${esc(p.part_number)}">×</button></span>`).join('');
+  const savedLine=c?`<div class="cxsv">${ic('<path d="M6 3h12v18l-6-4.5L6 21z"/>')}<span>Saved comparison: <b>${esc(c.name)}</b> · ${c.shared?'Shared with the team':'Only you'}${c.owner&&c.owner!==me()?' · by '+esc(c.owner):''}${cmpDirty()?' · <span class="warnt">changed, not saved</span>':''}</span><button class="btn ghost sm" data-act="cmpclose">Close</button></div>`:'';
+  return`<div class="card cxbar"><div class="cxtop"><b class="cxt">Selected products <span class="mut">(${cols.length})</span></b>
+    <div class="cxchips">${chips}<button class="btn sm cxadd" id="cxaddb" data-act="cmpadd">+ Add product to compare</button></div>
+    <div class="cxact"><button class="btn sm" data-act="cmpsaved" title="Open a saved comparison">${ic('<path d="M4 6h16M4 12h16M4 18h10"/>')}<span>Saved${nSaved?` (${nSaved})`:''}</span></button>
+    <button class="btn sm" data-act="cmpsave" ${cols.length?'':'disabled'}>${ic('<path d="M6 3h12v18l-6-4.5L6 21z"/>')}<span>Save comparison</span></button>
+    <button class="btn sm" data-act="cmpcsv" ${cols.length?'':'disabled'}>${ic(I.dl)}<span>Export</span></button>
+    <button class="btn sm" data-act="cmplink" ${cols.length?'':'disabled'} title="Copy a link to this comparison">${ic('<path d="M10 14a4 4 0 0 0 5.7 0l3.6-3.6a4 4 0 0 0-5.7-5.7L12 6.3M14 10a4 4 0 0 0-5.7 0l-3.6 3.6a4 4 0 0 0 5.7 5.7L12 17.7"/>')}<span>Copy link</span></button>
+    ${cols.length?`<button class="btn ghost sm" data-act="cmpclear">Clear all</button>`:''}</div></div>${savedLine}</div>`;
+}
+function compareResults(){
+  const cols=cmpCols();
+  if(!cols.length)return cmpBar(cols)+`<div class="card empty cxempty">${ic(ICO_CMP)}<b>Pick the products to compare</b><span>Add two or more products. You can mix categories; fields that do not apply to a product show <i>n/a</i>.</span>
+    <div class="btns" style="justify-content:center"><button class="btn pri" data-act="cmpadd">+ Add product to compare</button>${(S.data.comparisons||[]).length?'<button class="btn" data-act="cmpsaved">Open a saved comparison</button>':''}</div></div>`;
+  const {rows,same}=cmpModel(cols);
+  const secs=CXSEC.filter(([k])=>k==='value'||rows.some(r=>r.sec===k));
+  if(!secs.some(s=>s[0]===S.cmp.sec))S.cmp.sec='overview';
+  const nav=`<nav class="cxnav" aria-label="Sections">${secs.map(([k,l,i])=>`<button class="${S.cmp.sec===k?'on':''}" data-act="cmpsec" data-arg="${k}">${ic(i)}<span>${l}</span></button>`).join('')}</nav>`;
+  let body='';
+  rows.forEach(r=>{
+    if(r.sec){body+=`<tr class="cxsec" id="cx-${r.sec}"><th colspan="${cols.length+1}"><span>${esc(r.t)}</span></th></tr>`;return}
+    if(r.sub){body+=`<tr class="cxsub"><th colspan="${cols.length+1}"><span>${esc(r.sub)}</span></th></tr>`;return}
+    body+=`<tr class="${r.gap?'gap':''}${r.tl?' cxtl':''}"><th>${esc(r.label)}${r.gap?' <span class="gapt">Gap</span>':''}</th>${r.cells.map(c=>`<td class="${c.cls||''}">${c.h}</td>`).join('')}</tr>`;
+  });
+  if(!rows.length)body=`<tr><td colspan="${cols.length+1}" class="empty">No differences to show. Turn off "Differences only" to see all fields.</td></tr>`;
+  const head=`<tr><th class="corner">${cols.length} product${cols.length>1?'s':''}</th>${cols.map((p,i)=>`<th class="cxph"><div class="cxh">${catIc(p)}<div class="cxn"><b data-act="product" data-id="${p.id}" title="${esc(p.name)}">${esc(p.part_number)}</b>${pnSel(p)}</div>
+    <button class="cxm" data-act="cmpmenu" data-id="${p.id}" aria-label="Options for ${esc(p.part_number)}">${ic('<circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/>')}</button></div></th>`).join('')}</tr>`;
+  const mixed=!same?`<div class="cxnote">${ic('<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.01"/>')}<span>These products are from different categories. Fields that do not apply to a product show <i>n/a</i>. Gaps are flagged only when all products are in the same category.</span></div>`:'';
+  const opts=`<div class="cmpopts"><label class="tg"><input type="checkbox" data-change="cmpopt" data-arg="diff" ${S.cmp.diff?'checked':''}> Differences only</label>
+    ${same&&cols.length?`<label class="tg"><input type="checkbox" data-change="cmpopt" data-arg="gaps" ${S.cmp.gaps!==false?'checked':''}> Show gaps <span class="mut">(features none of these have)</span></label>`:''}</div>`;
+  return cmpBar(cols)+`<div class="cxgrid">${nav}<div class="cxmain">${mixed}${opts}
+    <div class="cxw" id="cxw"><table class="cxt2" style="--n:${cols.length}"><thead>${head}</thead><tbody>${body}</tbody></table></div>
+    <div id="cx-value">${valueChart(cols)}</div></div></div>`;
+}
+const ICO_CMP='<rect x="3.5" y="4" width="7" height="16" rx="1.6"/><rect x="13.5" y="4" width="7" height="16" rx="1.6"/><path d="M5.5 9h3M5.5 13h3M15.5 9h3M15.5 13h3"/>';
+/* value vs capability scatter */
+function valueChart(cols){
+  const M={io:['Total I/O',p=>totalIO(p)],feat:['Interfaces + protocols + I/O types',p=>(p.interfaces||[]).length+(p.can_protocols||[]).length+(p.io_types||[]).length],can:['CAN ports',p=>p.can_ports]};
+  const PB={list:['List price',p=>p.list_price],cost:['Our cost',p=>p.cost]};
+  const [ml,mf]=M[S.cmp.metric]||M.io,[pl,pf]=PB[S.cmp.priceBy]||PB.list;
+  const pts=cols.map(p=>({p,x:pf(p),y:mf(p)})).filter(o=>o.x!=null&&o.x!==''&&o.y!=null);
+  const ctl=`<div class="row" style="gap:8px;flex-wrap:wrap"><div class="segc" style="margin:0">${Object.entries(PB).map(([k,[l]])=>`<button class="${(S.cmp.priceBy||'list')===k?'on':''}" data-act="cmpprice" data-arg="${k}">${l}</button>`).join('')}</div>
+    <span class="mut">vs</span><div class="segc" style="margin:0">${Object.entries(M).map(([k,[l]])=>`<button class="${(S.cmp.metric||'io')===k?'on':''}" data-act="cmpmetric" data-arg="${k}">${l}</button>`).join('')}</div></div>`;
+  const missing=cols.filter(p=>pf(p)==null).length;
+  let svg;
+  if(pts.length<2){svg=`<div class="empty" style="padding:22px">Add ${pl.toLowerCase()} and ${ml.toLowerCase()} to at least two of these products to see value vs capability.<br><span class="mut">${missing} of ${cols.length} have no ${pl.toLowerCase()} yet — open a product → Edit → Pricing.</span></div>`}
+  else{
+    const W=640,H=300,L=56,B=40,T=16,Rr=16,xs=pts.map(o=>+o.x),ys=pts.map(o=>+o.y);
+    const nice=m=>{const raw=Math.max(m,1)/4,mag=Math.pow(10,Math.floor(Math.log10(raw))),st=[1,2,2.5,5,10].find(k=>k*mag>=raw)*mag;return[st,Math.ceil(m*1.05/st)*st||st]};
+    const [xs_,x1]=nice(Math.max(...xs)),[ys_,y1]=nice(Math.max(...ys)),x0=0,y0=0;
+    const X=v=>L+(v-x0)/(x1-x0)*(W-L-Rr),Y=v=>H-B-(v-y0)/(y1-y0)*(H-B-T);
+    const tick=(a,b,st)=>Array.from({length:Math.round((b-a)/st)+1},(_,i)=>a+st*i);
+    const cur=pts[0].p.currency;
+    let g=tick(x0,x1,xs_).map(v=>`<line x1="${X(v)}" y1="${T}" x2="${X(v)}" y2="${H-B}" class="gl"/><text x="${X(v)}" y="${H-B+16}" text-anchor="middle" class="tk">${money(Math.round(v),cur)}</text>`).join('')
+      +tick(y0,y1,ys_).map(v=>`<line x1="${L}" y1="${Y(v)}" x2="${W-Rr}" y2="${Y(v)}" class="gl"/><text x="${L-8}" y="${Y(v)+4}" text-anchor="end" class="tk">${+v.toFixed(2)}</text>`).join('');
+    const ratios=pts.map(o=>o.y/o.x).sort((a,b)=>a-b),med=ratios[Math.floor(ratios.length/2)];
+    g+=`<line x1="${X(0)}" y1="${Y(0)}" x2="${X(x1)}" y2="${Y(Math.min(y1,med*x1))}" class="vl"/>`;
+    g+=pts.map(o=>`<g data-act="product" data-id="${o.p.id}" class="pt"><circle cx="${X(o.x)}" cy="${Y(o.y)}" r="6" fill="${esc(sup(o.p)?.color||'#2563eb')}"/><text x="${X(o.x)+9}" y="${Y(o.y)-8}" class="pl">${esc(o.p.part_number)}</text></g>`).join('');
+    svg=`<svg viewBox="0 0 ${W} ${H}" class="vchart" role="img" aria-label="${esc(ml)} versus ${esc(pl)}">${g}
+      <text x="${(L+W-Rr)/2}" y="${H-4}" text-anchor="middle" class="ax">${esc(pl)}</text>
+      <text transform="translate(14 ${(T+H-B)/2}) rotate(-90)" text-anchor="middle" class="ax">${esc(ml)}</text></svg>
+      <div class="mut" style="font-size:12px">Above the dashed line = more ${esc(ml)} per ${cur} than the middle of this group (better value); below = less.${missing?` ${missing} selected product${missing>1?'s have':' has'} no ${pl.toLowerCase()} yet, so ${missing>1?'they are':'it is'} not shown.`:''}</div>`;
+  }
+  return`<div class="sec"><h2>Value vs capability</h2></div><div class="card">${ctl}${svg}</div>`;
+}
+function refreshCompare(){const sc=$('#cxw')?.scrollTop||0;const r=$('#cmpres');if(r)r.innerHTML=compareResults();const w=$('#cxw');if(w)w.scrollTop=sc;renderCxPop();saveView()}
+
+/* "Add product" picker and the ⋯ column menu (both float above the page) */
+function cxPickList(){
+  const q=(S.cxq||'').trim().toLowerCase(),sel=new Set(S.cmp.ids),cats=new Set(cmpCols().map(p=>p.category));
+  const CO=CATEGORIES.map(c=>c[0]);
+  let L=S.data.products.filter(p=>!q||[p.part_number,p.name,sup(p)?.name,CATS1[p.category],p.family,...pnsOf(p).map(x=>x.part_number)].some(v=>String(v||'').toLowerCase().includes(q)));
+  L.sort((a,b)=>(cats.size?(cats.has(b.category)-cats.has(a.category)):0)||CO.indexOf(a.category)-CO.indexOf(b.category)||a.part_number.localeCompare(b.part_number));
+  const n=L.length;L=L.slice(0,80);
+  let h='',last=null;
+  L.forEach(p=>{const g=cats.size?(cats.has(p.category)?'Categories already in this comparison':'Other categories'):CATEGORIES.find(c=>c[0]===p.category)?.[1];
+    if(g!==last){h+=`<div class="cxog">${esc(g)}</div>`;last=g}
+    const on=sel.has(p.id);
+    h+=`<button class="cxo ${on?'on':''}" data-act="cmptog" data-id="${p.id}">${catIc(p)}<span class="cxot"><b>${esc(p.part_number)}</b><span>${esc([p.name,sup(p)?.name].filter(Boolean).join(' · '))}</span></span>${badge(phase(p))}<span class="cxck">${on?'✓':''}</span></button>`});
+  if(!n)h='<div class="empty" style="padding:16px">No products match.</div>';
+  else if(n>L.length)h+=`<div class="mut" style="padding:8px 12px;font-size:12px">${n-L.length} more — type to narrow the list.</div>`;
+  return h;
+}
+function renderCxPop(){
+  const el=$('#cxpop');if(!el)return;
+  if(S.cxpop==='add'){
+    const keep=document.activeElement?.id==='cxq';
+    if(!el.querySelector('#cxq'))el.innerHTML=`<div class="fpop-bg" data-act="cxclose"></div><div class="cxpanel" role="dialog" aria-label="Add product to compare"><div class="fph"><b>Add products</b><button class="btn ghost sm" data-act="cxclose">Done</button></div>
+      <div class="tsearch">${ICO_SEARCH}<input id="cxq" type="search" placeholder="Search part number, name, supplier…" autocomplete="off" value="${esc(S.cxq||'')}"></div><div class="cxlist" id="cxlist"></div></div>`;
+    const ls=el.querySelector('#cxlist'),st=ls.scrollTop;ls.innerHTML=cxPickList();ls.scrollTop=st;
+    const p=el.querySelector('.cxpanel'),b=$('#cxaddb');
+    if(wide()&&b){const r=b.getBoundingClientRect();p.style.left=Math.max(12,Math.min(r.left,innerWidth-p.offsetWidth-12))+'px';p.style.top=(r.bottom+6)+'px'}
+    if(!keep&&wide())el.querySelector('#cxq').focus();
+    return}
+  if(S.cxpop&&S.cxpop.menu){
+    const id=S.cxpop.menu,i=S.cmp.ids.indexOf(id),n=S.cmp.ids.length,mi=(act,l,dis)=>`<button class="mi" data-act="${act}" data-id="${id}" ${dis?'disabled':''}>${l}</button>`;
+    el.innerHTML=`<div class="umenu-bg" data-act="cxclose"></div><div class="umenu cxmenu">${mi('cxopen','Open product')}${mi('cxleft','Move left',i<=0)}${mi('cxright','Move right',i>=n-1)}${mi('cmprm','Remove from comparison')}</div>`;
+    const m=el.querySelector('.cxmenu'),b=document.querySelector(`.cxm[data-id="${id}"]`);
+    if(b){const r=b.getBoundingClientRect();m.style.top=(r.bottom+4)+'px';m.style.right='auto';m.style.left=Math.max(12,Math.min(r.right-m.offsetWidth,innerWidth-m.offsetWidth-12))+'px'}
+    return}
+  el.innerHTML='';
+}
+function cxCloseMenu(){if(S.cxpop&&S.cxpop.menu){S.cxpop=null;renderCxPop()}}
+
+/* section menu: jump inside the table, follow the scroll */
+function cxJump(k){
+  S.cmp.sec=k;document.querySelectorAll('.cxnav button').forEach(b=>b.classList.toggle('on',b.dataset.arg===k));
+  if(k==='value'){$('#cx-value')?.scrollIntoView({behavior:'smooth',block:'start'});return}
+  const w=$('#cxw'),r=$('#cx-'+k);if(!w||!r)return;
+  w.scrollTo({top:r.offsetTop-(w.querySelector('thead')?.offsetHeight||0),behavior:'smooth'});
+  if(w.getBoundingClientRect().top<0||w.getBoundingClientRect().top>innerHeight*.6)w.scrollIntoView({behavior:'smooth',block:'start'});
+}
+document.addEventListener('scroll',e=>{const w=e.target;if(!w||w.id!=='cxw')return;
+  clearTimeout(cxJump.t);cxJump.t=setTimeout(()=>{const hh=w.querySelector('thead')?.offsetHeight||0;let cur='overview';
+    w.querySelectorAll('tr.cxsec').forEach(r=>{if(r.offsetTop-hh<=w.scrollTop+12)cur=r.id.slice(3)});
+    if(w.scrollTop+w.clientHeight>=w.scrollHeight-4){const L=[...w.querySelectorAll('tr.cxsec')];if(L.length)cur=L[L.length-1].id.slice(3)}
+    if(cur!==S.cmp.sec){S.cmp.sec=cur;document.querySelectorAll('.cxnav button').forEach(b=>b.classList.toggle('on',b.dataset.arg===cur))}},60)},true);
+
+/* export, links, saved comparisons */
+function cmpCSV(){
+  const cols=cmpCols();if(!cols.length)return;
+  const {rows}=cmpModel(cols),q=v=>{v=v==null?'':String(v);return/[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
+  const lines=[['Field',...cols.map(p=>p.part_number)],['Description',...cols.map(p=>p.name)],['Category',...cols.map(p=>CATS1[p.category])],['Part numbers',...cols.map(p=>pnsOf(p).map(x=>x.part_number).join('; '))]];
+  rows.forEach(r=>{if(r.sec)lines.push([r.t.toUpperCase()]);else if(r.sub)lines.push([r.sub]);else if(!r.tl)lines.push([r.label+(r.gap?' (gap)':''),...r.cells.map(c=>c.t)])});
+  const b=new Blob(['﻿'+lines.map(l=>l.map(q).join(',')).join('\r\n')],{type:'text/csv'}),a=document.createElement('a');
+  const nm=(cmpSaved()?.name||'comparison').replace(/[^\w.-]+/g,'-').replace(/^-|-$/g,'').toLowerCase()||'comparison';
+  a.href=URL.createObjectURL(b);a.download=`portfolium-${nm}-${iso(today)}.csv`;document.body.appendChild(a);a.click();a.remove();
+}
+function cmpLinkURL(){
+  const c=cmpSaved(),base=location.origin+location.pathname;
+  return c&&!cmpDirty()?`${base}?compare=${c.id}`:`${base}?cmp=${S.cmp.ids.join(',')}`;
+}
+async function copyText(t){
+  try{await navigator.clipboard.writeText(t);return true}catch(e){
+    const x=document.createElement('textarea');x.value=t;x.style.cssText='position:fixed;opacity:0';document.body.appendChild(x);x.select();
+    let ok=false;try{ok=document.execCommand('copy')}catch(e2){}x.remove();return ok}
+}
+function cmpLoad(c){
+  S.cmp.ids=(c.product_ids||[]).filter(id=>byId('products',id));S.cmp.saved=c.id;
+  const o=c.options||{};['diff','gaps','metric','priceBy'].forEach(k=>{if(o[k]!==undefined)S.cmp[k]=o[k]});
+  S.cmp.sec='overview';
+}
+// ?compare=<saved id> or ?cmp=<id,id,…>; handled once after the data loads, then removed from the address bar
+function cmpDeep(){
+  const u=new URL(location.href),sv=u.searchParams.get('compare'),ls=u.searchParams.get('cmp');
+  if(!sv&&!ls)return;
+  u.searchParams.delete('compare');u.searchParams.delete('cmp');history.replaceState(null,'',u.pathname+(u.search||'')+u.hash);
+  if(isContrib())return;
+  if(sv){const c=byId('comparisons',sv);if(c)cmpLoad(c);else{setTimeout(()=>toast('That saved comparison is not available. It may be private or deleted.'),300);return}}
+  else{const ids=ls.split(',').filter(id=>byId('products',id));if(!ids.length){setTimeout(()=>toast('The products in that link were not found.'),300);return}S.cmp.ids=ids;S.cmp.saved=null}
+  S.tab='compare';saveView();
+}
+const cmpMine=c=>(c.owner||'').toLowerCase()===me();
+const cmpCanDel=c=>cmpMine(c)||(c.shared&&canEdit());
+function cmpSavedItem(c){
+  const n=(c.product_ids||[]).filter(id=>byId('products',id)).length,on=c.id===S.cmp.saved;
+  return`<div class="ev cxsi ${on?'on':''}"><div class="grow" data-act="cmpload" data-id="${c.id}" role="button"><b>${esc(c.name)}</b>${on?' <span class="tag">Open</span>':''}
+    <div class="mut">${n} product${n===1?'':'s'} · ${c.shared?'Shared':'Only you'}${cmpMine(c)?'':' · by '+esc(c.owner||'')} · updated ${esc(relTxt(String(c.updated_at||c.created_at||'').slice(0,10))||'')}</div></div>
+    ${cmpMine(c)?`<button class="btn ghost sm" data-act="cmpedit" data-id="${c.id}">Edit</button>`:cmpCanDel(c)?`<button class="btn ghost sm danger" data-act="cmpdel" data-id="${c.id}">Delete</button>`:''}</div>`;
+}
+SHEETS.cmpsaved=()=>{
+  const L=(S.data.comparisons||[]).slice().sort((a,b)=>String(b.updated_at||'').localeCompare(String(a.updated_at||''))),mine=L.filter(cmpMine),team=L.filter(c=>!cmpMine(c));
+  const blk=(t,a,e)=>`<div class="sec"><h2>${t}</h2></div><div class="card">${a.length?a.map(cmpSavedItem).join(''):`<div class="empty" style="padding:12px">${e}</div>`}</div>`;
+  return{title:'Saved comparisons',body:(S.mode==='live'&&S.cmpNoDb?`<div class="banner">Saved comparisons need the database upgrade <b>07_saved_comparisons.sql</b>. Ask your admin to run it.</div>`:'')
+    +blk('My comparisons',mine,'You have not saved a comparison yet.')+blk('Shared with the team',team,'Nobody has shared a comparison yet.')};
+};
+SHEETS.cmpsave=e=>{
+  const c=e.id?byId('comparisons',e.id):null,cols=cmpCols(),edit=e.mode==='edit';
+  const nm=c?c.name:cols.slice(0,4).map(p=>p.part_number).join(' vs ')+(cols.length>4?` +${cols.length-4}`:'');
+  return{title:edit?'Edit comparison':c?'Save comparison':'Save comparison',body:`<form id="cxsave" data-id="${c?.id||''}" data-mode="${e.mode||''}">
+    ${edit?'':`<p class="mut" style="margin-top:0">${cols.length} product${cols.length===1?'':'s'}: ${esc(cols.map(p=>p.part_number).join(', '))}</p>`}
+    <div class="field"><label class="l">Name</label><input name="name" required maxlength="120" value="${esc(nm)}" autocomplete="off"></div>
+    <label class="tg" style="margin:4px 0 14px"><input type="checkbox" name="shared" ${c?.shared?'checked':''}> Share with the team <span class="mut">(everyone except contributors can open it)</span></label>
+    ${edit?`<button class="btn pri block" name="go" value="upd">Save changes</button><button type="button" class="btn danger block" data-act="cmpdel" data-id="${c.id}">Delete</button>`
+      :c?`<button class="btn pri block" name="go" value="upd">Update "${esc(c.name)}"</button><button class="btn block" name="go" value="new">Save as a new comparison</button>`
+      :`<button class="btn pri block" name="go" value="new">Save</button>`}</form>`};
+};
+async function cmpSubmit(f,sub){
+  const fd=new FormData(f),name=String(fd.get('name')||'').trim(),shared=!!fd.get('shared'),mode=sub?.value||'new',id=f.dataset.id,edit=f.dataset.mode==='edit';
+  if(!name)return toast('Enter a name.');
+  if(S.mode==='live'&&S.cmpNoDb)return toast('Saving needs the database upgrade 07_saved_comparisons.sql. Ask your admin to run it.');
+  const row={name,shared};
+  if(!edit){row.product_ids=S.cmp.ids.slice();row.options=cmpOpts()}
+  if(mode==='upd'&&id)row.id=id;else if(S.mode==='demo')row.owner=me();
+  try{const r=await save('comparisons',row);if(!edit||S.cmp.saved===r.id)S.cmp.saved=r.id;S.stack.pop();toast(mode==='upd'?'Comparison updated':'Comparison saved');saveView();renderSheet();if(S.tab==='compare')refreshCompare()}
+  catch(err){toast(/comparisons/.test(errMsg(err))&&/exist|schema cache|not find/i.test(errMsg(err))?'Saving needs the database upgrade 07_saved_comparisons.sql.':errMsg(err))}
+}
+Object.assign(A,{
+ cmpadd:()=>{S.cxpop=S.cxpop==='add'?null:'add';renderCxPop()},
+ cxclose:()=>{S.cxpop=null;S.cxq='';renderCxPop()},
+ cmptog:id=>{const L=S.cmp.ids,i=L.indexOf(id);if(i>=0)L.splice(i,1);else L.push(id);refreshCompare()},
+ cmprm:id=>{S.cmp.ids=S.cmp.ids.filter(x=>x!==id);if(S.cxpop&&S.cxpop.menu)S.cxpop=null;refreshCompare()},
+ cmpclear:()=>{S.cmp.ids=[];S.cmp.saved=null;refreshCompare()},
+ cmpclose:()=>{S.cmp.saved=null;refreshCompare()},
+ cmpmenu:id=>{S.cxpop=S.cxpop&&S.cxpop.menu===id?null:{menu:id};renderCxPop()},
+ cxopen:id=>{S.cxpop=null;renderCxPop();push({type:'product',id})},
+ cxleft:id=>{const L=S.cmp.ids,i=L.indexOf(id);if(i>0){[L[i-1],L[i]]=[L[i],L[i-1]]}S.cxpop=null;refreshCompare()},
+ cxright:id=>{const L=S.cmp.ids,i=L.indexOf(id);if(i>=0&&i<L.length-1){[L[i+1],L[i]]=[L[i],L[i+1]]}S.cxpop=null;refreshCompare()},
+ cmpsec:(id,k)=>cxJump(k),
+ cmpmetric:(id,k)=>{S.cmp.metric=k;refreshCompare()},cmpprice:(id,k)=>{S.cmp.priceBy=k;refreshCompare()},
+ cmpcsv:()=>cmpCSV(),
+ cmpsaved:()=>push({type:'cmpsaved'}),
+ cmpsave:()=>{if(!S.cmp.ids.length)return;if(S.mode==='live'&&S.cmpNoDb)return toast('Saving needs the database upgrade 07_saved_comparisons.sql. Ask your admin to run it.');
+   const c=cmpSaved();push({type:'cmpsave',id:c&&cmpMine(c)?c.id:null})},
+ cmpedit:id=>push({type:'cmpsave',id,mode:'edit'}),
+ async cmpdel(id){const c=byId('comparisons',id);if(!c||!confirm(`Delete the saved comparison "${c.name}"?${c.shared?' The team will no longer see it.':''}`))return;
+   try{await remove('comparisons',id);if(S.cmp.saved===id)S.cmp.saved=null;
+     if(S.stack[S.stack.length-1]?.type==='cmpsave')S.stack.pop();toast('Deleted');saveView();renderSheet();if(S.tab==='compare')refreshCompare()}catch(e){toast(errMsg(e))}},
+ cmpload:id=>{const c=byId('comparisons',id);if(!c)return;cmpLoad(c);S.stack=[];S.tab='compare';S.cxpop=null;saveView();renderAll();window.scrollTo(0,0);
+   const miss=(c.product_ids||[]).length-S.cmp.ids.length;if(miss>0)toast(`${miss} product${miss>1?'s are':' is'} no longer in the portfolio.`)},
+ async cmplink(){const c=cmpSaved(),u=cmpLinkURL(),ok=await copyText(u);
+   if(!ok){prompt('Copy this link:',u);return}
+   toast(c&&!cmpDirty()&&!c.shared?'Link copied. Only you can open it until you share the comparison.':c&&!cmpDirty()?'Link to the saved comparison copied':'Link copied')},
+ cmpgo:id=>{const p=byId('products',id);if(!p)return;if(!S.cmp.ids.includes(id))S.cmp.ids.push(id);S.cmp.sec='overview';S.tab='compare';S.stack=[];saveView();renderAll();window.scrollTo(0,0)}
+});
+document.addEventListener('input',e=>{if(e.target.id==='cxq'){S.cxq=e.target.value;const ls=$('#cxlist');if(ls)ls.innerHTML=cxPickList()}});
 
 /* =====================================================================
    PRODUCT IDEAS
@@ -2421,6 +2740,7 @@ document.addEventListener('submit',async e=>{
       err.textContent=m;return}
     if(data?.user)S.user=data.user;
     f.reset();toast('Password changed');renderMain();return}
+  if(f.id==='cxsave')return cmpSubmit(f,e.submitter);
   if(f.id==='login'){const fd=new FormData(f),btn=f.querySelector('button');btn.disabled=true;btn.textContent='Signing in…';
     const{data,error}=await S.sb.auth.signInWithPassword({email:fd.get('email').trim(),password:fd.get('password')});
     if(error){btn.disabled=false;btn.textContent='Sign in';$('#lerr').textContent=error.message;return}
@@ -2461,7 +2781,7 @@ async function afterLogin(){
     const{data:m,error}=await S.sb.from('members').select('role').maybeSingle();
     if(error)throw error;
     if(!m)return renderMsg('No access yet',`${S.user.email} isn't on the roadmap team list. Ask an admin to add you to roadmap.members.`);
-    S.role=m.role;if(isContrib())S.tab='ideas';await Promise.all([loadAll(),loadPrefs()]);renderAll();
+    S.role=m.role;if(isContrib())S.tab='ideas';await Promise.all([loadAll(),loadPrefs()]);cmpDeep();renderAll();
   }catch(e){renderMsg('Could not load data',errMsg(e))}
 }
 async function init(){
@@ -2474,7 +2794,7 @@ async function init(){
   }
   S.mode='demo';S.role='admin';
   const pr=new URLSearchParams(location.search).get('role');if(['contributor','viewer','editor'].includes(pr))S.role=pr;
-  await loadAll();renderAll();
+  await loadAll();cmpDeep();renderAll();
 }
 init();
 </script>
