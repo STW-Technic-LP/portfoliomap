@@ -92,28 +92,36 @@ label.l{display:block;font-size:12px;font-weight:600;color:var(--mut);margin-bot
 /* timeline */
 .tl{overflow:auto;max-height:64vh;border-radius:14px;background:var(--card);border:1px solid var(--line);position:relative;overscroll-behavior:contain;box-shadow:var(--shadow)}
 .tl-in{position:relative}
-.tl-head{position:sticky;top:0;z-index:4;display:flex;background:var(--card);border-bottom:1px solid var(--line)}
-.tl-corner{position:sticky;left:0;z-index:5;width:var(--lw);flex:none;background:var(--card);border-right:1px solid var(--line);font-size:10.5px;color:var(--mut);padding:12px 8px}
+.tl-head{position:sticky;top:0;z-index:6;display:flex;background:var(--card);border-bottom:1px solid var(--line)}
+.tl-corner{position:sticky;left:0;z-index:5;width:var(--lw);flex:none;background:var(--card);border-right:1px solid var(--line);padding:10px 12px;display:flex;align-items:flex-start;gap:8px}
+.tl-corner .tcn{flex:1;min-width:0}.tl-corner b{font-size:14px;display:block}
+.tl-corner .tcl{width:var(--pcw);flex:none}
 .tl-years{position:relative;height:40px;flex:none}
 .tl-y{position:absolute;top:4px;font-size:12px;font-weight:700}
 .tl-q{position:absolute;top:22px;font-size:10px;color:var(--mut)}
 .tl-now{position:absolute;top:4px;font-size:10px;font-weight:700;color:#fff;background:var(--brand);border-radius:4px;padding:1px 5px;transform:translateX(-50%);z-index:1}
-.tl-row{display:flex;height:44px;border-bottom:1px solid var(--line)}
-.tl-lab{position:sticky;left:0;z-index:2;width:var(--lw);flex:none;background:var(--card);border-right:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:-1px;padding:6px 8px;overflow:hidden}
-.tl-lab b{display:block;font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tl-lab span{font-size:10.5px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.tl-row{display:flex;min-height:48px;border-bottom:1px solid var(--line);cursor:pointer}
+.tl-row:hover .tl-lab{background:color-mix(in srgb,var(--acc) 4%,var(--card))}
+.tl-lab{position:sticky;left:0;z-index:4;width:var(--lw);flex:none;background:var(--card);border-right:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:-1px;padding:6px 8px;overflow:hidden}
 .tl-track{position:relative;flex:none}
-.tl-grp{display:flex;height:28px;background:var(--chip);border-bottom:1px solid var(--line)}
-.tl-glab{position:sticky;left:0;z-index:2;background:var(--chip);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);padding:7px 8px;white-space:nowrap}
-.bar{position:absolute;top:15px;height:14px;border-radius:7px}
+.tl-grp{display:flex;min-height:36px;background:var(--chip);border-bottom:1px solid var(--line);cursor:pointer}
+.tl-glab{position:sticky;left:0;z-index:4;background:var(--chip);font-size:14px;font-weight:700;color:var(--ink);padding:8px 12px;white-space:nowrap;display:flex;align-items:center;gap:8px}
+.tl-glab span{color:var(--mut);font-weight:600}
+.bar{position:absolute;top:calc(50% - 6px);height:12px;border-radius:6px}
 .mk{position:absolute;top:15px;width:12px;height:12px;transform:translateX(-6px) rotate(45deg);border:2px solid var(--card);border-radius:2px;z-index:1}
-.nodates{position:absolute;top:14px;font-size:10px;font-weight:700;line-height:16px;white-space:nowrap;pointer-events:none;filter:brightness(.8)}
-.evm{position:absolute;top:6px;width:28px;height:32px;transform:translateX(-14px);z-index:1;cursor:pointer}
+.nodates{position:absolute;top:calc(50% - 8px);font-size:10px;font-weight:700;line-height:16px;white-space:nowrap;pointer-events:none;filter:brightness(.8)}
+.evm{position:absolute;top:calc(50% - 16px);width:28px;height:32px;transform:translateX(-14px);z-index:1;cursor:pointer}
 .evm::before{content:"";position:absolute;left:7px;top:9px;width:11px;height:11px;transform:rotate(45deg);background:var(--card);border:3px solid var(--c);border-radius:2px;box-shadow:0 0 0 1.5px var(--card)}
-.tl-next{position:absolute;top:12px;font-size:11px;font-weight:700;color:var(--acc);white-space:nowrap;background:color-mix(in srgb,var(--acc) 12%,var(--card));padding:2px 6px;border-radius:6px}
+.tl-next{position:absolute;top:calc(50% - 10px);z-index:2;font-size:11px;font-weight:700;color:var(--acc);white-space:nowrap;background:color-mix(in srgb,var(--acc) 12%,var(--card));padding:2px 6px;border-radius:6px}
 .tl-today{position:absolute;top:0;bottom:0;width:2px;background:var(--brand);opacity:.7;z-index:1;pointer-events:none}
-.legend{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:11.5px;color:var(--mut);margin:8px 2px}
-.legend i{display:inline-block;width:16px;height:8px;border-radius:4px;margin-right:4px;vertical-align:middle}
+.legend{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;font-size:12.5px;color:var(--ink);margin:10px 0;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 16px;box-shadow:var(--shadow)}
+.legend .lg{display:inline-flex;align-items:center;gap:7px}
+.legend .lg small{display:block;font-size:10.5px;color:var(--mut);line-height:1.2}
+.legend i{display:inline-block;width:26px;height:10px;border-radius:5px;flex:none}
+.legend i.dm{width:11px;height:11px;border-radius:2px;transform:rotate(45deg);background:var(--card);border:2.5px solid var(--ink);margin:0 3px}
+.legend i.dm.eol{border-color:var(--brand)}.legend i.dm.ev{border-color:#2563eb}
+.legend .lsep{width:1px;align-self:stretch;background:var(--line)}
+.legend .ztip{color:var(--mut)}
 /* sheet */
 .sheet-bg{position:fixed;inset:0;background:rgba(2,6,23,.45);z-index:40}
 .sheet{position:fixed;left:0;right:0;bottom:0;top:calc(env(safe-area-inset-top) + 26px);background:var(--bg);border-radius:18px 18px 0 0;z-index:41;display:flex;flex-direction:column;max-width:760px;margin:0 auto}
@@ -178,7 +186,7 @@ a{color:var(--acc)}
 .zl{font-size:12px;min-width:62px;text-align:center}
 .tl{touch-action:pan-x pan-y}
 .tl-q.qs{color:var(--ink);font-weight:600}
-.tl-yl{display:block;font-size:12px;color:var(--ink);margin-top:2px}
+.tl-yl{display:block;font-size:11.5px;color:var(--mut);margin-top:2px}
 .ztip{margin-left:auto;font-style:italic}
 .hov{position:fixed;z-index:35;width:320px;max-width:calc(100vw - 24px);background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 34px rgba(2,6,23,.22);padding:12px 14px;font-size:13px;pointer-events:none;animation:fade .12s}
 .hov.touch{pointer-events:auto}
@@ -284,12 +292,9 @@ a{color:var(--acc)}
 .gantt .glegend i{display:inline-block;width:14px;height:8px;border-radius:4px;margin-right:4px;vertical-align:middle}
 .gantt .glegend .gl-today{width:2px;height:12px;background:var(--brand);border-radius:0}
 .gantt .glegend .gl-mark{width:0;height:12px;border-left:2px dashed #94a3b8;border-radius:0}
-/* collapsible filter panel */
-.shead,.srail{display:none}
 .fpills{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 10px;font-size:12.5px}
 .fpill{border:1px solid var(--line);background:color-mix(in srgb,var(--acc) 10%,var(--card));color:var(--ink);border-radius:999px;padding:4px 10px;font-size:12.5px}
 .fpill:hover{border-color:var(--acc)}
-.side:has(.fbody.open)+.mainc .fpills{display:none}
 /* desktop & landscape */
 @media (min-width:900px), (orientation:landscape) and (min-width:700px){
   header.top{padding:calc(env(safe-area-inset-top) + 10px) 24px 10px;min-height:60px}
@@ -299,27 +304,11 @@ a{color:var(--acc)}
   .ptitle p{font-size:14.5px}
   .fab{bottom:24px;right:28px}
   .toast{bottom:24px}
-  .split{display:grid;grid-template-columns:280px minmax(0,1fr);gap:22px;align-items:start}
-  .side{position:sticky;top:62px;max-height:calc(100vh - 74px);overflow-y:auto;padding-bottom:16px;scrollbar-width:thin}
-  .ftoggle{display:none}
-  .fbody{display:block}
-  .shead{display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);margin:-2px 0 6px;padding-left:2px}
-  .shead .btn{font-size:18px;line-height:1;padding:2px 8px;color:var(--mut)}
-  .shead .btn:hover{color:var(--acc)}
-  .split{transition:grid-template-columns .2s ease}
-  .split:not(.collapsed) .fpills{display:none}
-  .split.collapsed{grid-template-columns:48px minmax(0,1fr)}
-  .split.collapsed .shead,.split.collapsed .sfull{display:none}
-  .split.collapsed .srail{display:flex;flex-direction:column;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px 0;box-shadow:var(--shadow)}
-  .srail button{position:relative;width:38px;height:38px;border:0;border-radius:10px;background:none;color:var(--mut);display:flex;align-items:center;justify-content:center;font-size:18px}
-  .srail button:hover{background:var(--chip);color:var(--acc)}
-  .sbadge{position:absolute;top:2px;right:1px;min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:var(--acc);color:#fff;font-size:10px;font-weight:700;line-height:16px}
 
   .stats{grid-template-columns:repeat(4,1fr);margin-top:0}
   .stat b{font-size:24px}
   .tlbar{margin-top:12px}
-  .tl{max-height:calc(100vh - 230px);min-height:320px}
-  .tl-lab b{font-size:13px}.tl-lab span{font-size:11.5px}
+  .tl{max-height:calc(100vh - 150px);min-height:360px}
   .glist{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px;align-items:start}
   .glist>.li,.glist>.card{margin:0}
   .narrow{max-width:900px}
@@ -330,13 +319,11 @@ a{color:var(--acc)}
   .sheet.anim{animation:slide .24s ease-out}
 }
 @media (min-width:700px) and (max-width:1099px) and (orientation:landscape), (min-width:900px) and (max-width:1099px){
-  .split{grid-template-columns:232px minmax(0,1fr);gap:14px}
   main{padding:0 16px 24px}
 }
 @media (orientation:landscape) and (max-height:500px){
-  .stats{display:none}
+  .kpis{display:none}
   .tl{max-height:calc(100vh - 120px);min-height:220px}
-  .side{top:56px;max-height:calc(100vh - 64px)}
 }
 @keyframes slide{from{transform:translateX(100%)}}
 /* desktop navigation: menu on top (default) or on the left — set per device in the user menu */
@@ -357,6 +344,101 @@ body.wide.navl nav.tabs button:not(.sbrand):hover{background:rgba(255,255,255,.0
 body.wide.navl nav.tabs button.on:not(.sbrand),body.wide.navl nav.tabs button.on:not(.sbrand):hover{background:var(--side-on);color:#fff;font-weight:600}
 @media (max-width:1099px){body{--sw:200px}.tnav button{padding:8px 10px}}
 @media (max-width:1000px){.tnav button span{display:none}}
+
+
+/* ---------- Portfolio & Products (phase 2) ---------- */
+.ic{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.badge.ib::before{display:none}.badge.ib{gap:5px}.badge.ib .ic{width:13px;height:13px;stroke-width:2.3}
+.plc .badge,.ptab .badge,.pch .badge{font-size:12.5px;padding:4px 10px;border-radius:8px}
+.ptitle{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.ptitle>div:first-child{flex:1;min-width:0}
+.pact{display:flex;gap:8px;align-items:center}
+body:not(.wide) .pact{display:none}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:12px;margin:0 0 16px}
+.kpi{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;box-shadow:var(--shadow);cursor:pointer;min-width:0;transition:box-shadow .12s}
+.kpi.tint{background:color-mix(in srgb,var(--c) 7%,var(--card));border-color:color-mix(in srgb,var(--c) 40%,var(--line));border-left:4px solid var(--c)}
+.kpi:hover{box-shadow:0 0 0 1px var(--c,var(--mut)),var(--shadow)}.kpi.on{box-shadow:0 0 0 2px var(--c)}
+.kpi .ki{color:var(--c,var(--ink));display:flex}.kpi .ki .ic{width:28px;height:28px;stroke-width:1.8}
+.kpi .kl{display:block;font-size:13px;font-weight:600;line-height:1.2}
+.kpi b{display:flex;align-items:baseline;gap:8px;font-size:27px;letter-spacing:-.02em;line-height:1.15}
+.kpi b small{font-size:13.5px;font-weight:600;color:var(--c);letter-spacing:0}
+.tbar{position:relative;display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 10px}
+.tsw{margin:0;min-width:0;flex:none}.tsw button{padding:7px 14px;flex:none}
+.tsw button.on{background:var(--pri);color:var(--pri-ink)}
+.tsearch{flex:1;min-width:240px;position:relative}
+.tsearch>svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--mut);pointer-events:none;width:18px;height:18px}
+.tsearch input{padding:9px 12px 9px 40px;font-size:15px}
+.fctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn.tb{background:var(--card);border:1px solid var(--line);font-weight:500;font-size:14px;padding:8px 12px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;color:var(--ink)}
+.btn.tb:hover,.btn.tb.open{border-color:var(--mut)}
+.btn.tb.has{border-color:var(--ink);font-weight:650}
+.fcnt{background:var(--pri);color:var(--pri-ink);border-radius:999px;font-size:11.5px;font-weight:700;min-width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;padding:0 6px}
+.car{width:7px;height:7px;border-right:1.7px solid currentColor;border-bottom:1.7px solid currentColor;transform:translateY(-2px) rotate(45deg);margin-left:5px;opacity:.7}
+.clr{color:var(--acc)}
+.fpop-bg{position:fixed;inset:0;z-index:24}
+.fpanel{position:absolute;top:calc(100% + 6px);left:0;z-index:25;width:360px;max-width:calc(100vw - 32px);max-height:min(70vh,560px);overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 34px rgba(20,25,35,.18);padding:8px 14px 12px}
+.fpanel.all{width:min(600px,calc(100vw - 32px))}
+.fph{display:flex;justify-content:space-between;align-items:center}
+body:not(.wide) .qf,body:not(.wide) .fctl .clr{display:none}
+body:not(.wide) .tsearch{min-width:0}
+body:not(.wide) .tsw{width:100%}body:not(.wide) .tsw button{flex:1}
+body:not(.wide) .fpop-bg{background:rgba(2,6,23,.45);z-index:40}
+body:not(.wide) .fpanel{position:fixed;left:0;right:0;bottom:0;top:auto;width:auto;max-width:none;max-height:78vh;border-radius:18px 18px 0 0;z-index:41;padding-bottom:calc(16px + env(safe-area-inset-bottom))}
+.popts{display:flex;align-items:center;gap:10px 16px;flex-wrap:wrap;margin:2px 2px 10px;font-size:13.5px}
+.sw{display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-weight:500;user-select:none}
+.sw input{display:none}
+.sw i{width:34px;height:20px;border-radius:10px;background:var(--line);position:relative;transition:background .15s;flex:none}
+.sw i::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:left .15s}
+.sw input:checked+i{background:var(--brand)}.sw input:checked+i::after{left:16px}
+.sel{display:inline-flex;align-items:center;gap:8px;color:var(--mut);white-space:nowrap}
+.sel select{width:auto;padding:7px 32px 7px 10px;font-size:14px}
+.tl{--pcw:108px}
+.tl-lab{display:flex;align-items:center;gap:9px;padding:7px 10px}
+.tl-lab>.dot{width:9px;height:9px}
+.pnm{flex:1;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.pnm>b{font-size:14px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tl-lab .pnm>b{font-size:13.5px}
+.plc{width:var(--pcw);flex:none}
+.pnx{font-size:12px;color:var(--mut);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.pnx.pn0{opacity:.6;font-style:italic}
+.pnw{display:inline-flex;align-items:center;gap:4px;max-width:100%}
+.pnsel{width:auto;min-width:0;max-width:100%;font-size:12px;line-height:1.3;padding:1px 22px 1px 6px;border-radius:6px;border:1px solid var(--line);background-color:var(--chip);color:var(--ink);background-position:calc(100% - 12px) 50%,calc(100% - 8px) 50%;cursor:pointer;text-overflow:ellipsis}
+body:not(.wide) .pnsel{font-size:16px}
+.pnc{font-size:10.5px;font-weight:700;color:var(--mut);background:var(--chip);border-radius:6px;padding:1px 5px}
+.tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:3px}
+.tg2{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;line-height:1.5;padding:1px 7px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--ink);white-space:nowrap}
+.tg2 .ic{width:12px;height:12px;color:var(--mut)}
+.ms{position:absolute;top:50%;width:13px;height:13px;transform:translate(-6.5px,-50%) rotate(45deg);background:var(--card);border:2.5px solid var(--ink);border-radius:2px;z-index:2;pointer-events:none}
+.ms.eol{border-color:var(--brand)}
+.chev{display:inline-block;width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);margin:0 3px;transition:transform .12s}
+.chev.open{transform:rotate(45deg) translate(-2px,-2px)}
+.lbar{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin:2px 2px 8px;font-size:13px}.lbar .hint{margin-left:auto}
+.ptw{border:1px solid var(--line);border-radius:14px;background:var(--card);box-shadow:var(--shadow);overflow:auto;max-height:calc(100vh - 120px)}
+.ptab{width:100%;border-collapse:separate;border-spacing:0;font-size:13.5px}
+.ptab th{position:sticky;top:0;z-index:1;background:color-mix(in srgb,var(--chip) 60%,var(--card));text-align:left;font-size:13px;font-weight:600;padding:11px 12px;border-bottom:1px solid var(--line);cursor:pointer;white-space:nowrap;user-select:none}
+.ptab th:hover,.ptab th.on{color:var(--acc)}
+.ptab td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+.ptab tbody tr[data-act=product]{cursor:pointer}.ptab tbody tr[data-act=product]:hover td{background:color-mix(in srgb,var(--acc) 4%,var(--card))}
+.ptab td.pcol{min-width:160px;max-width:240px}
+.ptab .pgrp .chev{margin-right:10px}.ptab .pgrp td{background:var(--chip);font-weight:700;font-size:14px;cursor:pointer}.ptab .pgrp span{color:var(--mut)}
+.supn{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}.supn .ic{color:var(--mut)}
+.nm{display:flex;gap:8px;align-items:flex-start;line-height:1.3;white-space:nowrap}
+.nm>.ic{width:18px;height:18px;color:var(--c,var(--mut));margin-top:1px}
+.nm b{display:block;color:var(--c,var(--ink));font-weight:650;font-size:13px}.nm span{font-size:12.5px}
+.nm.none{color:var(--mut);align-items:center}
+.kd{font-size:13px;line-height:1.45}.kd a{color:var(--acc);font-weight:600;cursor:pointer}.kd .warn{color:var(--bad);font-weight:600}
+.kd .dq{font-size:11.5px;color:var(--mut);white-space:nowrap}
+.pcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:7px;cursor:pointer;min-width:0}
+.pcard:hover{border-color:color-mix(in srgb,var(--acc) 40%,var(--line))}
+.pch{display:flex;gap:10px;align-items:flex-start;justify-content:space-between}
+.pcf{display:flex;gap:12px;justify-content:space-between;align-items:flex-start;border-top:1px solid var(--line);padding-top:8px;margin-top:2px}
+.pcf .kd{text-align:right;flex:1;min-width:0}.pcf .kd .dq{overflow:hidden;text-overflow:ellipsis}.pcf .nm{flex:none}
+body:not(.wide) .kpis{grid-template-columns:1fr 1fr;gap:8px}
+body:not(.wide) .kpi{padding:9px 12px;gap:9px}body:not(.wide) .kpi[data-arg=total]{grid-column:1/-1}
+body:not(.wide) .kpi .ki .ic{width:22px;height:22px}body:not(.wide) .kpi .kl{font-size:12px}body:not(.wide) .kpi b{font-size:22px}
+body:not(.wide) .ptitle{margin-bottom:10px}
+@media (max-width:1299px){.tl{--pcw:100px}}
 
 /* ---------- ideas ---------- */
 .ibar{display:flex;gap:8px;margin:4px 0 10px}
@@ -445,16 +527,16 @@ const OPTIONAL=['part_numbers','dev_items',...IDEA_TABLES]; // added in schema u
 const WIDEQ='(min-width:900px), (orientation:landscape) and (min-width:700px)';
 const wide=()=>matchMedia(WIDEQ).matches;
 let LW=118;                       // label column width (wider on desktop)
-const ZMIN=5,ZMAX=120;            // px per month
-const PHG=[['dev','In development'],['pipeline','Evaluating / onboarding'],['active','Active'],['phasing','Phasing out'],['eol','End of life'],['rejected','Not onboarded']];
-const PHG_OF={development:'dev',evaluating:'pipeline',onboarding:'pipeline',active:'active',nrnd:'phasing',ltb:'phasing',eol:'eol',rejected:'rejected'};
+const ZMIN=2,ZMAX=120;            // px per month
+const PHG=[['dev','In development'],['pipeline','Evaluating / onboarding'],['active','Active'],['phasing','Phasing out'],['ltb','Last-time buy'],['eol','End of life'],['rejected','Not onboarded']];
+const PHG_OF={development:'dev',evaluating:'pipeline',onboarding:'pipeline',active:'active',nrnd:'phasing',ltb:'ltb',eol:'eol',rejected:'rejected'};
 
 /* ---------- state ---------- */
 const S={mode:'demo',sb:null,user:null,role:'admin',tab:'roadmap',stack:[],data:{},
-  f:{group:'category'},F:{q:'',sup:[],cat:[],ph:[],mkt:[],can:[]},mw:wide()?30:22,fOpen:false,tlScroll:null,rows:[],cmp:{cat:'controller',sel:{},diff:false,gaps:true,metric:'io',priceBy:'list'},rmView:'timeline',lsort:{k:'part',dir:1},incOnly:false,
+  f:{group:'category'},F:{q:'',sup:[],cat:[],ph:[],mkt:[],can:[]},mw:wide()?30:22,fOpen:false,tlScroll:null,rows:[],cmp:{cat:'controller',sel:{},diff:false,gaps:true,metric:'io',priceBy:'list'},rmView:'timeline',pView:'table',det:{sup:true,mkt:true},hz:'12',coll:[],fpop:null,lsort:{k:'part',dir:1},incOnly:false,
   iv:{q:'',grp:'open',type:[],mine:false,waiting:false,sort:'value',view:'board'}};
-try{const v=JSON.parse(localStorage.getItem('rm_view')||'null');if(v){Object.assign(S.F,v.F||{});if(v.group)S.f.group=v.group;if(v.mw)S.mw=v.mw;if(v.sideCol)S.sideCol=true;if(v.cmp)Object.assign(S.cmp,v.cmp);if(v.rmView)S.rmView=v.rmView;if(v.lsort)S.lsort=v.lsort;S.incOnly=!!v.incOnly;if(v.iv)Object.assign(S.iv,v.iv,{q:''})}}catch(e){}
-function saveView(){try{localStorage.setItem('rm_view',JSON.stringify({F:S.F,group:S.f.group,mw:S.mw,sideCol:!!S.sideCol,cmp:S.cmp,rmView:S.rmView,lsort:S.lsort,incOnly:S.incOnly,iv:{...S.iv,q:''}}))}catch(e){}}
+try{const v=JSON.parse(localStorage.getItem('rm_view')||'null');if(v){Object.assign(S.F,v.F||{});if(v.group)S.f.group=v.group;if(v.mw)S.mw=v.mw;if(v.sideCol)S.sideCol=true;if(v.cmp)Object.assign(S.cmp,v.cmp);if(v.rmView)S.rmView=v.rmView;if(v.pView)S.pView=v.pView;if(v.det)S.det=v.det;if(v.hz)S.hz=v.hz;if(Array.isArray(v.coll))S.coll=v.coll;if(v.lsort)S.lsort=v.lsort;S.incOnly=!!v.incOnly;if(v.iv)Object.assign(S.iv,v.iv,{q:''})}}catch(e){}
+function saveView(){try{localStorage.setItem('rm_view',JSON.stringify({F:S.F,group:S.f.group,mw:S.mw,sideCol:!!S.sideCol,cmp:S.cmp,rmView:S.rmView,pView:S.pView,det:S.det,hz:S.hz,coll:S.coll,lsort:S.lsort,incOnly:S.incOnly,iv:{...S.iv,q:''}}))}catch(e){}}
 TABLES.forEach(t=>S.data[t]=[]);
 
 /* ---------- helpers ---------- */
@@ -482,7 +564,7 @@ function phase(p){
   else if(p.nrnd_date&&d(p.nrnd_date)<=today)r=Math.max(r,3);
   return Object.keys(RANK).find(k=>RANK[k]===r);
 }
-const badge=k=>{const x=LC[k]||LC.evaluating;return`<span class="badge" style="--c:${x.c}${x.t?';--t:'+x.t:''}">${x.l}</span>`};
+const badge=k=>{const x=LC[k]||LC.evaluating;return`<span class="badge ib" style="--c:${x.c}${x.t?';--t:'+x.t:''}">${ic(PHI[k]||PHI.evaluating)}${x.l}</span>`};
 const impPill=(lab,k)=>{const x=IMPACT[k]||IMPACT.none;return`<span class="pill" style="--c:${x.c}">${lab}: ${x.l}</span>`};
 const basisTag=b=>!b?'':/infer|confirm/i.test(b)?`<span class="pill" style="--c:#d97706">⚠ ${esc(b)}</span>`:`<span class="pill" style="--c:#0ea5e9">${esc(b)}</span>`;
 const migBadge=k=>`<span class="badge" style="--c:${MIGC[k]||'#94a3b8'}">${esc((MIG.find(m=>m[0]===k)||[,k])[1])}</span>`;
@@ -502,7 +584,7 @@ function errMsg(e){let m=e?.message||String(e);if(/schema/i.test(m)&&/must be on
 /* ---------- data layer (Supabase or local demo) ---------- */
 function cfg(){let s={};try{s=JSON.parse(localStorage.getItem('rm_cfg')||'{}')}catch(e){}return{url:CONFIG.SUPABASE_URL||s.url||'',key:CONFIG.SUPABASE_ANON_KEY||s.key||'',hard:!!CONFIG.SUPABASE_URL}}
 const Demo={key:'rm_demo_v1',
-  load(){let x=null;try{x=JSON.parse(localStorage.getItem(this.key))}catch(e){}if(!x){x=seed();this.save(x)}if(!x.ideas){x.customers=x.customers||[];seedIdeas(x);this.save(x)}TABLES.forEach(t=>x[t]=x[t]||[]);return x},
+  load(){let x=null;try{x=JSON.parse(localStorage.getItem(this.key))}catch(e){}if(!x){x=seed();this.save(x)}if(!x.ideas){x.customers=x.customers||[];seedIdeas(x);this.save(x)}if(!x.pn_seeded){seedPNs(x);x.pn_seeded=true;this.save(x)}TABLES.forEach(t=>x[t]=x[t]||[]);return x},
   save(x){try{localStorage.setItem(this.key,JSON.stringify(x))}catch(e){}}};
 async function loadAll(){
   if(S.mode==='demo'){S.data=Demo.load();
@@ -582,6 +664,16 @@ function seed(){
     mk({event_date:rel(6),kind:'release',title:'C-400S supplier target release',product_id:c400.id,supplier_id:stw.id}),
     mk({event_date:rel(1),kind:'milestone',title:'Marlin line card review',supplier_id:mar.id})];
   return{suppliers:[stw,tro,mar],markets,products,transitions:[tr1,tr2,tr3],customers:[cA,cB,cC],customer_products:cps,events};
+}
+
+/* sample part numbers for demo mode (several per product, to show the part-number drop-down) */
+function seedPNs(x){
+  const P={'C-200':[['PN-CTR-0200-A','32 I/O, CODESYS','Active'],['PN-CTR-0200-B','32 I/O, conformal coat','Active']],
+    'C-300':[['PN-CTR-0300-A','48 I/O'],['PN-CTR-0300-B','48 I/O, IP69K'],['PN-CTR-0300-C','48 I/O, safety option']],
+    'C-400S':[['PN-CTR-0400','Pre-series']],'T-10':[['PN-TEL-0010-EU','4G, EU bands'],['PN-TEL-0010-NA','4G, NA bands']],
+    'T-20':[['PN-TEL-0020','LTE-M/5G']],'IO-16':[['PN-IO-0016-A','16 I/O'],['PN-IO-0016-B','16 I/O, M12']],'PDM-8':[['PN-PDM-0008','8 channels']]};
+  x.part_numbers=x.part_numbers||[];
+  (x.products||[]).forEach(p=>(P[p.part_number]||[]).forEach(([pn,variant,status])=>x.part_numbers.push({id:uid(),product_id:p.id,part_number:pn,variant,status:status||null,ltb_date:p.ltb_date||null})));
 }
 
 /* ---------- forms ---------- */
@@ -768,7 +860,7 @@ const fab=(table,def)=>canEdit()?`<button class="fab" data-act="new" data-arg="$
 function renderAll(){
   if(!allowedTabs().includes(S.tab))S.tab=navTabs()[0];
   const solo=navTabs().length<2,left=S.nav==='left'&&!solo,home=navTabs()[0];
-  LW=!wide()?118:innerWidth>=1100?200:140;
+  LW=calcLW();
   const B=document.body.classList;B.toggle('wide',wide());B.toggle('navl',left);B.toggle('navt',!left);B.toggle('solo',solo);
   const tabBtn=k=>`<button class="${S.tab===k?'on':''}" data-act="tab" data-arg="${k}" title="${TITLES[k]}"><svg viewBox="0 0 24 24">${ICONS[k]}</svg><span>${TITLES[k]}</span></button>`;
   $('#app').innerHTML=`<header class="top"><button class="brand" data-act="tab" data-arg="${home}" aria-label="Portfolium home">${LOGO}<span>Portfolium</span></button>
@@ -784,7 +876,8 @@ function renderAll(){
 function renderMain(){
   saveTl();
   const m=$('#main');if(!m)return;
-  m.innerHTML=`<div class="ptitle"><h1>${TITLES[S.tab]}</h1><p>${SUBS[S.tab]||''}</p></div>`+({roadmap:viewRoadmap,ideas:viewIdeas,products:viewProducts,compare:viewCompare,transitions:viewTransitions,customers:viewCustomers,more:viewMore})[S.tab]();
+  const act=titleActions();
+  m.innerHTML=`<div class="ptitle"><div><h1>${TITLES[S.tab]}</h1><p>${SUBS[S.tab]||''}</p></div>${act?`<div class="pact">${act}</div>`:''}</div>`+({roadmap:viewRoadmap,ideas:viewIdeas,products:viewProducts,compare:viewCompare,transitions:viewTransitions,customers:viewCustomers,more:viewMore})[S.tab]();
   restoreTl();
 }
 /* user menu (initials, top right): settings, customers, menu position, sign out */
@@ -796,14 +889,15 @@ function umenuHTML(){
     ${wide()&&!document.body.classList.contains('solo')?`<div class="ml">Menu position</div>${menuPos()}`:''}
     ${mi('tab','more','more','Settings')}${isContrib()?'':mi('tab','customers','customers','Customers')}${S.mode==='live'?mi('signout','','signout','Sign out'):''}</div>`;
 }
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#umenu')?.innerHTML)$('#umenu').innerHTML=''});
+document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if($('#umenu')?.innerHTML)$('#umenu').innerHTML='';if(S.fpop)A.fpclose()});
 
-/* ---------- shared filters (Roadmap + Products) ---------- */
+/* ---------- shared filters (Portfolio + Products) ---------- */
+const PHC={dev:LC.development.c,pipeline:LC.evaluating.c,active:LC.active.c,phasing:LC.nrnd.c,ltb:LC.ltb.c,eol:LC.eol.c,rejected:LC.rejected.c};
 const FGROUPS=[
+  {k:'ph',l:'Lifecycle',opts:()=>PHG.map(([k,l])=>[k,l,PHC[k]]),val:p=>[PHG_OF[phase(p)]]},
   {k:'sup',l:'Supplier',opts:()=>S.data.suppliers.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(s=>[s.id,s.name,s.color]),val:p=>[p.supplier_id]},
-  {k:'cat',l:'Category',opts:()=>CATEGORIES.filter(([k])=>S.data.products.some(p=>p.category===k)),val:p=>[p.category]},
-  {k:'ph',l:'Status',opts:()=>PHG,val:p=>[PHG_OF[phase(p)]]},
   {k:'mkt',l:'Market',opts:()=>S.data.markets.map(m=>[m.name,m.name+(m.status==='considering'?' (considering)':'')]),val:p=>p.markets||[]},
+  {k:'cat',l:'Category',opts:()=>CATEGORIES.filter(([k])=>S.data.products.some(p=>p.category===k)),val:p=>[p.category]},
   {k:'can',l:'CAN protocol',opts:()=>canOpts(),val:p=>p.can_protocols||[]}];
 let _pnHit=null,_pnQ=null;
 function qHit(p){
@@ -817,32 +911,29 @@ function passes(p,except){
 }
 const filtered=()=>S.data.products.filter(p=>passes(p));
 const activeCount=()=>FGROUPS.reduce((n,g)=>n+S.F[g.k].length,0)+(S.F.q.trim()?1:0);
-function filterBar(){
-  const n=FGROUPS.reduce((a,g)=>a+S.F[g.k].length,0);
-  return`<div class="fbar"><input id="q" type="search" placeholder="Search model, part number, family, protocol…" value="${esc(S.F.q)}" autocomplete="off">
-    <button class="btn sm ftoggle ${n?'has':''}" data-act="ftoggle" aria-expanded="${S.fOpen}">Filters${n?` · ${n}`:''}</button></div>
-    <div id="fbody" class="fbody ${S.fOpen?'open':''}">${filterBody()}</div>`;
-}
-function filterBody(){
-  const total=S.data.products.length,shown=filtered().length;
+function filterBody(gs){
+  gs=gs||FGROUPS;const total=S.data.products.length,shown=filtered().length;
   return`<div class="fsum"><span>${shown===total?`All ${total} products`:`<b>${shown}</b> of ${total} products`}</span>${activeCount()?'<button class="btn ghost sm" data-act="fclrall">Clear all</button>':''}</div>`+
-  FGROUPS.map(g=>{const opts=g.opts();if(!opts.length)return'';const sel=S.F[g.k];
+  gs.map(g=>{const opts=g.opts();if(!opts.length)return'';const sel=S.F[g.k];
     return`<div class="fsec"><div class="fsh">${g.l}${sel.length?`<button class="btn ghost sm" data-act="fclr" data-arg="${g.k}">Show all</button>`:''}</div><div class="chips wrap">`+
     opts.map(([v,l,color])=>{const on=sel.includes(v),c=S.data.products.filter(p=>passes(p,g.k)&&g.val(p).includes(v)).length;
       return`<button class="chip fchip ${on?'on':''} ${!c&&!on?'zero':''}" data-act="fx" data-arg="${g.k}" data-id="${esc(v)}">${color?`<i class="dot" style="background:${esc(color)};width:8px;height:8px"></i>`:''}${esc(l)}<span class="cnt">${c}</span></button>`}).join('')+`</div></div>`}).join('');
 }
 const ICO_FILTER='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18l-7 8.5V19l-4 2v-7.5z"/></svg>';
 const ICO_SEARCH='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>';
-function splitView(results,extraTop=''){
-  const n=activeCount();
-  return`${extraTop}<div class="split ${S.sideCol?'collapsed':''}"><aside class="side">
-    <div class="shead"><span>Search &amp; filters</span><button class="btn ghost sm" data-act="sidecol" title="Collapse panel" aria-label="Collapse filter panel">«</button></div>
-    <div class="sfull">${filterBar()}</div>
-    <div class="srail"><button data-act="sideexp" title="Show filters" aria-label="Show filters">${ICO_FILTER}<span class="sbadge" ${n?'':'hidden'}>${n}</span></button>
-      <button data-act="sideexp" data-arg="search" title="Search" aria-label="Search">${ICO_SEARCH}</button><button data-act="sideexp" class="sexp" aria-label="Expand">»</button></div>
-  </aside><section class="mainc" id="results">${results()}</section></div>`;
-}
-/* removable pills summarising active filters (shown when the panel is folded away) */
+const ic=d=>`<svg viewBox="0 0 24 24" class="ic">${d}</svg>`;
+const I={bld:'<path d="M4 21V5l7-2v18M11 9h8v12M7 8v.01M7 12v.01M7 16v.01M15 13v.01M15 17v.01M2 21h20"/>',
+  mkt:'<path d="M12 3 21 8l-9 5-9-5z"/><path d="m3 12.5 9 5 9-5"/><path d="m3 17 9 5 9-5"/>',
+  cal:'<rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
+  cards:'<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
+  dl:'<path d="M12 4v11M7 10l5 5 5-5M5 20h14"/>',
+  dev:'<path d="m8 7-5 5 5 5M16 7l5 5-5 5"/>',pulse:'<path d="M3 12h4l2-5 4 10 2-5h6"/>',
+  check:'<circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.6 2.6L16 9.6"/>',
+  glass:'<path d="M6 3h12M6 21h12M7 3c0 4 5 6 5 9s-5 5-5 9M17 3c0 4-5 6-5 9s5 5 5 9"/>',
+  power:'<path d="M12 3v9M6.3 6.3a8 8 0 1 0 11.4 0"/>',x:'<circle cx="12" cy="12" r="9"/><path d="m9 9 6 6M15 9l-6 6"/>',
+  warn:'<path d="M12 3.5 2.5 20h19z"/><path d="M12 10v4.5M12 17.2v.01"/>'};
+const PHI={development:I.dev,evaluating:I.pulse,onboarding:I.pulse,active:I.check,nrnd:I.glass,ltb:I.cal,eol:I.power,rejected:I.x};
+/* removable pills summarising active filters */
 function filterPills(){
   const out=[];
   if(S.F.q.trim())out.push(`<button class="fpill" data-act="fq">“${esc(S.F.q.trim())}” ✕</button>`);
@@ -850,151 +941,172 @@ function filterPills(){
     S.F[g.k].forEach(v=>out.push(`<button class="fpill" data-act="fx" data-arg="${g.k}" data-id="${esc(v)}">${esc(o.get(v)||v)} ✕</button>`))});
   return out.length?`<div class="fpills"><span class="mut">Filtered:</span>${out.join('')}<button class="btn ghost sm" data-act="fclrall">Clear all</button></div>`:'';
 }
+/* toolbar above the roadmap / table: view switch · search · Filters · quick drop-downs */
+const QUICK=[['ph','Lifecycle'],['sup','Supplier'],['mkt','Market']];
+function fctl(){
+  const n=FGROUPS.reduce((a,g)=>a+S.F[g.k].length,0);
+  return`<button class="btn tb ${S.fpop==='all'?'open':''}" data-act="fpop" data-arg="all">${ic('<path d="M3 5h18l-7 8.5V19l-4 2v-7.5z"/>')} Filters${n?`<span class="fcnt">${n}</span>`:''}</button>`+
+    QUICK.map(([k,l])=>{const c=S.F[k].length;return`<button class="btn tb qf ${c?'has':''} ${S.fpop===k?'open':''}" data-act="fpop" data-arg="${k}">${l}${c?` · ${c}`:''}<i class="car"></i></button>`}).join('')+
+    (activeCount()?'<button class="btn ghost sm clr" data-act="fclrall">Clear all</button>':'');
+}
+function toolbar(){
+  const prod=S.tab==='products',v=prod?S.pView:S.rmView;
+  const seg=prod?[['table','Table',ICO_LIST],['cards','Cards',ic(I.cards)]]:[['timeline','Timeline',ICO_TL],['list','List',ICO_LIST]];
+  const segH=prod&&!wide()?'':`<div class="segc vsw tsw">${seg.map(([k,l,i])=>`<button class="${v===k?'on':''}" data-act="${prod?'pview':'rmview'}" data-arg="${k}">${i} ${l}</button>`).join('')}</div>`;
+  return`<div class="tbar">${segH}<div class="tsearch">${ICO_SEARCH}<input id="q" type="search" placeholder="Search products, part number, supplier or market…" value="${esc(S.F.q)}" autocomplete="off"></div>
+    <div id="fctl" class="fctl">${fctl()}</div><div id="fpop"></div></div>`;
+}
+function renderFpop(){
+  const el=$('#fpop');if(!el)return;if(!S.fpop){el.innerHTML='';return}
+  const all=S.fpop==='all',gs=all?FGROUPS:FGROUPS.filter(g=>g.k===S.fpop);
+  el.innerHTML=`<div class="fpop-bg" data-act="fpclose"></div><div class="fpanel ${all?'all':''}"><div class="fph"><b>${all?'Filters':esc(gs[0]?.l||'')}</b><button class="btn ghost sm" data-act="fpclose">Done</button></div>${filterBody(gs)}</div>`;
+  const b=$(`#fctl [data-arg="${S.fpop}"]`),p=el.querySelector('.fpanel'),bar=el.parentNode;
+  if(b&&p&&wide())p.style.left=Math.max(0,Math.min(b.offsetLeft,bar.clientWidth-p.offsetWidth))+'px';
+}
 function refreshResults(){hovHide();
   saveTl();
-  const fb=$('#fbody');if(fb)fb.innerHTML=filterBody();
-  const tg=$('.ftoggle');if(tg){const n=FGROUPS.reduce((a,g)=>a+S.F[g.k].length,0);tg.textContent='Filters'+(n?` · ${n}`:'');tg.classList.toggle('has',!!n)}
-  const sb=$('.sbadge');if(sb){const n=activeCount();sb.textContent=n;sb.hidden=!n}
+  const k=$('#kpis');if(k)k.innerHTML=kpis();
+  const c=$('#fctl');if(c)c.innerHTML=fctl();
+  renderFpop();
   const r=$('#results');if(r)r.innerHTML=roadmapResults();
   restoreTl();saveView();
 }
 
-/* ---------- Roadmap tab ---------- */
-function stat(n,l,c,arg){return`<div class="stat" style="--c:${c}" data-act="statgo" data-arg="${arg}"><b>${n}</b><span>${l}</span></div>`}
+/* ---------- summary tiles ---------- */
+const KPI_PH={active:['active'],pipeline:['dev','pipeline'],phasing:['phasing','ltb'],nrnd:['phasing'],ltb:['ltb'],eol:['eol']};
+const kpiOn=a=>!!KPI_PH[a]&&S.F.ph.length===KPI_PH[a].length&&KPI_PH[a].every(x=>S.F.ph.includes(x));
+function kpi(ico,l,n,tot,c,arg){
+  return`<div class="kpi ${c?'tint':''} ${kpiOn(arg)?'on':''}" ${c?`style="--c:${c}"`:''} data-act="statgo" data-arg="${arg}" title="${arg==='mig'?'Open Transitions':arg==='total'?'Show all lifecycle stages':'Show only these'}">
+    <span class="ki">${ic(ico)}</span><div><span class="kl">${l}</span><b>${n}${tot?`<small>${Math.round(n/tot*100)}%</small>`:''}</b></div></div>`;
+}
+function kpis(){
+  // the tiles ignore the lifecycle filter, so they always show the whole picture for the other filters
+  const ps=S.data.products.filter(p=>passes(p,'ph')),tot=ps.length,cnt=ks=>ps.filter(p=>ks.includes(phase(p))).length;
+  const t=kpi(I.mkt,'Total products &amp; services',tot,0,null,'total');
+  const dev=kpi(I.dev,'In development',cnt(['development','evaluating','onboarding']),tot,LC.development.c,'pipeline');
+  if(S.tab==='products')return t+kpi(I.check,'Active',cnt(['active']),tot,LC.active.c,'active')+dev
+    +kpi(I.glass,'Phasing out',cnt(['nrnd']),tot,LC.nrnd.c,'nrnd')+kpi(I.warn,'Last-time buy',cnt(['ltb']),tot,LC.ltb.c,'ltb')+kpi(I.power,'End of life',cnt(['eol']),tot,'#6B7280','eol');
+  const ids=new Set(ps.map(p=>p.id)),mig=S.data.customer_products.filter(c=>ids.has(c.product_id)&&needsMig(c)).length;
+  return t+kpi(I.check,'Active',cnt(['active']),tot,LC.active.c,'active')+dev+kpi(I.glass,'Phasing out',cnt(['nrnd','ltb']),tot,LC.nrnd.c,'phasing')+kpi(I.warn,'Customer migrations',mig,0,MIG_C,'mig');
+}
+
+/* ---------- Portfolio & Products pages ---------- */
 function viewRoadmap(){
   const banners=`${tempPw()?`<div class="banner" data-act="gopw">🔑 You're using a temporary password. <b style="text-decoration:underline">Set your own</b></div>`:''}${S.mode==='demo'?`<div class="banner">You're viewing sample data on this device. Connect Supabase in <b data-act="tab" data-arg="more" style="text-decoration:underline">Settings</b> to share with your team.</div>`:''}`;
-  return splitView(roadmapResults,banners)+fab('products');
+  return`${banners}<div id="kpis" class="kpis">${kpis()}</div>${toolbar()}<div id="results">${roadmapResults()}</div>`+fab('products');
+}
+function viewProducts(){return viewRoadmap()}
+const titleActions=()=>S.tab==='products'?`<button class="btn tb" data-act="csv">${ic(I.dl)} Export CSV</button>${canEdit()?'<button class="btn pri" data-act="new" data-arg="products">+ Add product</button>':''}`
+  :S.tab==='roadmap'&&canEdit()?'<button class="btn pri" data-act="new" data-arg="products">+ Add product</button>':'';
+const HZ=[['12','Next 12 months',4],['24','Next 2 years',6],['36','Next 3 years',6],['60','Next 5 years',12],['all','All dates',0]];
+const GROUPS=[['category','Category'],['supplier','Supplier'],['market','Market'],['lifecycle','Lifecycle']];
+function portfolioOpts(){
+  const tl=S.rmView!=='list';
+  return`<div class="popts">${wide()&&tl?`<span class="mut">Show product details:</span>
+    <label class="sw"><input type="checkbox" data-change="det" data-arg="sup" ${S.det.sup?'checked':''}><i></i>Supplier</label>
+    <label class="sw"><input type="checkbox" data-change="det" data-arg="mkt" ${S.det.mkt?'checked':''}><i></i>Market / Industry</label>`:''}
+    <span class="hsp"></span>
+    <label class="sel">Group by <select id="grp">${GROUPS.map(([k,l])=>`<option value="${k}" ${S.f.group===k?'selected':''}>${l}</option>`).join('')}</select></label>
+    ${tl?`<label class="sel">Horizon <select id="hz">${HZ.map(([k,l])=>`<option value="${k}" ${S.hz===k?'selected':''}>${l}</option>`).join('')}${S.hz==='custom'?'<option value="custom" selected>Custom zoom</option>':''}</select></label>`:''}</div>`;
 }
 function roadmapResults(){
-  const ps=filtered(),ids=new Set(ps.map(p=>p.id)),cnt=ks=>ps.filter(p=>ks.includes(phase(p))).length;
-  const mig=S.data.customer_products.filter(c=>ids.has(c.product_id)&&needsMig(c)).length;
-  S.rows=ps;
-  return`${filterPills()}<div class="stats">${stat(cnt(['active']),'Active',LC.active.c,'active')}${stat(cnt(['development','evaluating','onboarding']),'In development / evaluating',LC.development.c,'pipeline')}
-  ${stat(cnt(['nrnd','ltb']),'Phasing out',LC.nrnd.c,'phasing')}${stat(mig,'Customer migrations open',MIG_C,'mig')}</div>
-  ${viewSwitch()}${rmv()==='list'?listSection(ps):timelineSection(ps,ids)}`;
+  const ps=filtered();S.rows=ps;
+  const pills=filterPills(),none='<div class="card empty">No products match these filters.</div>';
+  if(S.tab==='products'){
+    const L=listRows(ps,S.incOnly),miss=ps.filter(p=>completeness(p).ratio<1).length,table=wide()&&S.pView!=='cards';
+    const head=`<div class="lbar mut"><span>Showing <b>${L.length}</b> of ${S.data.products.length} products</span>
+      <label class="tg"><input type="checkbox" data-change="incOnly" ${S.incOnly?'checked':''}> Missing data only <span class="mut">(${miss})</span></label>${table?'<span class="hint">Click a column heading to sort</span>':''}</div>`;
+    return pills+head+(!L.length?none:table?prodTable(L,false):`<div class="pcards">${L.map(pcard).join('')}</div>`);
+  }
+  const opts=portfolioOpts();
+  if(!ps.length)return pills+opts+none;
+  if(S.rmView==='list')return pills+opts+(wide()?prodTable(listRows(ps),true):`<div class="pcards">${listRows(ps).map(pcard).join('')}</div>`);
+  return pills+opts+timelineSection(ps,new Set(ps.map(p=>p.id)));
 }
-function viewSwitch(){
-  const list=rmv()==='list',inc=S.incOnly;
-  return`<div class="vbar">${S.tab==='products'?'':`<div class="segc vsw"><button class="${list?'':'on'}" data-act="rmview" data-arg="timeline">${ICO_TL} Timeline</button><button class="${list?'on':''}" data-act="rmview" data-arg="list">${ICO_LIST} List</button></div>`}
-    ${list?`<label class="tg"><input type="checkbox" data-change="incOnly" ${inc?'checked':''}> Incomplete only</label><button class="btn sm" data-act="csv">⬇ CSV</button>`:''}
-    ${canEdit()?`<button class="btn sm pri vadd" data-act="new" data-arg="products">+ Product</button>`:''}</div>`;
-}
-function timelineSection(ps,ids){
-  const up=upcoming(12,ids).slice(0,10);
-  const zl=S.mw>=36?'Months':S.mw>=9?'Quarters':'Years';
-  return`<div class="tlbar"><div class="segc">${[['category','Category'],['supplier','Supplier'],['market','Market']].map(([k,l])=>`<button class="${S.f.group===k?'on':''}" data-act="group" data-arg="${k}">${l}</button>`).join('')}</div>
-    <div class="zoom"><button class="btn sm" data-act="zoom" data-arg="out" aria-label="Zoom out">−</button><span class="mut zl">${zl}</span><button class="btn sm" data-act="zoom" data-arg="in" aria-label="Zoom in">+</button><button class="btn sm" data-act="zoom" data-arg="today">Today</button></div></div>
-  ${ps.length?timeline(ps):'<div class="card empty">No products match these filters.</div>'}
-  <div class="legend">${(()=>{const hat=c=>`background:repeating-linear-gradient(135deg,${c}66 0 3px,transparent 3px 6px);box-shadow:inset 0 0 0 1.5px ${c}`;
-    return`<span><i style="${hat(LC.development.c)}"></i>In development</span><span><i style="${hat(LC.evaluating.c)}"></i>Evaluating / onboarding</span><span><i style="background:${LC.active.c}"></i>Active</span><span><i style="background:${LC.active.c};opacity:.22"></i>Faded = no dates yet (current status only)</span><span><i style="background:${LC.nrnd.c}"></i>Phasing out</span><span><i style="background:${LC.ltb.c}"></i>Last-time buy</span><span><i style="background:#6B7280;width:9px;height:9px;transform:rotate(45deg);border-radius:2px"></i>EOL</span><span><i style="background:var(--card);border:2.5px solid #2563eb;width:8px;height:8px;transform:rotate(45deg);border-radius:2px"></i>Event (tap)</span><span style="color:var(--acc);font-weight:600">→ successor</span>`})()}<span class="ztip">${'ontouchstart' in window?'Pinch to zoom':'Ctrl/⌘ + scroll to zoom'}</span></div>
-  <div class="sec"><h2>Next 12 months</h2>${canEdit()?`<button class="btn ghost sm" data-act="new" data-arg="events">+ Event</button>`:''}</div>
-  ${up.length?`<div class="card">${up.map(upItem).join('')}</div>`:'<div class="card empty">Nothing scheduled in the next 12 months.</div>'}`;
-}
-function upcoming(months,ids){
-  const lim=new Date(today);lim.setMonth(lim.getMonth()+months);const out=[];
-  const supOk=sid=>!S.F.sup.length||S.F.sup.includes(sid),otherF=activeCount()-S.F.sup.length;
-  S.data.products.forEach(p=>{if(ids&&!ids.has(p.id))return;if(phase(p)==='rejected')return;[['nrnd_date','NRND','nrnd'],['ltb_date','Last-time buy','ltb'],['eol_date','End of life','eol'],['supplier_release_date','Supplier release','evaluating'],['onboard_date','Onboard','active']].forEach(([k,l,c])=>{const x=d(p[k]);if(x&&x>=today&&x<=lim)out.push({date:p[k],l,c,p})})});
-  S.data.events.forEach(e=>{const x=d(e.event_date);if(!(x&&x>=today&&x<=lim))return;
-    if(ids&&(e.product_id?!ids.has(e.product_id):(otherF>0||!supOk(e.supplier_id))))return;
-    out.push({date:e.event_date,l:e.title,e})});
-  return out.sort((a,b)=>a.date.localeCompare(b.date));
-}
-function upItem(u){
-  if(u.e)return`<div class="ev" data-act="edit" data-arg="events" data-id="${u.e.id}"><div class="dt">${fmtMY(u.date)}</div><div class="grow"><b>${esc(u.l)}</b><div class="mut">${esc((EVK.find(k=>k[0]===u.e.kind)||[])[1]||'')} · ${relTxt(u.date)}</div></div></div>`;
-  return`<div class="ev" data-act="product" data-id="${u.p.id}"><div class="dt">${fmtMY(u.date)}</div><div class="grow"><b>${esc(u.p.part_number)}</b> <span class="pill" style="--c:${LC[u.c].c}">${u.l}</span><div class="mut ell">${esc(u.p.name)} · ${relTxt(u.date)}</div></div></div>`;
-}
-function groupKeys(p){
-  if(S.f.group==='supplier')return[sup(p)?.name||'No supplier'];
-  if(S.f.group==='market'){const m=(p.markets||[]).filter(x=>!S.F.mkt.length||S.F.mkt.includes(x));return m.length?m:['Unassigned']}
-  return[(CATEGORIES.find(c=>c[0]===p.category)||[,'Other'])[1]];
-}
-/* timeline geometry depends on the zoom (S.mw = px per month) */
-function tlRange(products){
-  let y0=today.getFullYear()-2,y1=today.getFullYear()+3;
-  const ds=[];products.forEach(p=>['supplier_release_date','onboard_date','nrnd_date','ltb_date','eol_date'].forEach(k=>p[k]&&ds.push(d(p[k]).getFullYear())));
-  const ids=new Set(products.map(p=>p.id));S.data.events.forEach(e=>{if(ids.has(e.product_id)&&e.event_date)ds.push(d(e.event_date).getFullYear())});
-  if(ds.length){y0=Math.max(today.getFullYear()-12,Math.min(y0,...ds));y1=Math.min(today.getFullYear()+12,Math.max(y1,...ds))}
-  return[y0,y1];
-}
-function timeline(products){return`<div class="tl" style="--lw:${LW}px">${timelineInner(products)}</div>`}
-function timelineInner(products){
-  const MW=S.mw,[y0,y1]=tlRange(products);S.tlY0=y0;const start=new Date(y0,0,1),months=(y1-y0+1)*12,W=months*MW;
-  const X=dt=>{const m=(dt.getFullYear()-y0)*12+dt.getMonth()+(dt.getDate()-1)/new Date(dt.getFullYear(),dt.getMonth()+1,0).getDate();return Math.max(0,Math.min(W,m*MW))};
-  const MN=['J','F','M','A','M','J','J','A','S','O','N','D'],MS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  let head='';
-  for(let m=0;m<months;m++){const mo=m%12,x=m*MW;
-    if(mo===0)head+=`<div class="tl-y" style="left:${x+4}px">${y0+m/12}</div>`;
-    if(MW>=36)head+=`<div class="tl-q${mo%3===0?' qs':''}" style="left:${x+4}px">${MW>=48?MS[mo]:MN[mo]}</div>`;
-    else if(MW>=9&&mo%3===0)head+=`<div class="tl-q" style="left:${x+4}px">Q${mo/3+1}</div>`;}
-  const tx=X(today);S.tlToday=tx;head+=`<div class="tl-now" style="left:${tx}px">Today</div>`;
-  const groups=new Map();products.forEach(p=>groupKeys(p).forEach(k=>{if(!groups.has(k))groups.set(k,[]);groups.get(k).push(p)}));
-  let keys=[...groups.keys()];
-  if(S.f.group==='category'){const o=CATEGORIES.map(c=>c[1]);keys.sort((a,b)=>o.indexOf(a)-o.indexOf(b))}
-  else if(S.f.group==='market'){const o=S.data.markets.map(m=>m.name);keys.sort((a,b)=>(o.indexOf(a)<0?99:o.indexOf(a))-(o.indexOf(b)<0?99:o.indexOf(b)))}
-  else keys.sort();
-  const firstDate=p=>p.supplier_release_date||p.onboard_date||'9999';
-  const lines=[`repeating-linear-gradient(to right,color-mix(in srgb,var(--mut) 32%,transparent) 0 1px,transparent 1px ${MW*12}px)`];
-  if(MW>=9)lines.push(`repeating-linear-gradient(to right,var(--line) 0 1px,transparent 1px ${MW*3}px)`);
-  if(MW>=36)lines.push(`repeating-linear-gradient(to right,color-mix(in srgb,var(--line) 55%,transparent) 0 1px,transparent 1px ${MW}px)`);
-  const grid=`background-image:${lines.join(',')}`;
-  let body='';
-  keys.forEach(k=>{const L=groups.get(k).sort((a,b)=>firstDate(a).localeCompare(firstDate(b)));
-    body+=`<div class="tl-grp"><div class="tl-glab">${esc(k)} · ${L.length}</div></div>`;
-    L.forEach(p=>body+=tlRow(p,X,W,grid))});
-  return`<div class="tl-in" style="width:${LW+W}px"><div class="tl-head"><div class="tl-corner">${products.length} product${products.length===1?'':'s'}<b class="tl-yl"></b></div><div class="tl-years" style="width:${W}px">${head}</div></div>${body}<div class="tl-today" style="left:${LW+tx}px"></div></div>`;
-}
-function tlRow(p,X,W,grid){
-  const ph=phase(p),pts=[],rd=d(p.supplier_release_date),od=d(p.onboard_date),nd=d(p.nrnd_date),ld=d(p.ltb_date),ed=d(p.eol_date);
-  if(p.lifecycle==='development'&&rd&&rd>today){pts.push([today,'development']);pts.push([rd,'evaluating'])} // building now → supplier release → evaluation
-  else if(rd)pts.push([rd,od?'evaluating':(RANK[p.lifecycle]>=2?'active':p.lifecycle)]);
-  if(od)pts.push([od,'active']);if(nd)pts.push([nd,'nrnd']);if(ld)pts.push([ld,'ltb']);if(ed)pts.push([ed,'end']);
-  pts.sort((a,b)=>a[0]-b[0]);
-  let bars='';
-  if(!pts.length){const c=LC[ph]?.c||'#999',tx=X(today);
-    bars=`<div class="bar" style="left:0;width:${W}px;background:${c};opacity:.22"></div>`
-      +`<div class="nodates" style="left:${tx+8}px;color:${c}">no dates · ${esc(LC[ph]?.l||'')}</div>`}
-  for(let i=0;i<pts.length;i++){const[dt,k]=pts[i];if(k==='end')break;const x0=X(dt),x1=pts[i+1]?X(pts[i+1][0]):W;if(x1-x0<1)continue;const c=LC[k]?.c||'#999',plan=k==='development'||k==='evaluating'||k==='onboarding';
-    bars+=`<div class="bar" style="left:${x0}px;width:${x1-x0}px;${plan?`background:repeating-linear-gradient(135deg,${c}66 0 4px,transparent 4px 8px);box-shadow:inset 0 0 0 1.5px ${c}`:`background:${c}`}"></div>`}
-  if(ld)bars+=`<div class="mk" style="left:${X(ld)}px;background:${LC.ltb.c}"></div>`;
-  if(ed)bars+=`<div class="mk" style="left:${X(ed)}px;background:#6B7280"></div>`;
-  S.data.events.filter(e=>e.product_id===p.id&&e.event_date).forEach(e=>{
-    bars+=`<div class="evm" style="left:${X(d(e.event_date))}px;--c:${EVC[e.kind]||'#2563eb'}" data-act="edit" data-arg="events" data-id="${e.id}"></div>`});
-  const tr=S.data.transitions.filter(t=>t.from_product_id===p.id);
-  if(tr.length){const anchor=ed||ld||nd;if(anchor){const x=Math.min(X(anchor)+12,W-90);bars+=tr.slice(0,1).map(t=>`<div class="tl-next" style="left:${x}px" data-act="transition" data-id="${t.id}">→ ${esc(pnOf(t.to_product_id))}${tr.length>1?' +'+(tr.length-1):''}</div>`).join('')}}
-  return`<div class="tl-row" data-act="product" data-id="${p.id}"><div class="tl-lab"><b><i class="dot" style="background:${esc(sup(p)?.color||'#999')};width:7px;height:7px;margin-right:5px;vertical-align:1px"></i>${esc(p.part_number)}</b><span>${esc(p.name)}</span></div><div class="tl-track" style="width:${W}px;${grid}">${bars}</div></div>`;
-}
-function saveTl(){const t=$('.tl');if(t)S.tlScroll=[S.tlY0*12+t.scrollLeft/S.mw,t.scrollTop]}
-function tlYear(){const t=$('.tl'),y=$('.tl-yl');if(!t||!y||S.tlY0==null)return;
-  const m=Math.max(0,t.scrollLeft/S.mw),yr=S.tlY0+Math.floor(m/12),mo=Math.floor(m%12);
-  y.textContent=(MSHORT[mo]||'')+' '+yr+' →'}
-const MSHORT=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-document.addEventListener('scroll',e=>{if(e.target.classList&&e.target.classList.contains('tl'))tlYear()},true);
-function restoreTl(){
-  const tl=$('.tl');if(!tl)return;
-  if(S.tlScroll){tl.scrollLeft=(S.tlScroll[0]-S.tlY0*12)*S.mw;tl.scrollTop=S.tlScroll[1]}
-  else tl.scrollLeft=Math.max(0,S.tlToday-(tl.clientWidth-LW)*0.3);
-  tlYear();
-}
-/* zoom, keeping the date under `clientX` fixed on screen */
-function setZoom(mw,clientX){hovHide();
-  const tl=$('.tl');mw=Math.max(ZMIN,Math.min(ZMAX,mw));
-  if(!tl){S.mw=mw;return}
-  const r=tl.getBoundingClientRect(),cx=clientX??(r.left+LW+(r.width-LW)/2);
-  const xIn=Math.max(LW,cx-r.left),month=(tl.scrollLeft+xIn-LW)/S.mw;
-  if(Math.abs(mw-S.mw)<0.05)return;
-  S.mw=mw;const st=tl.scrollTop;
-  tl.innerHTML=timelineInner(S.rows);
-  tl.scrollLeft=month*S.mw-xIn+LW;tl.scrollTop=st;tlYear();
-  const zl=$('.zl');if(zl)zl.textContent=S.mw>=36?'Months':S.mw>=9?'Quarters':'Years';
-  clearTimeout(setZoom.t);setZoom.t=setTimeout(saveView,300);
-}
-function zoomToday(){const tl=$('.tl');if(tl)tl.scrollTo({left:Math.max(0,S.tlToday-(tl.clientWidth-LW)*0.3),behavior:'smooth'})}
 
-/* ---------- Products tab ---------- */
-function viewProducts(){return viewRoadmap()}
-const rmv=()=>S.tab==='products'?'list':S.rmView;   // Products tab always shows the table
-const ICO_TL='<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h10M8 12h12M4 17h8"/></svg>';
-const ICO_LIST='<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/></svg>';
+/* ---------- row building blocks: part-number drop-down, tags, next milestone, key details ---------- */
+let _pnm={src:null,n:-1,m:new Map()};
+function pnsOf(p){
+  const L=S.data.part_numbers;
+  if(_pnm.src!==L||_pnm.n!==L.length){const m=new Map();L.forEach(x=>{if(!m.has(x.product_id))m.set(x.product_id,[]);m.get(x.product_id).push(x)});
+    m.forEach(a=>a.sort((x,y)=>String(x.part_number).localeCompare(String(y.part_number))));_pnm={src:L,n:L.length,m}}
+  return _pnm.m.get(p.id)||[];
+}
+// one part number: plain text; several: a drop-down listing all of them (with variant, status, LTB)
+function pnSel(p,plain){
+  const L=pnsOf(p);
+  if(!L.length)return`<span class="pnx ${p.product_code?'':'pn0'}">${esc(p.product_code||'No part numbers')}</span>`;
+  if(L.length===1||plain)return`<span class="pnx">${esc(L[0].part_number)}${L.length>1?` <span class="pnc">+${L.length-1}</span>`:''}</span>`;
+  const o=x=>[x.part_number,x.variant,x.status,x.ltb_date&&'LTB '+fmtMY(x.ltb_date)].filter(Boolean).map(esc).join(' · ');
+  return`<span class="pnw"><select class="pnsel" data-act="noop" aria-label="Part numbers for ${esc(p.part_number)}" title="${L.length} part numbers">${L.map(x=>`<option>${o(x)}</option>`).join('')}</select><span class="pnc">${L.length}</span></span>`;
+}
+const supTag=p=>sup(p)?`<span class="tg2">${ic(I.bld)}${esc(sup(p).name)}</span>`:'';
+const mktTags=p=>(p.markets||[]).map(m=>`<span class="tg2">${ic(I.mkt)}${esc(m)}</span>`).join('');
+const rowTags=p=>{const h=(S.det.sup?supTag(p):'')+(S.det.mkt?mktTags(p):'');return h?`<div class="tags">${h}</div>`:''};
+function nextMs(p){
+  for(const[k,l,c]of[['nrnd_date','Phasing out',LC.nrnd.t],['ltb_date','Last-time buy',LC.ltb.c],['eol_date','End of life','#6B7280']])if(p[k]&&d(p[k])>=today)return{l,date:p[k],c};
+  if(['development','evaluating','onboarding'].includes(p.lifecycle)){
+    if(p.supplier_release_date&&d(p.supplier_release_date)>=today)return{l:'Release',date:p.supplier_release_date};
+    if(p.onboard_date&&d(p.onboard_date)>=today)return{l:'Onboarding',date:p.onboard_date}}
+  return null;
+}
+function nmCell(p){const m=nextMs(p);
+  return m?`<div class="nm" ${m.c?`style="--c:${m.c}"`:''} title="${relTxt(m.date)}">${ic(I.cal)}<div><b>${m.l}</b><span>${fmt(m.date)}</span></div></div>`:`<div class="nm none">${ic(I.cal)}<span>—</span></div>`}
+function keyCell(p){
+  const ph=phase(p),out=S.data.transitions.filter(t=>t.from_product_id===p.id),inn=S.data.transitions.filter(t=>t.to_product_id===p.id),c=completeness(p);
+  let l1;
+  if(out.length===1)l1=`<a data-act="transition" data-id="${out[0].id}">→ ${esc(pnOf(out[0].to_product_id))}</a>`;
+  else if(out.length>1)l1=`<a data-act="product" data-id="${p.id}">${out.length} successors</a>`;
+  else if(['nrnd','ltb','eol'].includes(ph))l1='<span class="warn">No successor</span>';
+  else if(inn.length)l1=`<span>Replaces ${esc(inn.map(t=>pnOf(t.from_product_id)).join(', '))}</span>`;
+  else l1=ph==='active'?'<span>Stable</span>':['development','evaluating','onboarding'].includes(ph)?'<span>In qualification</span>':'<span class="mut">—</span>';
+  return`<div class="kd">${l1}<div class="dq" title="${c.missing.length?'Missing: '+esc(c.missing.join(', ')):'Complete'}"><span class="meter"><i style="width:${Math.round(c.ratio*100)}%;background:${c.ratio===1?'var(--ok)':c.ratio>=.5?'var(--warn)':'var(--bad)'}"></i></span>${c.done}/${c.total} data${c.missing.length?` · missing ${esc(c.missing.slice(0,2).join(', ').toLowerCase())}${c.missing.length>2?'…':''}`:''}</div></div>`;
+}
+function pcard(p){
+  const ph=phase(p);
+  return`<div class="pcard" data-act="product" data-id="${p.id}">
+    <div class="pch"><div class="pnm"><b title="${esc(p.name)}">${esc(p.part_number)}</b>${pnSel(p)}</div>${badge(ph)}</div>
+    <div class="mut ell" style="font-size:12.5px">${esc(p.name)}</div>
+    <div class="tags">${supTag(p)}${mktTags(p)}</div>
+    <div class="pcf">${nmCell(p)}${keyCell(p)}</div></div>`;
+}
+/* sortable product table (Products page, and Portfolio → List grouped like the timeline) */
+const PCOLS=[['part','Product'],['status','Lifecycle'],['sup','Supplier'],['mkt','Market / Industry'],['next','Next milestone'],['comp','Key details']];
+const LCOLS=[
+  ['part','Product',p=>p.part_number.toLowerCase()],
+  ['status','Lifecycle',p=>['development','evaluating','onboarding','active','nrnd','ltb','eol','rejected'].indexOf(phase(p))],
+  ['sup','Supplier',p=>(sup(p)?.name||'').toLowerCase()||null],
+  ['mkt','Market',p=>((p.markets||[])[0]||'').toLowerCase()||null],
+  ['next','Next milestone',p=>nextMs(p)?.date||null],
+  ['comp','Key details',p=>completeness(p).ratio]];
+function listRows(ps,inc){
+  let L=ps.slice();if(inc)L=L.filter(p=>completeness(p).ratio<1);
+  const col=LCOLS.find(c=>c[0]===S.lsort.k)||LCOLS[0],dir=S.lsort.dir;
+  return L.sort((a,b)=>{const x=col[2](a),y=col[2](b);if(x==null&&y==null)return a.part_number.localeCompare(b.part_number);if(x==null)return 1;if(y==null)return-1;
+    return(x<y?-1:x>y?1:a.part_number.localeCompare(b.part_number))*dir});
+}
+function prodTable(L,grouped){
+  const th=PCOLS.map(([k,l])=>`<th class="${S.lsort.k===k?'on':''}" data-act="lsort" data-arg="${k}">${l}${S.lsort.k===k?(S.lsort.dir>0?' ↑':' ↓'):''}</th>`).join('');
+  const tr=p=>`<tr data-act="product" data-id="${p.id}">
+    <td class="pcol"><div class="pnm"><b title="${esc(p.name)}">${esc(p.part_number)}</b>${pnSel(p)}</div></td>
+    <td>${badge(phase(p))}</td>
+    <td class="psup">${sup(p)?`<span class="supn">${ic(I.bld)}${esc(sup(p).name)}</span>`:'<span class="mut">—</span>'}</td>
+    <td><div class="tags">${mktTags(p)||'<span class="mut">—</span>'}</div></td>
+    <td>${nmCell(p)}</td><td>${keyCell(p)}</td></tr>`;
+  let body='';
+  if(grouped){const g=groupMap(L);g.keys.forEach(k=>{const R=g.map.get(k),c=S.coll.includes(k);
+    body+=`<tr class="pgrp" data-act="grptog" data-arg="${esc(k)}"><td colspan="${PCOLS.length}"><i class="chev ${c?'':'open'}"></i>${esc(k)} <span>(${R.length})</span></td></tr>`+(c?'':R.map(tr).join(''))})}
+  else body=L.map(tr).join('');
+  return`<div class="ptw"><table class="ptab"><thead><tr>${th}</tr></thead><tbody>${body}</tbody></table></div>`;
+}
+function exportCSV(){
+  const L=listRows(S.rows,S.tab==='products'&&S.incOnly),q=v=>{v=v==null?'':String(v);return/[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
+  const ORD=[...new Set(Object.values(HWT).flat())],hwk=[...new Set(L.flatMap(p=>Object.keys(p.hardware||{})))].sort((a,b)=>(ORD.indexOf(a)+1||99)-(ORD.indexOf(b)+1||99));
+  const H=['Product ID','Part number','Description','Supplier','Category','Status','Supplier release','Onboard','NRND','LTB','Last ship','EOL','List price','Cost','Currency','Price basis','Inputs','Outputs','I/O types','CAN ports','Ethernet ports','Interfaces','CAN protocols','Markets','Successor','Missing data','Part numbers',...hwk.map(k=>'HW: '+k)];
+  const rows=L.map(p=>[p.product_code,p.part_number,p.name,sup(p)?.name,CATS1[p.category],LC[phase(p)]?.l,p.supplier_release_date,p.onboard_date,p.nrnd_date,p.ltb_date,p.last_ship_date,p.eol_date,p.list_price,p.cost,p.currency,p.price_basis,p.inputs,p.outputs,(p.io_types||[]).join('; '),p.can_ports,p.ethernet_ports,(p.interfaces||[]).join('; '),(p.can_protocols||[]).join('; '),(p.markets||[]).join('; '),S.data.transitions.filter(t=>t.from_product_id===p.id).map(t=>pnOf(t.to_product_id)).join('; '),completeness(p).missing.join('; '),pnsOf(p).map(x=>x.part_number).join('; '),...hwk.map(k=>(p.hardware||{})[k])].map(q).join(','));
+  const b=new Blob(['﻿'+[H.join(','),...rows].join('\r\n')],{type:'text/csv'}),a=document.createElement('a');
+  a.href=URL.createObjectURL(b);a.download=`portfolium-${iso(today)}.csv`;document.body.appendChild(a);a.click();a.remove();
+}
 /* what a product record should have, depending on its category / status */
 function completeness(p){
   const sw=p.category==='software',ph=phase(p),c=[];
@@ -1008,56 +1120,139 @@ function completeness(p){
   const done=c.filter(x=>x[1]).length;
   return{done,total:c.length,ratio:c.length?done/c.length:1,missing:c.filter(x=>!x[1]).map(x=>x[0])};
 }
-const LCOLS=[
-  ['part','Product',p=>p.part_number.toLowerCase()],
-  ['sup','Supplier',p=>(sup(p)?.name||'').toLowerCase()],
-  ['status','Status',p=>['development','evaluating','onboarding','active','nrnd','ltb','eol','rejected'].indexOf(phase(p))],
-  ['rel','Release',p=>p.supplier_release_date||p.onboard_date||null],
-  ['nrnd','NRND',p=>p.nrnd_date||null],['ltb','LTB',p=>p.ltb_date||null],['eol','EOL',p=>p.eol_date||null],
-  ['price','List price',p=>p.list_price??null],
-  ['io','I/O',p=>totalIO(p)],
-  ['if','Intf.',p=>(p.interfaces||[]).length||null],
-  ['comp','Complete',p=>completeness(p).ratio]];
-function listRows(ps){
-  let L=ps.slice();if(S.incOnly)L=L.filter(p=>completeness(p).ratio<1);
-  const col=LCOLS.find(c=>c[0]===S.lsort.k)||LCOLS[0],dir=S.lsort.dir;
-  return L.sort((a,b)=>{const x=col[2](a),y=col[2](b);if(x==null&&y==null)return a.part_number.localeCompare(b.part_number);if(x==null)return 1;if(y==null)return-1;
-    return(x<y?-1:x>y?1:a.part_number.localeCompare(b.part_number))*dir});
+
+/* ---------- timeline ---------- */
+const ICO_TL='<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h10M8 12h12M4 17h8"/></svg>';
+const ICO_LIST='<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/></svg>';
+// width of the sticky product column: wider when the supplier / market tags are shown
+function calcLW(){if(!wide())return 150;const big=innerWidth>=1300,det=S.det.sup||S.det.mkt;return(det?(big?330:250):(big?220:180))+(big?118:110)}
+function timelineSection(ps,ids){
+  const up=upcoming(12,ids).slice(0,10);
+  const hat=c=>`background:repeating-linear-gradient(135deg,${c}55 0 3px,transparent 3px 6px);box-shadow:inset 0 0 0 1.5px ${c}`;
+  const lg=(st,l,s)=>`<span class="lg"><i style="${st}"></i><span>${l}${wide()&&s?`<small>${s}</small>`:''}</span></span>`;
+  return`${timeline(ps)}
+  <div class="legend"><b>Lifecycle:</b>${lg(hat(LC.development.c),'Development','Building &amp; testing')}${lg(hat(LC.evaluating.c),'Evaluation','Assessing, onboarding')}${lg('background:'+LC.active.c,'Active','In market')}${lg('background:'+LC.nrnd.c,'Phasing out','Planned replacement')}${lg('background:'+LC.ltb.c,'Last-time buy','Final purchase window')}${lg('background:'+LC.active.c+';opacity:.22','No dates yet','Current status only')}
+    <span class="lsep"></span><b>Milestones:</b><span class="lg"><i class="dm"></i>Release</span><span class="lg"><i class="dm eol"></i>EOL</span><span class="lg"><i class="dm ev"></i>Event</span><span class="lg" style="color:var(--acc);font-weight:600">→ Successor</span>
+    <span class="ztip">${'ontouchstart' in window?'Pinch to zoom':'Ctrl/⌘ + scroll to zoom'}</span></div>
+  <div class="sec"><h2>Next 12 months</h2>${canEdit()?`<button class="btn ghost sm" data-act="new" data-arg="events">+ Event</button>`:''}</div>
+  ${up.length?`<div class="card">${up.map(upItem).join('')}</div>`:'<div class="card empty">Nothing scheduled in the next 12 months.</div>'}`;
 }
-function listSection(ps){
-  const L=listRows(ps);
-  if(!L.length)return'<div class="card empty">No products match these filters.</div>';
-  if(!wide())return`<div class="glist">${L.map(productItem).join('')}</div>`;
-  const th=LCOLS.map(([k,l])=>`<th class="${S.lsort.k===k?'on':''} ${['price','io','if','comp'].includes(k)?'r':''}" data-act="lsort" data-arg="${k}">${l}${S.lsort.k===k?(S.lsort.dir>0?' ▲':' ▼'):''}</th>`).join('');
-  const dt=(v,warn)=>v?`<span class="${warn&&d(v)>=today&&daysUntil(v)<180?'soon':''}">${fmtMY(v)}</span>`:'<span class="cn">—</span>';
-  const rows=L.map(p=>{const c=completeness(p),s=sup(p);
-    return`<tr data-act="product" data-id="${p.id}">
-      <td><b>${esc(p.part_number)}</b><div class="mut ell">${esc(CATS1[p.category]||'')} · ${esc(p.name)}</div>${c.missing.length?`<div class="miss">Missing: ${esc(c.missing.join(', '))}</div>`:''}</td>
-      <td class="nw sup" title="${esc(s?.name||'')}"><i class="dot" style="background:${esc(s?.color||'#999')};width:8px;height:8px"></i> ${esc(s?.name||'')}</td>
-      <td>${badge(phase(p))}</td>
-      <td class="nw">${dt(p.supplier_release_date||p.onboard_date)}</td><td class="nw">${dt(p.nrnd_date)}</td><td class="nw">${dt(p.ltb_date,1)}</td><td class="nw">${dt(p.eol_date,1)}</td>
-      <td class="r nw">${p.list_price!=null?money(p.list_price,p.currency):'<span class="cn">—</span>'}</td>
-      <td class="r">${totalIO(p)??'<span class="cn">—</span>'}</td>
-      <td class="r" title="${esc((p.interfaces||[]).join(', '))}">${(p.interfaces||[]).length||'<span class="cn">—</span>'}</td>
-      <td class="r nw" title="${c.missing.length?'Missing: '+esc(c.missing.join(', ')):'Complete'}"><span class="meter"><i style="width:${Math.round(c.ratio*100)}%;background:${c.ratio===1?'var(--ok)':c.ratio>=.5?'var(--warn)':'var(--bad)'}"></i></span> ${c.done}/${c.total}</td></tr>`}).join('');
-  const inc=ps.filter(p=>completeness(p).ratio<1).length;
-  return`<div class="mut lsum">${L.length} product${L.length===1?'':'s'} · ${inc} with missing data · click a column to sort</div><div class="ltw"><table class="ltab"><thead><tr>${th}</tr></thead><tbody>${rows}</tbody></table></div>`;
+function upcoming(months,ids){
+  const lim=new Date(today);lim.setMonth(lim.getMonth()+months);const out=[];
+  const supOk=sid=>!S.F.sup.length||S.F.sup.includes(sid),otherF=activeCount()-S.F.sup.length;
+  S.data.products.forEach(p=>{if(ids&&!ids.has(p.id))return;if(phase(p)==='rejected')return;[['nrnd_date','Phasing out','nrnd'],['ltb_date','Last-time buy','ltb'],['eol_date','End of life','eol'],['supplier_release_date','Supplier release','evaluating'],['onboard_date','Onboard','active']].forEach(([k,l,c])=>{const x=d(p[k]);if(x&&x>=today&&x<=lim)out.push({date:p[k],l,c,p})})});
+  S.data.events.forEach(e=>{const x=d(e.event_date);if(!(x&&x>=today&&x<=lim))return;
+    if(ids&&(e.product_id?!ids.has(e.product_id):(otherF>0||!supOk(e.supplier_id))))return;
+    out.push({date:e.event_date,l:e.title,e})});
+  return out.sort((a,b)=>a.date.localeCompare(b.date));
 }
-function exportCSV(){
-  const L=listRows(S.rows),q=v=>{v=v==null?'':String(v);return/[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
-  const ORD=[...new Set(Object.values(HWT).flat())],hwk=[...new Set(L.flatMap(p=>Object.keys(p.hardware||{})))].sort((a,b)=>(ORD.indexOf(a)+1||99)-(ORD.indexOf(b)+1||99));
-  const H=['Product ID','Part number','Description','Supplier','Category','Status','Supplier release','Onboard','NRND','LTB','Last ship','EOL','List price','Cost','Currency','Price basis','Inputs','Outputs','I/O types','CAN ports','Ethernet ports','Interfaces','CAN protocols','Markets','Successor','Missing data',...hwk.map(k=>'HW: '+k)];
-  const rows=L.map(p=>[p.product_code,p.part_number,p.name,sup(p)?.name,CATS1[p.category],LC[phase(p)]?.l,p.supplier_release_date,p.onboard_date,p.nrnd_date,p.ltb_date,p.last_ship_date,p.eol_date,p.list_price,p.cost,p.currency,p.price_basis,p.inputs,p.outputs,(p.io_types||[]).join('; '),p.can_ports,p.ethernet_ports,(p.interfaces||[]).join('; '),(p.can_protocols||[]).join('; '),(p.markets||[]).join('; '),S.data.transitions.filter(t=>t.from_product_id===p.id).map(t=>pnOf(t.to_product_id)).join('; '),completeness(p).missing.join('; '),...hwk.map(k=>(p.hardware||{})[k])].map(q).join(','));
-  const b=new Blob(['﻿'+[H.join(','),...rows].join('\r\n')],{type:'text/csv'}),a=document.createElement('a');
-  a.href=URL.createObjectURL(b);a.download=`portfolio-${iso(today)}.csv`;document.body.appendChild(a);a.click();a.remove();
+function upItem(u){
+  if(u.e)return`<div class="ev" data-act="edit" data-arg="events" data-id="${u.e.id}"><div class="dt">${fmtMY(u.date)}</div><div class="grow"><b>${esc(u.l)}</b><div class="mut">${esc((EVK.find(k=>k[0]===u.e.kind)||[])[1]||'')} · ${relTxt(u.date)}</div></div></div>`;
+  const x=LC[u.c];
+  return`<div class="ev" data-act="product" data-id="${u.p.id}"><div class="dt">${fmtMY(u.date)}</div><div class="grow"><b>${esc(u.p.part_number)}</b> <span class="pill" style="--c:${x.t||x.c}">${u.l}</span><div class="mut ell">${esc(u.p.name)} · ${relTxt(u.date)}</div></div></div>`;
 }
-function productResults(){
-  const L=filtered().sort((a,b)=>a.part_number.localeCompare(b.part_number));
-  return`${filterPills()}<div class="glist">${L.length?L.map(productItem).join(''):'<div class="empty">No products match these filters.</div>'}</div>`;
+function groupKeys(p){
+  if(S.f.group==='supplier')return[sup(p)?.name||'No supplier'];
+  if(S.f.group==='market'){const m=(p.markets||[]).filter(x=>!S.F.mkt.length||S.F.mkt.includes(x));return m.length?m:['Unassigned']}
+  if(S.f.group==='lifecycle')return[(PHG.find(g=>g[0]===PHG_OF[phase(p)])||[,'Other'])[1]];
+  return[(CATEGORIES.find(c=>c[0]===p.category)||[,'Other'])[1]];
 }
-function productItem(p){
-  const s=sup(p),nm=nextMilestone(p);
-  return`<div class="li" data-act="product" data-id="${p.id}"><i class="dot" style="background:${esc(s?.color||'#999')}"></i><div class="grow"><div class="pn">${esc(p.part_number)} <span class="mut" style="font-weight:400">· ${esc(p.sub_type||CATS1[p.category]||'')}</span></div><div class="mut ell">${esc(p.name)}</div>${nm?`<div class="mut" style="font-size:12px">${nm.l} ${relTxt(nm.date)}</div>`:''}</div>${badge(phase(p))}</div>`;
+function groupMap(products){
+  const map=new Map();products.forEach(p=>groupKeys(p).forEach(k=>{if(!map.has(k))map.set(k,[]);map.get(k).push(p)}));
+  let keys=[...map.keys()];const ord=o=>(a,b)=>(o.indexOf(a)<0?99:o.indexOf(a))-(o.indexOf(b)<0?99:o.indexOf(b));
+  if(S.f.group==='category')keys.sort(ord(CATEGORIES.map(c=>c[1])));
+  else if(S.f.group==='market')keys.sort(ord(S.data.markets.map(m=>m.name)));
+  else if(S.f.group==='lifecycle')keys.sort(ord(PHG.map(g=>g[1])));
+  else keys.sort();
+  return{map,keys};
+}
+/* timeline geometry depends on the zoom (S.mw = px per month) */
+function tlRange(products){
+  let y0=today.getFullYear()-2,y1=today.getFullYear()+3;
+  const ds=[];products.forEach(p=>['supplier_release_date','onboard_date','nrnd_date','ltb_date','eol_date'].forEach(k=>p[k]&&ds.push(d(p[k]).getFullYear())));
+  const ids=new Set(products.map(p=>p.id));S.data.events.forEach(e=>{if(ids.has(e.product_id)&&e.event_date)ds.push(d(e.event_date).getFullYear())});
+  if(ds.length){y0=Math.max(today.getFullYear()-12,Math.min(y0,...ds));y1=Math.min(today.getFullYear()+12,Math.max(y1,...ds))}
+  return[y0,y1];
+}
+function timeline(products){return`<div class="tl" style="--lw:${LW}px">${timelineInner(products)}</div>`}
+function timelineInner(products){
+  const MW=S.mw,[y0,y1]=tlRange(products);S.tlY0=y0;const months=(y1-y0+1)*12,W=months*MW;
+  const X=dt=>{const m=(dt.getFullYear()-y0)*12+dt.getMonth()+(dt.getDate()-1)/new Date(dt.getFullYear(),dt.getMonth()+1,0).getDate();return Math.max(0,Math.min(W,m*MW))};
+  const MN=['J','F','M','A','M','J','J','A','S','O','N','D'],MS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  let head='';
+  for(let m=0;m<months;m++){const mo=m%12,x=m*MW;
+    if(mo===0)head+=`<div class="tl-y" style="left:${x+4}px">${y0+m/12}</div>`;
+    if(MW>=36)head+=`<div class="tl-q${mo%3===0?' qs':''}" style="left:${x+4}px">${MW>=48?MS[mo]:MN[mo]}</div>`;
+    else if(MW>=9&&mo%3===0)head+=`<div class="tl-q" style="left:${x+4}px">Q${mo/3+1}</div>`;}
+  const tx=X(today);S.tlToday=tx;head+=`<div class="tl-now" style="left:${tx}px">Today</div>`;
+  const g=groupMap(products),firstDate=p=>p.supplier_release_date||p.onboard_date||'9999';
+  const lines=[`repeating-linear-gradient(to right,color-mix(in srgb,var(--mut) 32%,transparent) 0 1px,transparent 1px ${MW*12}px)`];
+  if(MW>=9)lines.push(`repeating-linear-gradient(to right,var(--line) 0 1px,transparent 1px ${MW*3}px)`);
+  if(MW>=36)lines.push(`repeating-linear-gradient(to right,color-mix(in srgb,var(--line) 55%,transparent) 0 1px,transparent 1px ${MW}px)`);
+  const grid=`background-image:${lines.join(',')}`;
+  let body='';
+  g.keys.forEach(k=>{const L=g.map.get(k).sort((a,b)=>firstDate(a).localeCompare(firstDate(b))),c=S.coll.includes(k);
+    body+=`<div class="tl-grp" data-act="grptog" data-arg="${esc(k)}"><div class="tl-glab"><i class="chev ${c?'':'open'}"></i>${esc(k)} <span>(${L.length})</span></div></div>`;
+    if(!c)L.forEach(p=>body+=tlRow(p,X,W,grid))});
+  return`<div class="tl-in" style="width:${LW+W}px"><div class="tl-head"><div class="tl-corner"><div class="tcn"><b>Product (${products.length})</b><span class="tl-yl"></span></div>${wide()?'<b class="tcl">Lifecycle</b>':''}</div><div class="tl-years" style="width:${W}px">${head}</div></div>${body}<div class="tl-today" style="left:${LW+tx}px"></div></div>`;
+}
+function tlRow(p,X,W,grid){
+  const ph=phase(p),pts=[],rd=d(p.supplier_release_date),od=d(p.onboard_date),nd=d(p.nrnd_date),ld=d(p.ltb_date),ed=d(p.eol_date);
+  if(p.lifecycle==='development'&&rd&&rd>today){pts.push([today,'development']);pts.push([rd,'evaluating'])} // building now → supplier release → evaluation
+  else if(rd)pts.push([rd,od?'evaluating':(RANK[p.lifecycle]>=2?'active':p.lifecycle)]);
+  if(od)pts.push([od,'active']);if(nd)pts.push([nd,'nrnd']);if(ld)pts.push([ld,'ltb']);if(ed)pts.push([ed,'end']);
+  pts.sort((a,b)=>a[0]-b[0]);
+  let bars='';
+  if(!pts.length){const c=LC[ph]?.c||'#999',tx=X(today);
+    bars=`<div class="bar" style="left:0;width:${W}px;background:${c};opacity:.22"></div>`
+      +`<div class="nodates" style="left:${tx+8}px;color:${LC[ph]?.t||c}">no dates · ${esc(LC[ph]?.l||'')}</div>`}
+  for(let i=0;i<pts.length;i++){const[dt,k]=pts[i];if(k==='end')break;const x0=X(dt),x1=pts[i+1]?X(pts[i+1][0]):W;if(x1-x0<1)continue;const c=LC[k]?.c||'#999',plan=k==='development'||k==='evaluating'||k==='onboarding';
+    bars+=`<div class="bar" style="left:${x0}px;width:${x1-x0}px;${plan?`background:repeating-linear-gradient(135deg,${c}55 0 4px,transparent 4px 8px);box-shadow:inset 0 0 0 1.5px ${c}`:`background:${c}`}"></div>`}
+  if(rd)bars+=`<div class="ms" style="left:${X(rd)}px" title="Release ${fmt(p.supplier_release_date)}"></div>`;
+  if(ed)bars+=`<div class="ms eol" style="left:${X(ed)}px" title="End of life ${fmt(p.eol_date)}"></div>`;
+  S.data.events.filter(e=>e.product_id===p.id&&e.event_date).forEach(e=>{
+    bars+=`<div class="evm" style="left:${X(d(e.event_date))}px;--c:${EVC[e.kind]||'#2563eb'}" data-act="edit" data-arg="events" data-id="${e.id}"></div>`});
+  const tr=S.data.transitions.filter(t=>t.from_product_id===p.id);
+  if(tr.length){const anchor=ed||ld||nd;if(anchor){const x=Math.min(X(anchor)+12,W-90);bars+=tr.slice(0,1).map(t=>`<div class="tl-next" style="left:${x}px" data-act="transition" data-id="${t.id}">→ ${esc(pnOf(t.to_product_id))}${tr.length>1?' +'+(tr.length-1):''}</div>`).join('')}}
+  const w=wide();
+  return`<div class="tl-row" data-act="product" data-id="${p.id}"><div class="tl-lab"><i class="dot" style="background:${LC[ph]?.c||'#999'}" title="${esc(LC[ph]?.l||'')}"></i>
+    <div class="pnm"><b title="${esc(p.name)}">${esc(p.part_number)}</b>${pnSel(p,!w)}${w?rowTags(p):''}</div>${w?`<div class="plc">${badge(ph)}</div>`:''}</div>
+    <div class="tl-track" style="width:${W}px;${grid}">${bars}</div></div>`;
+}
+function saveTl(){const t=$('.tl');if(t)S.tlScroll=[S.tlY0*12+t.scrollLeft/S.mw,t.scrollTop]}
+function tlYear(){const t=$('.tl'),y=$('.tl-yl');if(!t||!y||S.tlY0==null)return;
+  const m=Math.max(0,t.scrollLeft/S.mw),yr=S.tlY0+Math.floor(m/12),mo=Math.floor(m%12);
+  y.textContent=(MSHORT[mo]||'')+' '+yr+' →'}
+const MSHORT=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+document.addEventListener('scroll',e=>{if(e.target.classList&&e.target.classList.contains('tl'))tlYear()},true);
+/* fit the chosen horizon (e.g. next 12 months, plus a few months of history) to the visible width */
+function fitHorizon(){
+  const tl=$('.tl'),h=HZ.find(x=>x[0]===S.hz);if(!tl||!h||!S.rows.length)return false;
+  const avail=Math.max(120,tl.clientWidth-LW-2),[y0,y1]=tlRange(S.rows);
+  const months=h[0]==='all'?(y1-y0+1)*12:+h[0]+h[2];
+  S.mw=Math.max(ZMIN,Math.min(ZMAX,avail/months));
+  tl.innerHTML=timelineInner(S.rows);
+  tl.scrollLeft=h[0]==='all'?0:Math.max(0,((today.getFullYear()-S.tlY0)*12+today.getMonth()-h[2])*S.mw);
+  tlYear();return true;
+}
+function restoreTl(){
+  const tl=$('.tl');if(!tl)return;
+  if(S.refit||!S.tlScroll){S.refit=false;if(fitHorizon())return;tl.scrollLeft=Math.max(0,S.tlToday-(tl.clientWidth-LW)*0.3)}
+  else{tl.scrollLeft=(S.tlScroll[0]-S.tlY0*12)*S.mw;tl.scrollTop=S.tlScroll[1]}
+  tlYear();
+}
+/* zoom, keeping the date under `clientX` fixed on screen */
+function setZoom(mw,clientX){hovHide();
+  const tl=$('.tl');mw=Math.max(ZMIN,Math.min(ZMAX,mw));
+  if(!tl){S.mw=mw;return}
+  const r=tl.getBoundingClientRect(),cx=clientX??(r.left+LW+(r.width-LW)/2);
+  const xIn=Math.max(LW,cx-r.left),month=(tl.scrollLeft+xIn-LW)/S.mw;
+  if(Math.abs(mw-S.mw)<0.05)return;
+  S.mw=mw;const st=tl.scrollTop;
+  tl.innerHTML=timelineInner(S.rows);
+  tl.scrollLeft=month*S.mw-xIn+LW;tl.scrollTop=st;tlYear();
+  if(S.hz!=='custom'){S.hz='custom';const h=$('#hz');if(h){h.add(new Option('Custom zoom','custom'));h.value='custom'}}
+  clearTimeout(setZoom.t);setZoom.t=setTimeout(saveView,300);
 }
 
 /* ---------- Compare tab ---------- */
@@ -1356,17 +1551,14 @@ const SHEETS={
 /* ---------- actions ---------- */
 async function reload(){try{await loadAll();renderMain();renderSheet()}catch(e){toast(errMsg(e))}}
 const A={
- tab:(id,arg)=>{S.tab=arg;S.stack=[];S.tlScroll=null;renderAll();window.scrollTo(0,0)},
+ tab:(id,arg)=>{S.tab=arg;S.stack=[];S.tlScroll=null;S.fpop=null;renderAll();window.scrollTo(0,0)},
  product:id=>push({type:'product',id}),transition:id=>push({type:'transition',id}),customer:id=>push({type:'customer',id}),
  edit:(id,arg)=>push({type:'form',table:arg,id}),
  new:(id,arg,el)=>push({type:'form',table:arg,defaults:el.dataset.def?JSON.parse(el.dataset.def):{}}),
  back:()=>{S.stack.pop();renderSheet()},closeall:()=>{S.stack=[];renderSheet()},
  async del(id,arg){if(!confirm('Delete this record? This cannot be undone.'))return;try{await remove(arg,id);S.stack.pop();toast('Deleted');renderMain();renderSheet()}catch(e){toast(errMsg(e))}},
- group:(id,arg)=>{S.f.group=arg;refreshResults()},
  fx:(v,k)=>{const L=S.F[k];const i=L.indexOf(v);if(i>=0)L.splice(i,1);else L.push(v);refreshResults()},
  fclr:(id,k)=>{S.F[k]=[];refreshResults()},
- sidecol:()=>{hovHide();S.sideCol=true;$('.split')?.classList.add('collapsed');saveView()},
- sideexp:(id,arg)=>{S.sideCol=false;$('.split')?.classList.remove('collapsed');saveView();if(arg==='search')setTimeout(()=>$('#q')?.focus(),60)},
  fq:()=>{S.F.q='';const q=$('#q');if(q)q.value='';refreshResults()},
  cmpcat:(id,k)=>{S.cmp.cat=k;saveView();renderMain()},
  cmpsel:id=>{cmpSel();const L=S.cmp.sel[S.cmp.cat],i=L.indexOf(id);if(i>=0)L.splice(i,1);else L.push(id);refreshCompare()},
@@ -1375,9 +1567,13 @@ const A={
  cmpmetric:(id,k)=>{S.cmp.metric=k;refreshCompare()},cmpprice:(id,k)=>{S.cmp.priceBy=k;refreshCompare()},
  cmpgo:id=>{const p=byId('products',id);if(!p)return;S.cmp.cat=p.category;cmpSel();const L=S.cmp.sel[p.category];if(!L.includes(id))L.unshift(id);S.tab='compare';S.stack=[];saveView();renderAll();window.scrollTo(0,0)},
  fclrall:()=>{FGROUPS.forEach(g=>S.F[g.k]=[]);S.F.q='';const q=$('#q');if(q)q.value='';refreshResults()},
- ftoggle:(id,arg,el)=>{S.fOpen=!S.fOpen;$('#fbody')?.classList.toggle('open',S.fOpen);el.setAttribute('aria-expanded',S.fOpen)},
- zoom:(id,arg)=>{if(arg==='today')return zoomToday();setZoom(S.mw*(arg==='in'?1.4:1/1.4))},
- statgo:(id,arg)=>{if(arg==='mig'){S.tab='transitions';S.stack=[];renderAll();window.scrollTo(0,0)}else{S.F.ph=arg==='pipeline'?['dev','pipeline']:[arg];S.rmView='list';refreshResults();const r=$('#results');r&&r.scrollIntoView({behavior:'smooth',block:'start'})}},
+ fpop:(id,k)=>{S.fpop=S.fpop===k?null:k;const c=$('#fctl');if(c)c.innerHTML=fctl();renderFpop()},
+ fpclose:()=>{S.fpop=null;const c=$('#fctl');if(c)c.innerHTML=fctl();renderFpop()},
+ noop:()=>{},
+ grptog:(id,k)=>{const i=S.coll.indexOf(k);if(i>=0)S.coll.splice(i,1);else S.coll.push(k);refreshResults()},
+ pview:(id,k)=>{S.pView=k;refreshResults()},
+ statgo:(id,arg)=>{if(arg==='mig'){S.tab='transitions';S.stack=[];renderAll();window.scrollTo(0,0);return}
+   S.F.ph=arg==='total'||kpiOn(arg)?[]:[...KPI_PH[arg]];refreshResults()},
  rmview:(id,k)=>{S.rmView=k;S.tlScroll=null;refreshResults()},
  lsort:(id,k)=>{if(S.lsort.k===k)S.lsort.dir*=-1;else S.lsort={k,dir:k==='comp'?1:['price','io','if'].includes(k)?-1:1};refreshResults()},
  csv:()=>exportCSV(),
@@ -1398,6 +1594,9 @@ document.addEventListener('change',async e=>{
   if(t.type==='checkbox'&&t.closest('label.chip'))t.closest('label.chip').classList.toggle('on',t.checked);
   if(t.name==='category'&&t.closest('#frm')){const box=$('#hwfields');if(box)box.innerHTML=hwFieldsHTML(t.value,collectHW(box));return}
   if(t.dataset.change==='incOnly'){S.incOnly=t.checked;refreshResults();return}
+  if(t.id==='grp'){S.f.group=t.value;refreshResults();return}
+  if(t.id==='hz'){S.hz=t.value;S.refit=true;refreshResults();return}
+  if(t.dataset.change==='det'){S.det[t.dataset.arg]=t.checked;LW=calcLW();S.refit=true;refreshResults();return}
   if(t.dataset.change==='cmpopt'){S.cmp[t.dataset.arg]=t.checked;refreshCompare();return}
   if(t.dataset.change==='mig'){try{await save('customer_products',{id:t.dataset.id,transition_status:t.value});t.style.borderLeftColor=MIGC[t.value];toast('Status updated');renderMain()}catch(err){toast(errMsg(err))}}
 });
@@ -1962,8 +2161,8 @@ if(!('ontouchstart' in window)){let g0=null;
   document.addEventListener('gesturechange',e=>{if(g0!=null){e.preventDefault();setZoom(g0*e.scale,e.clientX)}},{passive:false});
   document.addEventListener('gestureend',()=>{g0=null});}
 // re-layout when the window crosses the phone/desktop breakpoint or rotates
-let _wasWide=wide()+'|'+(innerWidth>=1100);
-addEventListener('resize',()=>{clearTimeout(window._rz);window._rz=setTimeout(()=>{const k=wide()+'|'+(innerWidth>=1100);if(k!==_wasWide&&$('nav.tabs')){_wasWide=k;saveTl();renderAll()}},150)});
+let _wasWide=wide()+'|'+(innerWidth>=1100)+'|'+(innerWidth>=1300);
+addEventListener('resize',()=>{clearTimeout(window._rz);window._rz=setTimeout(()=>{const k=wide()+'|'+(innerWidth>=1100)+'|'+(innerWidth>=1300);if(k!==_wasWide&&$('nav.tabs')){_wasWide=k;saveTl();renderAll()}},150)});
 document.addEventListener('submit',async e=>{
   const f=e.target;e.preventDefault();
   if(f.id==='conn'){const fd=new FormData(f);localStorage.setItem('rm_cfg',JSON.stringify({url:fd.get('url').trim().replace(/\/$/,''),key:fd.get('key').trim()}));location.reload();return}
