@@ -440,6 +440,39 @@ body:not(.wide) .kpi .ki .ic{width:22px;height:22px}body:not(.wide) .kpi .kl{fon
 body:not(.wide) .ptitle{margin-bottom:10px}
 @media (max-width:1299px){.tl{--pcw:100px}}
 
+
+/* ---------- Portfolio → Health view ---------- */
+.hgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:stretch}
+.hcard{margin:0;padding:14px 16px 16px;display:flex;flex-direction:column;min-width:0}
+.hcard.hwide{grid-column:1/-1}
+.hcard h3{margin:0 0 12px;font-size:16px;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+.hinfo{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;border:1.5px solid var(--mut);color:var(--mut);font-size:10.5px;font-weight:700;font-style:italic;cursor:help}
+.hti{display:inline-flex}.hti .ic{width:20px;height:20px}
+.hlife{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.hdonut{position:relative;width:150px;height:150px;flex:none}.hdonut svg{width:100%;height:100%}
+.hdc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;line-height:1.15}
+.hdc b{font-size:30px;letter-spacing:-.02em}.hdc span{font-size:11.5px;color:var(--mut)}
+.hleg{flex:1;min-width:170px;display:flex;flex-direction:column;gap:2px}
+.hlr{display:grid;grid-template-columns:14px 1fr auto 40px;align-items:center;gap:9px;padding:5px 6px;border-radius:8px;font-size:14px}
+.hlr i{width:12px;height:12px;border-radius:50%}.hlr b{text-align:right}.hlr .mut{text-align:right}
+.hb{display:flex;flex-direction:column;gap:4px}
+.hbr{display:grid;grid-template-columns:minmax(80px,38%) 1fr 28px 40px;align-items:center;gap:10px;padding:4px 6px;border-radius:8px;font-size:14px}
+.hbt{height:14px;border-radius:3px;background:color-mix(in srgb,var(--chip) 70%,transparent);overflow:hidden}
+.hbt i{display:block;height:100%;background:var(--brand);border-radius:3px}
+.hbr b,.hbr .mut{text-align:right}
+.go{cursor:pointer}.go:hover{background:var(--chip)}
+.hnote{font-size:11.5px;color:var(--mut);margin-top:10px}
+.hrows{display:flex;flex-direction:column;gap:8px}
+.hrow{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:14px}
+.hrow.zero{opacity:.55}
+.hn{min-width:32px;height:28px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:var(--c);background:color-mix(in srgb,var(--c) 13%,transparent)}
+.car.rt{transform:rotate(-45deg);margin:0 4px 0 0}
+.hdm{display:inline-block;width:10px;height:10px;border:2.5px solid var(--c);background:var(--card);transform:rotate(45deg);border-radius:2px;margin:0 10px 0 2px;vertical-align:-1px}
+.hevt{max-height:none}.hevt td{vertical-align:middle}
+.hevl .ev{cursor:pointer}.hevl .dt{width:86px}
+@media (max-width:1199px){.hgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+body:not(.wide) .hgrid{grid-template-columns:1fr;gap:10px}
+
 /* ---------- ideas ---------- */
 .ibar{display:flex;gap:8px;margin:4px 0 10px}
 .ibar input{flex:1;min-width:0}
@@ -945,11 +978,12 @@ function qHit(p){
   return _pnHit.has(p.id)||[p.part_number,p.name,p.family,p.sub_type,p.product_code,(p.can_protocols||[]).join(' '),(p.interfaces||[]).join(' '),(p.io_types||[]).join(' '),(p.markets||[]).join(' '),p.connector,p.software_platform,sup(p)?.name].join(' ').toLowerCase().includes(q);
 }
 function passes(p,except){
+  if(S.hsel&&!S.hsel.ids.includes(p.id))return false;
   if(!qHit(p))return false;
   return FGROUPS.every(g=>g.k===except||!S.F[g.k].length||g.val(p).some(v=>S.F[g.k].includes(v)));
 }
 const filtered=()=>S.data.products.filter(p=>passes(p));
-const activeCount=()=>FGROUPS.reduce((n,g)=>n+S.F[g.k].length,0)+(S.F.q.trim()?1:0);
+const activeCount=()=>FGROUPS.reduce((n,g)=>n+S.F[g.k].length,0)+(S.F.q.trim()?1:0)+(S.hsel?1:0);
 function filterBody(gs){
   gs=gs||FGROUPS;const total=S.data.products.length,shown=filtered().length;
   return`<div class="fsum"><span>${shown===total?`All ${total} products`:`<b>${shown}</b> of ${total} products`}</span>${activeCount()?'<button class="btn ghost sm" data-act="fclrall">Clear all</button>':''}</div>`+
@@ -975,6 +1009,7 @@ const PHI={development:I.dev,evaluating:I.pulse,onboarding:I.pulse,active:I.chec
 /* removable pills summarising active filters */
 function filterPills(){
   const out=[];
+  if(S.hsel)out.push(`<button class="fpill" data-act="hselx">${esc(S.hsel.l)} ✕</button>`);
   if(S.F.q.trim())out.push(`<button class="fpill" data-act="fq">“${esc(S.F.q.trim())}” ✕</button>`);
   FGROUPS.forEach(g=>{if(!S.F[g.k].length)return;const o=new Map(g.opts().map(x=>[x[0],x[1]]));
     S.F[g.k].forEach(v=>out.push(`<button class="fpill" data-act="fx" data-arg="${g.k}" data-id="${esc(v)}">${esc(o.get(v)||v)} ✕</button>`))});
@@ -990,7 +1025,7 @@ function fctl(){
 }
 function toolbar(){
   const prod=S.tab==='products',v=prod?S.pView:S.rmView;
-  const seg=prod?[['table','Table',ICO_LIST],['cards','Cards',ic(I.cards)]]:[['timeline','Timeline',ICO_TL],['list','List',ICO_LIST]];
+  const seg=prod?[['table','Table',ICO_LIST],['cards','Cards',ic(I.cards)]]:[['timeline','Timeline',ICO_TL],['list','List',ICO_LIST],['health','Health',ic('<path d="M5 20V11M10 20V5M15 20v-7M20 20V8"/>')]];
   const segH=prod&&!wide()?'':`<div class="segc vsw tsw">${seg.map(([k,l,i])=>`<button class="${v===k?'on':''}" data-act="${prod?'pview':'rmview'}" data-arg="${k}">${i} ${l}</button>`).join('')}</div>`;
   return`<div class="tbar">${segH}<div class="tsearch">${ICO_SEARCH}<input id="q" type="search" placeholder="Search products, part number, supplier or market…" value="${esc(S.F.q)}" autocomplete="off"></div>
     <div id="fctl" class="fctl">${fctl()}</div><div id="fpop"></div></div>`;
@@ -1008,6 +1043,8 @@ function refreshResults(){hovHide();
   const c=$('#fctl');if(c)c.innerHTML=fctl();
   renderFpop();
   const r=$('#results');if(r)r.innerHTML=roadmapResults();
+  // keep the view switch (Timeline / List / Health, Table / Cards) in step with the view shown
+  document.querySelectorAll('.tsw button').forEach(b=>b.classList.toggle('on',b.dataset.arg===(S.tab==='products'?S.pView:S.rmView)));
   restoreTl();saveView();
 }
 
@@ -1041,14 +1078,111 @@ const titleActions=()=>S.tab==='products'?`<button class="btn tb" data-act="csv"
 const HZ=[['12','Next 12 months',4],['24','Next 2 years',6],['36','Next 3 years',6],['60','Next 5 years',12],['all','All dates',0]];
 const GROUPS=[['category','Category'],['supplier','Supplier'],['market','Market'],['lifecycle','Lifecycle']];
 function portfolioOpts(){
-  const tl=S.rmView!=='list';
+  const tl=S.rmView==='timeline',hl=S.rmView==='health';
   return`<div class="popts">${wide()&&tl?`<span class="mut">Show product details:</span>
     <label class="sw"><input type="checkbox" data-change="det" data-arg="sup" ${S.det.sup?'checked':''}><i></i>Supplier</label>
     <label class="sw"><input type="checkbox" data-change="det" data-arg="mkt" ${S.det.mkt?'checked':''}><i></i>Market / Industry</label>`:''}
     <span class="hsp"></span>
-    <label class="sel">Group by <select id="grp">${GROUPS.map(([k,l])=>`<option value="${k}" ${S.f.group===k?'selected':''}>${l}</option>`).join('')}</select></label>
-    ${tl?`<label class="sel">Horizon <select id="hz">${HZ.map(([k,l])=>`<option value="${k}" ${S.hz===k?'selected':''}>${l}</option>`).join('')}${S.hz==='custom'?'<option value="custom" selected>Custom zoom</option>':''}</select></label>`:''}</div>`;
+    ${hl?'':`<label class="sel">Group by <select id="grp">${GROUPS.map(([k,l])=>`<option value="${k}" ${S.f.group===k?'selected':''}>${l}</option>`).join('')}</select></label>`}
+    ${tl||hl?`<label class="sel">Horizon <select id="hz">${HZ.map(([k,l])=>`<option value="${k}" ${S.hz===k?'selected':''}>${l}</option>`).join('')}${S.hz==='custom'?'<option value="custom" selected>Custom zoom</option>':''}</select></label>`:''}</div>`;
 }
+/* from a Health panel row: apply the filter and show those products in List view */
+function hgo(f){f();S.rmView='list';S.tlScroll=null;refreshResults();$('#results')?.scrollIntoView({behavior:'smooth',block:'start'})}
+/* ---------- Portfolio → Health view (dashboard of the filtered products; no extra data needed) ---------- */
+// months covered by the Horizon setting (custom zoom counts as 12 months; "all" = no limit)
+const hzMonths=()=>S.hz==='all'?1200:(+S.hz||12);
+const addM=m=>{const x=new Date(today);x.setMonth(x.getMonth()+m);return x};
+const inNext=(s,m)=>{const x=d(s);return!!x&&x>=today&&x<=addM(m)};
+const HBAR=[1,.8,.66,.52,.4,.3];
+// horizontal bars: rows = [label, count, act, arg, id]; pct of `tot`
+function hbars(rows,tot){
+  const max=Math.max(1,...rows.map(r=>r[1]));
+  return`<div class="hb">${rows.map((r,i)=>`<div class="hbr ${r[2]?'go':''}" ${r[2]?`data-act="${r[2]}" data-arg="${esc(r[3])}" data-id="${esc(r[4]||'')}" title="Show these products"`:''}>
+    <span class="hbl ell">${esc(r[0])}</span><span class="hbt"><i style="width:${Math.max(2,r[1]/max*100)}%;opacity:${HBAR[Math.min(i,5)]}"></i></span>
+    <b>${r[1]}</b><span class="mut">${tot?Math.round(r[1]/tot*100):0}%</span></div>`).join('')}</div>`;
+}
+// top n by count, the rest folded into "Other"
+function topN(map,n,labelOf){
+  const all=[...map.entries()].sort((a,b)=>b[1].length-a[1].length||String(labelOf(a[0])).localeCompare(String(labelOf(b[0]))));
+  const top=all.slice(0,all.length>n+1?n:n+1),rest=all.slice(top.length);
+  return{top,rest};
+}
+const hcard=(title,info,body,cls='')=>`<section class="card hcard ${cls}"><h3>${title}${info?`<span class="hinfo" title="${esc(info)}">i</span>`:''}</h3>${body}</section>`;
+function healthView(ps){
+  const tot=ps.length,ids=new Set(ps.map(p=>p.id));
+  // lifecycle donut
+  const LG=[['active','Active',['active'],LC.active.c,['active']],['dev','In development',['development','evaluating','onboarding'],LC.development.c,['dev','pipeline']],
+    ['nrnd','Phasing out',['nrnd'],LC.nrnd.c,['phasing']],['ltb','Last-time buy',['ltb'],LC.ltb.c,['ltb']],['eol','End of life',['eol'],LC.eol.c,['eol']],['rej','Not onboarded',['rejected'],LC.rejected.c,['rejected']]]
+    .map(g=>[...g,ps.filter(p=>g[2].includes(phase(p))).length]).filter(g=>g[5]);
+  const R=52,C=2*Math.PI*R;let off=0;
+  const segs=LG.map(g=>{const len=g[5]/tot*C,s=`<circle r="${R}" cx="70" cy="70" fill="none" stroke="${g[0]==='dev'?'url(#hdev)':g[3]}" stroke-width="22" stroke-dasharray="${len} ${C-len}" stroke-dashoffset="${-off}" transform="rotate(-90 70 70)"><title>${g[1]}: ${g[5]}</title></circle>`;off+=len;return s}).join('');
+  const donut=`<div class="hdonut"><svg viewBox="0 0 140 140" aria-hidden="true"><defs><pattern id="hdev" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="${LC.development.c}55"/><rect width="3" height="6" fill="${LC.development.c}"/></pattern></defs>${segs}</svg>
+    <div class="hdc"><b>${tot}</b><span>Products &amp;<br>services</span></div></div>
+    <div class="hleg">${LG.map(g=>`<div class="hlr go" data-act="hph" data-arg="${g[4].join(',')}" title="Show these products"><i style="${g[0]==='dev'?`background:repeating-linear-gradient(135deg,${g[3]} 0 3px,${g[3]}66 3px 6px)`:`background:${g[3]}`}"></i><span>${g[1]}</span><b>${g[5]}</b><span class="mut">${Math.round(g[5]/tot*100)}%</span></div>`).join('')}</div>`;
+  // category
+  const cm=new Map();ps.forEach(p=>{const k=p.category||'other';if(!cm.has(k))cm.set(k,[]);cm.get(k).push(p)});
+  const catL=k=>(CATEGORIES.find(c=>c[0]===k)||[,'Other'])[1];
+  const ct=topN(cm,4,catL);
+  const catRows=[...ct.top.map(([k,L])=>[catL(k),L.length,'hflt','cat',k]),...(ct.rest.length?[[`Other (${ct.rest.length})`,ct.rest.reduce((n,[,L])=>n+L.length,0),'hflt','cat',ct.rest.map(r=>r[0]).join(',')]]:[])];
+  // supplier
+  const sm=new Map();ps.forEach(p=>{const k=p.supplier_id||'';if(!sm.has(k))sm.set(k,[]);sm.get(k).push(p)});
+  const supL=k=>byId('suppliers',k)?.name||'No supplier';
+  const st=topN(sm,4,supL);
+  const supRows=[...st.top.map(([k,L])=>[supL(k),L.length,k?'hflt':'','sup',k]),...(st.rest.length?[[`Other (${st.rest.length})`,st.rest.reduce((n,[,L])=>n+L.length,0),'hflt','sup',st.rest.map(r=>r[0]).filter(Boolean).join(',')]]:[])];
+  // market (a product can be in several markets)
+  const mm=new Map();ps.forEach(p=>(p.markets||[]).forEach(m=>{if(!mm.has(m))mm.set(m,[]);mm.get(m).push(p)}));
+  const mt=topN(mm,5,x=>x),noMkt=ps.filter(p=>!(p.markets||[]).length).length;
+  const mktRows=[...mt.top.map(([k,L])=>[k,L.length,'hflt','mkt',k]),...(mt.rest.length?[[`Other (${mt.rest.length})`,new Set(mt.rest.flatMap(r=>r[1].map(p=>p.id))).size,'hflt','mkt',mt.rest.map(r=>r[0]).join(',')]]:[])];
+  // risks & milestones (lists of products → shown in List view)
+  const pIds=f=>ps.filter(f).map(p=>p.id);
+  const migP=new Set(S.data.customer_products.filter(c=>ids.has(c.product_id)&&needsMig(c)&&c.transition_status!=='complete').map(c=>c.product_id));
+  const phOut=p=>['nrnd','ltb'].includes(phase(p));
+  const RISK=[['eol12','Products at risk (end of life within 12 months)',pIds(p=>inNext(p.eol_date,12)),'#C92C32'],
+    ['mig','Phasing out with customers still migrating',pIds(p=>phOut(p)&&migP.has(p.id)),'#E58B20'],
+    ['nosucc','Phasing out with no successor mapped',pIds(p=>['nrnd','ltb','eol'].includes(phase(p))&&!S.data.transitions.some(t=>t.from_product_id===p.id)),'#E58B20'],
+    ['eol','Already end of life',pIds(p=>phase(p)==='eol'),'#6B7280']];
+  const migN=S.data.customer_products.filter(c=>ids.has(c.product_id)&&needsMig(c)).length;
+  const MS=[['rel6','Releases (next 6 months)',pIds(p=>inNext(p.supplier_release_date,6)||inNext(p.onboard_date,6)),'#2377D4'],
+    ['ltb12','Last-time buy deadlines (next 12 months)',pIds(p=>inNext(p.ltb_date,12)),'#C92C32'],
+    ['migs','Customer migrations open',null,MIG_C,migN]];
+  S.hsets=Object.fromEntries([...RISK,...MS].filter(r=>r[2]).map(r=>[r[0],{l:r[1],ids:r[2]}]));
+  const hrow=r=>{const n=r[2]?r[2].length:r[4],act=r[0]==='migs'?'data-act="statgo" data-arg="mig"':`data-act="hset" data-arg="${r[0]}"`;
+    return`<div class="hrow ${n?'go':'zero'}" ${n?act:''}><span class="hn" style="--c:${r[3]}">${n}</span><span class="grow">${r[1]}</span>${n?'<i class="car rt"></i>':''}</div>`};
+  // key lifecycle events within the horizon
+  const ev=upcoming(hzMonths(),ids);
+  const hzL=S.hz==='all'?'all dates':(HZ.find(h=>h[0]===S.hz)||HZ[0])[1].toLowerCase();
+  return`<div class="hgrid">
+    ${hcard('Lifecycle distribution','Products by lifecycle stage. Click a stage to list its products.',`<div class="hlife">${donut}</div>`)}
+    ${hcard('Portfolio by category','Number of products in each category. The smallest categories are combined as Other.',hbars(catRows,tot))}
+    ${hcard('Supplier concentration','How many of these products come from each supplier.',hbars(supRows,tot))}
+    ${hcard('Market / Industry distribution','Share of products sold into each market.',hbars(mktRows,tot)+`<div class="hnote">A product can be in more than one market, so the percentages can add up to more than 100%.${noMkt?` ${noMkt} product${noMkt>1?'s have':' has'} no market.`:''}</div>`)}
+    ${hcard(`<span class="hti" style="color:var(--bad)">${ic(I.warn)}</span>Lifecycle risks &amp; attention`,'',`<div class="hrows">${RISK.map(hrow).join('')}</div>`)}
+    ${hcard(`<span class="hti">${ic(I.cal)}</span>Upcoming milestones`,'',`<div class="hrows">${MS.map(hrow).join('')}</div>`)}
+    ${hcard(`<span class="hti">${ic(I.cal)}</span>Key lifecycle events <span class="mut" style="font-weight:500">· ${hzL}</span>`,'Dates from the products and from the Events list. Change the period with Horizon.',hevents(ev),'hwide')}
+  </div>`;
+}
+const EVL={release:'Release',nrnd:'Phasing out',ltb:'Last-time buy',eol:'End of life',announcement:'Announcement',pcn:'PCN',milestone:'Milestone',note:'Note',onboard:'Onboarding'};
+function hevRows(ev){
+  return ev.map(u=>{
+    if(u.e){const p=u.e.product_id?byId('products',u.e.product_id):null;
+      return{date:u.date,kind:u.e.kind,ev:`${EVL[u.e.kind]||'Event'}: ${u.e.title}`,p,sup:p?sup(p)?.name:byId('suppliers',u.e.supplier_id)?.name,act:`data-act="edit" data-arg="events" data-id="${u.e.id}"`}}
+    const kind={'Phasing out':'nrnd','Last-time buy':'ltb','End of life':'eol','Supplier release':'release','Onboard':'onboard'}[u.l]||'milestone';
+    return{date:u.date,kind,ev:EVL[kind]||u.l,p:u.p,sup:sup(u.p)?.name,act:`data-act="product" data-id="${u.p.id}"`}});
+}
+const EVKC={release:LC.development.c,onboard:LC.active.c,nrnd:LC.nrnd.c,ltb:LC.ltb.c,eol:'#6B7280',pcn:'#6889B9',announcement:'#6889B9',milestone:'#141923',note:'#6B7280'};
+function hevents(ev){
+  if(!ev.length)return'<div class="empty" style="padding:18px">No dates or events in this period.</div>';
+  const H=[['date','Date'],['prod','Product'],['ev','Event'],['st','Lifecycle status'],['cat','Category'],['sup','Supplier']];
+  const key={date:r=>r.date,prod:r=>r.p?.part_number||'',ev:r=>r.ev,st:r=>r.p?PH_ORD.indexOf(phase(r.p)):99,cat:r=>r.p?CATS1[r.p.category]||'':'',sup:r=>r.sup||''};
+  const s=S.hsort||{k:'date',dir:1},rows=hevRows(ev).sort((a,b)=>{const x=key[s.k](a),y=key[s.k](b);return(x<y?-1:x>y?1:a.date.localeCompare(b.date))*s.dir});
+  const dm=k=>`<i class="hdm" style="--c:${EVKC[k]||'#141923'}"></i>`;
+  const evb=r=>`<span class="pill" style="--c:${EVKC[r.kind]||'#6B7280'}">${esc(r.ev)}</span>`;
+  if(!wide())return`<div class="hevl">${rows.map(r=>`<div class="ev" ${r.act}><div class="dt">${fmt(r.date)}</div><div class="grow">${dm(r.kind)}<b>${esc(r.p?.part_number||r.sup||'—')}</b> ${evb(r)}<div class="mut ell">${r.p?esc(CATS1[r.p.category]||'')+' · ':''}${esc(r.sup||'')} · ${relTxt(r.date)}</div></div></div>`).join('')}</div>`;
+  return`<div class="ptw hevt"><table class="ptab"><thead><tr>${H.map(([k,l])=>`<th class="${s.k===k?'on':''}" data-act="hsort" data-arg="${k}">${l}${s.k===k?(s.dir>0?' ↑':' ↓'):''}</th>`).join('')}</tr></thead><tbody>
+    ${rows.map(r=>`<tr ${r.act}><td class="nw">${dm(r.kind)}${fmt(r.date)} <span class="mut">· ${relTxt(r.date)}</span></td><td><b>${esc(r.p?.part_number||'—')}</b></td><td>${evb(r)}</td>
+      <td>${r.p?badge(phase(r.p)):'<span class="mut">—</span>'}</td><td>${r.p?esc(CATS1[r.p.category]||''):'<span class="mut">—</span>'}</td><td>${r.sup?`<span class="supn">${ic(I.bld)}${esc(r.sup)}</span>`:'<span class="mut">—</span>'}</td></tr>`).join('')}</tbody></table></div>`;
+}
+const PH_ORD=['development','evaluating','onboarding','active','nrnd','ltb','eol','rejected'];
 function roadmapResults(){
   const ps=filtered();S.rows=ps;
   const pills=filterPills(),none='<div class="card empty">No products match these filters.</div>';
@@ -1060,6 +1194,7 @@ function roadmapResults(){
   }
   const opts=portfolioOpts();
   if(!ps.length)return pills+opts+none;
+  if(S.rmView==='health')return pills+opts+healthView(ps);
   if(S.rmView==='list')return pills+opts+(wide()?prodTable(listRows(ps),true):`<div class="pcards">${listRows(ps).map(pcard).join('')}</div>`);
   return pills+opts+timelineSection(ps,new Set(ps.map(p=>p.id)));
 }
@@ -1606,7 +1741,7 @@ const A={
  cmpnone:()=>{S.cmp.sel[S.cmp.cat]=[];refreshCompare()},
  cmpmetric:(id,k)=>{S.cmp.metric=k;refreshCompare()},cmpprice:(id,k)=>{S.cmp.priceBy=k;refreshCompare()},
  cmpgo:id=>{const p=byId('products',id);if(!p)return;S.cmp.cat=p.category;cmpSel();const L=S.cmp.sel[p.category];if(!L.includes(id))L.unshift(id);S.tab='compare';S.stack=[];saveView();renderAll();window.scrollTo(0,0)},
- fclrall:()=>{FGROUPS.forEach(g=>S.F[g.k]=[]);S.F.q='';const q=$('#q');if(q)q.value='';refreshResults()},
+ fclrall:()=>{FGROUPS.forEach(g=>S.F[g.k]=[]);S.F.q='';S.hsel=null;const q=$('#q');if(q)q.value='';refreshResults()},
  fpop:(id,k)=>{S.fpop=S.fpop===k?null:k;const c=$('#fctl');if(c)c.innerHTML=fctl();renderFpop()},
  fpclose:()=>{S.fpop=null;const c=$('#fctl');if(c)c.innerHTML=fctl();renderFpop()},
  noop:()=>{},
@@ -1615,6 +1750,11 @@ const A={
  statgo:(id,arg)=>{if(arg==='mig'){S.tab='transitions';S.stack=[];renderAll();window.scrollTo(0,0);return}
    S.F.ph=arg==='total'||kpiOn(arg)?[]:[...KPI_PH[arg]];refreshResults()},
  rmview:(id,k)=>{S.rmView=k;S.tlScroll=null;refreshResults()},
+ hph:(id,arg)=>hgo(()=>{S.F.ph=arg.split(',')}),
+ hflt:(v,k)=>hgo(()=>{S.F[k]=String(v).split(',').filter(Boolean)}),
+ hset:(id,k)=>{const x=(S.hsets||{})[k];if(x)hgo(()=>{S.hsel={l:x.l,ids:x.ids}})},
+ hselx:()=>{S.hsel=null;refreshResults()},
+ hsort:(id,k)=>{const s=S.hsort||{k:'date',dir:1};S.hsort=s.k===k?{k,dir:-s.dir}:{k,dir:1};refreshResults()},
  lsort:(id,k)=>{if(S.lsort.k===k)S.lsort.dir*=-1;else S.lsort={k,dir:k==='comp'?1:['price','io','if'].includes(k)?-1:1};refreshResults()},
  csv:()=>exportCSV(),
  umenu:()=>{const m=$('#umenu');if(m)m.innerHTML=m.innerHTML?'':umenuHTML()},
