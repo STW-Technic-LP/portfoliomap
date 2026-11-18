@@ -17,9 +17,9 @@
 <style>
 /* Portfolium palette: charcoal #141923 · crimson #C92C32 · off-white #F7F7F8 · slate #6B7280 */
 :root{--bg:#F7F7F8;--card:#fff;--ink:#141923;--mut:#6B7280;--line:#E4E6EA;--acc:#1263BD;--ok:#16a34a;--warn:#E58B20;--bad:#C92C32;--chip:#EEF0F3;
-  --brand:#C92C32;--pri:#141923;--pri-ink:#fff;--side:#141923;--side-ink:#C9CDD5;--side-on:#1263BD;
+  --brand:#C92C32;--pri:#1D4ED8;--pri-ink:#fff;--side:#141923;--side-ink:#C9CDD5;--side-on:#1D4ED8;
   --shadow:0 1px 2px rgba(20,25,35,.05),0 4px 14px rgba(20,25,35,.05);--lw:118px}
-@media (prefers-color-scheme:dark){:root{--bg:#0E1118;--card:#171B26;--ink:#E8EAEE;--mut:#9AA1AE;--line:#262C3A;--acc:#5B9BE6;--chip:#202634;--pri:#E8EAEE;--pri-ink:#141923;--side:#0A0D13;--shadow:none}}
+@media (prefers-color-scheme:dark){:root{--bg:#0E1118;--card:#171B26;--ink:#E8EAEE;--mut:#9AA1AE;--line:#262C3A;--acc:#5B9BE6;--chip:#202634;--pri:#3B6FF0;--pri-ink:#fff;--side:#0A0D13;--shadow:none}}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.4 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif}
 body.noscroll{overflow:hidden}
@@ -580,7 +580,7 @@ body:not(.wide) .pact{display:none}
 .kpi b small{font-size:13.5px;font-weight:600;color:var(--c);letter-spacing:0}
 .tbar{position:relative;display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 10px}
 .tsw{margin:0;min-width:0;flex:none}.tsw button{padding:7px 14px;flex:none}
-.tsw button.on{background:var(--pri);color:var(--pri-ink)}
+.tsw button.on{background:var(--ink);color:var(--bg)}
 .tsearch{flex:1;min-width:240px;position:relative}
 .tsearch>svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--mut);pointer-events:none;width:18px;height:18px}
 .tsearch input{padding:9px 12px 9px 40px;font-size:15px}
@@ -588,7 +588,7 @@ body:not(.wide) .pact{display:none}
 .btn.tb{background:var(--card);border:1px solid var(--line);font-weight:500;font-size:14px;padding:8px 12px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;color:var(--ink)}
 .btn.tb:hover,.btn.tb.open{border-color:var(--mut)}
 .btn.tb.has{border-color:var(--ink);font-weight:650}
-.fcnt{background:var(--pri);color:var(--pri-ink);border-radius:999px;font-size:11.5px;font-weight:700;min-width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;padding:0 6px}
+.fcnt{background:var(--ink);color:var(--bg);border-radius:999px;font-size:11.5px;font-weight:700;min-width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;padding:0 6px}
 .car{width:7px;height:7px;border-right:1.7px solid currentColor;border-bottom:1.7px solid currentColor;transform:translateY(-2px) rotate(45deg);margin-left:5px;opacity:.7}
 .clr{color:var(--acc)}
 .fpop-bg{position:fixed;inset:0;z-index:24}
@@ -760,8 +760,50 @@ body.wide .itabs{flex-wrap:wrap;overflow:visible}
 .ptab .badge{font-size:12.5px;padding:4px 10px;border-radius:8px}
 .icard .prio{font-size:11.5px;padding:2px 8px}
 .mut2{color:var(--mut)}
-@media (prefers-color-scheme:dark){.badge,.prio{color:var(--c)}}  /* the darker text colors are only needed on light backgrounds */
+@media (prefers-color-scheme:dark){.badge,.prio,.icat{color:var(--c)}}  /* the darker text colors are only needed on light backgrounds */
 @media (max-width:1299px){.ptab .icreated{display:none}}
+/* ---------- Ideas page v2.8 (owner design 2026-11-18) ---------- */
+.ibtn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;font-size:15px}.ibtn .ic{width:18px;height:18px;stroke-width:2.4}
+body.wide .itabs{flex-wrap:nowrap;gap:12px}
+.itab{gap:10px;padding:10px 16px;border-radius:12px;font-size:15px;font-weight:600;justify-content:center}
+body.wide .itab{flex:1 1 0;min-width:0}body.wide .itab:first-child{flex:.75 1 0}
+.itab .itic{display:flex;color:var(--c)}.itab .itic .ic{width:20px;height:20px}
+.itab.on .itic{color:inherit}
+.itic{display:inline-flex;color:var(--c)}.itic .ic{width:16px;height:16px}
+.itbar .tsearch{flex:0 1 520px}
+.isortw{position:relative;gap:4px!important;padding:0 0 0 12px!important}
+.isortw span{color:var(--ink);font-weight:500}
+.isortw select{border:0;background-color:transparent;width:auto;padding:8px 30px 8px 2px;font-size:14px;font-weight:500;color:var(--ink);cursor:pointer;border-radius:10px}
+.ivsw{margin:0}
+.itw{max-height:none}
+.itab2 td{padding:12px}
+.irow{display:flex;align-items:center;gap:12px;min-width:0}
+.itile{width:40px;height:40px;border-radius:10px;flex:none;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--c) 12%,var(--card));color:var(--c)}
+.itile .ic{width:22px;height:22px;stroke-width:1.8}
+.iti .isub{display:block;-webkit-line-clamp:unset;font-size:12.5px;color:var(--mut);margin-top:2px}
+.ptab td.icolt{min-width:240px;max-width:320px}
+.ptab td.idesc{min-width:220px;max-width:340px}
+.idesc span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:13px;color:var(--ink);line-height:1.4}
+.icat{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:color-mix(in srgb,var(--c) 11%,transparent);color:var(--t,var(--c));white-space:nowrap}
+.icat .ic{width:14px;height:14px}
+.ilab{font-size:11.5px;color:var(--mut);margin-top:3px;white-space:nowrap}
+.prio{border-radius:999px;gap:5px}.prio .ic{width:14px;height:14px}
+.istat{font-size:12.5px;padding:4px 10px;border-radius:999px}.istat .ic{width:14px;height:14px}
+.ptab .badge.istat{border-radius:999px}
+.ptab th.nosort{cursor:default}.ptab th.nosort:hover{color:inherit}
+.ptab th.iact,.ptab td.iact{text-align:center;width:72px}
+.iact .cxm .ic{width:22px;height:22px}
+.ifoot{margin:10px 2px 0}
+.imenu .ml{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);padding:8px 10px 4px}
+.imenu .mi{gap:8px}.msep{border-top:1px solid var(--line);margin:6px 0}
+.icchip .ic{width:14px;height:14px;color:var(--c)}.icchip.on .ic{color:inherit}
+.icardh{gap:10px;align-items:center}.iline .icard>.row.icardh{padding-right:132px}.icardh .itile{width:32px;height:32px}.icardh .itile .ic{width:18px;height:18px}
+.imeta .ic{width:13px;height:13px;vertical-align:-2px}
+.iopp .tag{margin-left:4px}
+.icolh .itic .ic{width:16px;height:16px}
+@media (max-width:1299px){.ptab td.idesc{max-width:240px}body.wide .itab{padding:10px 10px;font-size:14px}}
+@media (max-width:1099px){.itab2 td.idesc,.itab2 th:nth-child(2){display:none}}
+
 </style>
 </head>
 <body>
@@ -770,7 +812,7 @@ body.wide .itabs{flex-wrap:wrap;overflow:visible}
 <div id="toast"></div>
 <script>
 /* App version: bump on every delivered change (major.minor.patch) and add a line to Version history in HANDOFF.md */
-const APP_VERSION='2.8.0',APP_BUILD='2026-11-18';
+const APP_VERSION='2.9.0',APP_BUILD='2026-11-18';
 /* =====================================================================
    CONFIG — paste your Supabase project URL and anon (public) key here.
    Leave blank to run in Demo mode (sample data stored on this device),
@@ -811,12 +853,13 @@ const PHG_OF={development:'dev',evaluating:'pipeline',onboarding:'pipeline',acti
 const S={mode:'demo',sb:null,user:null,role:'admin',tab:'roadmap',stack:[],data:{},
   f:{group:'none'},lpp:50,lpage:0,tsort:1,F:{q:'',sup:[],cat:[],ph:[],mkt:[],can:[]},mw:wide()?30:22,fOpen:false,tlScroll:null,rows:[],cmp:{ids:[],diff:false,gaps:true,metric:'io',priceBy:'list',sec:'overview',saved:null},rmView:'timeline',pView:'table',det:{sup:true,mkt:true},hz:'12',coll:[],fpop:null,ipop:false,lsort:{k:'part',dir:1},incOnly:false,
   tv:{q:'',type:[],st:[],mkt:[],sup:[],kpi:null,view:'list'},
-  iv:{q:'',st:'all',type:[],mine:false,waiting:false,sort:'value',dir:1,view:'table'}};
+  iv:{q:'',st:'all',cat:[],lab:[],prio:[],mine:false,waiting:false,sort:'updated',dir:1,view:'table'},imenu:null};
 try{const v=JSON.parse(localStorage.getItem('rm_view')||'null');if(v){Object.assign(S.F,v.F||{});if(v.group)S.f.group=v.group;if(v.mw)S.mw=v.mw;if(v.sideCol)S.sideCol=true;if(v.cmp)Object.assign(S.cmp,v.cmp);if(v.rmView)S.rmView=v.rmView;if(v.pView)S.pView=v.pView;if(v.det)S.det=v.det;if(v.hz)S.hz=v.hz;if(Array.isArray(v.coll))S.coll=v.coll;if(v.lsort)S.lsort=v.lsort;S.incOnly=!!v.incOnly;if(v.iv)Object.assign(S.iv,v.iv,{q:''});if(v.tv)Object.assign(S.tv,v.tv,{q:''});if(v.lpp!=null)S.lpp=v.lpp;if(v.tsort)S.tsort=v.tsort;if(!v.g2)S.f.group='none'}}catch(e){}
 // Ideas view saved by older versions: 'list' is now the table; status groups are now status tabs
 // Compare saved by older versions: one product list per category → one ordered list
 {const c=S.cmp;if(!Array.isArray(c.ids)){const o=c.sel&&c.cat&&c.sel[c.cat];c.ids=Array.isArray(o)?o.slice():[]}delete c.sel;delete c.cat;if(!c.sec)c.sec='overview';if(c.saved===undefined)c.saved=null}
-if(S.iv.view!=='board')S.iv.view='table';if(!S.iv.st)S.iv.st='all';if(!S.iv.dir)S.iv.dir=1;delete S.iv.grp;
+if(S.iv.view!=='board')S.iv.view='table';if(!['all','new','eval','approved','roadmap','declined'].includes(S.iv.st))S.iv.st='all';if(!S.iv.dir)S.iv.dir=1;
+['cat','lab','prio'].forEach(k=>{if(!Array.isArray(S.iv[k]))S.iv[k]=[]});if(!['updated','new','prio','value','volume','title','cat','status'].includes(S.iv.sort)){S.iv.sort='updated';S.iv.dir=1}delete S.iv.grp;delete S.iv.type;
 function saveView(){try{localStorage.setItem('rm_view',JSON.stringify({F:S.F,group:S.f.group,mw:S.mw,sideCol:!!S.sideCol,cmp:S.cmp,rmView:S.rmView,pView:S.pView,det:S.det,hz:S.hz,coll:S.coll,lsort:S.lsort,incOnly:S.incOnly,iv:{...S.iv,q:''},tv:{...S.tv,q:''},lpp:S.lpp,tsort:S.tsort,g2:1}))}catch(e){}}
 TABLES.forEach(t=>S.data[t]=[]);
 
@@ -860,7 +903,7 @@ function needsMig(cp){
   return ['nrnd','ltb','eol'].includes(phase(p))||!!cp.transition_id;
 }
 function toast(msg){const t=$('#toast');t.innerHTML=`<div class="toast">${esc(msg)}</div>`;clearTimeout(toast.h);toast.h=setTimeout(()=>t.innerHTML='',2600)}
-function errMsg(e){let m=e?.message||String(e);if(/'photo' column|column .*photo/i.test(m))return'The database needs 08_product_photos.sql before photos can be saved.';if(/schema/i.test(m)&&/must be one of|not exposed|Invalid schema/i.test(m))m+=' — add "roadmap" to Exposed schemas in Supabase API settings.';return m}
+function errMsg(e){let m=e?.message||String(e);if(/'photo' column|column .*photo/i.test(m))return'The database needs 09_product_photos.sql before photos can be saved.';if(/schema/i.test(m)&&/must be one of|not exposed|Invalid schema/i.test(m))m+=' — add "roadmap" to Exposed schemas in Supabase API settings.';return m}
 
 /* ---------- data layer (Supabase or local demo) ---------- */
 function cfg(){let s={};try{s=JSON.parse(localStorage.getItem('rm_cfg')||'{}')}catch(e){}return{url:CONFIG.SUPABASE_URL||s.url||'',key:CONFIG.SUPABASE_ANON_KEY||s.key||'',hard:!!CONFIG.SUPABASE_URL}}
@@ -1137,7 +1180,7 @@ const ICONS={roadmap:'<path d="M12 3 21 8l-9 5-9-5z"/><path d="m3 12.5 9 5 9-5"/
  signout:'<path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4M10 16l-4-4 4-4M6 12h10"/>'};
 const TITLES={roadmap:'Portfolio',products:'Products',transitions:'Transitions',ideas:'Ideas',compare:'Compare',customers:'Customers',more:'Settings'};
 const SUBS={roadmap:'Analyze portfolio health, lifecycle coverage, and upcoming product transitions.',products:'Your product catalog, lifecycle stages and missing data.',
-  transitions:'Track product transitions, replacements and migration plans across the portfolio.',ideas:'Capture, size and prioritize product ideas from the team.',
+  transitions:'Track product transitions, replacements and migration plans across the portfolio.',ideas:'Capture, evaluate, and prioritize future product opportunities.',
   compare:'Evaluate two or more products side by side: specifications, lifecycle and key differences.',customers:'Customers and the products they use.',more:'Your account, suppliers, markets, events and data connection.'};
 const NAV=['roadmap','products','transitions','ideas','compare'];
 const navTabs=()=>isContrib()?['ideas']:NAV;
@@ -1192,7 +1235,7 @@ function umenuHTML(){
     ${wide()&&!document.body.classList.contains('solo')?`<div class="ml">Menu position</div>${menuPos()}`:''}
     ${mi('tab','more','more','Settings')}${isContrib()?'':mi('tab','customers','customers','Customers')}${S.mode==='live'?mi('signout','','signout','Sign out')+`<div class="uver">Portfolium v${APP_VERSION} · ${fmt(APP_BUILD)}</div>`:''}</div>`;
 }
-document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(S.rmmenu)return A.rmmclose();if(S.stack.length&&!S.fpop&&!S.cxpop&&!S.tvpop&&!S.tvmenu&&!S.ipop){e.preventDefault();return A.back()}if($('#umenu')?.innerHTML)$('#umenu').innerHTML='';if(S.fpop)A.fpclose();if(S.ipop)A.ipclose();if(S.cxpop)A.cxclose();if(S.tvpop)A.tvpclose();if(S.tvmenu)A.tvmclose()});
+document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(S.rmmenu)return A.rmmclose();if(S.stack.length&&!S.fpop&&!S.cxpop&&!S.tvpop&&!S.tvmenu&&!S.ipop&&!S.imenu){e.preventDefault();return A.back()}if($('#umenu')?.innerHTML)$('#umenu').innerHTML='';if(S.fpop)A.fpclose();if(S.ipop)A.ipclose();if(S.cxpop)A.cxclose();if(S.tvpop)A.tvpclose();if(S.tvmenu)A.tvmclose();if(S.imenu)imClose()});
 
 /* ---------- shared filters (Portfolio + Products) ---------- */
 const PHC={dev:LC.development.c,pipeline:LC.evaluating.c,active:LC.active.c,phasing:LC.nrnd.c,ltb:LC.ltb.c,eol:LC.eol.c,rejected:LC.rejected.c};
@@ -1305,7 +1348,7 @@ function viewRoadmap(){
 function viewProducts(){return viewRoadmap()}
 const titleActions=()=>S.tab==='products'?`<button class="btn tb" data-act="csv">${ic(I.dl)} Export CSV</button>${canEdit()?'<button class="btn pri" data-act="new" data-arg="products">+ Add product</button>':''}`
   :S.tab==='roadmap'&&canEdit()?'<button class="btn pri" data-act="new" data-arg="products">+ Add product</button>'
-  :S.tab==='ideas'?'<button class="btn pri" data-act="ideanew">+ Add idea</button>'
+  :S.tab==='ideas'?`<button class="btn pri ibtn" data-act="ideanew">${ic('<path d="M12 5v14M5 12h14"/>')} Create idea</button>`
   :S.tab==='transitions'?`<button class="btn tb" data-act="tvcsv">${ic(I.dl)} Export</button>${canEdit()?'<button class="btn pri" data-act="new" data-arg="transitions">+ Add transition</button>':''}`:'';
 const HZ=[['12','Next 12 months',4],['24','Next 2 years',6],['36','Next 3 years',6],['60','Next 5 years',12],['all','All dates',0]];
 const GROUPS=[['none','None'],['category','Category'],['supplier','Supplier'],['market','Market'],['lifecycle','Lifecycle']];
@@ -1840,7 +1883,7 @@ const SHEETS={
 /* ---------- actions ---------- */
 async function reload(){try{await loadAll();renderMain();renderSheet()}catch(e){toast(errMsg(e))}}
 const A={
- tab:(id,arg)=>{S.tab=arg;S.stack=[];S.tlScroll=null;S.fpop=null;S.ipop=false;S.cxpop=null;S.cxq='';S.tvpop=null;S.tvmenu=null;S.rmmenu=null;renderAll();window.scrollTo(0,0)},
+ tab:(id,arg)=>{S.tab=arg;S.stack=[];S.tlScroll=null;S.fpop=null;S.ipop=false;S.cxpop=null;S.cxq='';S.tvpop=null;S.tvmenu=null;S.imenu=null;S.rmmenu=null;renderAll();window.scrollTo(0,0)},
  product:id=>push({type:'product',id}),transition:id=>push({type:'transition',id}),customer:id=>push({type:'customer',id}),
  edit:(id,arg)=>push({type:'form',table:arg,id}),
  new:(id,arg,el)=>push({type:'form',table:arg,defaults:el.dataset.def?JSON.parse(el.dataset.def):{}}),
@@ -2476,12 +2519,41 @@ document.addEventListener('input',e=>{if(e.target.id==='tvq'){S.tv.q=e.target.va
 /* =====================================================================
    PRODUCT IDEAS
    ===================================================================== */
-const IST=[['new','New','#6B7280'],['under_review','Under review','#6889B9','#4E6F9F'],['needs_info','Needs info','#E58B20','#B9690F'],['accepted','Accepted','#1263BD'],
-  ['in_progress','In progress','#2377D4'],['delivered','Delivered','#16a34a','#15803d'],['parked','Parked','#A6AAB4','#6B7280'],['declined','Declined','#C92C32'],['duplicate','Duplicate','#D1D5DB','#6B7280']];
-const ISM=Object.fromEntries(IST.map(([k,l,c,t])=>[k,{l,c,t}]));
+/* Status: the database keeps its nine values; the app shows five groups (owner decision 2026-11-18, no data change).
+   New = new · In evaluation = under_review + needs_info · Approved = accepted · On roadmap = in_progress + delivered · Declined = declined + parked + duplicate.
+   Only the first value of each group (to) can be chosen from now on. */
+const ISIC={sparkle:'<path d="M12 3.5l1.9 5.1 5.1 1.9-5.1 1.9L12 17.5l-1.9-5.1L5 10.5l5.1-1.9z"/><path d="M19 3v3.5M17.25 4.75h3.5"/>',layers:'<path d="M12 3 21 8l-9 5-9-5z"/><path d="m3 12.5 9 5 9-5"/><path d="m3 17 9 5 9-5"/>'};
+const ISG=[
+  {k:'new',l:'New',s:['new'],to:'new',c:'#2563EB',t:'#1D4ED8',i:ISIC.sparkle},
+  {k:'eval',l:'In evaluation',s:['under_review','needs_info'],to:'under_review',c:'#1D4ED8',i:I.pulse},
+  {k:'approved',l:'Approved',s:['accepted'],to:'accepted',c:'#16A34A',t:'#15803D',i:I.check},
+  {k:'roadmap',l:'On roadmap',s:['in_progress','delivered'],to:'in_progress',c:'#EA580C',t:'#C2410C',i:ISIC.layers},
+  {k:'declined',l:'Declined',s:['declined','parked','duplicate'],to:'declined',c:'#DC2626',t:'#B91C1C',i:I.x}];
+const ISGM=Object.fromEntries(ISG.map(g=>[g.k,g]));
+const sgOf=s=>ISG.find(g=>g.s.includes(s))||ISG[0];
+const IST=['new','under_review','needs_info','accepted','in_progress','delivered','parked','declined','duplicate'].map(k=>[k,sgOf(k).l,sgOf(k).c]);
+const ISM=Object.fromEntries(IST.map(([k])=>{const g=sgOf(k);return[k,{l:g.l,c:g.c,t:g.t,g}]}));
 const ITYPE=[['software','Software'],['hardware','Hardware'],['product_kit','Product kit'],['service','Service'],['other','Other']];
 const ITM=Object.fromEntries(ITYPE);
-const ICOLS=[['new','New'],['under_review','Under review'],['needs_info','Needs info'],['accepted','Accepted'],['in_progress','In progress'],['delivered','Delivered'],['closed','Closed']];
+/* Category (design list + Service) and Labels (only for Product ideas) — stored in ideas.category / ideas.labels (08_idea_category.sql) */
+const ICI={bulb:'<path d="M9.5 18h5M10.5 21h3"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.4 1.1 2.2h5c0-.8.4-1.6 1.1-2.2A6 6 0 0 0 12 3z"/>',
+  leaf:'<path d="M5 20c0-9 6-15 15-15 0 9-6 15-15 15z"/><path d="M5 20c3-5 6-8 10-10"/>',
+  box:'<path d="M12 2.8 20 7.2v9.6L12 21.2 4 16.8V7.2z"/><path d="M4 7.2l8 4.4 8-4.4M12 11.6v9.6"/>',
+  wrench:'<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3.5 17.5l3 3 5.8-5.8a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/>',
+  chart:'<path d="M5 20V11M11 20V5M17 20v-7M3 20h18"/>',
+  cloud:'<path d="M7 18h10a4 4 0 0 0 .7-7.9A6 6 0 0 0 6.2 9 4.5 4.5 0 0 0 7 18z"/>',
+  globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/>',
+  flask:'<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6A2 2 0 0 0 19 18l-5-9V3"/><path d="M7.5 14h9"/>'};
+const ICAT=[['digital','Digital','#2563EB','#1D4ED8',ICI.bulb],['sustainability','Sustainability','#16A34A','#15803D',ICI.leaf],['product','Product','#EA580C','#C2410C',ICI.box],
+  ['service','Service','#0D9488','#0F766E',ICI.wrench],['business_model','Business Model','#7C3AED','#6D28D9',ICI.chart],['technology','Technology','#475569','#334155',ICI.cloud],
+  ['market','Market','#0891B2','#0E7490',ICI.globe],['rnd','R&D','#9333EA','#7E22CE',ICI.flask]];
+const ICM=Object.fromEntries(ICAT.map(([k,l,c,t,i])=>[k,{k,l,c,t,i}]));
+const ILAB=[['software','Software'],['hardware','Hardware'],['product_kit','Product kit']];
+const ILM=Object.fromEntries(ILAB);
+// older ideas (or a database without 08_idea_category.sql) only have idea_type: derive category and labels from it
+const catOf=i=>i.category||({software:'product',hardware:'product',product_kit:'product',service:'service'})[i.idea_type]||null;
+const labelsOf=i=>Array.isArray(i.labels)&&i.labels.length?i.labels:(!i.category&&ILM[i.idea_type]?[i.idea_type]:[]);
+const typeFor=(cat,labels)=>cat==='service'?'service':cat==='product'&&labels.length?labels[0]:'other';
 const PRIO=[['critical','Critical'],['high','High'],['medium','Medium'],['low','Low']];
 const RANGES={units:[['<100',50],['100–500',300],['500–2k',1250],['2k–10k',6000],['10k+',15000]],
   revenue:[['<$25k',12500],['$25–100k',62500],['$100–500k',300000],['$500k–1M',750000],['$1M+',1500000]]};
@@ -2495,10 +2567,11 @@ const custList=()=>(isContrib()?S.data.customer_options:S.data.customers)||[];
 const prodById=id=>prodList().find(p=>p.id===id);
 const custName=(id,name)=>name||(custList().find(c=>c.id===id)||{}).name||'';
 const ideaById=id=>(S.data.ideas||[]).find(x=>x.id===id);
-const iBadge=s=>{const x=ISM[s]||{l:s,c:'#A6AAB4'};return`<span class="badge" style="--c:${x.c}${x.t?';--t:'+x.t:''}">${esc(x.l)}</span>`};
+const iBadge=s=>{const g=sgOf(s);return`<span class="badge ib istat" style="--c:${g.c}${g.t?';--t:'+g.t:''}">${ic(g.i)}${g.l}</span>`};
 const ago=t=>{const s=(Date.now()-new Date(t))/1000;return s<3600?Math.max(1,Math.round(s/60))+' min ago':s<86400?Math.round(s/3600)+' h ago':s<86400*30?Math.round(s/86400)+' d ago':fmt(String(t).slice(0,10))};
+const canEditIdea=i=>canEdit()||(i.submitted_by===me()&&['new','needs_info'].includes(i.status));
 
-/* ---- opportunity value: idea sizing + every +1, one entry per customer ---- */
+/* ---- customer opportunities: the idea's own sizing + every added opportunity, one entry per customer ---- */
 function sizingRev(x,price){
   if(!x||!x.size_basis||x.size_basis==='unknown')return null;
   const mid=(RANGES[x.size_basis].find(r=>r[0]===x.size_range)||[])[1],v=x.size_exact!=null&&x.size_exact!==''?+x.size_exact:mid;
@@ -2529,126 +2602,133 @@ function valueLine(i,v){
   v=v||ideaValue(i);
   if(!v.sized)return`<span class="needsz">Needs sizing</span>`;
   const parts=[];
-  if(v.rev!=null)parts.push(`<b>~${kfmt(v.rev)}/yr</b>${v.uOnly?` + ${ufmt(v.uOnly)} units`:''}`);else if(v.units!=null)parts.push(`<b>~${ufmt(v.units)} units/yr</b>`);
+  if(v.units!=null)parts.push(`<b>~${ufmt(v.units)} units/yr</b>`);
+  if(v.rev!=null&&v.rev>0&&(v.units==null||v.uOnly<v.units))parts.push(`<b>~${kfmt(v.rev)}/yr</b>`);
   if(v.customers)parts.push(`${v.customers} customer${v.customers>1?'s':''}${v.firm?` (${v.firm} firm)`:''}`);
   return parts.join(' · ');
 }
 
-/* ---- list / board ---- */
-function ideaMatches(i){
+/* ---- filters (S.iv: q, st = status group, cat, lab, prio, mine, waiting) ---- */
+function ideaMatches(i,ex){
   const q=S.iv.q.trim().toLowerCase();
   if(q){const prods=(S.data.idea_links||[]).filter(l=>l.idea_id===i.id&&l.kind==='product').map(l=>prodById(l.target_id)?.part_number||'').join(' ');
-    if(![i.title,i.problem,i.proposed_solution,i.customer_name,custName(i.customer_id),i.submitted_by,prods,ITM[i.idea_type]].join(' ').toLowerCase().includes(q))return false}
-  if(S.iv.type.length&&!S.iv.type.includes(i.idea_type))return false;
+    if(![i.title,i.problem,i.proposed_solution,i.customer_name,custName(i.customer_id),i.submitted_by,prods,ICM[catOf(i)]?.l,labelsOf(i).map(l=>ILM[l]).join(' ')].join(' ').toLowerCase().includes(q))return false}
+  if(ex!=='cat'&&S.iv.cat.length&&!S.iv.cat.includes(catOf(i)||'none'))return false;
+  if(ex!=='lab'&&S.iv.lab.length&&!labelsOf(i).some(l=>S.iv.lab.includes(l)))return false;
+  if(ex!=='prio'&&S.iv.prio.length&&!isContrib()&&!S.iv.prio.includes(i.pm_priority||'none'))return false;
   if(S.iv.mine&&i.submitted_by!==me()&&!(S.data.idea_votes||[]).some(v=>v.idea_id===i.id&&v.voter===me()))return false;
   if(S.iv.waiting){if(canEdit()){if(!['new','under_review'].includes(i.status))return false}else if(!(i.submitted_by===me()&&i.status==='needs_info'))return false}
   return true;
 }
 function ideaSort(L){
-  // dir 1 = the natural order for that column (best value, most +1s, newest, A–Z, highest priority…); -1 reverses it
+  // dir 1 = the natural order for that column (newest first, A–Z, highest priority…); -1 reverses it
   const k=S.iv.sort,dir=S.iv.dir||1,val=new Map(L.map(i=>[i.id,ideaValue(i)]));
-  const pr={critical:0,high:1,medium:2,low:3},so=Object.fromEntries(IST.map((x,n)=>[x[0],n]));
+  const pr={critical:0,high:1,medium:2,low:3},go=Object.fromEntries(ISG.map((g,n)=>[g.k,n]));
   const newest=(a,b)=>String(b.created_at).localeCompare(String(a.created_at));
   const C={
     value:(a,b)=>{const pa=pr[a.pm_priority]??9,pb=pr[b.pm_priority]??9;if(pa!==pb)return pa-pb;   // PM priority first
       const va=val.get(a.id),vb=val.get(b.id);return(vb.weighted??-1)-(va.weighted??-1)||(vb.units??-1)-(va.units??-1)||(a.need_by||'9999').localeCompare(b.need_by||'9999')},
-    worth:(a,b)=>{const va=val.get(a.id),vb=val.get(b.id);return(vb.rev??-1)-(va.rev??-1)||(vb.units??-1)-(va.units??-1)},
-    votes:(a,b)=>val.get(b.id).votes-val.get(a.id).votes,
+    volume:(a,b)=>{const va=val.get(a.id),vb=val.get(b.id);return(vb.units??-1)-(va.units??-1)||(vb.rev??-1)-(va.rev??-1)},
     new:newest,
-    updated:(a,b)=>String(b.updated_at).localeCompare(String(a.updated_at)),
+    updated:(a,b)=>String(b.updated_at||b.created_at).localeCompare(String(a.updated_at||a.created_at)),
     title:(a,b)=>String(a.title).localeCompare(String(b.title)),
-    type:(a,b)=>(ITM[a.idea_type]||'').localeCompare(ITM[b.idea_type]||''),
+    cat:(a,b)=>(ICM[catOf(a)]?.l||'~').localeCompare(ICM[catOf(b)]?.l||'~'),
     prio:(a,b)=>(pr[a.pm_priority]??9)-(pr[b.pm_priority]??9),
-    status:(a,b)=>so[a.status]-so[b.status],
-    need:(a,b)=>(a.need_by||'9999').localeCompare(b.need_by||'9999')}[k]||newest;
+    status:(a,b)=>go[sgOf(a.status).k]-go[sgOf(b.status).k]}[k]||newest;
   return L.sort((a,b)=>C(a,b)*dir||newest(a,b));
 }
-const ITI={software:I.dev,hardware:ICONS.products,product_kit:I.cards,service:I.pulse,other:'<circle cx="6" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="18" cy="12" r="1.3"/>'};
-const typeTag=i=>`<span class="tg2">${ic(ITI[i.idea_type]||ITI.other)}${esc(ITM[i.idea_type]||'Other')}</span>`;
-const PRC={critical:['#C92C32','#C92C32'],high:['#E58B20','#B9690F'],medium:['#6B7280','#6B7280'],low:['#A6AAB4','#6B7280']};
-const prioTag=i=>{if(!i.pm_priority||isContrib())return'';const[c,t]=PRC[i.pm_priority]||PRC.medium;
-  return`<span class="prio" style="--c:${c};--t:${t}">${['critical','high'].includes(i.pm_priority)?'<b>!</b>':''}${PRIO.find(p=>p[0]===i.pm_priority)[1]}</span>`};
+const catChip=i=>{const c=ICM[catOf(i)];if(!c)return'<span class="mut2">—</span>';const L=labelsOf(i);
+  return`<span class="icat" style="--c:${c.c};--t:${c.t}">${ic(c.i)}${c.l}</span>${L.length?`<div class="ilab">${L.map(l=>esc(ILM[l]||l)).join(' · ')}</div>`:''}`};
+const catTile=i=>{const c=ICM[catOf(i)]||{c:'#6B7280',i:ICI.bulb};return`<span class="itile" style="--c:${c.c}">${ic(c.i)}</span>`};
+const PRC={critical:['#B91C1C','#B91C1C','!!'],high:['#DC2626','#B91C1C','!'],medium:['#EA580C','#C2410C','<circle cx="12" cy="13" r="8"/><path d="M12 13l3.5-3.5M12 3v2"/>'],low:['#6B7280','#6B7280','<circle cx="12" cy="12" r="8"/><path d="M12 8v4l2.5 2"/>']};
+const prioTag=i=>{if(!i.pm_priority||isContrib())return'';const[c,t,g]=PRC[i.pm_priority]||PRC.medium;
+  return`<span class="prio" style="--c:${c};--t:${t}">${g.startsWith('<')?ic(g):`<b>${g}</b>`}${PRIO.find(p=>p[0]===i.pm_priority)[1]}</span>`};
+const ICO_DOTS='<circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/>';
+const ICO_FUNNEL='<path d="M3 5h18l-7 8.5V19l-4 2v-7.5z"/>';
 function ideaCard(i){
   const v=ideaValue(i),prods=(S.data.idea_links||[]).filter(l=>l.idea_id===i.id&&l.kind==='product').map(l=>prodById(l.target_id)?.part_number).filter(Boolean);
   const nc=(S.data.idea_comments||[]).filter(c=>c.idea_id===i.id&&(canEdit()||!c.internal)).length;
   return`<div class="icard" data-act="idea" data-id="${i.id}" ${canEdit()?`draggable="true" data-drag="${i.id}"`:''}>
-    <div class="row" style="justify-content:space-between;gap:6px">${typeTag(i)}${prioTag(i)}</div>
-    <b class="ititle">${esc(i.title)}</b>
+    <div class="row icardh">${catTile(i)}<b class="ititle">${esc(i.title)}</b></div>
+    <div class="row" style="gap:6px;flex-wrap:wrap">${ICM[catOf(i)]?catChip(i).replace(/<div class="ilab">.*<\/div>/,''):''}${prioTag(i)}</div>
     <div class="ival">${valueLine(i,v)}</div>
     ${prods.length?`<div class="iprods">${prods.slice(0,3).map(p=>`<span class="chip">${esc(p)}</span>`).join('')}${prods.length>3?`<span class="mut">+${prods.length-3}</span>`:''}</div>`:''}
-    <div class="imeta"><span title="+1s">▲ ${v.votes}</span><span title="Comments">💬 ${nc}</span>${i.need_by?`<span title="Needed by">⏱ ${fmtMY(i.need_by)}</span>`:''}<span class="grow-sp"></span><span>${esc(who(i.submitted_by))}</span></div>
+    <div class="imeta"><span title="Customer opportunities">${ic(ICONS.customers)} ${v.customers}</span><span title="Comments">💬 ${nc}</span>${i.need_by?`<span title="Needed by">⏱ ${fmtMY(i.need_by)}</span>`:''}<span class="grow-sp"></span><span>${esc(who(i.submitted_by))}</span></div>
   </div>`;
 }
-/* status tabs: All + the nine statuses, each with a count (counts follow the search and filters, not the selected tab) */
+/* status tabs: All + the five groups, each with a count (counts follow search and filters, not the selected tab) */
 function ideaTabs(){
-  const L=(S.data.ideas||[]).filter(ideaMatches);
-  const tab=(k,l,c,n)=>`<button class="itab ${S.iv.st===k?'on':''} ${n?'':'zero'}" data-act="ist" data-arg="${k}">${c?`<i class="dot" style="background:${c}"></i>`:''}${l}<span class="cnt">${n}</span></button>`;
-  return tab('all','All',null,L.length)+IST.map(([k,l,c])=>tab(k,l,c,L.filter(i=>i.status===k).length)).join('');
+  const L=(S.data.ideas||[]).filter(i=>ideaMatches(i));
+  const tab=(k,l,g,n)=>`<button class="itab ${S.iv.st===k?'on':''}" data-act="ist" data-arg="${k}" aria-pressed="${S.iv.st===k}">${g?`<span class="itic" style="--c:${g.c}">${ic(g.i)}</span>`:''}<span>${l} · ${n}</span></button>`;
+  return tab('all','All',null,L.length)+ISG.map(g=>tab(g.k,g.l,g,L.filter(i=>g.s.includes(i.status)).length)).join('');
 }
 const waitCount=()=>(S.data.ideas||[]).filter(i=>canEdit()?['new','under_review'].includes(i.status):(i.submitted_by===me()&&i.status==='needs_info')).length;
-const ISORT=[['value','Value & priority'],['worth','Value / yr'],['votes','Most +1s'],['new','Newest'],['updated','Recently updated']];
-const ICOLS_T=()=>[['title','Idea'],['type','Type'],...(isContrib()?[]:[['prio','Priority']]),['status','Status'],['worth','Value / yr'],['votes','+1s'],['need','Needed by'],['new','Created'],['updated','Last updated']];
+const ISORT=()=>[['updated','Last updated'],['new','Newest'],...(isContrib()?[]:[['prio','Priority'],['value','Priority & volume']]),['volume','Total volume'],['title','Name (A–Z)']];
+const ICOLS_T=()=>[['title','Idea'],['desc','Description'],['cat','Category'],...(isContrib()?[]:[['prio','Priority']]),['status','Status'],['new','Created'],['updated','Last updated'],['act','Actions']];
+const ifCount=()=>S.iv.cat.length+S.iv.lab.length+(isContrib()?0:S.iv.prio.length)+(S.iv.mine?1:0)+(S.iv.waiting?1:0);
 function ictl(){
-  const nT=S.iv.type.length,nW=waitCount(),any=nT||S.iv.mine||S.iv.waiting||S.iv.q.trim()||S.iv.st!=='all';
-  const cur=ISORT.some(s=>s[0]===S.iv.sort)?'':`<option value="${S.iv.sort}" selected>${esc((ICOLS_T().find(c=>c[0]===S.iv.sort)||[,'Column'])[1])}</option>`;
-  return`<button class="btn tb ${nT?'has':''} ${S.ipop?'open':''}" data-act="ipop">Type${nT?`<span class="fcnt">${nT}</span>`:''}<i class="car"></i></button>
-    <button class="btn tb ${S.iv.mine?'has':''}" data-act="imine" aria-pressed="${S.iv.mine}">Mine</button>
-    <button class="btn tb ${S.iv.waiting?'has':''}" data-act="iwait" aria-pressed="${S.iv.waiting}">Waiting on me${nW?`<span class="fcnt">${nW}</span>`:''}</button>
-    <label class="sel">Sort <select id="isort">${cur}${ISORT.map(([k,l])=>`<option value="${k}" ${S.iv.sort===k?'selected':''}>${l}</option>`).join('')}</select></label>
-    ${any?'<button class="btn ghost sm clr" data-act="iclr">Clear all</button>':''}`;
+  const n=ifCount(),opts=ISORT(),cur=opts.some(s=>s[0]===S.iv.sort)?'':`<option value="${esc(S.iv.sort)}" selected>${esc((ICOLS_T().find(c=>c[0]===S.iv.sort)||[,'Column'])[1])}</option>`;
+  return`<button class="btn tb ${S.ipop?'open':''} ${n?'has':''}" data-act="ipop" aria-expanded="${!!S.ipop}">${ic(ICO_FUNNEL)} Filters${n?`<span class="fcnt">${n}</span>`:''}</button>
+    <label class="btn tb isortw" title="Sort ideas"><span>Sort:</span><select id="isort" aria-label="Sort ideas">${cur}${opts.map(([k,l])=>`<option value="${k}" ${S.iv.sort===k?'selected':''}>${l}</option>`).join('')}</select></label>
+    ${n||S.iv.q.trim()||S.iv.st!=='all'?'<button class="btn ghost sm clr" data-act="iclr">Clear all</button>':''}`;
 }
 function ideaToolbar(){
-  const table=S.iv.view!=='board';
-  return`<div class="tbar">${wide()?`<div class="segc vsw tsw"><button class="${table?'on':''}" data-act="iview" data-arg="table">${ICO_LIST} Table</button><button class="${table?'':'on'}" data-act="iview" data-arg="board">${ic(I.cards)} Board</button></div>`:''}
-    <div class="tsearch">${ICO_SEARCH}<input id="iq" type="search" placeholder="Search ideas by title, problem, product or customer…" value="${esc(S.iv.q)}" autocomplete="off"></div>
-    <div id="ictl" class="fctl">${ictl()}</div><div id="ipop"></div></div>`;
+  const board=S.iv.view==='board';
+  return`<div class="tbar itbar"><div class="tsearch">${ICO_SEARCH}<input id="iq" type="search" placeholder="Search ideas by name, description, customer or product…" value="${esc(S.iv.q)}" autocomplete="off"></div>
+    <div id="ictl" class="fctl">${ictl()}</div><span class="hsp"></span>
+    ${wide()?`<div class="segc vsw tsw ivsw"><button class="${board?'':'on'}" data-act="iview" data-arg="table">${ICO_LIST} List</button><button class="${board?'on':''}" data-act="iview" data-arg="board">${ic(I.cards)} Board</button></div>`:''}
+    <div id="ipop"></div></div>`;
 }
 function renderIpop(){
   const el=$('#ipop');if(!el)return;if(!S.ipop){el.innerHTML='';return}
-  const L=(S.data.ideas||[]).filter(i=>{const t=S.iv.type;S.iv.type=[];const ok=ideaMatches(i);S.iv.type=t;return ok});
-  el.innerHTML=`<div class="fpop-bg" data-act="ipclose"></div><div class="fpanel"><div class="fph"><b>Type</b><button class="btn ghost sm" data-act="ipclose">Done</button></div>
-    <div class="chips wrap" style="padding:8px 0 4px">${ITYPE.map(([k,l])=>{const n=L.filter(i=>i.idea_type===k).length,on=S.iv.type.includes(k);
-      return`<button class="chip fchip ${on?'on':''} ${!n&&!on?'zero':''}" data-act="itype" data-arg="${k}">${ic(ITI[k])}${l}<span class="cnt">${n}</span></button>`}).join('')}</div></div>`;
+  const all=S.data.ideas||[],nW=waitCount();
+  const sec=(title,dim,opts,val)=>{const L=all.filter(i=>ideaMatches(i,dim));
+    return`<div class="fsec"><div class="fsh">${title}${S.iv[dim].length?`<button class="btn ghost sm" data-act="ifclr" data-arg="${dim}">Show all</button>`:''}</div><div class="chips wrap">${opts.map(([k,l,c,ico])=>{
+      const n=L.filter(i=>val(i).includes(k)).length,on=S.iv[dim].includes(k);
+      return`<button class="chip fchip ${on?'on':''} ${!n&&!on?'zero':''}" data-act="ifx" data-arg="${dim}" data-id="${k}">${ico?`<span style="color:${on?'inherit':c};display:flex">${ic(ico)}</span>`:''}${esc(l)}<span class="cnt">${n}</span></button>`}).join('')}</div></div>`};
+  el.innerHTML=`<div class="fpop-bg" data-act="ipclose"></div><div class="fpanel all"><div class="fph"><b>Filters</b><span>${ifCount()?'<button class="btn ghost sm" data-act="ifclrall">Clear all</button>':''}<button class="btn ghost sm" data-act="ipclose">Done</button></span></div>
+    ${sec('Category','cat',ICAT.map(([k,l,c,t,i])=>[k,l,c,i]),i=>[catOf(i)||'none'])}
+    ${sec('Product labels','lab',ILAB.map(([k,l])=>[k,l]),i=>labelsOf(i))}
+    ${isContrib()?'':sec('Priority','prio',[...PRIO.map(([k,l])=>[k,l]),['none','Not set']],i=>[i.pm_priority||'none'])}
+    <div class="fsec"><div class="fsh">Show only</div><div class="chips wrap">
+      <button class="chip fchip ${S.iv.mine?'on':''}" data-act="imine">Mine</button>
+      <button class="chip fchip ${S.iv.waiting?'on':''}" data-act="iwait">Waiting on me${nW?`<span class="cnt">${nW}</span>`:''}</button></div></div></div>`;
   const b=$('#ictl [data-act=ipop]'),p=el.querySelector('.fpanel'),bar=el.parentNode;
   if(b&&p&&wide())p.style.left=Math.max(0,Math.min(b.offsetLeft,bar.clientWidth-p.offsetWidth))+'px';
 }
 function ideaTable(L){
-  const cols=ICOLS_T();
-  const th=cols.map(([k,l])=>`<th class="${S.iv.sort===k?'on':''} ${['votes'].includes(k)?'r':''} ${k==='new'?'icreated':''}" data-act="isortcol" data-arg="${k}">${l}${S.iv.sort===k?(S.iv.dir>0?' ↓':' ↑'):''}</th>`).join('');
-  const tr=i=>{const v=ideaValue(i);
-    const val=!v.sized?'<span class="needsz">Needs sizing</span>':`<div class="ivc"><b>${v.rev!=null?'~'+kfmt(v.rev):v.units!=null?'~'+ufmt(v.units)+' units':'—'}</b><span>${v.customers} customer${v.customers===1?'':'s'}${v.firm?` · ${v.firm} firm`:''}</span></div>`;
-    return`<tr data-act="idea" data-id="${i.id}">
-      <td class="icolt"><div class="iti"><b>${esc(i.title)}</b>${i.problem?`<span>${esc(i.problem)}</span>`:''}</div></td>
-      <td>${typeTag(i)}</td>
+  const cols=ICOLS_T(),nos=['desc','act'];
+  const th=cols.map(([k,l])=>nos.includes(k)?`<th class="nosort ${k==='act'?'iact':''}">${l}</th>`:`<th class="${S.iv.sort===k?'on':''} ${k==='new'?'icreated':''}" data-act="isortcol" data-arg="${k}">${l}${S.iv.sort===k?(S.iv.dir>0?' ↓':' ↑'):''}</th>`).join('');
+  const tr=i=>`<tr data-act="idea" data-id="${i.id}">
+      <td class="icolt"><div class="irow">${catTile(i)}<div class="iti"><b>${esc(i.title)}</b><span class="isub">${esc(who(i.submitted_by))}</span></div></div></td>
+      <td class="idesc"><span>${esc(i.problem||'')}</span></td>
+      <td class="icatc">${catChip(i)}</td>
       ${isContrib()?'':`<td>${prioTag(i)||'<span class="mut2">—</span>'}</td>`}
       <td>${iBadge(i.status)}</td>
-      <td>${val}</td>
-      <td class="r"><span class="ivote">▲ ${v.votes}</span></td>
-      <td class="nw">${i.need_by?fmtMY(i.need_by):'<span class="mut2">—</span>'}</td>
       <td class="nw icreated">${fmt(String(i.created_at).slice(0,10))}</td>
-      <td class="nw">${fmt(String(i.updated_at||i.created_at).slice(0,10))}<div class="mut" style="font-size:12px">${esc(who(i.submitted_by))}</div></td></tr>`};
-  return`<div class="ptw"><table class="ptab"><thead><tr>${th}</tr></thead><tbody>${L.map(tr).join('')}</tbody></table></div>`;
+      <td class="nw">${fmt(String(i.updated_at||i.created_at).slice(0,10))}</td>
+      <td class="iact"><button class="cxm" data-act="imenu" data-id="${i.id}" aria-label="Actions for ${esc(i.title)}">${ic(ICO_DOTS)}</button></td></tr>`;
+  return`<div class="ptw itw"><table class="ptab itab2"><thead><tr>${th}</tr></thead><tbody>${L.map(tr).join('')}</tbody></table></div>`;
 }
 function ideasBody(){
   if(!S.data.ideas)S.data.ideas=[];
-  const all=S.data.ideas,board=wide()&&S.iv.view==='board',st=S.iv.st;
-  const L=all.filter(ideaMatches),LL=st==='all'?L:L.filter(i=>i.status===st);
-  if(!all.length)return`<div class="card empty">No ideas yet. ${wide()?'Click':'Tap'} <b>+ Add idea</b> to add the first one — it takes under a minute.</div>`;
-  const head=`<div class="lbar mut"><span>Showing <b>${LL.length}</b> of ${all.length} ideas</span>${wide()&&!board?'<span class="hint">Click a column heading to sort</span>':''}</div>`;
+  const all=S.data.ideas,board=wide()&&S.iv.view==='board',g=ISGM[S.iv.st];
+  const L=all.filter(i=>ideaMatches(i)),LL=g?L.filter(i=>g.s.includes(i.status)):L;
+  if(!all.length)return`<div class="card empty">No ideas yet. ${wide()?'Click':'Tap'} <b>+ Create idea</b> to add the first one — it takes under a minute.</div>`;
+  const foot=`<div class="lbar mut ifoot"><span>Showing <b>${LL.length}</b> of ${all.length} ideas</span></div>`;
   if(board){
-    const cols=ICOLS.filter(([k])=>st==='all'||(k==='closed'?['parked','declined','duplicate'].includes(st):k===st));
-    return head+`<div class="iboard">${cols.map(([k,l])=>{const sts=k==='closed'?['parked','declined','duplicate']:[k];const C=ideaSort(LL.filter(i=>sts.includes(i.status)));
-      const val=C.reduce((s,i)=>s+(ideaValue(i).weighted||0),0);
-      return`<div class="icol" data-col="${k}"><div class="icolh"><span class="dot" style="background:${ISM[sts[0]].c}"></span> ${l} <span class="cnt">${C.length}</span>${val?`<span class="mut ival2">~${kfmt(val)}/yr weighted</span>`:''}</div>${C.map(ideaCard).join('')||'<div class="icempty">—</div>'}</div>`}).join('')}</div>`;
+    const cols=g?[g]:ISG;
+    return`<div class="iboard">${cols.map(c=>{const C=ideaSort(LL.filter(i=>c.s.includes(i.status)));
+      return`<div class="icol" data-col="${c.k}"><div class="icolh"><span class="itic" style="--c:${c.c}">${ic(c.i)}</span> ${c.l} <span class="cnt">${C.length}</span></div>${C.map(ideaCard).join('')||'<div class="icempty">—</div>'}</div>`}).join('')}</div>`+foot;
   }
-  if(!LL.length)return head+'<div class="card empty">No ideas match.</div>';
+  if(!LL.length)return'<div class="card empty">No ideas match.</div>'+foot;
   const S2=ideaSort(LL);
-  if(wide())return head+ideaTable(S2);
-  return head+`<div class="ilist">${S2.map(i=>`<div class="iline">${ideaCard(i).replace('class="icard"','class="icard il"')}<div class="ilst">${iBadge(i.status)}</div></div>`).join('')}</div>`;
+  if(wide())return ideaTable(S2)+foot;
+  return`<div class="ilist">${S2.map(i=>`<div class="iline">${ideaCard(i).replace('class="icard"','class="icard il"')}<div class="ilst">${iBadge(i.status)}</div></div>`).join('')}</div>`+foot;
 }
 function viewIdeas(){
-  return`<div id="itabs" class="itabs">${ideaTabs()}</div>${ideaToolbar()}<div id="iresults">${ideasBody()}</div>
-    <button class="fab" data-act="ideanew" aria-label="Add idea">+</button>`;
+  return`<div id="itabs" class="itabs">${ideaTabs()}</div>${ideaToolbar()}<div id="iresults">${ideasBody()}</div><div id="imenu"></div>
+    <button class="fab" data-act="ideanew" aria-label="Create idea">+</button>`;
 }
 function refreshIdeas(){
   saveView();if(S.tab!=='ideas')return;
@@ -2657,6 +2737,17 @@ function refreshIdeas(){
   const c=$('#ictl');if(c)c.innerHTML=ictl();
   renderIpop();r.innerHTML=ideasBody();
 }
+/* row ⋯ menu */
+function renderImenu(){
+  const el=$('#imenu');if(!el)return;const id=S.imenu;if(!id){el.innerHTML='';return}
+  const i=ideaById(id);if(!i){S.imenu=null;el.innerHTML='';return}
+  const mi=(act,l,extra='')=>`<button class="mi" data-act="${act}" data-id="${i.id}" ${extra}>${l}</button>`,pm=canEdit(),g=sgOf(i.status);
+  el.innerHTML=`<div class="umenu-bg" data-act="imclose"></div><div class="umenu cxmenu imenu">${mi('im_open','Open idea')}${canEditIdea(i)?mi('im_edit','Edit idea'):''}${mi('im_opp','Add customer opportunity')}
+    ${pm?`<div class="ml">Move to</div>${ISG.filter(x=>x!==g).map(x=>mi('im_move',`<span class="itic" style="--c:${x.c}">${ic(x.i)}</span>${x.l}`,`data-arg="${x.k}"`)).join('')}<div class="msep"></div>${mi('im_del','<span style="color:var(--bad)">Delete idea</span>')}`:''}</div>`;
+  const m=el.querySelector('.cxmenu'),b=document.querySelector(`.cxm[data-act=imenu][data-id="${CSS.escape(id)}"]`);
+  if(b){const r=b.getBoundingClientRect();const top=r.bottom+4+m.offsetHeight>innerHeight-8?r.top-4-m.offsetHeight:r.bottom+4;m.style.top=Math.max(8,top)+'px';m.style.right='auto';m.style.left=Math.max(12,Math.min(r.right-m.offsetWidth,innerWidth-m.offsetWidth-12))+'px'}
+}
+const imClose=()=>{S.imenu=null;renderImenu()};
 
 /* ---- saving helpers (live: database triggers log activity; demo: logged here) ---- */
 function demoLog(idea_id,action,detail={},internal=false){if(S.mode!=='demo')return;S.data.idea_activity.push({id:Date.now()+Math.random(),idea_id,actor:me(),action,detail,internal,created_at:new Date().toISOString()});
@@ -2719,16 +2810,18 @@ function readCustomer(f){const fd=new FormData(f),c=fd.get('customer_id');return
 Object.assign(SHEETS,{
  ideaform(e){
   const i=e.id?ideaById(e.id):{idea_type:'',program_years:5};if(!i)return null;
+  const cat=catOf(i)||'',labs=labelsOf(i);
   const prods=e.id?(S.data.idea_links||[]).filter(l=>l.idea_id===i.id&&l.kind==='product').map(l=>l.target_id):(e.product?[e.product]:[]);
   return{title:e.id?'Edit idea':'New idea',right:`<button class="btn ghost" type="submit" form="ideafrm"><b>${e.id?'Save':'Submit'}</b></button>`,body:`
    <form id="ideafrm">
     ${e.id?'':`<p class="mut" style="margin-top:0">Takes under a minute. The product team will follow up — you'll see every status change and comment here.</p>`}
     <div class="field"><label class="l">Idea *</label><input name="title" required value="${esc(i.title||'')}" placeholder="e.g. CAN FD on ioBLOC modules"></div>
     <div class="field"><label class="l">What's the customer problem or opportunity? *</label><textarea name="problem" required placeholder="Who needs it, what they're trying to do, what happens today without it">${esc(i.problem||'')}</textarea></div>
-    <div class="field"><label class="l">Type *</label><div class="chips wrap">${ITYPE.map(([k,l])=>`<label class="chip rchip ${i.idea_type===k?'on':''}"><input type="radio" name="idea_type" value="${k}" ${i.idea_type===k?'checked':''} hidden>${l}</label>`).join('')}</div></div>
+    <div class="field"><label class="l">Category *</label><div class="chips wrap">${ICAT.map(([k,l,c,t,ico])=>`<label class="chip rchip icchip ${cat===k?'on':''}" style="--c:${c}"><input type="radio" name="category" value="${k}" ${cat===k?'checked':''} hidden>${ic(ico)}${l}</label>`).join('')}</div></div>
+    <div class="field ilabs" ${cat==='product'?'':'hidden'}><label class="l">Product labels <span class="mut">(optional, pick any)</span></label><div class="chips wrap">${ILAB.map(([k,l])=>`<label class="chip ${labs.includes(k)?'on':''}"><input type="checkbox" name="labels" value="${k}" ${labs.includes(k)?'checked':''} hidden>${l}</label>`).join('')}</div></div>
     ${sizingFields(i)}
     <div class="grid2">
-      <div class="field"><label class="l">Customer</label>${custPicker(i.customer_id,i.customer_name)}</div>
+      <div class="field"><label class="l">Customer for this opportunity</label>${custPicker(i.customer_id,i.customer_name)}</div>
       <div class="field"><label class="l">Needed by</label><input name="need_by" type="month" value="${i.need_by?String(i.need_by).slice(0,7):''}"></div>
     </div>
     <div class="field"><label class="l">Related products</label>${prodPicker(prods)}</div>
@@ -2744,14 +2837,14 @@ Object.assign(SHEETS,{
  ideavote(e){
   const i=ideaById(e.id);if(!i)return null;
   const mine=(S.data.idea_votes||[]).find(v=>v.id===e.vote)||{};
-  return{title:mine.id?'Edit your +1':'+1 this idea',body:`<form id="ideavotefrm">
-    <p class="mut" style="margin-top:0"><b>${esc(i.title)}</b><br>Tell us which customer needs this too and roughly how much. One entry per customer — adding the same customer again updates it.</p>
+  return{title:mine.id?'Edit customer opportunity':'Add customer opportunity',body:`<form id="ideavotefrm">
+    <p class="mut" style="margin-top:0"><b>${esc(i.title)}</b><br>Which customer needs this, and roughly how much per year? One entry per customer — adding the same customer again updates that entry. The idea's total volume is added up automatically.</p>
     <div class="field"><label class="l">Customer</label>${custPicker(mine.customer_id,mine.customer_name)}</div>
     ${sizingFields(mine)}
     <div class="field" style="margin-top:12px"><label class="l">Note</label><textarea name="note" placeholder="Context: program, timing, competitor they're considering…">${esc(mine.note||'')}</textarea></div>
     <div id="ierr" style="color:var(--bad);font-size:13px"></div>
-    <button class="btn pri block">${mine.id?'Save':'Add my +1'}</button>
-    ${mine.id?`<button type="button" class="btn danger block" data-act="ivotedel" data-id="${mine.id}">Remove my +1</button>`:''}</form>`};
+    <button class="btn pri block">${mine.id?'Save':'Add opportunity'}</button>
+    ${mine.id?`<button type="button" class="btn danger block" data-act="ivotedel" data-id="${mine.id}">Remove opportunity</button>`:''}</form>`};
  },
  ideastatus(e){
   const i=ideaById(e.id);if(!i)return null;const to=e.to;
@@ -2770,35 +2863,39 @@ Object.assign(SHEETS,{
   const v=ideaValue(i),mine=i.submitted_by===me(),pm=canEdit();
   const links=(S.data.idea_links||[]).filter(l=>l.idea_id===i.id);
   const prods=links.filter(l=>l.kind==='product'),devs=links.filter(l=>l.kind==='dev_item').map(l=>({l,d:(S.data.dev_items||[]).find(x=>x.id===l.target_id)})).filter(x=>x.d);
-  const votes=(S.data.idea_votes||[]).filter(x=>x.idea_id===i.id),myVote=votes.find(x=>x.voter===me());
+  const votes=(S.data.idea_votes||[]).filter(x=>x.idea_id===i.id);
   const atts=(S.data.idea_attachments||[]).filter(a=>a.idea_id===i.id);
   const watching=(S.data.idea_watchers||[]).some(w=>w.idea_id===i.id&&w.email===me());
-  const canEditIdea=pm||(mine&&['new','needs_info'].includes(i.status));
+  const canEditI=canEditIdea(i);
   const comments=(S.data.idea_comments||[]).filter(c=>c.idea_id===i.id&&(pm||!c.internal));
   const acts=(S.data.idea_activity||[]).filter(a=>a.idea_id===i.id&&a.action!=='comment'&&(pm||!a.internal));
   const tl=[...comments.map(c=>({t:c.created_at,c})),...acts.map(a=>({t:a.created_at,a}))].sort((a,b)=>String(a.t).localeCompare(String(b.t)));
-  const actTxt=a=>({created:'submitted this idea',edit:'edited the idea',vote:`added a +1${a.detail?.customer&&!/^[0-9a-f-]{36}$/.test(a.detail.customer)?' for '+esc(a.detail.customer):''}`,attachment:`added “${esc(a.detail?.label||'a link')}”`,
+  const actTxt=a=>({created:'submitted this idea',edit:'edited the idea',vote:`added a customer opportunity${a.detail?.customer&&!/^[0-9a-f-]{36}$/.test(a.detail.customer)?' for '+esc(a.detail.customer):''}`,attachment:`added “${esc(a.detail?.label||'a link')}”`,
     link:`linked a ${a.detail?.kind==='dev_item'?'roadmap item':a.detail?.kind||'record'}`,status:`moved it ${a.detail?.from?'from '+(ISM[a.detail.from]?.l||a.detail.from)+' ':''}to <b>${ISM[a.detail?.to]?.l||a.detail?.to}</b>`})[a.action]||esc(a.action);
-  const devHint=devs.length&&['accepted','under_review'].includes(i.status)&&devs.some(x=>x.d.status==='in_progress')?'in_progress':devs.length&&i.status==='in_progress'&&devs.every(x=>['done','cancelled'].includes(x.d.status))?'delivered':null;
+  const devHint=devs.length&&['accepted','under_review','needs_info','new'].includes(i.status)&&devs.some(x=>x.d.status==='in_progress')?'in_progress':null;
   const isImg=a=>a.kind==='image'||/\.(png|jpe?g|gif|webp|svg)(\?|$)/i.test(a.url);
   return{title:'Idea',right:`<button class="btn ghost sm" data-act="iwatch" data-id="${i.id}">${watching?'★ Following':'☆ Follow'}</button>`,body:`
-   <div class="hero"><div class="row" style="flex-wrap:wrap;gap:6px">${iBadge(i.status)}<span class="tag">${ITM[i.idea_type]||'Other'}</span>${i.pm_priority&&!isContrib()?`<span class="tag">Priority: ${PRIO.find(p=>p[0]===i.pm_priority)[1]}</span>`:''}</div>
+   <div class="hero"><div class="row" style="flex-wrap:wrap;gap:6px;align-items:flex-start">${iBadge(i.status)}<span>${catChip(i)}</span>${prioTag(i)}</div>
      <h2 style="margin-top:8px">${esc(i.title)}</h2><div class="mut">Submitted by ${esc(who(i.submitted_by))} · ${fmt(String(i.created_at).slice(0,10))}</div></div>
    ${i.status==='needs_info'&&mine?`<div class="banner" style="margin-top:12px">The product team needs more information — reply in the comments below, then <button class="btn sm pri" data-act="ireply" data-id="${i.id}">Send back for review</button></div>`:''}
    ${i.status==='duplicate'&&i.duplicate_of?`<div class="banner" style="margin-top:12px">Merged into <a href="#" data-act="idea" data-id="${i.duplicate_of}">${esc(ideaById(i.duplicate_of)?.title||'another idea')}</a></div>`:''}
    ${i.status==='declined'&&i.decision_note?`<div class="banner" style="margin-top:12px"><b>Decision:</b> ${esc(i.decision_note)}</div>`:''}
-   <div class="sec"><h2>Opportunity</h2><button class="btn sm ${myVote?'':'pri'}" data-act="ivote" data-id="${i.id}" ${myVote?`data-vote="${myVote.id}"`:''}>${myVote?'Edit my +1':'▲ My customer needs this too'}</button></div>
-   <div class="card kv">${kvItem('Value / year',v.rev!=null?'~'+kfmt(v.rev)+(v.uOnly?` <span class="mut">+ ${ufmt(v.uOnly)} units</span>`:''):v.units!=null?'~'+ufmt(v.units)+' units':'<span class="needsz">Needs sizing</span>',[v.weighted!=null?`${kfmt(v.weighted)} weighted by confidence`:'',v.uOnly&&!isContrib()?'link a product with a list price to value units in $':''].filter(Boolean).join(' · '))}
-     ${kvItem('Lifetime',v.lifetime!=null?'~'+kfmt(v.lifetime):'—',v.lifetime!=null?`${v.years} years in production`:'')}
-     ${kvItem('Customers sized',String(v.customers||0),v.firm?`${v.firm} firm`:'')}${kvItem('+1s',String(v.votes))}
-     ${kvItem('Needed by',i.need_by?fmtMY(i.need_by):'—',i.need_by?relTxt(i.need_by):'')}${kvItem('Market',esc(i.market||'—'))}</div>
-   <div class="sec"><h2>Details</h2>${canEditIdea?`<button class="btn ghost sm" data-act="ideaedit" data-id="${i.id}">Edit</button>`:''}</div>
+   <div class="sec"><h2>Customer opportunities · ${v.customers}</h2><button class="btn sm pri" data-act="ivote" data-id="${i.id}">+ Add opportunity</button></div>
+   <div class="card kv">${kvItem('Total volume / year',v.units!=null?'~'+ufmt(v.units)+' units':v.sized?'—':'<span class="needsz">Needs sizing</span>',v.units!=null?'added up from all customers':'')}
+     ${kvItem('Revenue / year',v.rev!=null&&v.rev>0?'~'+kfmt(v.rev):'—',v.uOnly&&!isContrib()?'link a product with a list price to value units in $':v.rev?'stated revenue plus units × list price':'')}
+     ${kvItem('Customers',String(v.customers||0),v.firm?`${v.firm} firm`:'')}${kvItem('Needed by',i.need_by?fmtMY(i.need_by):'—',i.need_by?relTxt(i.need_by):'')}
+     ${kvItem('Market',esc(i.market||'—'))}${kvItem('Years in production',String(v.years))}</div>
+   ${(()=>{const sz=x=>x.size_basis&&x.size_basis!=='unknown'?`${x.size_basis==='revenue'?(x.size_exact!=null&&x.size_exact!==''?kfmt(+x.size_exact):x.size_range||'')+' per year':(x.size_exact!=null&&x.size_exact!==''?ufmt(+x.size_exact):x.size_range||'')+' units per year'} · ${(CONF.find(c=>c[0]===x.confidence)||[,'Estimate'])[1]}`:'Size not known yet';
+     const own=i.customer_id||i.customer_name||(i.size_basis&&i.size_basis!=='unknown')?`<div class="ev iopp"><div class="grow"><b>${esc(custName(i.customer_id,i.customer_name)||'Customer not named')}</b> <span class="tag">With the idea</span><div class="mut">${sz(i)}</div><div class="mut" style="font-size:12px">Added by ${esc(who(i.submitted_by))}</div></div>${canEditI?`<button class="btn ghost sm" data-act="ideaedit" data-id="${i.id}">Edit</button>`:''}</div>`:'';
+     const rows=votes.map(x=>`<div class="ev iopp"><div class="grow"><b>${esc(custName(x.customer_id,x.customer_name)||'Customer not named')}</b><div class="mut">${sz(x)}</div>${x.note?`<div class="pre" style="font-size:13px;margin-top:2px">${esc(x.note)}</div>`:''}<div class="mut" style="font-size:12px">Added by ${esc(who(x.voter))}</div></div>${x.voter===me()||pm?`<button class="btn ghost sm" data-act="ivote" data-id="${i.id}" data-vote="${x.id}">Edit</button>`:''}</div>`).join('');
+     return own||rows?`<div class="card">${own}${rows}</div>`:'<div class="card empty" style="padding:14px">No customer opportunities yet. Add each customer that needs this, with a rough volume per year.</div>'})()}
+   <div class="sec"><h2>Details</h2>${canEditI?`<button class="btn ghost sm" data-act="ideaedit" data-id="${i.id}">Edit</button>`:''}</div>
    <div class="card"><div class="mut" style="font-size:12px">Customer problem / opportunity</div><div class="pre">${esc(i.problem||'—')}</div>
      ${i.proposed_solution?`<div class="mut" style="font-size:12px;margin-top:10px">Proposed solution</div><div class="pre">${esc(i.proposed_solution)}</div>`:''}
      ${i.customer_id||i.customer_name?`<div class="mut" style="font-size:12px;margin-top:10px">Customer</div><div>${esc(custName(i.customer_id,i.customer_name))}</div>`:''}
      <div class="mut" style="font-size:12px;margin-top:10px">Related products</div><div class="chips wrap" style="margin-top:4px">${prods.map(l=>{const p=prodById(l.target_id);return p?`<span class="chip" ${isContrib()?'':`data-act="product" data-id="${p.id}"`}>${esc(p.part_number)}</span>`:''}).join('')||'<span class="mut">None yet</span>'}</div></div>
    ${pm?`<div class="sec"><h2>Product manager</h2></div><div class="card pmcard"><form id="ideapmfrm" data-id="${i.id}">
-     <div class="grid2"><div class="field"><label class="l">Status</label><select name="status" data-istatus="${i.id}">${IST.map(([k,l])=>`<option value="${k}" ${i.status===k?'selected':''}>${l}</option>`).join('')}</select></div>
+     <div class="grid2"><div class="field"><label class="l">Status</label><select name="status" data-istatus="${i.id}">${ISG.map(g=>`<option value="${g.to}" ${sgOf(i.status)===g?'selected':''}>${g.l}</option>`).join('')}</select></div>
      <div class="field"><label class="l">PM priority</label><select name="pm_priority"><option value="">—</option>${PRIO.map(([k,l])=>`<option value="${k}" ${i.pm_priority===k?'selected':''}>${l}</option>`).join('')}</select></div>
      <div class="field"><label class="l">Owner</label><input name="owner" value="${esc(i.owner||'')}" placeholder="Who drives it"></div>
      <div class="field"><label class="l">Revisit by</label><input name="revisit_by" type="date" value="${esc(i.revisit_by||'')}"></div></div>
@@ -2808,10 +2905,6 @@ Object.assign(SHEETS,{
      <div class="mut" style="font-size:12px;margin-top:12px">Product roadmap items</div>
      ${devs.map(({d})=>{const p=byId('products',d.product_id);return`<div class="ev" data-act="product" data-id="${d.product_id}"><div class="grow"><b>${esc(d.title)}</b><div class="mut">${esc(p?.part_number||'')} · ${fmtMY(d.start_date)} – ${fmtMY(d.end_date)}</div></div><span class="tag">${(DEVS.find(s=>s.k===d.status)||{}).l||d.status}</span></div>`}).join('')||'<div class="mut">None yet.</div>'}
      <button class="btn sm" data-act="idev" data-id="${i.id}" style="margin-top:8px">+ Create roadmap item from this idea</button></div>`:''}
-   <div class="sec"><h2>+1s · ${votes.length}</h2></div>
-   ${votes.length?`<div class="card">${votes.map(x=>{const s=sizingRev(x,null);return`<div class="ev"><div class="grow"><b>${esc(who(x.voter))}</b>${x.customer_id||x.customer_name?` · ${esc(custName(x.customer_id,x.customer_name))}`:''}
-      <div class="mut">${x.size_basis&&x.size_basis!=='unknown'?`${x.size_range||''}${x.size_exact!=null?' ('+(x.size_basis==='revenue'?kfmt(+x.size_exact):ufmt(+x.size_exact)+' units')+')':''} ${x.size_basis==='units'?'units':''}/yr · ${(CONF.find(c=>c[0]===x.confidence)||[,'Estimate'])[1]}`:'Size not known yet'}</div>
-      ${x.note?`<div class="pre" style="font-size:13px;margin-top:2px">${esc(x.note)}</div>`:''}</div></div>`}).join('')}</div>`:'<div class="card empty" style="padding:14px">No +1s yet.</div>'}
    <div class="sec"><h2>Links & images</h2></div>
    <div class="card">${atts.map(a=>`<div class="att">${isImg(a)?`<a href="${esc(a.url)}" target="_blank" rel="noopener"><img src="${esc(a.url)}" alt="${esc(a.label)}" loading="lazy" onerror="this.parentNode.classList.add('noimg');this.remove()"></a>`:''}
       <a class="attl" href="${esc(a.url)}" target="_blank" rel="noopener">${a.kind==='image'?'🖼':a.kind==='document'?'📄':'🔗'} ${esc(a.label)} ↗</a><span class="mut" style="font-size:11.5px">${esc(who(a.added_by))}</span>
@@ -2843,7 +2936,7 @@ async function delRow(table,id){
 }
 const vkey=x=>x.customer_id||(x.customer_name||'').trim().toLowerCase()||('by:'+(x.voter||me()));
 function onStatusPick(id,to){
-  const i=ideaById(id);if(!i||i.status===to)return;
+  const i=ideaById(id);if(!i||i.status===to||sgOf(i.status)===sgOf(to))return;
   if(['needs_info','declined','duplicate','parked'].includes(to))return push({type:'ideastatus',id,to});
   setStatus(id,to).then(()=>{toast('Moved to '+ISM[to].l);rerenderIdeas()}).catch(err=>toast(errMsg(err)));
 }
@@ -2853,16 +2946,23 @@ Object.assign(A,{
  ideanew:(id,arg)=>push({type:'ideaform',product:arg||null}),
  ideaedit:id=>push({type:'ideaform',id}),
  ist:(id,k)=>{S.iv.st=k;refreshIdeas()},
+ ifx:(v,k)=>{const L=S.iv[k],j=L.indexOf(v);if(j>=0)L.splice(j,1);else L.push(v);refreshIdeas()},
+ ifclr:(id,k)=>{S.iv[k]=[];refreshIdeas()},
+ ifclrall:()=>{Object.assign(S.iv,{cat:[],lab:[],prio:[],mine:false,waiting:false});refreshIdeas()},
+ imenu:id=>{S.imenu=S.imenu===id?null:id;renderImenu()},imclose:()=>imClose(),
+ im_open:id=>{imClose();push({type:'idea',id})},im_edit:id=>{imClose();push({type:'ideaform',id})},
+ im_opp:id=>{imClose();push({type:'ideavote',id})},
+ im_move:(id,k)=>{imClose();onStatusPick(id,ISGM[k].to)},
+ im_del:id=>{imClose();A.ideadel(id)},
  isortcol:(id,k)=>{if(S.iv.sort===k)S.iv.dir=-(S.iv.dir||1);else{S.iv.sort=k;S.iv.dir=1}refreshIdeas()},
  ipop:()=>{S.ipop=!S.ipop;const c=$('#ictl');if(c)c.innerHTML=ictl();renderIpop()},
  ipclose:()=>{S.ipop=false;const c=$('#ictl');if(c)c.innerHTML=ictl();renderIpop()},
- iclr:()=>{Object.assign(S.iv,{q:'',st:'all',type:[],mine:false,waiting:false});const q=$('#iq');if(q)q.value='';refreshIdeas()},
- itype:(id,k)=>{const L=S.iv.type,j=L.indexOf(k);if(j>=0)L.splice(j,1);else L.push(k);refreshIdeas()},
+ iclr:()=>{Object.assign(S.iv,{q:'',st:'all',cat:[],lab:[],prio:[],mine:false,waiting:false});const q=$('#iq');if(q)q.value='';refreshIdeas()},
  imine:()=>{S.iv.mine=!S.iv.mine;refreshIdeas()},
  iwait:()=>{S.iv.waiting=!S.iv.waiting;refreshIdeas()},
  iview:(id,k)=>{S.iv.view=k;saveView();renderMain()},
  ivote:(id,arg,el)=>push({type:'ideavote',id,vote:el.dataset.vote||null}),
- async ivotedel(id){if(!confirm('Remove your +1?'))return;try{await delRow('idea_votes',id);S.stack.pop();toast('Removed');rerenderIdeas()}catch(e){toast(errMsg(e))}},
+ async ivotedel(id){if(!confirm('Remove this customer opportunity?'))return;try{await delRow('idea_votes',id);S.stack.pop();toast('Removed');rerenderIdeas()}catch(e){toast(errMsg(e))}},
  async ireply(id){try{await setStatus(id,'under_review');toast('Sent back to the product team');rerenderIdeas()}catch(e){toast(errMsg(e))}},
  async istatusgo(id,to){try{await setStatus(id,to);toast('Moved to '+ISM[to].l);rerenderIdeas()}catch(e){toast(errMsg(e))}},
  async iwatch(id){
@@ -2876,8 +2976,8 @@ Object.assign(A,{
  idev(id){const i=ideaById(id);if(!i)return;const pl=(S.data.idea_links||[]).find(l=>l.idea_id===id&&l.kind==='product');
   push({type:'form',table:'dev_items',fromIdea:id,defaults:{product_id:pl?.target_id||null,title:i.title,details:i.problem,kind:i.idea_type==='software'?'feature':'feature',status:'planned'}})},
  async iattdel(id){try{await delRow('idea_attachments',id);rerenderIdeas()}catch(e){toast(errMsg(e))}},
- async ideadel(id){if(!confirm('Delete this idea, its comments and +1s? This cannot be undone.'))return;
-  try{await remove('ideas',id);S.stack.pop();toast('Deleted');rerenderIdeas()}catch(e){toast(errMsg(e))}},
+ async ideadel(id){if(!confirm('Delete this idea, its comments and customer opportunities? This cannot be undone.'))return;
+  try{await remove('ideas',id);if(S.stack.length&&S.stack[S.stack.length-1].id===id)S.stack.pop();toast('Deleted');rerenderIdeas()}catch(e){toast(errMsg(e))}},
  pickrm:(id,arg,el)=>el.closest('.chip')?.remove()
 });
 
@@ -2886,6 +2986,7 @@ document.addEventListener('change',e=>{
   const t=e.target;
   if(t.type==='radio'&&t.closest('label.rchip')){
     t.form?.querySelectorAll(`input[name="${t.name}"]`).forEach(r=>r.closest('label.rchip')?.classList.toggle('on',r.checked));
+    if(t.name==='category'){const lb=t.form?.querySelector('.ilabs');if(lb)lb.hidden=t.value!=='product'}
     if(t.name==='size_basis'){const box=t.closest('.sizing');box.querySelectorAll('.szr').forEach(z=>z.hidden=!z.dataset.for.split(' ').includes(t.value))}
     return}
   if(t.dataset.pick==='prod'){const v=t.value;t.value='';if(!v)return;const box=t.closest('.picker').querySelector('.pchips');
@@ -2893,7 +2994,7 @@ document.addEventListener('change',e=>{
     box.insertAdjacentHTML('beforeend',`<span class="chip on">${esc(p.part_number)}<input type="hidden" name="prod" value="${v}"><button type="button" class="x" data-act="pickrm">✕</button></span>`);return}
   if(t.hasAttribute('data-cust')){const o=t.parentNode.querySelector('.custother');if(o){o.hidden=t.value!=='__other';if(!o.hidden)o.focus()}return}
   if(t.id==='isort'){S.iv.sort=t.value;S.iv.dir=1;refreshIdeas();return}
-  if(t.dataset.istatus){const id=t.dataset.istatus,to=t.value;t.value=ideaById(id).status;onStatusPick(id,to);return}
+  if(t.dataset.istatus){const id=t.dataset.istatus,to=t.value;t.value=sgOf(ideaById(id).status).to;onStatusPick(id,to);return}
 });
 document.addEventListener('input',e=>{if(e.target.id==='iq'){S.iv.q=e.target.value;clearTimeout(refreshIdeas.t);refreshIdeas.t=setTimeout(refreshIdeas,120)}});
 
@@ -2902,9 +3003,8 @@ document.addEventListener('dragstart',e=>{const c=e.target.closest?.('[data-drag
 document.addEventListener('dragend',e=>{e.target.classList?.remove('dragging');document.querySelectorAll('.icol.over').forEach(x=>x.classList.remove('over'))});
 document.addEventListener('dragover',e=>{const col=e.target.closest?.('.icol');if(!col||!canEdit())return;e.preventDefault();document.querySelectorAll('.icol.over').forEach(x=>x!==col&&x.classList.remove('over'));col.classList.add('over')});
 document.addEventListener('drop',e=>{const col=e.target.closest?.('.icol');if(!col)return;e.preventDefault();col.classList.remove('over');
-  const id=e.dataTransfer.getData('text/plain'),i=ideaById(id);if(!i)return;let to=col.dataset.col;
-  if(to==='closed'){if(['parked','declined','duplicate'].includes(i.status))return;to='parked'}
-  onStatusPick(id,to)});
+  const id=e.dataTransfer.getData('text/plain'),i=ideaById(id),g=ISGM[col.dataset.col];if(!i||!g)return;
+  onStatusPick(id,g.to)});
 
 /* ---- idea form submissions ---- */
 document.addEventListener('submit',async e=>{
@@ -2914,13 +3014,15 @@ document.addEventListener('submit',async e=>{
   const busy=b=>{if(btn)btn.disabled=b};
   try{
   if(f.id==='ideafrm'){
-    if(!fd.get('idea_type'))return fail('Pick a type.');
+    const cat=fd.get('category');if(!cat)return fail('Pick a category.');const labels=cat==='product'?fd.getAll('labels'):[];
     const sz=readSizing(f);if(sz.err)return fail(sz.err);
     const nb=fd.get('need_by');if(nb&&!/^\d{4}-\d{2}/.test(nb))return fail('Needed by: use YYYY-MM.');
-    const o={title:fd.get('title').trim(),problem:fd.get('problem').trim(),idea_type:fd.get('idea_type'),...sz,...readCustomer(f),
+    const o={title:fd.get('title').trim(),problem:fd.get('problem').trim(),idea_type:typeFor(cat,labels),category:cat,labels,...sz,...readCustomer(f),
       need_by:nb?nb.slice(0,7)+'-01':null,proposed_solution:(fd.get('proposed_solution')||'').trim()||null,market:fd.get('market')||null,program_years:+fd.get('program_years')||5};
     if(top.id)o.id=top.id;busy(true);
-    const out=await ideaSave('ideas',o,top.id?['edit',{}]:['created',{title:o.title}]);
+    let out;try{out=await ideaSave('ideas',o,top.id?['edit',{}]:['created',{title:o.title}])}
+    catch(x){if(!/category|labels/i.test(x?.message||''))throw x;delete o.category;delete o.labels;   // database without 08_idea_category.sql
+      out=await ideaSave('ideas',o,top.id?['edit',{}]:['created',{title:o.title}]);setTimeout(()=>toast('Saved without the category: run 08_idea_category.sql to store categories.'),300)}
     const want=[...new Set(fd.getAll('prod'))],have=(S.data.idea_links||[]).filter(l=>l.idea_id===out.id&&l.kind==='product');
     for(const pid of want.filter(x=>!have.some(l=>l.target_id===x)))await ideaSave('idea_links',{idea_id:out.id,kind:'product',target_id:pid},['link',{kind:'product'}]);
     for(const l of have.filter(l=>!want.includes(l.target_id)))await delRow('idea_links',l.id).catch(()=>{});
@@ -2932,10 +3034,10 @@ document.addEventListener('submit',async e=>{
     const sz=readSizing(f);if(sz.err)return fail(sz.err);
     const o={idea_id:top.id,...readCustomer(f),...sz,note:(fd.get('note')||'').trim()||null};
     const k=vkey({...o,voter:me()}),clash=S.data.idea_votes.find(v=>v.idea_id===top.id&&v.id!==top.vote&&vkey(v)===k);
-    if(clash){if(clash.voter===me()&&!top.vote)o.id=clash.id;else return fail(`${who(clash.voter)} already added a +1 for this customer — add a comment instead.`)}
+    if(clash){if(clash.voter===me()&&!top.vote)o.id=clash.id;else return fail(`${who(clash.voter)} already added an opportunity for this customer — edit that one, or add a comment.`)}
     else if(top.vote)o.id=top.vote;
     busy(true);await ideaSave('idea_votes',o,o.id?null:['vote',{customer:o.customer_name||custName(o.customer_id)}]);
-    S.stack.pop();toast(o.id?'Saved':'+1 added');return rerenderIdeas();
+    S.stack.pop();toast(o.id?'Saved':'Opportunity added');return rerenderIdeas();
   }
   if(f.id==='ideastatusfrm'){
     const to=top.to,reason=(fd.get('reason')||'').trim(),x={};
@@ -2967,12 +3069,14 @@ function seedIdeas(x){
   const P=re=>(x.products.find(p=>re.test(p.part_number))||x.products[0]||{}).id,C=n=>(x.customers[n]||{}).id||null;
   const day=n=>new Date(Date.now()-n*864e5).toISOString();
   const I=(o,n)=>({id:uid(),status:'new',program_years:5,created_at:day(n),updated_at:day(Math.max(0,n-3)),...o});
-  const a=I({title:'CAN FD on I/O expansion modules',problem:'OEMs moving to CAN FD backbones want I/O modules that keep up. Today they run a separate classic-CAN segment just for the modules.',idea_type:'hardware',status:'under_review',size_basis:'units',size_range:'2k–10k',confidence:'stated',customer_id:C(0),need_by:'2027-09-01',market:'Construction',submitted_by:'sales.east@stw-technic.com',pm_priority:'high'},20);
-  const b=I({title:'Secure boot on the telematics gateway',problem:'Two customers asked for proof of secure boot and signed firmware as part of their cybersecurity reviews (ISO/SAE 21434).',idea_type:'software',status:'accepted',size_basis:'revenue',size_range:'$100–500k',confidence:'firm',customer_id:C(1),need_by:'2027-03-01',submitted_by:'support@stw-technic.com',pm_priority:'critical',owner:'Product management'},45);
-  const c=I({title:'Pre-wired harness kit for display + controller',problem:'Small builders spend days making a harness for a display and controller pair. A ready-to-install kit would shorten their first prototype.',idea_type:'product_kit',status:'needs_info',size_basis:'unknown',submitted_by:'demo@local'},9);
-  const d=I({title:'Remote diagnostics dashboard for dealers',problem:'Dealers want to see fault codes before the truck arrives at the shop.',idea_type:'service',status:'new',size_basis:'revenue',size_range:'$25–100k',confidence:'estimate',customer_name:'Regional dealer group',submitted_by:'sales.west@stw-technic.com'},3);
-  const e=I({title:'IP69K variant of the camera',problem:'Wash-down applications (food processing, municipal) need IP69K.',idea_type:'hardware',status:'parked',size_basis:'units',size_range:'100–500',confidence:'estimate',submitted_by:'sales.east@stw-technic.com',revisit_by:'2027-06-30',decision_note:'Supplier has no IP69K housing planned before 2028.'},80);
-  x.ideas=[a,b,c,d,e];
+  const a=I({title:'CAN FD on I/O expansion modules',problem:'OEMs moving to CAN FD backbones want I/O modules that keep up. Today they run a separate classic-CAN segment just for the modules.',idea_type:'hardware',category:'product',labels:['hardware','software'],status:'under_review',size_basis:'units',size_range:'2k–10k',confidence:'stated',customer_id:C(0),need_by:'2027-09-01',market:'Construction',submitted_by:'sales.east@stw-technic.com',pm_priority:'high'},20);
+  const b=I({title:'Secure boot on the telematics gateway',problem:'Two customers asked for proof of secure boot and signed firmware as part of their cybersecurity reviews (ISO/SAE 21434).',idea_type:'software',category:'product',labels:['software'],status:'accepted',size_basis:'revenue',size_range:'$100–500k',confidence:'firm',customer_id:C(1),need_by:'2027-03-01',submitted_by:'support@stw-technic.com',pm_priority:'critical',owner:'Product management'},45);
+  const c=I({title:'Pre-wired harness kit for display + controller',problem:'Small builders spend days making a harness for a display and controller pair. A ready-to-install kit would shorten their first prototype.',idea_type:'product_kit',category:'product',labels:['product_kit'],status:'needs_info',size_basis:'unknown',submitted_by:'demo@local'},9);
+  const d=I({title:'Remote diagnostics dashboard for dealers',problem:'Dealers want to see fault codes before the truck arrives at the shop.',idea_type:'service',category:'service',status:'new',size_basis:'revenue',size_range:'$25–100k',confidence:'estimate',customer_name:'Regional dealer group',submitted_by:'sales.west@stw-technic.com'},3);
+  const e=I({title:'IP69K variant of the camera',problem:'Wash-down applications (food processing, municipal) need IP69K.',idea_type:'hardware',category:'rnd',status:'parked',size_basis:'units',size_range:'100–500',confidence:'estimate',submitted_by:'sales.east@stw-technic.com',revisit_by:'2027-06-30',decision_note:'Supplier has no IP69K housing planned before 2028.'},80);
+  const f=I({title:'Usage-based pricing for Beacon',problem:'OEMs ask to pay per connected machine per month instead of a yearly licence, so cost follows fleet size.',idea_type:'other',category:'business_model',status:'in_progress',size_basis:'revenue',size_range:'$100–500k',confidence:'stated',submitted_by:'pm@stw-technic.com',pm_priority:'medium'},30);
+  const g=I({title:'Predictive maintenance alerts',problem:'Use machine data in Beacon to warn dealers before a hydraulic or engine fault stops the machine.',idea_type:'other',category:'digital',status:'under_review',size_basis:'unknown',submitted_by:'sales.west@stw-technic.com',pm_priority:'low'},14);
+  x.ideas=[a,b,c,d,e,f,g];
   x.idea_links=[{id:uid(),idea_id:a.id,kind:'product',target_id:P(/ioBLOC 8/i),created_by:'sales.east@stw-technic.com'},{id:uid(),idea_id:b.id,kind:'product',target_id:P(/TCG/i),created_by:'support@stw-technic.com'},{id:uid(),idea_id:e.id,kind:'product',target_id:P(/Velos|cam/i),created_by:'sales.east@stw-technic.com'}].filter(l=>l.target_id);
   x.idea_votes=[{id:uid(),idea_id:a.id,voter:'sales.west@stw-technic.com',customer_id:C(2),size_basis:'units',size_range:'500–2k',confidence:'firm',note:'Nominated for their 2028 platform if available by Q3 2027.',created_at:day(12)},
     {id:uid(),idea_id:b.id,voter:'sales.east@stw-technic.com',customer_id:C(3),size_basis:'unknown',created_at:day(30)}];
