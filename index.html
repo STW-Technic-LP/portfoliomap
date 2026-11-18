@@ -238,6 +238,70 @@ a{color:var(--acc)}
 .vchart .gl{stroke:var(--line)}.vchart .tk{font-size:10.5px;fill:var(--mut)}.vchart .ax{font-size:11.5px;fill:var(--mut);font-weight:600}
 .vchart .vl{stroke:var(--mut);stroke-dasharray:5 5;opacity:.6}
 .vchart .pt{cursor:pointer}.vchart .pt circle{stroke:var(--card);stroke-width:2}.vchart .pl{font-size:11.5px;font-weight:700;fill:var(--ink)}
+
+/* portfolio page v2.8 */
+.cxi.ph{background:#fff;overflow:hidden;padding:0}.cxi.ph img{width:100%;height:100%;object-fit:contain;display:block}
+.cxi.md{width:34px;height:34px;border-radius:8px}.cxi.md .ic{width:19px;height:19px}
+.cxi.lg{width:64px;height:64px;border-radius:12px}.cxi.lg .ic{width:30px;height:30px}
+.cxi.xl{width:72px;height:72px;border-radius:14px;border:1px solid var(--line)}.cxi.xl .ic{width:34px;height:34px}
+.heroph{display:flex;align-items:center;gap:14px}
+.phf{display:flex;align-items:center;gap:14px}.phf .phb{display:flex;flex-wrap:wrap;align-items:center;gap:6px}.phf .phn{width:100%;font-size:12px}
+.phf label.btn{cursor:pointer}
+.pcw{display:flex;align-items:center;gap:10px;min-width:0}
+.pch .cxi{margin-right:2px}
+.pfs{margin:0 0 16px}
+.pfcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:12px}
+.pfc{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);text-align:left;color:var(--ink);font:inherit;cursor:pointer;min-width:0}
+.pfc:hover{box-shadow:0 4px 18px rgba(20,25,35,.12)}.pfh{cursor:default}.pfh:hover{box-shadow:var(--shadow)}
+.pfc .grow{min-width:0;display:flex;flex-direction:column}
+.pfc .pfl{font-weight:650;font-size:14px;display:flex;align-items:center;gap:6px}
+.pfc b{font-size:28px;line-height:1.1;letter-spacing:-.02em}
+.pfc .mut{font-size:12.5px;line-height:1.3}
+.pfi{width:44px;height:44px;border-radius:12px;flex:none;display:flex;align-items:center;justify-content:center;color:var(--c);background:color-mix(in srgb,var(--c) 12%,transparent)}.pfi .ic{width:24px;height:24px}
+.pfc .car.rt{flex:none}
+.pfr{width:64px;height:64px;flex:none;transform:rotate(-90deg)}
+.pfr circle{fill:none;stroke:var(--line);stroke-width:7}.pfr circle.on{stroke:#1263BD;stroke-linecap:round}
+.pfr text{transform:rotate(90deg);transform-origin:32px 32px;font-size:14px;font-weight:750;fill:var(--ink);text-anchor:middle}
+.pfd{padding:14px 18px;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"h l" "b l";gap:8px 24px;align-items:center;margin:0}
+.pfdh{grid-area:h;display:flex;align-items:baseline;gap:12px}.pfdh h3{margin:0;font-size:15px;display:flex;align-items:center;gap:6px}
+.pfdb{grid-area:b;display:flex;height:30px;border-radius:15px;overflow:hidden;gap:2px;background:var(--line)}
+.dseg{border:0;min-width:6px;font:600 12px/30px inherit;font-family:inherit;white-space:nowrap;overflow:hidden;cursor:pointer;padding:0 4px;transition:opacity .12s}
+.dseg.off,.dl.off{opacity:.3}
+.pfdl{grid-area:l;display:grid;grid-template-columns:1fr;gap:2px 16px;border-left:1px solid var(--line);padding-left:20px}
+.dl{border:0;background:none;color:var(--ink);font:inherit;font-size:12.5px;text-align:left;display:flex;align-items:center;gap:8px;padding:2px 0;cursor:pointer}
+.dl i{width:12px;height:12px;border-radius:3px;flex:none}
+.plcard{padding:16px 18px 18px;margin:0}
+.plh{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.plh h2{margin:0;font-size:20px;letter-spacing:-.01em}.plh p{margin:2px 0 0;font-size:13px}
+.plhi{width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--ink)}.plhi .ic{width:26px;height:26px}
+.plh .tsw{margin-left:auto}
+.plcard .tl{box-shadow:none}
+.tsort{cursor:pointer;user-select:none}.tsort span{color:var(--mut);font-weight:600}
+.tl-corner .tcm{width:30px;flex:none}
+.tl-lab .cxi.md{width:34px;height:34px}
+.rmm{flex:none;width:30px;height:30px}
+.bar.post{background:#A6AAB4;opacity:.45}
+.ms.nm{pointer-events:none}
+.msl{position:absolute;top:calc(50% - 25px);z-index:2;font-size:10.5px;line-height:1.15;white-space:nowrap;pointer-events:none;background:color-mix(in srgb,var(--card) 82%,transparent);padding:0 3px;border-radius:4px}
+.msl b{font-weight:700;margin-right:4px}.msl span{color:var(--ink)}
+.pager{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;margin-top:12px;font-size:13.5px}
+.pgs{display:flex;gap:4px;align-items:center}
+.pgb{min-width:32px;height:32px;border-radius:8px;border:1px solid transparent;background:none;color:var(--ink);font:inherit;cursor:pointer}
+.pgb:hover:not(:disabled){border-color:var(--line)}.pgb.on{background:var(--pri);color:var(--pri-ink)}.pgb:disabled{opacity:.35;cursor:default}
+.pgd{color:var(--mut);padding:0 4px}
+@media (max-width:1099px){.pfd{grid-template-columns:1fr;grid-template-areas:"h" "b" "l"}.pfdl{border-left:0;padding-left:0;grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}}
+body:not(.wide) .pfcards{grid-template-columns:1fr;gap:8px}
+body:not(.wide) .pfc{padding:10px 12px;gap:12px}
+body:not(.wide) .pfc .grow{display:grid;grid-template-columns:auto 1fr;grid-template-areas:"l b" "s b";column-gap:10px;align-items:center}
+body:not(.wide) .pfc .pfl{grid-area:l}body:not(.wide) .pfc .grow>.mut{grid-area:s}
+body:not(.wide) .pfc b{grid-area:b;justify-self:end;font-size:24px}
+body:not(.wide) .pfh .grow{display:flex}
+body:not(.wide) .pfr{width:52px;height:52px}
+body:not(.wide) .pfi{width:36px;height:36px}.pfi .ic{width:20px;height:20px}
+body:not(.wide) .plhi{display:none}
+body:not(.wide) .plcard{padding:12px;margin:0 -4px}
+body:not(.wide) .plh .tsw{margin-left:0;width:100%}
+body:not(.wide) .msl{font-size:9.5px}
 /* compare (redesign) */
 .cxbar{padding:12px 14px;margin:0 0 14px}
 .cxtop{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
@@ -706,7 +770,7 @@ body.wide .itabs{flex-wrap:wrap;overflow:visible}
 <div id="toast"></div>
 <script>
 /* App version: bump on every delivered change (major.minor.patch) and add a line to Version history in HANDOFF.md */
-const APP_VERSION='2.7.1',APP_BUILD='2026-11-18';
+const APP_VERSION='2.8.0',APP_BUILD='2026-11-18';
 /* =====================================================================
    CONFIG — paste your Supabase project URL and anon (public) key here.
    Leave blank to run in Demo mode (sample data stored on this device),
@@ -745,15 +809,15 @@ const PHG_OF={development:'dev',evaluating:'pipeline',onboarding:'pipeline',acti
 
 /* ---------- state ---------- */
 const S={mode:'demo',sb:null,user:null,role:'admin',tab:'roadmap',stack:[],data:{},
-  f:{group:'category'},F:{q:'',sup:[],cat:[],ph:[],mkt:[],can:[]},mw:wide()?30:22,fOpen:false,tlScroll:null,rows:[],cmp:{ids:[],diff:false,gaps:true,metric:'io',priceBy:'list',sec:'overview',saved:null},rmView:'timeline',pView:'table',det:{sup:true,mkt:true},hz:'12',coll:[],fpop:null,ipop:false,lsort:{k:'part',dir:1},incOnly:false,
+  f:{group:'none'},lpp:50,lpage:0,tsort:1,F:{q:'',sup:[],cat:[],ph:[],mkt:[],can:[]},mw:wide()?30:22,fOpen:false,tlScroll:null,rows:[],cmp:{ids:[],diff:false,gaps:true,metric:'io',priceBy:'list',sec:'overview',saved:null},rmView:'timeline',pView:'table',det:{sup:true,mkt:true},hz:'12',coll:[],fpop:null,ipop:false,lsort:{k:'part',dir:1},incOnly:false,
   tv:{q:'',type:[],st:[],mkt:[],sup:[],kpi:null,view:'list'},
   iv:{q:'',st:'all',type:[],mine:false,waiting:false,sort:'value',dir:1,view:'table'}};
-try{const v=JSON.parse(localStorage.getItem('rm_view')||'null');if(v){Object.assign(S.F,v.F||{});if(v.group)S.f.group=v.group;if(v.mw)S.mw=v.mw;if(v.sideCol)S.sideCol=true;if(v.cmp)Object.assign(S.cmp,v.cmp);if(v.rmView)S.rmView=v.rmView;if(v.pView)S.pView=v.pView;if(v.det)S.det=v.det;if(v.hz)S.hz=v.hz;if(Array.isArray(v.coll))S.coll=v.coll;if(v.lsort)S.lsort=v.lsort;S.incOnly=!!v.incOnly;if(v.iv)Object.assign(S.iv,v.iv,{q:''});if(v.tv)Object.assign(S.tv,v.tv,{q:''})}}catch(e){}
+try{const v=JSON.parse(localStorage.getItem('rm_view')||'null');if(v){Object.assign(S.F,v.F||{});if(v.group)S.f.group=v.group;if(v.mw)S.mw=v.mw;if(v.sideCol)S.sideCol=true;if(v.cmp)Object.assign(S.cmp,v.cmp);if(v.rmView)S.rmView=v.rmView;if(v.pView)S.pView=v.pView;if(v.det)S.det=v.det;if(v.hz)S.hz=v.hz;if(Array.isArray(v.coll))S.coll=v.coll;if(v.lsort)S.lsort=v.lsort;S.incOnly=!!v.incOnly;if(v.iv)Object.assign(S.iv,v.iv,{q:''});if(v.tv)Object.assign(S.tv,v.tv,{q:''});if(v.lpp!=null)S.lpp=v.lpp;if(v.tsort)S.tsort=v.tsort;if(!v.g2)S.f.group='none'}}catch(e){}
 // Ideas view saved by older versions: 'list' is now the table; status groups are now status tabs
 // Compare saved by older versions: one product list per category → one ordered list
 {const c=S.cmp;if(!Array.isArray(c.ids)){const o=c.sel&&c.cat&&c.sel[c.cat];c.ids=Array.isArray(o)?o.slice():[]}delete c.sel;delete c.cat;if(!c.sec)c.sec='overview';if(c.saved===undefined)c.saved=null}
 if(S.iv.view!=='board')S.iv.view='table';if(!S.iv.st)S.iv.st='all';if(!S.iv.dir)S.iv.dir=1;delete S.iv.grp;
-function saveView(){try{localStorage.setItem('rm_view',JSON.stringify({F:S.F,group:S.f.group,mw:S.mw,sideCol:!!S.sideCol,cmp:S.cmp,rmView:S.rmView,pView:S.pView,det:S.det,hz:S.hz,coll:S.coll,lsort:S.lsort,incOnly:S.incOnly,iv:{...S.iv,q:''},tv:{...S.tv,q:''}}))}catch(e){}}
+function saveView(){try{localStorage.setItem('rm_view',JSON.stringify({F:S.F,group:S.f.group,mw:S.mw,sideCol:!!S.sideCol,cmp:S.cmp,rmView:S.rmView,pView:S.pView,det:S.det,hz:S.hz,coll:S.coll,lsort:S.lsort,incOnly:S.incOnly,iv:{...S.iv,q:''},tv:{...S.tv,q:''},lpp:S.lpp,tsort:S.tsort,g2:1}))}catch(e){}}
 TABLES.forEach(t=>S.data[t]=[]);
 
 /* ---------- helpers ---------- */
@@ -796,7 +860,7 @@ function needsMig(cp){
   return ['nrnd','ltb','eol'].includes(phase(p))||!!cp.transition_id;
 }
 function toast(msg){const t=$('#toast');t.innerHTML=`<div class="toast">${esc(msg)}</div>`;clearTimeout(toast.h);toast.h=setTimeout(()=>t.innerHTML='',2600)}
-function errMsg(e){let m=e?.message||String(e);if(/schema/i.test(m)&&/must be one of|not exposed|Invalid schema/i.test(m))m+=' — add "roadmap" to Exposed schemas in Supabase API settings.';return m}
+function errMsg(e){let m=e?.message||String(e);if(/'photo' column|column .*photo/i.test(m))return'The database needs 08_product_photos.sql before photos can be saved.';if(/schema/i.test(m)&&/must be one of|not exposed|Invalid schema/i.test(m))m+=' — add "roadmap" to Exposed schemas in Supabase API settings.';return m}
 
 /* ---------- data layer (Supabase or local demo) ---------- */
 function cfg(){let s={};try{s=JSON.parse(localStorage.getItem('rm_cfg')||'{}')}catch(e){}return{url:CONFIG.SUPABASE_URL||s.url||'',key:CONFIG.SUPABASE_ANON_KEY||s.key||'',hard:!!CONFIG.SUPABASE_URL}}
@@ -988,7 +1052,7 @@ const ttag=t=>`<span class="tag">${esc(t.transition_type||KIND[t.kind]||'')}</sp
 const BASIS=[['Stated on website','Stated on website'],['Supplier roadmap','Supplier roadmap'],['Internal (product manager)','Internal (product manager)'],['Inferred - confirm','Inferred - confirm']];
 const FORMS={
  products:{title:'Product',defaults:{lifecycle:'evaluating',category:'controller',markets:[],currency:'USD'},fields:()=>[
-  {h:'Product'},{k:'part_number',l:'Model / part number',req:1},{k:'name',l:'Description',req:1},
+  {h:'Product'},{k:'photo',l:'Photo',t:'photo'},{k:'part_number',l:'Model / part number',req:1},{k:'name',l:'Description',req:1},
   {k:'supplier_id',l:'Supplier',t:'select',o:supOpts(),req:1},{k:'category',l:'Category',t:'select',o:Object.entries(CATS1),req:1},
   {k:'family',l:'Series / family'},{k:'sub_type',l:'Sub-type'},{k:'product_code',l:'Product ID (e.g. CTL-17)'},
   {k:'lifecycle',l:'Lifecycle status',t:'select',o:LIFECYCLE.map(x=>[x.k,x.f||x.l]),req:1},
@@ -1049,6 +1113,10 @@ function fieldHTML(f,v){
   if(f.row2)return`<div class="hwgrid">${f.row2.map(x=>fieldHTML(x,v)).join('')}</div>`;
   if(f.row)return`<div class="grid3">${f.row.map(x=>fieldHTML(x,v)).join('')}</div>`;
   if(f.t==='hw')return`<div id="hwfields" class="hwgrid">${hwFieldsHTML(v.category,v.hardware)}</div>`;
+  if(f.t==='photo'){const has=hasPhoto(v);return`<div class="field"><label class="l">${esc(f.l)}</label><div class="phf"><span id="phprev">${catIc({category:v.category||'other',photo:has?v.photo:null,part_number:''},'lg')}</span>
+    <div class="phb">${canEdit()?`<label class="btn sm">Upload photo<input type="file" accept="image/*" data-photo hidden></label> <button type="button" class="btn ghost sm" data-act="phclr" ${has?'':'hidden'}>Remove</button>`:''}
+    <div class="mut phn">Resized to 100 × 100 px and stored with the product.</div></div>
+    <input type="hidden" name="photo" value="${has?v.photo:''}" ${v.photo?'data-orig="1"':''}></div></div>`}
   const val=v[f.k],req=f.req?'required':'';let inp;
   if(f.t==='select')inp=`<select name="${f.k}" ${req}>${f.req?'':'<option value="">—</option>'}${f.o.map(([a,b])=>`<option value="${esc(a)}" ${String(val??'')===String(a)?'selected':''}>${esc(b)}</option>`).join('')}</select>`;
   else if(f.t==='multi')inp=`<div class="chips wrap">${f.o.map(([a,b])=>{const on=(val||[]).includes(a);return`<label class="chip ${on?'on':''}"><input type="checkbox" name="${f.k}" value="${esc(a)}" ${on?'checked':''} hidden>${esc(b)}</label>`}).join('')||'<span class="mut">Add markets in Settings</span>'}</div>`;
@@ -1056,7 +1124,7 @@ function fieldHTML(f,v){
   else inp=`<input name="${f.k}" type="${f.t||'text'}" value="${esc(val??'')}" ${req} ${f.t==='number'?'step="any" inputmode="decimal"':''}>`;
   return`<div class="field"><label class="l">${esc(f.l)}${f.req?' *':''}</label>${inp}</div>`;
 }
-function collect(form,fields){const fd=new FormData(form),o={};flat(fields).forEach(f=>{if(f.t==='hw')o[f.k]=collectHW(form);else if(f.t==='multi')o[f.k]=fd.getAll(f.k);else{let v=fd.get(f.k);v=(v===''||v==null)?null:f.t==='number'?Number(v):v;o[f.k]=v}});return o}
+function collect(form,fields){const fd=new FormData(form),o={};flat(fields).forEach(f=>{if(f.t==='hw')o[f.k]=collectHW(form);else if(f.t==='photo'){const v=fd.get(f.k)||null,el=form.querySelector(`[name=${f.k}]`);if(v||el?.dataset.orig)o[f.k]=v}else if(f.t==='multi')o[f.k]=fd.getAll(f.k);else{let v=fd.get(f.k);v=(v===''||v==null)?null:f.t==='number'?Number(v):v;o[f.k]=v}});return o}
 
 /* ---------- views ---------- */
 const ICONS={roadmap:'<path d="M12 3 21 8l-9 5-9-5z"/><path d="m3 12.5 9 5 9-5"/><path d="m3 17 9 5 9-5"/>',
@@ -1068,7 +1136,7 @@ const ICONS={roadmap:'<path d="M12 3 21 8l-9 5-9-5z"/><path d="m3 12.5 9 5 9-5"/
  more:'<path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/>',
  signout:'<path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4M10 16l-4-4 4-4M6 12h10"/>'};
 const TITLES={roadmap:'Portfolio',products:'Products',transitions:'Transitions',ideas:'Ideas',compare:'Compare',customers:'Customers',more:'Settings'};
-const SUBS={roadmap:'Your products, their lifecycle, and what\'s coming next.',products:'Your product catalog, lifecycle stages and missing data.',
+const SUBS={roadmap:'Analyze portfolio health, lifecycle coverage, and upcoming product transitions.',products:'Your product catalog, lifecycle stages and missing data.',
   transitions:'Track product transitions, replacements and migration plans across the portfolio.',ideas:'Capture, size and prioritize product ideas from the team.',
   compare:'Evaluate two or more products side by side: specifications, lifecycle and key differences.',customers:'Customers and the products they use.',more:'Your account, suppliers, markets, events and data connection.'};
 const NAV=['roadmap','products','transitions','ideas','compare'];
@@ -1124,7 +1192,7 @@ function umenuHTML(){
     ${wide()&&!document.body.classList.contains('solo')?`<div class="ml">Menu position</div>${menuPos()}`:''}
     ${mi('tab','more','more','Settings')}${isContrib()?'':mi('tab','customers','customers','Customers')}${S.mode==='live'?mi('signout','','signout','Sign out')+`<div class="uver">Portfolium v${APP_VERSION} · ${fmt(APP_BUILD)}</div>`:''}</div>`;
 }
-document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(S.stack.length&&!S.fpop&&!S.cxpop&&!S.tvpop&&!S.tvmenu&&!S.ipop){e.preventDefault();return A.back()}if($('#umenu')?.innerHTML)$('#umenu').innerHTML='';if(S.fpop)A.fpclose();if(S.ipop)A.ipclose();if(S.cxpop)A.cxclose();if(S.tvpop)A.tvpclose();if(S.tvmenu)A.tvmclose()});
+document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(S.rmmenu)return A.rmmclose();if(S.stack.length&&!S.fpop&&!S.cxpop&&!S.tvpop&&!S.tvmenu&&!S.ipop){e.preventDefault();return A.back()}if($('#umenu')?.innerHTML)$('#umenu').innerHTML='';if(S.fpop)A.fpclose();if(S.ipop)A.ipclose();if(S.cxpop)A.cxclose();if(S.tvpop)A.tvpclose();if(S.tvmenu)A.tvmclose()});
 
 /* ---------- shared filters (Portfolio + Products) ---------- */
 const PHC={dev:LC.development.c,pipeline:LC.evaluating.c,active:LC.active.c,phasing:LC.nrnd.c,ltb:LC.ltb.c,eol:LC.eol.c,rejected:LC.rejected.c};
@@ -1187,7 +1255,7 @@ function fctl(){
 function toolbar(){
   const prod=S.tab==='products',v=prod?S.pView:S.rmView;
   const seg=prod?[['table','Table',ICO_LIST],['cards','Cards',ic(I.cards)]]:[['timeline','Timeline',ICO_TL],['list','List',ICO_LIST],['health','Health',ic('<path d="M5 20V11M10 20V5M15 20v-7M20 20V8"/>')]];
-  const segH=prod&&!wide()?'':`<div class="segc vsw tsw">${seg.map(([k,l,i])=>`<button class="${v===k?'on':''}" data-act="${prod?'pview':'rmview'}" data-arg="${k}">${i} ${l}</button>`).join('')}</div>`;
+  const segH=(prod&&!wide())||!prod?'':`<div class="segc vsw tsw">${seg.map(([k,l,i])=>`<button class="${v===k?'on':''}" data-act="${prod?'pview':'rmview'}" data-arg="${k}">${i} ${l}</button>`).join('')}</div>`;
   return`<div class="tbar">${segH}<div class="tsearch">${ICO_SEARCH}<input id="q" type="search" placeholder="Search products, part number, supplier or market…" value="${esc(S.F.q)}" autocomplete="off"></div>
     <div id="fctl" class="fctl">${fctl()}</div><div id="fpop"></div></div>`;
 }
@@ -1199,6 +1267,7 @@ function renderFpop(){
   if(b&&p&&wide())p.style.left=Math.max(0,Math.min(b.offsetLeft,bar.clientWidth-p.offsetWidth))+'px';
 }
 function refreshResults(){hovHide();
+  if(!S._keepPage)S.lpage=0;S._keepPage=false;
   saveTl();
   const k=$('#kpis');if(k)k.innerHTML=kpis();
   const c=$('#fctl');if(c)c.innerHTML=fctl();
@@ -1224,12 +1293,13 @@ function kpis(){
   if(S.tab==='products')return t+kpi(I.check,'Active',cnt(['active']),tot,LC.active.c,'active')+dev
     +kpi(I.glass,'Phasing out',cnt(['nrnd']),tot,LC.nrnd.c,'nrnd')+kpi(I.warn,'Last-time buy',cnt(['ltb']),tot,LC.ltb.c,'ltb')+kpi(I.power,'End of life',cnt(['eol']),tot,'#6B7280','eol');
   const ids=new Set(ps.map(p=>p.id)),mig=S.data.customer_products.filter(c=>ids.has(c.product_id)&&needsMig(c)).length;
-  return t+kpi(I.check,'Active',cnt(['active']),tot,LC.active.c,'active')+dev+kpi(I.glass,'Phasing out',cnt(['nrnd','ltb']),tot,LC.nrnd.c,'phasing')+kpi(I.warn,'Customer migrations',mig,0,MIG_C,'mig');
+  return pfSummary();
 }
 
 /* ---------- Portfolio & Products pages ---------- */
 function viewRoadmap(){
   const banners=`${tempPw()?`<div class="banner" data-act="gopw">🔑 You're using a temporary password. <b style="text-decoration:underline">Set your own</b></div>`:''}${S.mode==='demo'?`<div class="banner">You're viewing sample data on this device. Connect Supabase in <b data-act="tab" data-arg="more" style="text-decoration:underline">Settings</b> to share with your team.</div>`:''}`;
+  if(S.tab==='roadmap')return`${banners}<div id="kpis" class="pfs">${kpis()}</div><section class="card plcard"><div class="plh"><span class="plhi">${ic(I.mkt)}</span><div class="grow"><h2>Product lifecycle</h2><p class="mut">View products across their lifecycle, key dates, and upcoming transitions.</p></div>${rmSwitch()}</div>${toolbar()}<div id="results">${roadmapResults()}</div></section><div id="rmmenu"></div>`+fab('products');
   return`${banners}<div id="kpis" class="kpis">${kpis()}</div>${toolbar()}<div id="results">${roadmapResults()}</div>`+fab('products');
 }
 function viewProducts(){return viewRoadmap()}
@@ -1238,7 +1308,7 @@ const titleActions=()=>S.tab==='products'?`<button class="btn tb" data-act="csv"
   :S.tab==='ideas'?'<button class="btn pri" data-act="ideanew">+ Add idea</button>'
   :S.tab==='transitions'?`<button class="btn tb" data-act="tvcsv">${ic(I.dl)} Export</button>${canEdit()?'<button class="btn pri" data-act="new" data-arg="transitions">+ Add transition</button>':''}`:'';
 const HZ=[['12','Next 12 months',4],['24','Next 2 years',6],['36','Next 3 years',6],['60','Next 5 years',12],['all','All dates',0]];
-const GROUPS=[['category','Category'],['supplier','Supplier'],['market','Market'],['lifecycle','Lifecycle']];
+const GROUPS=[['none','None'],['category','Category'],['supplier','Supplier'],['market','Market'],['lifecycle','Lifecycle']];
 function portfolioOpts(){
   const tl=S.rmView==='timeline',hl=S.rmView==='health';
   return`<div class="popts">${wide()&&tl?`<span class="mut">Show product details:</span>
@@ -1297,17 +1367,12 @@ function healthView(ps){
   const mktRows=[...mt.top.map(([k,L])=>[k,L.length,'hflt','mkt',k]),...(mt.rest.length?[[`Other (${mt.rest.length})`,new Set(mt.rest.flatMap(r=>r[1].map(p=>p.id))).size,'hflt','mkt',mt.rest.map(r=>r[0]).join(',')]]:[])];
   // risks & milestones (lists of products → shown in List view)
   const pIds=f=>ps.filter(f).map(p=>p.id);
-  const migP=new Set(S.data.customer_products.filter(c=>ids.has(c.product_id)&&needsMig(c)&&c.transition_status!=='complete').map(c=>c.product_id));
-  const phOut=p=>['nrnd','ltb'].includes(phase(p));
-  const RISK=[['eol12','Products at risk (end of life within 12 months)',pIds(p=>inNext(p.eol_date,12)),'#C92C32'],
-    ['mig','Phasing out with customers still migrating',pIds(p=>phOut(p)&&migP.has(p.id)),'#E58B20'],
-    ['nosucc','Phasing out with no successor mapped',pIds(p=>['nrnd','ltb','eol'].includes(phase(p))&&!S.data.transitions.some(t=>t.from_product_id===p.id)),'#E58B20'],
-    ['eol','Already end of life',pIds(p=>phase(p)==='eol'),'#6B7280']];
+  const RISK=riskRows(ps);
   const migN=S.data.customer_products.filter(c=>ids.has(c.product_id)&&needsMig(c)).length;
   const MS=[['rel6','Releases (next 6 months)',pIds(p=>inNext(p.supplier_release_date,6)||inNext(p.onboard_date,6)),'#2377D4'],
     ['ltb12','Last-time buy deadlines (next 12 months)',pIds(p=>inNext(p.ltb_date,12)),'#C92C32'],
     ['migs','Customer migrations open',null,MIG_C,migN]];
-  S.hsets=Object.fromEntries([...RISK,...MS].filter(r=>r[2]).map(r=>[r[0],{l:r[1],ids:r[2]}]));
+  S.hsets={...(S.hsets||{}),...Object.fromEntries([...RISK,...MS].filter(r=>r[2]).map(r=>[r[0],{l:r[1],ids:r[2]}]))};
   const hrow=r=>{const n=r[2]?r[2].length:r[4],act=r[0]==='migs'?'data-act="statgo" data-arg="mig"':`data-act="hset" data-arg="${r[0]}"`;
     return`<div class="hrow ${n?'go':'zero'}" ${n?act:''}><span class="hn" style="--c:${r[3]}">${n}</span><span class="grow">${r[1]}</span>${n?'<i class="car rt"></i>':''}</div>`};
   // key lifecycle events within the horizon
@@ -1357,7 +1422,9 @@ function roadmapResults(){
   const opts=portfolioOpts();
   if(!ps.length)return pills+opts+none;
   if(S.rmView==='health')return pills+opts+healthView(ps);
-  if(S.rmView==='list')return pills+opts+(wide()?prodTable(listRows(ps),true):`<div class="pcards">${listRows(ps).map(pcard).join('')}</div>`);
+  if(S.rmView==='list'){const all=listRows(ps),pp=S.lpp||all.length||1,pages=Math.max(1,Math.ceil(all.length/pp));S.lpage=Math.min(S.lpage||0,pages-1);
+    const L=all.slice(S.lpage*pp,S.lpage*pp+pp);
+    return pills+opts+(wide()?prodTable(L,true):`<div class="pcards">${L.map(pcard).join('')}</div>`)+pager(all.length,pp,pages)}
   return pills+opts+timelineSection(ps,new Set(ps.map(p=>p.id)));
 }
 
@@ -1402,7 +1469,7 @@ function keyCell(p){
 function pcard(p){
   const ph=phase(p);
   return`<div class="pcard" data-act="product" data-id="${p.id}">
-    <div class="pch"><div class="pnm"><b title="${esc(p.name)}">${esc(p.part_number)}</b>${pnSel(p)}</div>${badge(ph)}</div>
+    <div class="pch">${catIc(p,'md')}<div class="pnm"><b title="${esc(p.name)}">${esc(p.part_number)}</b>${pnSel(p)}</div>${badge(ph)}</div>
     <div class="mut ell" style="font-size:12.5px">${esc(p.name)}</div>
     <div class="tags">${supTag(p)}${mktTags(p)}</div>
     <div class="pcf">${nmCell(p)}${keyCell(p)}</div></div>`;
@@ -1425,13 +1492,13 @@ function listRows(ps,inc){
 function prodTable(L,grouped){
   const th=PCOLS.map(([k,l])=>`<th class="${S.lsort.k===k?'on':''}" data-act="lsort" data-arg="${k}">${l}${S.lsort.k===k?(S.lsort.dir>0?' ↑':' ↓'):''}</th>`).join('');
   const tr=p=>`<tr data-act="product" data-id="${p.id}">
-    <td class="pcol"><div class="pnm"><b title="${esc(p.name)}">${esc(p.part_number)}</b>${pnSel(p)}</div></td>
+    <td class="pcol"><div class="pcw">${catIc(p,'md')}<div class="pnm"><b title="${esc(p.name)}">${esc(p.part_number)}</b>${pnSel(p)}</div></div></td>
     <td>${badge(phase(p))}</td>
     <td class="psup">${sup(p)?`<span class="supn">${ic(I.bld)}${esc(sup(p).name)}</span>`:'<span class="mut">—</span>'}</td>
     <td><div class="tags">${mktTags(p)||'<span class="mut">—</span>'}</div></td>
     <td>${nmCell(p)}</td><td>${keyCell(p)}</td></tr>`;
   let body='';
-  if(grouped){const g=groupMap(L);g.keys.forEach(k=>{const R=g.map.get(k),c=S.coll.includes(k);
+  if(grouped&&S.f.group!=='none'){const g=groupMap(L);g.keys.forEach(k=>{const R=g.map.get(k),c=S.coll.includes(k);
     body+=`<tr class="pgrp" data-act="grptog" data-arg="${esc(k)}"><td colspan="${PCOLS.length}"><i class="chev ${c?'':'open'}"></i>${esc(k)} <span>(${R.length})</span></td></tr>`+(c?'':R.map(tr).join(''))})}
   else body=L.map(tr).join('');
   return`<div class="ptw"><table class="ptab"><thead><tr>${th}</tr></thead><tbody>${body}</tbody></table></div>`;
@@ -1462,7 +1529,7 @@ function completeness(p){
 const ICO_TL='<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h10M8 12h12M4 17h8"/></svg>';
 const ICO_LIST='<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/></svg>';
 // width of the sticky product column: wider when the supplier / market tags are shown
-function calcLW(){if(!wide())return 150;const big=innerWidth>=1300,det=S.det.sup||S.det.mkt;return(det?(big?330:250):(big?220:180))+(big?118:110)}
+function calcLW(){if(!wide())return 150;const big=innerWidth>=1300,det=S.det.sup||S.det.mkt;return(det?(big?330:250):(big?220:180))+(big?118:110)+70}
 function timelineSection(ps,ids){
   const up=upcoming(12,ids).slice(0,10);
   const hat=c=>`background:repeating-linear-gradient(135deg,${c}55 0 3px,transparent 3px 6px);box-shadow:inset 0 0 0 1.5px ${c}`;
@@ -1489,6 +1556,7 @@ function upItem(u){
   return`<div class="ev" data-act="product" data-id="${u.p.id}"><div class="dt">${fmtMY(u.date)}</div><div class="grow"><b>${esc(u.p.part_number)}</b> <span class="pill" style="--c:${x.t||x.c}">${u.l}</span><div class="mut ell">${esc(u.p.name)} · ${relTxt(u.date)}</div></div></div>`;
 }
 function groupKeys(p){
+  if(S.f.group==='none')return['All products'];
   if(S.f.group==='supplier')return[sup(p)?.name||'No supplier'];
   if(S.f.group==='market'){const m=(p.markets||[]).filter(x=>!S.F.mkt.length||S.F.mkt.includes(x));return m.length?m:['Unassigned']}
   if(S.f.group==='lifecycle')return[(PHG.find(g=>g[0]===PHG_OF[phase(p)])||[,'Other'])[1]];
@@ -1528,10 +1596,11 @@ function timelineInner(products){
   if(MW>=36)lines.push(`repeating-linear-gradient(to right,color-mix(in srgb,var(--line) 55%,transparent) 0 1px,transparent 1px ${MW}px)`);
   const grid=`background-image:${lines.join(',')}`;
   let body='';
-  g.keys.forEach(k=>{const L=g.map.get(k).sort((a,b)=>firstDate(a).localeCompare(firstDate(b))),c=S.coll.includes(k);
-    body+=`<div class="tl-grp" data-act="grptog" data-arg="${esc(k)}"><div class="tl-glab"><i class="chev ${c?'':'open'}"></i>${esc(k)} <span>(${L.length})</span></div></div>`;
+  const none=S.f.group==='none';
+  g.keys.forEach(k=>{const L=g.map.get(k).sort((a,b)=>S.tsort*String(a.part_number).localeCompare(String(b.part_number),undefined,{numeric:true})),c=!none&&S.coll.includes(k);
+    if(!none)body+=`<div class="tl-grp" data-act="grptog" data-arg="${esc(k)}"><div class="tl-glab"><i class="chev ${c?'':'open'}"></i>${esc(k)} <span>(${L.length})</span></div></div>`;
     if(!c)L.forEach(p=>body+=tlRow(p,X,W,grid))});
-  return`<div class="tl-in" style="width:${LW+W}px"><div class="tl-head"><div class="tl-corner"><div class="tcn"><b>Product (${products.length})</b><span class="tl-yl"></span></div>${wide()?'<b class="tcl">Lifecycle</b>':''}</div><div class="tl-years" style="width:${W}px">${head}</div></div>${body}<div class="tl-today" style="left:${LW+tx}px"></div></div>`;
+  return`<div class="tl-in" style="width:${LW+W}px"><div class="tl-head"><div class="tl-corner"><div class="tcn"><b class="tsort" data-act="tsort" title="Sort by product name">Product (${products.length}) <span>${S.tsort>0?'↑':'↓'}</span></b><span class="tl-yl"></span></div>${wide()?'<b class="tcl">Lifecycle</b><span class="tcm"></span>':''}</div><div class="tl-years" style="width:${W}px">${head}</div></div>${body}<div class="tl-today" style="left:${LW+tx}px"></div></div>`;
 }
 function tlRow(p,X,W,grid){
   const ph=phase(p),pts=[],rd=d(p.supplier_release_date),od=d(p.onboard_date),nd=d(p.nrnd_date),ld=d(p.ltb_date),ed=d(p.eol_date);
@@ -1545,7 +1614,11 @@ function tlRow(p,X,W,grid){
       +`<div class="nodates" style="left:${tx+8}px;color:${LC[ph]?.t||c}">no dates · ${esc(LC[ph]?.l||'')}</div>`}
   for(let i=0;i<pts.length;i++){const[dt,k]=pts[i];if(k==='end')break;const x0=X(dt),x1=pts[i+1]?X(pts[i+1][0]):W;if(x1-x0<1)continue;const c=LC[k]?.c||'#999',plan=k==='development'||k==='evaluating'||k==='onboarding';
     bars+=`<div class="bar" style="left:${x0}px;width:${x1-x0}px;${plan?`background:repeating-linear-gradient(135deg,${c}55 0 4px,transparent 4px 8px);box-shadow:inset 0 0 0 1.5px ${c}`:`background:${c}`}"></div>`}
+  if(ed){const x0=X(ed),x1=Math.min(W,X(new Date(ed.getFullYear(),ed.getMonth()+18,1)));if(x1-x0>1)bars+=`<div class="bar post" style="left:${x0}px;width:${x1-x0}px"></div>`}
   if(rd)bars+=`<div class="ms" style="left:${X(rd)}px" title="Release ${fmt(p.supplier_release_date)}"></div>`;
+  const nm=nextMs(p);
+  if(nm){const x=X(d(nm.date)),c=nm.c||LC.development.c;if(!(nm.l==='End of life')&&!(nm.l==='Release'))bars+=`<div class="ms nm" style="left:${x}px;border-color:${c}" title="${nm.l} ${fmt(nm.date)}"></div>`;
+    bars+=`<div class="msl" style="left:${Math.min(x+11,W-120)}px"><b style="color:${c}">${nm.l}</b><span>${fmt(nm.date)}</span></div>`}
   if(ed)bars+=`<div class="ms eol" style="left:${X(ed)}px" title="End of life ${fmt(p.eol_date)}"></div>`;
   S.data.events.filter(e=>e.product_id===p.id&&e.event_date).forEach(e=>{
     bars+=`<div class="evm" style="left:${X(d(e.event_date))}px;--c:${EVC[e.kind]||'#2563eb'}" data-act="edit" data-arg="events" data-id="${e.id}"></div>`});
@@ -1553,7 +1626,7 @@ function tlRow(p,X,W,grid){
   if(tr.length){const anchor=ed||ld||nd;if(anchor){const x=Math.min(X(anchor)+12,W-90);bars+=tr.slice(0,1).map(t=>`<div class="tl-next" style="left:${x}px" data-act="transition" data-id="${t.id}">→ ${esc(pnOf(t.to_product_id))}${tr.length>1?' +'+(tr.length-1):''}</div>`).join('')}}
   const w=wide();
   return`<div class="tl-row" data-act="product" data-id="${p.id}"><div class="tl-lab"><i class="dot" style="background:${LC[ph]?.c||'#999'}" title="${esc(LC[ph]?.l||'')}"></i>
-    <div class="pnm"><b title="${esc(p.name)}">${esc(p.part_number)}</b>${pnSel(p,!w)}${w?rowTags(p):''}</div>${w?`<div class="plc">${badge(ph)}</div>`:''}</div>
+    ${w?catIc(p,'md'):''}<div class="pnm"><b title="${esc(p.name)}">${esc(p.part_number)}</b>${pnSel(p,!w)}${w?rowTags(p):''}</div>${w?`<div class="plc">${badge(ph)}</div><button class="cxm rmm" data-act="rmmenu" data-id="${p.id}" aria-label="More actions">${ic('<circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/>')}</button>`:''}</div>
     <div class="tl-track" style="width:${W}px;${grid}">${bars}</div></div>`;
 }
 function saveTl(){const t=$('.tl');if(t)S.tlScroll=[S.tlY0*12+t.scrollLeft/S.mw,t.scrollTop]}
@@ -1666,7 +1739,7 @@ const SHEETS={
   const dateRows=[['supplier_release_date','Supplier release'],['sample_date','Samples'],['onboard_date','Onboarded'],['nrnd_date','NRND / EOL notice'],['ltb_date','Last-time buy'],['last_ship_date','Last ship'],['end_of_support_date','End of support'],['eol_date','End of life']].filter(([k],i)=>i<5||p[k]);
   const pnRow=x=>`<div class="ev" ${canEdit()?`data-act="edit" data-arg="part_numbers" data-id="${x.id}"`:''}><div class="grow"><b>${esc(x.part_number)}</b>${x.variant?` <span class="mut">· ${esc(x.variant)}</span>`:''}${x.successor_pn?`<div class="mut">→ ${esc(x.successor_pn)}</div>`:''}</div>${x.status?`<span class="tag">${esc(x.status)}</span>`:''}${x.ltb_date?`<span class="mut" style="font-size:12px">LTB ${fmtMY(x.ltb_date)}</span>`:''}</div>`;
   return{title:p.part_number,right:canEdit()?`<button class="btn ghost" data-act="edit" data-arg="products" data-id="${p.id}">Edit</button>`:'',body:`
-   <div class="hero"><h2>${esc(p.part_number)}</h2><div class="mut">${esc(p.name)}</div>
+   <div class="hero"><div class="heroph">${catIc(p,'xl')}<div><h2>${esc(p.part_number)}</h2><div class="mut">${esc(p.name)}</div></div></div>
    <div class="row" style="margin-top:8px;flex-wrap:wrap">${badge(ph)}<span class="tag"><i class="dot" style="background:${esc(s?.color||'#999')};width:7px;height:7px"></i> ${esc(s?.name||'')}</span><span class="tag">${esc(p.family||CATS1[p.category]||'')}</span>${p.website_status?`<span class="tag">Web: ${esc(p.website_status)}</span>`:''}</div>
    ${p.sub_type?`<div class="mut" style="margin-top:6px">${esc(p.sub_type)}${p.product_code?' · '+esc(p.product_code):''}</div>`:''}</div>
    ${ph==='rejected'?'':`<div class="card" style="margin-top:14px"><div class="stepper">${steps.map((k,i)=>`<i style="${i<=ri?`background:${LC[k].c}`:''}"></i>`).join('')}</div><div class="stepl"><span>Dev</span><span>Eval</span><span>Onboard</span><span>Active</span><span>NRND</span><span>LTB</span><span>EOL</span></div></div>`}
@@ -1767,7 +1840,7 @@ const SHEETS={
 /* ---------- actions ---------- */
 async function reload(){try{await loadAll();renderMain();renderSheet()}catch(e){toast(errMsg(e))}}
 const A={
- tab:(id,arg)=>{S.tab=arg;S.stack=[];S.tlScroll=null;S.fpop=null;S.ipop=false;S.cxpop=null;S.cxq='';S.tvpop=null;S.tvmenu=null;renderAll();window.scrollTo(0,0)},
+ tab:(id,arg)=>{S.tab=arg;S.stack=[];S.tlScroll=null;S.fpop=null;S.ipop=false;S.cxpop=null;S.cxq='';S.tvpop=null;S.tvmenu=null;S.rmmenu=null;renderAll();window.scrollTo(0,0)},
  product:id=>push({type:'product',id}),transition:id=>push({type:'transition',id}),customer:id=>push({type:'customer',id}),
  edit:(id,arg)=>push({type:'form',table:arg,id}),
  new:(id,arg,el)=>push({type:'form',table:arg,defaults:el.dataset.def?JSON.parse(el.dataset.def):{}}),
@@ -1807,9 +1880,11 @@ document.addEventListener('click',e=>{const t=e.target.closest('[data-act]');if(
 document.addEventListener('change',async e=>{
   const t=e.target;
   if(t.type==='checkbox'&&t.closest('label.chip'))t.closest('label.chip').classList.toggle('on',t.checked);
+  if(t.matches?.('input[data-photo]')){const f=t.files?.[0];t.value='';if(f)phLoad(f);return}
   if(t.name==='category'&&t.closest('#frm')){const box=$('#hwfields');if(box)box.innerHTML=hwFieldsHTML(t.value,collectHW(box));return}
   if(t.dataset.change==='incOnly'){S.incOnly=t.checked;refreshResults();return}
   if(t.id==='grp'){S.f.group=t.value;refreshResults();return}
+  if(t.id==='lpp'){S.lpp=+t.value||0;refreshResults();return}
   if(t.id==='hz'){S.hz=t.value;S.refit=true;refreshResults();return}
   if(t.dataset.change==='det'){S.det[t.dataset.arg]=t.checked;LW=calcLW();S.refit=true;refreshResults();return}
   if(t.dataset.change==='cmpopt'){S.cmp[t.dataset.arg]=t.checked;refreshCompare();return}
@@ -1827,7 +1902,10 @@ const CATICO={controller:'<rect x="5" y="5" width="14" height="14" rx="2"/><rect
  sensor:'<circle cx="12" cy="12" r="2.6"/><circle cx="12" cy="12" r="7.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22"/>',
  software:'<path d="m8 7-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/>',
  other:'<path d="M12 3 21 7.5v9L12 21 3 16.5v-9z"/><path d="m3 7.5 9 4.5 9-4.5M12 12v9"/>'};
-const catIc=p=>`<span class="cxi" title="${esc(CATS1[p.category]||'')}">${ic(CATICO[p.category]||CATICO.other)}</span>`;
+const PHOTO_RE=/^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/;
+const hasPhoto=p=>!!p&&typeof p.photo==='string'&&PHOTO_RE.test(p.photo);
+const catIc=(p,cls='')=>hasPhoto(p)?`<span class="cxi ph ${cls}" title="${esc(p.part_number||'')}"><img src="${p.photo}" alt=""></span>`
+  :`<span class="cxi ${cls}" title="${esc(CATS1[p.category]||'')}">${ic(CATICO[p.category]||CATICO.other)}</span>`;
 const CXSEC=[['overview','Overview','<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/>'],
   ['specs','Specifications','<path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="1.6"/><circle cx="15" cy="12" r="1.6"/><circle cx="7" cy="18" r="1.6"/>'],
   ['lifecycle','Lifecycle & roadmap','<path d="m12 3 9 9-9 9-9-9z"/>'],
@@ -3091,6 +3169,93 @@ async function init(){
   await loadAll();cmpDeep();renderAll();
 }
 init();
+
+/* ---------- Portfolio page (v2.8): summary cards, lifecycle distribution, row menu, paging, photos ---------- */
+// risk rules shared by the Health view and the "At risk" card
+function riskRows(ps){
+  const ids=new Set(ps.map(p=>p.id)),pIds=f=>ps.filter(f).map(p=>p.id);
+  const migP=new Set(S.data.customer_products.filter(c=>ids.has(c.product_id)&&needsMig(c)&&c.transition_status!=='complete').map(c=>c.product_id));
+  const phOut=p=>['nrnd','ltb'].includes(phase(p));
+  return[['eol12','Products at risk (end of life within 12 months)',pIds(p=>inNext(p.eol_date,12)),'#C92C32'],
+    ['mig','Phasing out with customers still migrating',pIds(p=>phOut(p)&&migP.has(p.id)),'#E58B20'],
+    ['nosucc','Phasing out with no successor mapped',pIds(p=>['nrnd','ltb','eol'].includes(phase(p))&&!S.data.transitions.some(t=>t.from_product_id===p.id)),'#E58B20'],
+    ['eol','Already end of life',pIds(p=>phase(p)==='eol'),'#6B7280']];
+}
+const IDEA_OPEN=['new','under_review','needs_info','accepted','in_progress'];
+const DIST=[['active','Active'],['dev','In development'],['pipeline','Evaluating / onboarding'],['phasing','Phasing out'],['ltb','Last-time buy'],['eol','End of life'],['rejected','Not onboarded']];
+const DIST_INK={eol:'#141923',rejected:'#141923'};
+function pfSummary(){
+  // like the old tiles: follow every filter except Lifecycle, so the whole lifecycle picture stays visible
+  const ps=S.data.products.filter(p=>passes(p,'ph')),tot=ps.length,act=ps.filter(p=>phase(p)==='active').length,pct=tot?Math.round(act/tot*100):0;
+  const R=riskRows(ps),risk=[...new Set(R.slice(0,3).flatMap(r=>r[2]))];
+  S.hsets={...(S.hsets||{}),atrisk:{l:'At risk (needs action)',ids:risk}};
+  const trn=tvItems().filter(TV_KPI.active).length,ide=(S.data.ideas||[]).filter(i=>IDEA_OPEN.includes(i.status)).length;
+  const C=2*Math.PI*26,ring=`<svg class="pfr" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26"/><circle class="on" cx="32" cy="32" r="26" stroke-dasharray="${C*pct/100} ${C}"/><text x="32" y="37">${pct}%</text></svg>`;
+  const card=(act,arg,ico,c,l,n,sub)=>`<button class="pfc" data-act="${act}" data-arg="${arg}"><span class="pfi" style="--c:${c}">${ic(ico)}</span><span class="grow"><span class="pfl">${l}</span><b>${n}</b><span class="mut">${sub}</span></span><i class="car rt"></i></button>`;
+  const cards=`<div class="pfcards"><div class="pfc pfh">${ring}<span class="grow"><span class="pfl">Portfolio health <span class="hinfo" title="Share of products (after the current filters, except Lifecycle) that are Active">i</span></span><span class="mut">${act} of ${tot} products active</span></span></div>`
+    +card('hset','atrisk',I.warn,'#C92C32','At risk',risk.length,'Products requiring action')
+    +card('statgo','mig','<path d="M4 8h13l-3-3M20 16H7l3 3"/>','#1263BD','Transitions',trn,'Active replacements &amp; migrations')
+    +card('tab','ideas','<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>','#2377D4','Ideas',ide,'Product opportunities in pipeline')+`</div>`;
+  if(S.rmView==='health')return cards;
+  const cnt=Object.fromEntries(DIST.map(([k])=>[k,ps.filter(p=>PHG_OF[phase(p)]===k).length]));
+  const segs=DIST.filter(([k])=>cnt[k]),sel=S.F.ph;
+  const bar=segs.map(([k,l])=>{const n=cnt[k],w=n/tot*100,c=PHC[k],on=!sel.length||sel.includes(k);
+    return`<button class="dseg ${on?'':'off'}" style="flex:${n} 1 0;background:${c};color:${DIST_INK[k]||'#fff'}" data-act="dseg" data-arg="${k}" title="${l}: ${n} (${Math.round(w)}%)">${w>=7?`${Math.round(w)}% (${n})`:''}</button>`}).join('');
+  const leg=segs.map(([k,l])=>`<button class="dl ${!sel.length||sel.includes(k)?'':'off'}" data-act="dseg" data-arg="${k}"><i style="background:${PHC[k]}"></i>${l}: ${cnt[k]} (${Math.round(cnt[k]/tot*100)}%)</button>`).join('');
+  return cards+`<section class="card pfd"><div class="pfdh"><h3>Lifecycle distribution <span class="hinfo" title="Click a segment to show only that stage; click again to show all">i</span></h3><span class="mut">${tot} total products</span></div>
+    <div class="pfdb">${tot?bar:'<span class="mut">No products</span>'}</div><div class="pfdl">${leg}</div></section>`;
+}
+function rmSwitch(){
+  const seg=[['timeline','Timeline',ICO_TL],['list','List',ICO_LIST],['health','Health',ic('<path d="M5 20V11M10 20V5M15 20v-7M20 20V8"/>')]];
+  return`<div class="segc vsw tsw">${seg.map(([k,l,i])=>`<button class="${S.rmView===k?'on':''}" data-act="rmview" data-arg="${k}">${i} ${l}</button>`).join('')}</div>`;
+}
+function pager(n,pp,pages){
+  if(!n)return'';const pg=S.lpage||0,a=pg*pp+1,b=Math.min(n,pg*pp+pp);
+  let nums=[];if(pages<=7)nums=[...Array(pages).keys()];else{nums=[0];const lo=Math.max(1,pg-1),hi=Math.min(pages-2,pg+1);if(lo>1)nums.push('…');for(let i=lo;i<=hi;i++)nums.push(i);if(hi<pages-2)nums.push('…');nums.push(pages-1)}
+  const btn=(i)=>i==='…'?'<span class="pgd">…</span>':`<button class="pgb ${i===pg?'on':''}" data-act="lpg" data-arg="${i}">${i+1}</button>`;
+  return`<div class="pager"><span class="mut">Showing ${a}–${b} of ${n} products</span><span class="hsp"></span>
+    <label class="sel">Rows per page <select id="lpp">${[25,50,100,0].map(v=>`<option value="${v}" ${S.lpp===v?'selected':''}>${v||'All'}</option>`).join('')}</select></label>
+    ${pages>1?`<span class="pgs"><button class="pgb" data-act="lpg" data-arg="${pg-1}" ${pg?'':'disabled'} aria-label="Previous page">‹</button>${nums.map(btn).join('')}<button class="pgb" data-act="lpg" data-arg="${pg+1}" ${pg<pages-1?'':'disabled'} aria-label="Next page">›</button></span>`:''}</div>`;
+}
+function rmRenderMenu(){
+  const el=$('#rmmenu');if(!el)return;const p=S.rmmenu&&byId('products',S.rmmenu);if(!p){S.rmmenu=null;el.innerHTML='';return}
+  const mi=(act,l,extra='')=>`<button class="mi" data-act="${act}" ${extra}>${l}</button>`,ed=canEdit();
+  el.innerHTML=`<div class="umenu-bg" data-act="rmmclose"></div><div class="umenu cxmenu">`+mi('rmm_open','Open product',`data-id="${p.id}"`)+
+    (ed?mi('rmm_edit','Edit product',`data-id="${p.id}"`)+mi('rmm_event','Add event',`data-id="${p.id}"`):'')+
+    mi('rmm_cmp',S.cmp.ids.includes(p.id)?'Open in Compare':'Add to Compare',`data-id="${p.id}"`)+`</div>`;
+  const m=el.querySelector('.cxmenu'),b=document.querySelector(`.rmm[data-id="${CSS.escape(p.id)}"]`);
+  if(b){const r=b.getBoundingClientRect();const top=r.bottom+4+m.offsetHeight>innerHeight-8?r.top-4-m.offsetHeight:r.bottom+4;m.style.top=top+'px';m.style.right='auto';m.style.left=Math.max(12,Math.min(r.right-m.offsetWidth,innerWidth-m.offsetWidth-12))+'px'}
+}
+const rmClose=()=>{S.rmmenu=null;rmRenderMenu()};
+// photo upload: shrink to fit 100 × 100 px, keep the aspect ratio, store as a small data URL
+async function phLoad(file){
+  const box=$('#frm [name=photo]');if(!box)return;
+  if(!/^image\//.test(file.type))return toast('Choose an image file.');
+  try{
+    const url=URL.createObjectURL(file),img=new Image();img.src=url;await img.decode();URL.revokeObjectURL(url);
+    const k=Math.min(1,100/Math.max(img.naturalWidth,img.naturalHeight)),w=Math.max(1,Math.round(img.naturalWidth*k)),h=Math.max(1,Math.round(img.naturalHeight*k));
+    const cv=document.createElement('canvas');cv.width=w;cv.height=h;const g=cv.getContext('2d');g.imageSmoothingQuality='high';g.drawImage(img,0,0,w,h);
+    let out=cv.toDataURL('image/webp',.85);
+    if(!out.startsWith('data:image/webp'))out=cv.toDataURL('image/png');
+    if(out.length>40000){g.globalCompositeOperation='destination-over';g.fillStyle='#fff';g.fillRect(0,0,w,h);out=cv.toDataURL('image/jpeg',.85)}
+    if(!PHOTO_RE.test(out)||out.length>60000)return toast('That image could not be shrunk enough. Try another one.');
+    box.value=out;const cat=$('#frm [name=category]')?.value||'other';
+    $('#phprev').innerHTML=catIc({category:cat,photo:out,part_number:''},'lg');$('#frm [data-act=phclr]')?.removeAttribute('hidden');
+    toast(`Photo ready (${w} × ${h} px) — save to keep it`);
+  }catch(e){toast('Could not read that image.')}
+}
+Object.assign(A,{
+ dseg:(id,k)=>{S.F.ph=S.F.ph.length===1&&S.F.ph[0]===k?[]:[k];refreshResults()},
+ tsort:()=>{S.tsort=-S.tsort;refreshResults()},
+ lpg:(id,i)=>{S.lpage=Math.max(0,+i||0);S._keepPage=true;refreshResults();$('.plcard')?.scrollIntoView({block:'start'})},
+ rmmenu:id=>{S.rmmenu=S.rmmenu===id?null:id;rmRenderMenu()},
+ rmmclose:rmClose,
+ rmm_open:id=>{rmClose();push({type:'product',id})},
+ rmm_edit:id=>{rmClose();push({type:'form',table:'products',id})},
+ rmm_event:id=>{rmClose();const p=byId('products',id);push({type:'form',table:'events',defaults:{product_id:id,supplier_id:p?.supplier_id||null}})},
+ rmm_cmp:id=>{rmClose();A.cmpgo(id)},
+ phclr:()=>{const b=$('#frm [name=photo]');if(!b)return;b.value='';const cat=$('#frm [name=category]')?.value||'other';$('#phprev').innerHTML=catIc({category:cat,part_number:''},'lg');$('#frm [data-act=phclr]')?.setAttribute('hidden','')}
+});
 </script>
 </body>
 </html>
