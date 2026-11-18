@@ -302,6 +302,65 @@ a{color:var(--acc)}
   .cxt{width:100%}
   .cxpanel{left:12px;right:12px;width:auto;top:calc(env(safe-area-inset-top) + 64px);bottom:calc(84px + env(safe-area-inset-bottom));max-height:none}
 }
+/* transitions */
+.ptab tbody tr[data-act=transition]{cursor:pointer}.ptab tbody tr[data-act=transition]:hover td,.ptab.tvt tbody tr[data-act=product]:hover td{background:color-mix(in srgb,var(--acc) 4%,var(--card))}
+.ptab th:hover{color:inherit}
+.tvtab{padding:0;overflow-x:auto}
+.tvt .pnw{max-width:190px}.tvt .pnsel{max-width:170px;text-overflow:ellipsis}
+.tvt td:first-child,.tvt td:nth-child(3){max-width:250px}
+.tvt td{padding:12px}
+.tvp{display:flex;align-items:center;gap:10px;min-width:0}
+.tvp .cxi{width:36px;height:36px;border-radius:9px}.tvp .cxi .ic{width:20px;height:20px}
+.tvpn{display:flex;flex-direction:column;gap:2px;min-width:0}
+.tvpn b{font-size:14.5px;cursor:pointer;white-space:nowrap}.tvpn b:hover{color:var(--acc)}
+.tvp.none{color:var(--mut);font-size:13px}.tvdash{font-size:18px;margin-right:2px}
+.tvarr{color:var(--ink);font-size:17px;margin-right:12px}
+.tvt td:nth-child(2){white-space:nowrap}
+.badge.tvty,.badge.tvst{font-size:12.5px;padding:4px 10px;border-radius:8px}
+.tvd{display:flex;flex-direction:column;gap:5px;font-size:13px;white-space:nowrap}
+.tvd>div{display:flex;align-items:center;gap:7px}.tvd .ic{width:15px;height:15px;color:var(--mut)}
+.tvd b{font-weight:600}.tvd .w b,.tvd .w .ic{color:var(--bad)}
+.tvtlc{width:20%;min-width:180px}.tvt .mtl{min-width:160px}
+.tvc{font-size:12px;color:var(--mut);margin-top:5px;white-space:nowrap}.tvc .bad{color:var(--bad)}
+@media (max-width:1299px){.tvt .tvtlh,.tvt .tvtlc{display:none}.tvt .cxi{display:none}.tvt td,.tvt th{padding-left:9px;padding-right:9px}.tvt .tvc{white-space:normal}.tvt .tvarr{margin-right:6px}}
+.tvfoot{font-size:12.5px;margin:10px 2px}
+.tvcards{display:flex;flex-direction:column;gap:10px}
+.tvcard{padding:12px 14px;cursor:pointer}
+.tvch{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.tvch .tvc{margin:0}.tvch .hsp{flex:1}
+.tvcp{display:flex;flex-direction:column;gap:6px;margin:10px 0}
+.tvcm{display:flex;align-items:center;gap:6px;padding-left:12px}.tvcm .tvarr{margin:0 6px 0 0}
+.tvcard .tvd{margin:4px 0 12px;white-space:normal}
+.tvtl{padding:0;overflow:hidden;position:relative}
+.tvr{display:grid;grid-template-columns:230px minmax(0,1fr);border-bottom:1px solid var(--line);cursor:pointer}
+.tvr:hover{background:color-mix(in srgb,var(--acc) 4%,var(--card))}
+.tvr.tvh{cursor:default;background:color-mix(in srgb,var(--chip) 60%,var(--card))}
+.tvl{padding:10px 12px;display:flex;flex-direction:column;gap:5px;align-items:flex-start;border-right:1px solid var(--line);font-size:13.5px;min-width:0}
+.tvl>div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.tvh .tvl span{font-size:11.5px}
+.tvtr{position:relative;padding:14px 0 12px;display:flex;flex-direction:column;justify-content:center;gap:8px;margin:0 8px}
+.tvax{height:40px;padding:0}.tvax span{position:absolute;top:50%;transform:translate(-50%,-50%);font-size:12px;color:var(--mut);font-weight:600}
+.tvb{position:relative;height:9px;border-radius:5px;background:color-mix(in srgb,var(--line) 55%,transparent)}
+.tvb .mnd{top:-1px;font-size:10.5px;line-height:11px}
+.tvg{position:absolute;top:0;bottom:0;width:1px;background:var(--line)}
+.tvgap,.tvov{position:absolute;top:6px;bottom:6px;border-radius:4px}
+.tvgap{background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--bad) 30%,transparent) 0 4px,transparent 4px 8px);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--bad) 50%,transparent)}
+.tvov{background:color-mix(in srgb,var(--ok) 16%,transparent)}
+.tvgl{position:absolute;bottom:-2px;transform:translateX(-50%);font-size:10.5px;font-weight:700;white-space:nowrap;line-height:12px}
+.tvgl.bad{color:var(--bad)}.tvgl.ok{color:var(--ok)}
+.tvbody{position:relative}
+.tvtoday{position:absolute;top:0;bottom:0;left:calc(230px + 8px + (100% - 230px - 16px) * var(--x) / 100);width:2px;margin-left:-1px;background:var(--brand);opacity:.8;pointer-events:none}
+.tvlg{display:flex;flex-wrap:wrap;gap:6px 18px;padding:12px;font-size:12px;color:var(--mut)}
+.tvlg span{display:inline-flex;align-items:center;gap:6px}.tvlg i{position:static;display:inline-block;width:18px;height:10px;border-radius:3px}
+.tvlg .tvtd{width:2px;height:12px;background:var(--brand)}
+@media (max-width:899px){
+  .tvr{grid-template-columns:118px minmax(0,1fr)}
+  .tvl{padding:8px;font-size:12px}.tvl .badge{font-size:11px;padding:2px 6px}
+  .tvh .tvl span{display:none}
+  .tvax span{font-size:10.5px}
+  .tvtr{margin:0 4px;padding:12px 0}
+  .tvtoday{left:calc(118px + 4px + (100% - 118px - 8px) * var(--x) / 100)}
+  .tvgl{font-size:9.5px}
+}
 /* timeline / list switch + desktop table */
 .vbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:14px 0 4px}
 .vsw{margin:0;min-width:220px}
@@ -380,7 +439,7 @@ a{color:var(--acc)}
   .glist>.li,.glist>.card{margin:0}
   .narrow{max-width:900px}
   .vadd{display:inline-block}
-  body.wide .fab[data-arg=products]{display:none}
+  body.wide .fab[data-arg=products],body.wide .fab[data-arg=transitions]{display:none}
   .sheet{left:auto;right:0;top:0;width:min(620px,100vw);max-width:none;border-radius:0;box-shadow:-10px 0 34px rgba(2,6,23,.18)}
   .sheet.anim{animation:slide .24s ease-out}
 }
@@ -658,13 +717,14 @@ const PHG_OF={development:'dev',evaluating:'pipeline',onboarding:'pipeline',acti
 /* ---------- state ---------- */
 const S={mode:'demo',sb:null,user:null,role:'admin',tab:'roadmap',stack:[],data:{},
   f:{group:'category'},F:{q:'',sup:[],cat:[],ph:[],mkt:[],can:[]},mw:wide()?30:22,fOpen:false,tlScroll:null,rows:[],cmp:{ids:[],diff:false,gaps:true,metric:'io',priceBy:'list',sec:'overview',saved:null},rmView:'timeline',pView:'table',det:{sup:true,mkt:true},hz:'12',coll:[],fpop:null,ipop:false,lsort:{k:'part',dir:1},incOnly:false,
+  tv:{q:'',type:[],st:[],mkt:[],sup:[],kpi:null,view:'list'},
   iv:{q:'',st:'all',type:[],mine:false,waiting:false,sort:'value',dir:1,view:'table'}};
-try{const v=JSON.parse(localStorage.getItem('rm_view')||'null');if(v){Object.assign(S.F,v.F||{});if(v.group)S.f.group=v.group;if(v.mw)S.mw=v.mw;if(v.sideCol)S.sideCol=true;if(v.cmp)Object.assign(S.cmp,v.cmp);if(v.rmView)S.rmView=v.rmView;if(v.pView)S.pView=v.pView;if(v.det)S.det=v.det;if(v.hz)S.hz=v.hz;if(Array.isArray(v.coll))S.coll=v.coll;if(v.lsort)S.lsort=v.lsort;S.incOnly=!!v.incOnly;if(v.iv)Object.assign(S.iv,v.iv,{q:''})}}catch(e){}
+try{const v=JSON.parse(localStorage.getItem('rm_view')||'null');if(v){Object.assign(S.F,v.F||{});if(v.group)S.f.group=v.group;if(v.mw)S.mw=v.mw;if(v.sideCol)S.sideCol=true;if(v.cmp)Object.assign(S.cmp,v.cmp);if(v.rmView)S.rmView=v.rmView;if(v.pView)S.pView=v.pView;if(v.det)S.det=v.det;if(v.hz)S.hz=v.hz;if(Array.isArray(v.coll))S.coll=v.coll;if(v.lsort)S.lsort=v.lsort;S.incOnly=!!v.incOnly;if(v.iv)Object.assign(S.iv,v.iv,{q:''});if(v.tv)Object.assign(S.tv,v.tv,{q:''})}}catch(e){}
 // Ideas view saved by older versions: 'list' is now the table; status groups are now status tabs
 // Compare saved by older versions: one product list per category → one ordered list
 {const c=S.cmp;if(!Array.isArray(c.ids)){const o=c.sel&&c.cat&&c.sel[c.cat];c.ids=Array.isArray(o)?o.slice():[]}delete c.sel;delete c.cat;if(!c.sec)c.sec='overview';if(c.saved===undefined)c.saved=null}
 if(S.iv.view!=='board')S.iv.view='table';if(!S.iv.st)S.iv.st='all';if(!S.iv.dir)S.iv.dir=1;delete S.iv.grp;
-function saveView(){try{localStorage.setItem('rm_view',JSON.stringify({F:S.F,group:S.f.group,mw:S.mw,sideCol:!!S.sideCol,cmp:S.cmp,rmView:S.rmView,pView:S.pView,det:S.det,hz:S.hz,coll:S.coll,lsort:S.lsort,incOnly:S.incOnly,iv:{...S.iv,q:''}}))}catch(e){}}
+function saveView(){try{localStorage.setItem('rm_view',JSON.stringify({F:S.F,group:S.f.group,mw:S.mw,sideCol:!!S.sideCol,cmp:S.cmp,rmView:S.rmView,pView:S.pView,det:S.det,hz:S.hz,coll:S.coll,lsort:S.lsort,incOnly:S.incOnly,iv:{...S.iv,q:''},tv:{...S.tv,q:''}}))}catch(e){}}
 TABLES.forEach(t=>S.data[t]=[]);
 
 /* ---------- helpers ---------- */
@@ -980,7 +1040,7 @@ const ICONS={roadmap:'<path d="M12 3 21 8l-9 5-9-5z"/><path d="m3 12.5 9 5 9-5"/
  signout:'<path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4M10 16l-4-4 4-4M6 12h10"/>'};
 const TITLES={roadmap:'Portfolio',products:'Products',transitions:'Transitions',ideas:'Ideas',compare:'Compare',customers:'Customers',more:'Settings'};
 const SUBS={roadmap:'Your products, their lifecycle, and what\'s coming next.',products:'Your product catalog, lifecycle stages and missing data.',
-  transitions:'Outgoing products, their successors and customer migrations.',ideas:'Capture, size and prioritize product ideas from the team.',
+  transitions:'Track product transitions, replacements and migration plans across the portfolio.',ideas:'Capture, size and prioritize product ideas from the team.',
   compare:'Evaluate two or more products side by side: specifications, lifecycle and key differences.',customers:'Customers and the products they use.',more:'Your account, suppliers, markets, events and data connection.'};
 const NAV=['roadmap','products','transitions','ideas','compare'];
 const navTabs=()=>isContrib()?['ideas']:NAV;
@@ -1035,7 +1095,7 @@ function umenuHTML(){
     ${wide()&&!document.body.classList.contains('solo')?`<div class="ml">Menu position</div>${menuPos()}`:''}
     ${mi('tab','more','more','Settings')}${isContrib()?'':mi('tab','customers','customers','Customers')}${S.mode==='live'?mi('signout','','signout','Sign out'):''}</div>`;
 }
-document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if($('#umenu')?.innerHTML)$('#umenu').innerHTML='';if(S.fpop)A.fpclose();if(S.ipop)A.ipclose();if(S.cxpop)A.cxclose()});
+document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if($('#umenu')?.innerHTML)$('#umenu').innerHTML='';if(S.fpop)A.fpclose();if(S.ipop)A.ipclose();if(S.cxpop)A.cxclose();if(S.tvpop)A.tvpclose();if(S.tvmenu)A.tvmclose()});
 
 /* ---------- shared filters (Portfolio + Products) ---------- */
 const PHC={dev:LC.development.c,pipeline:LC.evaluating.c,active:LC.active.c,phasing:LC.nrnd.c,ltb:LC.ltb.c,eol:LC.eol.c,rejected:LC.rejected.c};
@@ -1148,7 +1208,8 @@ function viewRoadmap(){
 function viewProducts(){return viewRoadmap()}
 const titleActions=()=>S.tab==='products'?`<button class="btn tb" data-act="csv">${ic(I.dl)} Export CSV</button>${canEdit()?'<button class="btn pri" data-act="new" data-arg="products">+ Add product</button>':''}`
   :S.tab==='roadmap'&&canEdit()?'<button class="btn pri" data-act="new" data-arg="products">+ Add product</button>'
-  :S.tab==='ideas'?'<button class="btn pri" data-act="ideanew">+ Add idea</button>':'';
+  :S.tab==='ideas'?'<button class="btn pri" data-act="ideanew">+ Add idea</button>'
+  :S.tab==='transitions'?`<button class="btn tb" data-act="tvcsv">${ic(I.dl)} Export</button>${canEdit()?'<button class="btn pri" data-act="new" data-arg="transitions">+ Add transition</button>':''}`:'';
 const HZ=[['12','Next 12 months',4],['24','Next 2 years',6],['36','Next 3 years',6],['60','Next 5 years',12],['all','All dates',0]];
 const GROUPS=[['category','Category'],['supplier','Supplier'],['market','Market'],['lifecycle','Lifecycle']];
 function portfolioOpts(){
@@ -1516,13 +1577,6 @@ function trCard(t){
    <div class="chips wrap" style="margin-top:10px">${ttag(t)}${bt}${impPill('SW',t.software_impact)}${impPill('Harness',t.harness_impact)}${impPill('Mech',t.mechanical_impact)}</div>
    <div class="row" style="margin-top:10px"><span class="mut">${cps.length?`${done}/${cps.length} customers moved`:'No customers linked'}</span>${cps.length?`<div class="prog"><i style="width:${Math.round(done/cps.length*100)}%"></i></div>`:''}${risk?`<span class="pill" style="--c:#dc2626">${risk} at risk</span>`:''}</div></div>`;
 }
-function viewTransitions(){
-  const L=S.data.transitions.slice().sort((a,b)=>{const pa=byId('products',a.from_product_id),pb=byId('products',b.from_product_id);return(pa?.eol_date||pa?.ltb_date||'9999').localeCompare(pb?.eol_date||pb?.ltb_date||'9999')});
-  const orphan=S.data.products.filter(p=>['nrnd','ltb','eol'].includes(phase(p))&&!S.data.transitions.some(t=>t.from_product_id===p.id));
-  return`${orphan.length?`<div class="banner"><b>No successor defined:</b> ${orphan.map(p=>`<span data-act="product" data-id="${p.id}" style="text-decoration:underline">${esc(p.part_number)}</span>`).join(', ')}</div>`:''}
-  ${L.length?`<div class="glist">${L.map(trCard).join('')}</div>`:'<div class="card empty">No transitions yet. Add one to map an outgoing product to its successor.</div>'}${fab('transitions')}`;
-}
-
 /* Customers tab */
 function viewCustomers(){
   const L=S.data.customers.slice().sort((a,b)=>a.name.localeCompare(b.name));
@@ -1680,7 +1734,7 @@ const SHEETS={
 /* ---------- actions ---------- */
 async function reload(){try{await loadAll();renderMain();renderSheet()}catch(e){toast(errMsg(e))}}
 const A={
- tab:(id,arg)=>{S.tab=arg;S.stack=[];S.tlScroll=null;S.fpop=null;S.ipop=false;S.cxpop=null;S.cxq='';renderAll();window.scrollTo(0,0)},
+ tab:(id,arg)=>{S.tab=arg;S.stack=[];S.tlScroll=null;S.fpop=null;S.ipop=false;S.cxpop=null;S.cxq='';S.tvpop=null;S.tvmenu=null;renderAll();window.scrollTo(0,0)},
  product:id=>push({type:'product',id}),transition:id=>push({type:'transition',id}),customer:id=>push({type:'customer',id}),
  edit:(id,arg)=>push({type:'form',table:arg,id}),
  new:(id,arg,el)=>push({type:'form',table:arg,defaults:el.dataset.def?JSON.parse(el.dataset.def):{}}),
@@ -1766,23 +1820,31 @@ const ports=p=>[p.can_ports&&`${p.can_ports} × CAN`,p.ethernet_ports&&`${p.ethe
 const ulink=(u,l)=>u&&/^https?:\/\//i.test(u)?`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(l)} ↗</a>`:'';
 
 /* small lifecycle bar: 4 calendar years, last year to 3 years ahead, with today and the next milestone marked */
-function miniTl(p){
-  const y0=today.getFullYear()-1,s=new Date(y0,0,1),e=new Date(y0+4,0,1),X=t=>Math.max(0,Math.min(100,(t-s)/(e-s)*100));
+// lifecycle segments of one product on any axis X(date) → % (shared by Compare and Transitions)
+function lcBars(p,X){
   const ph=phase(p),pts=[],rd=d(p.supplier_release_date),od=d(p.onboard_date),nd=d(p.nrnd_date),ld=d(p.ltb_date),ed=d(p.eol_date);
   if(p.lifecycle==='development'&&rd&&rd>today){pts.push([today,'development']);pts.push([rd,'evaluating'])}
   else if(rd)pts.push([rd,od?'evaluating':(RANK[p.lifecycle]>=2?'active':p.lifecycle)]);
   if(od)pts.push([od,'active']);if(nd)pts.push([nd,'nrnd']);if(ld)pts.push([ld,'ltb']);if(ed)pts.push([ed,'end']);
   pts.sort((a,b)=>a[0]-b[0]);
+  if(!pts.length)return`<i class="mseg" style="left:0;width:100%;background:${LC[ph]?.c||'#999'};opacity:.22"></i><span class="mnd">No lifecycle dates</span>`;
   let bars='';
-  if(!pts.length)bars=`<i class="mseg" style="left:0;width:100%;background:${LC[ph]?.c||'#999'};opacity:.22"></i><span class="mnd">No lifecycle dates</span>`;
   pts.forEach(([t,k],i)=>{const x0=X(t),x1=k==='end'?100:pts[i+1]?X(pts[i+1][0]):100;if(x1-x0<=0)return;
     const c=k==='end'?LC.eol.c:LC[k]?.c||'#999',plan=['development','evaluating','onboarding'].includes(k);
     bars+=`<i class="mseg" style="left:${x0}%;width:${x1-x0}%;${plan?`background:repeating-linear-gradient(135deg,${c}66 0 4px,transparent 4px 8px);box-shadow:inset 0 0 0 1.5px ${c}`:k==='end'?`background:${c};opacity:.45`:`background:${c}`}"></i>`});
-  const m=nextMs(p);
-  if(m&&d(m.date)<e)bars+=`<i class="mms" style="left:${X(d(m.date))}%;--c:${m.c||LC.active.c}" title="${esc(m.l)} ${fmt(m.date)}"></i>`;
+  return bars;
+}
+/* small lifecycle bar: 4 calendar years, last year to 3 years ahead, with today, the next milestone and optional extra markers */
+function miniTl(p,ex=[]){
+  const y0=today.getFullYear()-1,s=new Date(y0,0,1),e=new Date(y0+4,0,1),X=t=>Math.max(0,Math.min(100,(t-s)/(e-s)*100));
+  let bars=lcBars(p,X);
+  const m=nextMs(p),mk=[];
+  if(m)mk.push({date:m.date,c:m.c||LC.active.c,l:m.l});
+  ex.forEach(x=>{if(!mk.some(y=>y.date===x.date))mk.push(x)});
+  mk.forEach(x=>{const t=d(x.date);if(t>=s&&t<e)bars+=`<i class="mms" style="left:${X(t)}%;--c:${x.c}" title="${esc(x.l)} ${fmt(x.date)}"></i>`});
   bars+=`<i class="mtd" style="left:${X(today)}%" title="Today"></i>`;
   let ax='';for(let y=y0;y<y0+4;y++)ax+=`<span style="left:${X(new Date(y,6,1))}%">${y}</span><i style="left:${X(new Date(y,0,1))}%"></i>`;
-  return`<div class="mtl" title="${esc(LC[ph]?.l||'')}"><div class="mtr">${bars}</div><div class="mtx">${ax}<i style="left:100%"></i></div></div>`;
+  return`<div class="mtl" title="${esc(LC[phase(p)]?.l||'')}"><div class="mtr">${bars}</div><div class="mtx">${ax}<i style="left:100%"></i></div></div>`;
 }
 
 /* the row model. get(p) = plain value (also used for CSV and "Differences only"); html(p) = cell; ap(p) = does the field apply to this product */
@@ -2100,6 +2162,205 @@ Object.assign(A,{
  cmpgo:id=>{const p=byId('products',id);if(!p)return;if(!S.cmp.ids.includes(id))S.cmp.ids.push(id);S.cmp.sec='overview';S.tab='compare';S.stack=[];saveView();renderAll();window.scrollTo(0,0)}
 });
 document.addEventListener('input',e=>{if(e.target.id==='cxq'){S.cxq=e.target.value;const ls=$('#cxlist');if(ls)ls.innerHTML=cxPickList()}});
+/* ---------- Transitions page ---------- */
+// One row per transition, plus one row per phasing-out product that has no successor ("Phase out").
+// Status is derived from lifecycle dates and customer migrations (no status field in the database).
+// S.tv = {q, type:[], st:[], mkt:[], sup:[], kpi, view:'list'|'timeline'}
+const TV_TYPE=[['replace','Replace','<path d="m5 7 5 5-5 5M12 7l5 5-5 5"/>','#1263BD'],['migrate','Migrate','<path d="M4 12h13M13 7l5 5-5 5"/><path d="M4 7v10"/>','#6889B9'],
+  ['extend','Extend','<path d="M12 5v14M5 12h14"/>','#6B7280'],['phaseout','Phase out',I.glass,'#E58B20','#B9690F']];
+const TV_TYPEM=Object.fromEntries(TV_TYPE.map(([k,l,i,c,t])=>[k,{l,i,c,t}]));
+const TV_ST=[['at_risk','At risk',I.warn,'#C92C32'],['not_started','Not started','<circle cx="12" cy="12" r="8.5"/><path d="M12 8v4.5l2.5 1.5"/>','#6B7280'],
+  ['in_progress','In progress','<path d="M20 11a8 8 0 0 0-14.9-3M4 13a8 8 0 0 0 14.9 3"/><path d="M5 3.5V8h4.5M19 20.5V16h-4.5"/>','#E58B20','#B9690F'],
+  ['planned','Planned',I.cal,'#1263BD'],['phasing','Phasing out',I.glass,'#E58B20','#B9690F'],['complete','Complete',I.check,'#16a34a','#15803d']];
+const TV_STM=Object.fromEntries(TV_ST.map(([k,l,i,c,t])=>[k,{l,i,c,t}]));
+const tvChip=(m,cls='')=>`<span class="badge ib ${cls}" style="--c:${m.c}${m.t?';--t:'+m.t:''}">${ic(m.i)}${m.l}</span>`;
+const tvTypeOf=t=>!t?'phaseout':/software platform/i.test(t.transition_type||'')?'migrate':/family expansion/i.test(t.transition_type||'')?'extend':'replace';
+const DONE_MIG=['released','complete'];
+// all rows, with derived fields
+function tvItems(){
+  const out=[];
+  S.data.transitions.forEach(t=>{const a=byId('products',t.from_product_id),b=byId('products',t.to_product_id);if(a&&b)out.push(tvItem(a,b,t))});
+  S.data.products.filter(p=>['nrnd','ltb','eol'].includes(phase(p))&&!S.data.transitions.some(t=>t.from_product_id===p.id)).forEach(p=>out.push(tvItem(p,null,null)));
+  return out;
+}
+function tvItem(a,b,t){
+  const cps=t?cpsFor(t):S.data.customer_products.filter(c=>c.product_id===a.id);
+  const done=cps.filter(c=>DONE_MIG.includes(c.transition_status)).length,risk=cps.filter(c=>c.transition_status==='at_risk').length,
+    started=cps.filter(c=>!DONE_MIG.includes(c.transition_status)&&c.transition_status!=='not_started').length,notSt=cps.filter(c=>c.transition_status==='not_started').length;
+  const ph=phase(a),ltb=a.ltb_date||t?.ltb_date||null,ltbDays=ltb?daysUntil(ltb):null,phasing=['nrnd','ltb','eol'].includes(ph);
+  let st;
+  if(ph==='eol'&&done===cps.length)st='complete';
+  else if(risk||(ltbDays!=null&&ltbDays>=0&&ltbDays<=90&&notSt))st='at_risk';
+  else if(!b)st='phasing';
+  else if(started||(done&&done<cps.length))st='in_progress';
+  else if(!phasing)st='planned';
+  else st=cps.length?'not_started':'in_progress';
+  const tgt=cps.map(c=>c.target_date).filter(Boolean).sort().pop()||null;
+  return{id:t?t.id:'p:'+a.id,t,a,b,cps,done,risk,st,type:tvTypeOf(t),ltb,tgt,phasing};
+}
+// the two key dates shown in a row
+function tvDates(x){
+  const{a,b}=x,L=[];
+  const add=(l,v,warn,mo)=>{if(v&&L.length<2)L.push({l,v,warn,mo})};
+  if(x.phasing||a.ltb_date||a.eol_date){
+    add('Last-time buy',x.ltb,x.ltb&&daysUntil(x.ltb)>=0);add('End of life',a.eol_date);add('Phasing out',a.nrnd_date);
+    if(b)add(daysUntil(b.supplier_release_date||b.onboard_date||'1900-01-01')>=0?'Successor release':'Successor released',b.supplier_release_date||b.onboard_date);
+  }else{
+    add('Release',b&&(b.supplier_release_date||b.onboard_date));add('Migration target',x.tgt,false,true);add('Phasing out',a.nrnd_date);
+  }
+  if(!L.length)L.push({l:'No dates yet',v:null});
+  return L;
+}
+const tvDatesHTML=x=>`<div class="tvd">${tvDates(x).map((d,i)=>`<div class="${d.warn?'w':''}">${ic(i?'<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>':I.cal)}<span><b>${esc(d.l)}${d.v?':':''}</b> ${d.v?(d.mo?fmtMY(d.v):fmt(d.v)):''}</span></div>`).join('')}</div>`;
+const tvCust=x=>x.cps.length?`<div class="tvc">${x.cps.length} customer${x.cps.length>1?'s':''} · ${x.risk?`<b class="bad">${x.risk} at risk</b>`:`${x.done}/${x.cps.length} moved`}</div>`:'';
+const tvMini=x=>{const ex=[];if(x.b){const r=x.b.supplier_release_date||x.b.onboard_date;if(r)ex.push({date:r,c:LC.active.c,l:'Successor release'})}return miniTl(x.a,ex)};
+const tvProd=(p,muted)=>p?`<div class="tvp">${catIc(p)}<div class="tvpn"><b data-act="product" data-id="${p.id}" title="${esc(p.name)}">${esc(p.part_number)}</b>${pnSel(p)}</div></div>`
+  :`<div class="tvp none"><span class="tvdash">—</span><span class="mut">No direct successor</span></div>`;
+const TVG=[
+  {k:'type',l:'Transition type',opts:()=>TV_TYPE.map(([k,l,,c])=>[k,l,c]),val:x=>[x.type]},
+  {k:'st',l:'Status',opts:()=>TV_ST.map(([k,l,,c])=>[k,l,c]),val:x=>[x.st]},
+  {k:'mkt',l:'Market',opts:()=>S.data.markets.map(m=>[m.name,m.name]),val:x=>[...new Set([...(x.a.markets||[]),...(x.b?.markets||[])])]},
+  {k:'sup',l:'Supplier',opts:()=>S.data.suppliers.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(s=>[s.id,s.name,s.color]),val:x=>[...new Set([x.a.supplier_id,x.b?.supplier_id].filter(Boolean))]}];
+const TV_KPI={active:x=>x.st!=='complete',ltb:x=>phase(x.a)==='ltb',nrnd:x=>phase(x.a)==='nrnd',succ:x=>!!x.b&&x.st!=='complete',risk:x=>x.st==='at_risk'};
+function tvQ(x){
+  const q=(S.tv.q||'').trim().toLowerCase();if(!q)return true;
+  return[x.a,x.b].filter(Boolean).some(p=>[p.part_number,p.name,p.family,sup(p)?.name,...pnsOf(p).map(n=>n.part_number)].some(v=>String(v||'').toLowerCase().includes(q)))
+    ||String(x.t?.transition_type||'').toLowerCase().includes(q);
+}
+const tvPass=(x,except)=>tvQ(x)&&(except==='kpi'||!S.tv.kpi||TV_KPI[S.tv.kpi](x))&&TVG.every(g=>g.k===except||!S.tv[g.k].length||g.val(x).some(v=>S.tv[g.k].includes(v)));
+const TV_ORD={at_risk:0,not_started:1,in_progress:2,phasing:3,planned:4,complete:5};
+function tvKey(x){return x.ltb||x.a.eol_date||x.a.nrnd_date||x.b?.supplier_release_date||x.b?.onboard_date||'9999'}
+function tvList(){return tvItems().filter(x=>tvPass(x)).sort((p,q)=>(p.st==='complete')-(q.st==='complete')||tvKey(p).localeCompare(tvKey(q))||TV_ORD[p.st]-TV_ORD[q.st]||p.a.part_number.localeCompare(q.a.part_number))}
+const tvCount=()=>TVG.reduce((n,g)=>n+S.tv[g.k].length,0);
+const tvActive=()=>tvCount()+((S.tv.q||'').trim()?1:0)+(S.tv.kpi?1:0);
+
+function tvKpis(){
+  const L=tvItems().filter(x=>tvPass(x,'kpi')),act=L.filter(TV_KPI.active),n=f=>L.filter(f).length,tot=act.length;
+  const k=(key,ico,l,v,c,pct)=>`<div class="kpi ${c?'tint':''} ${S.tv.kpi===key?'on':''}" ${c?`style="--c:${c}"`:''} data-act="tvkpi" data-arg="${key}" title="Show only these">
+    <span class="ki">${ic(ico)}</span><div><span class="kl">${l}</span><b>${v}${pct&&tot?`<small>${Math.round(v/tot*100)}%</small>`:''}</b></div></div>`;
+  return k('active','<path d="M4 8h14M14 4l4 4-4 4M20 16H6M10 12l-4 4 4 4"/>','Active transitions',tot,null,0)
+    +k('ltb',I.cal,'Last-time buy',n(TV_KPI.ltb),LC.ltb.c,1)+k('nrnd',I.glass,'Phasing out',n(TV_KPI.nrnd),LC.nrnd.c,1)
+    +k('succ',I.dev,'With successor',n(TV_KPI.succ),LC.active.c,1)+k('risk',I.warn,'At risk',n(TV_KPI.risk),'#6B7280',1);
+}
+function tvFctl(){
+  const n=tvCount();
+  return`<button class="btn tb ${S.tvpop==='all'?'open':''}" data-act="tvpop" data-arg="all">${ic('<path d="M3 5h18l-7 8.5V19l-4 2v-7.5z"/>')} Filters${n?`<span class="fcnt">${n}</span>`:''}</button>`+
+    TVG.map(g=>{const c=S.tv[g.k].length;return`<button class="btn tb qf ${c?'has':''} ${S.tvpop===g.k?'open':''}" data-act="tvpop" data-arg="${g.k}">${g.l}${c?` · ${c}`:''}<i class="car"></i></button>`}).join('')+
+    (tvActive()?'<button class="btn ghost sm clr" data-act="tvclr">Clear all</button>':'');
+}
+function tvFbody(gs){
+  const all=tvItems(),shown=all.filter(x=>tvPass(x)).length;
+  return`<div class="fsum"><span>${shown===all.length?`All ${all.length} transitions`:`<b>${shown}</b> of ${all.length} transitions`}</span>${tvActive()?'<button class="btn ghost sm" data-act="tvclr">Clear all</button>':''}</div>`+
+  gs.map(g=>{const opts=g.opts();if(!opts.length)return'';const sel=S.tv[g.k];
+    return`<div class="fsec"><div class="fsh">${g.l}${sel.length?`<button class="btn ghost sm" data-act="tvfclr" data-arg="${g.k}">Show all</button>`:''}</div><div class="chips wrap">`+
+    opts.map(([v,l,color])=>{const on=sel.includes(v),c=all.filter(x=>tvPass(x,g.k)&&g.val(x).includes(v)).length;
+      return`<button class="chip fchip ${on?'on':''} ${!c&&!on?'zero':''}" data-act="tvfx" data-arg="${g.k}" data-id="${esc(v)}">${color?`<i class="dot" style="background:${esc(color)};width:8px;height:8px"></i>`:''}${esc(l)}<span class="cnt">${c}</span></button>`}).join('')+`</div></div>`}).join('');
+}
+function tvRenderPop(){
+  const el=$('#tvpop');if(!el)return;if(!S.tvpop){el.innerHTML='';return}
+  const all=S.tvpop==='all',gs=all?TVG:TVG.filter(g=>g.k===S.tvpop);
+  el.innerHTML=`<div class="fpop-bg" data-act="tvpclose"></div><div class="fpanel ${all?'all':''}"><div class="fph"><b>${all?'Filters':esc(gs[0]?.l||'')}</b><button class="btn ghost sm" data-act="tvpclose">Done</button></div>${tvFbody(gs)}</div>`;
+  const b=$(`#tvctl [data-arg="${S.tvpop}"]`),p=el.querySelector('.fpanel'),bar=el.parentNode;
+  if(b&&p&&wide())p.style.left=Math.max(0,Math.min(b.offsetLeft,bar.clientWidth-p.offsetWidth))+'px';
+}
+function tvPills(){
+  const out=[];
+  if(S.tv.kpi)out.push(`<button class="fpill" data-act="tvkpi" data-arg="${S.tv.kpi}">${{active:'Active transitions',ltb:'Last-time buy',nrnd:'Phasing out',succ:'With successor',risk:'At risk'}[S.tv.kpi]} ✕</button>`);
+  if((S.tv.q||'').trim())out.push(`<button class="fpill" data-act="tvq">“${esc(S.tv.q.trim())}” ✕</button>`);
+  TVG.forEach(g=>{if(!S.tv[g.k].length)return;const o=new Map(g.opts().map(x=>[x[0],x[1]]));S.tv[g.k].forEach(v=>out.push(`<button class="fpill" data-act="tvfx" data-arg="${g.k}" data-id="${esc(v)}">${esc(o.get(v)||v)} ✕</button>`))});
+  return out.length?`<div class="fpills"><span class="mut">Filtered:</span>${out.join('')}<button class="btn ghost sm" data-act="tvclr">Clear all</button></div>`:'';
+}
+function viewTransitions(){
+  const seg=[['list','List',ICO_LIST],['timeline','Timeline',ICO_TL]];
+  return`<div id="tvkpis" class="kpis">${tvKpis()}</div>
+    <div class="tbar"><div class="segc vsw tsw tvsw">${seg.map(([k,l,i])=>`<button class="${S.tv.view===k?'on':''}" data-act="tvview" data-arg="${k}">${i} ${l}</button>`).join('')}</div>
+    <div class="tsearch">${ICO_SEARCH}<input id="tvq" type="search" placeholder="Search transitions, products or part numbers…" value="${esc(S.tv.q||'')}" autocomplete="off"></div>
+    <div id="tvctl" class="fctl">${tvFctl()}</div><div id="tvpop"></div></div>
+    <div id="tvres">${tvResults()}</div><div id="tvmenu"></div>${fab('transitions')}`;
+}
+function tvResults(){
+  const L=tvList(),all=tvItems().length;
+  if(!all)return'<div class="card empty">No transitions yet. Add one to map an outgoing product to its successor.</div>';
+  if(!L.length)return tvPills()+'<div class="card empty">No transitions match these filters.</div>';
+  return tvPills()+(S.tv.view==='timeline'?tvTimeline(L):wide()?tvTable(L):`<div class="tvcards">${L.map(tvCard).join('')}</div>`)+`<div class="mut tvfoot">Showing ${L.length} of ${all} transition${all===1?'':'s'}</div>`;
+}
+const tvMenuBtn=x=>`<button class="cxm" data-act="tvmenu" data-id="${x.id}" aria-label="More actions">${ic('<circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/>')}</button>`;
+const tvOpen=x=>x.t?`data-act="transition" data-id="${x.t.id}"`:`data-act="product" data-id="${x.a.id}"`;
+function tvTable(L){
+  return`<div class="card tvtab"><table class="ptab tvt"><thead><tr><th>Current product</th><th>Transition</th><th>Replacement / successor</th><th>Key dates</th><th class="tvtlh">Transition timeline</th><th>Status</th><th></th></tr></thead><tbody>${L.map(x=>`<tr ${tvOpen(x)}>
+    <td>${tvProd(x.a)}</td><td><span class="tvarr">→</span>${tvChip(TV_TYPEM[x.type],'tvty')}</td><td>${tvProd(x.b)}</td><td>${tvDatesHTML(x)}</td>
+    <td class="tvtlc">${tvMini(x)}</td><td>${tvChip(TV_STM[x.st],'tvst')}${tvCust(x)}</td><td>${tvMenuBtn(x)}</td></tr>`).join('')}</tbody></table></div>`;
+}
+function tvCard(x){
+  return`<div class="card tvcard" ${tvOpen(x)}><div class="tvch">${tvChip(TV_STM[x.st],'tvst')}${tvCust(x)}<span class="hsp"></span>${tvMenuBtn(x)}</div>
+    <div class="tvcp">${tvProd(x.a)}<div class="tvcm"><span class="tvarr">↓</span>${tvChip(TV_TYPEM[x.type],'tvty')}</div>${tvProd(x.b)}</div>
+    ${tvDatesHTML(x)}<div class="tvcl">${tvMini(x)}</div></div>`;
+}
+/* timeline view: outgoing and successor on one row; the space between last-time buy (or end of life) and the successor's release is a supply gap */
+function tvTimeline(L){
+  const y0=today.getFullYear()-2,y1=today.getFullYear()+4,s=new Date(y0,0,1),e=new Date(y1,0,1),X=t=>Math.max(0,Math.min(100,(t-s)/(e-s)*100));
+  let ax='';for(let y=y0;y<y1;y++)ax+=`<span style="left:${X(new Date(y,6,1))}%">${y}</span>`;
+  let grid='';for(let y=y0;y<=y1;y++)grid+=`<i class="tvg" style="left:${X(new Date(y,0,1))}%"></i>`;
+  const rows=L.map(x=>{
+    const{a,b}=x,end=d(x.ltb||a.eol_date),rel=b?d(b.supplier_release_date||b.onboard_date):null;
+    let band='';
+    if(end&&rel){const g=Math.round((rel-end)/(864e5*30.44));
+      if(g>0)band=`<i class="tvgap" style="left:${X(end)}%;width:${X(rel)-X(end)}%"></i><span class="tvgl bad" style="left:${(X(end)+X(rel))/2}%">Gap ${g} mo</span>`;
+      else band=`<i class="tvov" style="left:${X(rel)}%;width:${X(end)-X(rel)}%"></i><span class="tvgl ok" style="left:${(X(end)+X(rel))/2}%">Overlap ${-g} mo</span>`}
+    else if(b&&end&&!rel)band=`<span class="tvgl mut" style="left:${X(end)}%">Successor release not set</span>`;
+    return`<div class="tvr" ${tvOpen(x)}><div class="tvl"><div><b>${esc(a.part_number)}</b> <span class="mut">→</span> ${b?`<b>${esc(b.part_number)}</b>`:'<span class="mut">no successor</span>'}</div>${tvChip(TV_STM[x.st],'tvst')}</div>
+      <div class="tvtr">${grid}${band}<div class="tvb">${lcBars(a,X)}</div>${b?`<div class="tvb">${lcBars(b,X)}</div>`:''}</div></div>`}).join('');
+  return`<div class="card tvtl"><div class="tvbody"><div class="tvr tvh"><div class="tvl"><b>Transition</b><span class="mut">Top: current · Bottom: successor</span></div><div class="tvtr tvax">${ax}</div></div>
+    ${rows}<div class="tvtoday" style="--x:${X(today)}"></div></div>
+    <div class="tvlg"><span><i class="tvgap"></i>Supply gap: successor released after last-time buy</span><span><i class="tvov"></i>Overlap: both available</span><span><i class="tvtd"></i>Today</span></div></div>`;
+}
+function tvCSV(){
+  const L=tvList(),q=v=>{v=v==null?'':String(v);return/[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
+  const H=['Current product','Current part numbers','Supplier','Category','Lifecycle','Transition','Transition type','Customer fit','Successor','Successor part numbers','Successor lifecycle','Last-time buy','End of life','Successor release','Migration target','Status','Customers','Customers moved','Customers at risk','Software impact','Harness impact','Mechanical impact','Basis'];
+  const rows=L.map(x=>{const{a,b,t}=x;return[a.part_number,pnsOf(a).map(n=>n.part_number).join('; '),sup(a)?.name,CATS1[a.category],LC[phase(a)]?.l,TV_TYPEM[x.type].l,t?.transition_type,t?KIND[t.kind]:'',b?.part_number,b?pnsOf(b).map(n=>n.part_number).join('; '):'',b?LC[phase(b)]?.l:'',
+    x.ltb,a.eol_date,b?.supplier_release_date||b?.onboard_date,x.tgt,TV_STM[x.st].l,x.cps.length||'',x.cps.length?x.done:'',x.cps.length?x.risk:'',t?IMPACT[t.software_impact]?.l:'',t?IMPACT[t.harness_impact]?.l:'',t?IMPACT[t.mechanical_impact]?.l:'',t?.basis].map(q).join(',')});
+  const bl=new Blob(['﻿'+[H.join(','),...rows].join('\r\n')],{type:'text/csv'}),el=document.createElement('a');
+  el.href=URL.createObjectURL(bl);el.download=`portfolium-transitions-${iso(today)}.csv`;document.body.appendChild(el);el.click();el.remove();
+}
+function tvRefresh(){
+  const k=$('#tvkpis');if(k)k.innerHTML=tvKpis();const c=$('#tvctl');if(c)c.innerHTML=tvFctl();tvRenderPop();
+  const r=$('#tvres');if(r)r.innerHTML=tvResults();
+  document.querySelectorAll('.tvsw button').forEach(b=>b.classList.toggle('on',b.dataset.arg===S.tv.view));saveView();
+}
+function tvRenderMenu(){
+  const el=$('#tvmenu');if(!el)return;const id=S.tvmenu;if(!id){el.innerHTML='';return}
+  const x=tvItems().find(i=>i.id===id);if(!x){S.tvmenu=null;el.innerHTML='';return}
+  const mi=(act,l,extra='')=>`<button class="mi" data-act="${act}" ${extra}>${l}</button>`,ed=canEdit();
+  el.innerHTML=`<div class="umenu-bg" data-act="tvmclose"></div><div class="umenu cxmenu">`+
+    (x.t?mi('tvm_open','Open transition',`data-id="${x.t.id}"`):mi('tvm_prod','Open product',`data-id="${x.a.id}"`))+
+    (x.t&&ed?mi('tvm_edit','Edit transition',`data-id="${x.t.id}"`):'')+
+    (x.b?mi('tvm_cmp','Compare both',`data-id="${x.a.id}" data-arg="${x.b.id}"`):'')+
+    (!x.t&&ed?mi('tvm_map','Map successor',`data-id="${x.a.id}"`):'')+
+    (ed?mi('tvm_cust','Add customer migration',`data-id="${x.a.id}" data-arg="${x.t?.id||''}"`):'')+`</div>`;
+  const m=el.querySelector('.cxmenu'),b=document.querySelector(`.cxm[data-act=tvmenu][data-id="${CSS.escape(id)}"]`);
+  if(b){const r=b.getBoundingClientRect();const top=r.bottom+4+m.offsetHeight>innerHeight-8?r.top-4-m.offsetHeight:r.bottom+4;m.style.top=top+'px';m.style.right='auto';m.style.left=Math.max(12,Math.min(r.right-m.offsetWidth,innerWidth-m.offsetWidth-12))+'px'}
+}
+const tvMClose=()=>{S.tvmenu=null;tvRenderMenu()};
+Object.assign(A,{
+ tvkpi:(id,k)=>{S.tv.kpi=S.tv.kpi===k?null:k;tvRefresh()},
+ tvview:(id,k)=>{S.tv.view=k;tvRefresh()},
+ tvpop:(id,k)=>{S.tvpop=S.tvpop===k?null:k;const c=$('#tvctl');if(c)c.innerHTML=tvFctl();tvRenderPop()},
+ tvpclose:()=>{S.tvpop=null;const c=$('#tvctl');if(c)c.innerHTML=tvFctl();tvRenderPop()},
+ tvfx:(v,k)=>{const L=S.tv[k],i=L.indexOf(v);if(i>=0)L.splice(i,1);else L.push(v);tvRefresh()},
+ tvfclr:(id,k)=>{S.tv[k]=[];tvRefresh()},
+ tvclr:()=>{TVG.forEach(g=>S.tv[g.k]=[]);S.tv.q='';S.tv.kpi=null;const q=$('#tvq');if(q)q.value='';tvRefresh()},
+ tvq:()=>{S.tv.q='';const q=$('#tvq');if(q)q.value='';tvRefresh()},
+ tvcsv:()=>tvCSV(),
+ tvmenu:id=>{S.tvmenu=S.tvmenu===id?null:id;tvRenderMenu()},
+ tvmclose:()=>tvMClose(),
+ tvm_open:id=>{tvMClose();push({type:'transition',id})},
+ tvm_prod:id=>{tvMClose();push({type:'product',id})},
+ tvm_edit:id=>{tvMClose();push({type:'form',table:'transitions',id})},
+ tvm_map:id=>{tvMClose();push({type:'form',table:'transitions',defaults:{from_product_id:id}})},
+ tvm_cust:(id,tid)=>{tvMClose();push({type:'form',table:'customer_products',defaults:{product_id:id,...(tid?{transition_id:tid}:{})}})},
+ tvm_cmp:(a,b)=>{tvMClose();S.cmp.ids=[a,b];S.cmp.saved=null;S.cmp.sec='overview';S.tab='compare';S.stack=[];saveView();renderAll();window.scrollTo(0,0)}
+});
+document.addEventListener('input',e=>{if(e.target.id==='tvq'){S.tv.q=e.target.value;clearTimeout(tvRefresh.t);tvRefresh.t=setTimeout(()=>{const r=$('#tvres');if(r)r.innerHTML=tvResults();const k=$('#tvkpis');if(k)k.innerHTML=tvKpis();const c=$('#tvctl');if(c)c.innerHTML=tvFctl();saveView()},120)}});
 
 /* =====================================================================
    PRODUCT IDEAS
