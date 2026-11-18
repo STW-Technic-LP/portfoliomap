@@ -122,14 +122,42 @@ label.l{display:block;font-size:12px;font-weight:600;color:var(--mut);margin-bot
 .legend i.dm.eol{border-color:var(--brand)}.legend i.dm.ev{border-color:#2563eb}
 .legend .lsep{width:1px;align-self:stretch;background:var(--line)}
 .legend .ztip{color:var(--mut)}
+/* legend pinned to the bottom of the screen on the Timeline view */
+.legend.lgfix{position:fixed;z-index:26;left:12px;right:12px;bottom:calc(68px + env(safe-area-inset-bottom));margin:0;flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;padding:8px 14px;gap:8px 16px;scrollbar-width:none;box-shadow:0 6px 24px rgba(20,25,35,.16)}
+.legend.lgfix::-webkit-scrollbar{display:none}
+.legend.lgfix>*{flex:none}
+main:has(.lgfix){padding-bottom:calc(150px + env(safe-area-inset-bottom))}
+body:has(.lgfix) .fab{bottom:calc(130px + env(safe-area-inset-bottom))}
+body.wide .legend.lgfix{left:24px;right:24px;bottom:14px}
+body.wide.navl .legend.lgfix{left:calc(var(--sw) + 24px)}
+body.wide main:has(.lgfix){padding-bottom:84px}
+body.wide:has(.lgfix) .tl{max-height:calc(100vh - 200px)}
+@media (max-width:1099px){body.wide .legend.lgfix{left:16px;right:16px}body.wide.navl .legend.lgfix{left:calc(var(--sw) + 16px)}}
 /* sheet */
 .sheet-bg{position:fixed;inset:0;background:rgba(2,6,23,.45);z-index:40}
-.sheet{position:fixed;left:0;right:0;bottom:0;top:calc(env(safe-area-inset-top) + 26px);background:var(--bg);border-radius:18px 18px 0 0;z-index:41;display:flex;flex-direction:column;max-width:760px;margin:0 auto}
-.sheet.anim{animation:up .26s ease-out}.sheet-bg.anim{animation:fade .2s}
-.sheet-h{display:flex;align-items:center;gap:6px;padding:10px 12px;border-bottom:1px solid var(--line)}
-.sheet-h h3{flex:1;margin:0;font-size:16.5px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sheet-h>div{min-width:70px}
-.sheet-b{overflow-y:auto;padding:16px 16px calc(36px + env(safe-area-inset-bottom));flex:1;-webkit-overflow-scrolling:touch}
+.sheet{position:fixed;inset:0;background:var(--bg);z-index:41;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top)}
+.sheet.anim{animation:up .24s ease-out}.sheet-bg.anim{animation:fade .2s}
+.sheet-h{display:flex;align-items:center;gap:8px;padding:10px 10px 10px 16px;border-bottom:1px solid var(--line);min-height:56px}
+.sheet-h h3{flex:1;margin:0;font-size:16.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sheet-h .bk{margin-left:-8px;padding-left:8px;padding-right:10px}
+.sheet-h .shr{display:flex;align-items:center;gap:4px;flex:none}
+.xbtn{width:38px;height:38px;border-radius:10px;border:0;background:transparent;color:var(--mut);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:none}
+.xbtn:hover{background:var(--line);color:var(--ink)}
+.sheet-b{overflow-y:auto;padding:16px 16px calc(36px + env(safe-area-inset-bottom));flex:1;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+@media (min-width:760px){
+  .sheet{inset:auto;left:50%;top:50%;transform:translate(-50%,-50%);width:min(var(--dw,640px),calc(100vw - 48px));max-height:min(88vh,calc(100vh - 48px));border-radius:16px;border:1px solid var(--line);box-shadow:0 24px 64px rgba(2,6,23,.32);padding-top:0;overflow:hidden}
+  .sheet.md{--dw:780px}.sheet.lg{--dw:1080px}
+  .sheet.anim{animation:pop .18s ease-out}
+  .sheet-b{padding:18px 22px 26px}
+  .sheet-h{padding:10px 10px 10px 22px}
+}
+@keyframes pop{from{opacity:0;transform:translate(-50%,-48%) scale(.98)}}
+/* product detail: two columns in the dialog */
+.pcols{display:block}
+@media (min-width:900px){
+  .sheet.lg .pcols{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);grid-template-rows:auto 1fr;grid-template-areas:"a b" "c b";column-gap:22px;align-items:start}
+  .pcols .pa{grid-area:a}.pcols .pb{grid-area:b}.pcols .pc{grid-area:c}
+}
 @keyframes up{from{transform:translateY(100%)}}@keyframes fade{from{opacity:0}}
 .hero h2{margin:0 0 2px;font-size:24px;letter-spacing:-.02em}
 .kv{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -440,8 +468,6 @@ a{color:var(--acc)}
   .narrow{max-width:900px}
   .vadd{display:inline-block}
   body.wide .fab[data-arg=products],body.wide .fab[data-arg=transitions]{display:none}
-  .sheet{left:auto;right:0;top:0;width:min(620px,100vw);max-width:none;border-radius:0;box-shadow:-10px 0 34px rgba(2,6,23,.18)}
-  .sheet.anim{animation:slide .24s ease-out}
 }
 @media (min-width:700px) and (max-width:1099px) and (orientation:landscape), (min-width:900px) and (max-width:1099px){
   main{padding:0 16px 24px}
@@ -508,7 +534,7 @@ body:not(.wide) .qf,body:not(.wide) .fctl .clr{display:none}
 body:not(.wide) .tsearch{min-width:0}
 body:not(.wide) .tsw{width:100%}body:not(.wide) .tsw button{flex:1}
 body:not(.wide) .fpop-bg{background:rgba(2,6,23,.45);z-index:40}
-body:not(.wide) .fpanel{position:fixed;left:0;right:0;bottom:0;top:auto;width:auto;max-width:none;max-height:78vh;border-radius:18px 18px 0 0;z-index:41;padding-bottom:calc(16px + env(safe-area-inset-bottom))}
+body:not(.wide) .fpanel{position:fixed;left:12px;right:12px;top:50%;transform:translateY(-50%);width:auto;max-width:none;max-height:min(80vh,calc(100vh - 48px));border-radius:16px;z-index:41;padding-bottom:16px;box-shadow:0 24px 64px rgba(2,6,23,.32);animation:fade .15s}
 .popts{display:flex;align-items:center;gap:10px 16px;flex-wrap:wrap;margin:2px 2px 10px;font-size:13.5px}
 .sw{display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-weight:500;user-select:none}
 .sw input{display:none}
@@ -1095,7 +1121,7 @@ function umenuHTML(){
     ${wide()&&!document.body.classList.contains('solo')?`<div class="ml">Menu position</div>${menuPos()}`:''}
     ${mi('tab','more','more','Settings')}${isContrib()?'':mi('tab','customers','customers','Customers')}${S.mode==='live'?mi('signout','','signout','Sign out'):''}</div>`;
 }
-document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if($('#umenu')?.innerHTML)$('#umenu').innerHTML='';if(S.fpop)A.fpclose();if(S.ipop)A.ipclose();if(S.cxpop)A.cxclose();if(S.tvpop)A.tvpclose();if(S.tvmenu)A.tvmclose()});
+document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(S.stack.length&&!S.fpop&&!S.cxpop&&!S.tvpop&&!S.tvmenu&&!S.ipop){e.preventDefault();return A.back()}if($('#umenu')?.innerHTML)$('#umenu').innerHTML='';if(S.fpop)A.fpclose();if(S.ipop)A.ipclose();if(S.cxpop)A.cxclose();if(S.tvpop)A.tvpclose();if(S.tvmenu)A.tvmclose()});
 
 /* ---------- shared filters (Portfolio + Products) ---------- */
 const PHC={dev:LC.development.c,pipeline:LC.evaluating.c,active:LC.active.c,phasing:LC.nrnd.c,ltb:LC.ltb.c,eol:LC.eol.c,rejected:LC.rejected.c};
@@ -1149,12 +1175,10 @@ function filterPills(){
     S.F[g.k].forEach(v=>out.push(`<button class="fpill" data-act="fx" data-arg="${g.k}" data-id="${esc(v)}">${esc(o.get(v)||v)} ✕</button>`))});
   return out.length?`<div class="fpills"><span class="mut">Filtered:</span>${out.join('')}<button class="btn ghost sm" data-act="fclrall">Clear all</button></div>`:'';
 }
-/* toolbar above the roadmap / table: view switch · search · Filters · quick drop-downs */
-const QUICK=[['ph','Lifecycle'],['sup','Supplier'],['mkt','Market']];
+/* toolbar above the roadmap / table: view switch · search · Filters */
 function fctl(){
   const n=FGROUPS.reduce((a,g)=>a+S.F[g.k].length,0);
   return`<button class="btn tb ${S.fpop==='all'?'open':''}" data-act="fpop" data-arg="all">${ic('<path d="M3 5h18l-7 8.5V19l-4 2v-7.5z"/>')} Filters${n?`<span class="fcnt">${n}</span>`:''}</button>`+
-    QUICK.map(([k,l])=>{const c=S.F[k].length;return`<button class="btn tb qf ${c?'has':''} ${S.fpop===k?'open':''}" data-act="fpop" data-arg="${k}">${l}${c?` · ${c}`:''}<i class="car"></i></button>`}).join('')+
     (activeCount()?'<button class="btn ghost sm clr" data-act="fclrall">Clear all</button>':'');
 }
 function toolbar(){
@@ -1439,9 +1463,9 @@ function calcLW(){if(!wide())return 150;const big=innerWidth>=1300,det=S.det.sup
 function timelineSection(ps,ids){
   const up=upcoming(12,ids).slice(0,10);
   const hat=c=>`background:repeating-linear-gradient(135deg,${c}55 0 3px,transparent 3px 6px);box-shadow:inset 0 0 0 1.5px ${c}`;
-  const lg=(st,l,s)=>`<span class="lg"><i style="${st}"></i><span>${l}${wide()&&s?`<small>${s}</small>`:''}</span></span>`;
+  const lg=(st,l,s)=>`<span class="lg" title="${s}"><i style="${st}"></i><span>${l}</span></span>`;
   return`${timeline(ps)}
-  <div class="legend"><b>Lifecycle:</b>${lg(hat(LC.development.c),'Development','Building &amp; testing')}${lg(hat(LC.evaluating.c),'Evaluation','Assessing, onboarding')}${lg('background:'+LC.active.c,'Active','In market')}${lg('background:'+LC.nrnd.c,'Phasing out','Planned replacement')}${lg('background:'+LC.ltb.c,'Last-time buy','Final purchase window')}${lg('background:'+LC.active.c+';opacity:.22','No dates yet','Current status only')}
+  <div class="legend lgfix"><b>Lifecycle:</b>${lg(hat(LC.development.c),'Development','Building &amp; testing')}${lg(hat(LC.evaluating.c),'Evaluation','Assessing, onboarding')}${lg('background:'+LC.active.c,'Active','In market')}${lg('background:'+LC.nrnd.c,'Phasing out','Planned replacement')}${lg('background:'+LC.ltb.c,'Last-time buy','Final purchase window')}${lg('background:'+LC.active.c+';opacity:.22','No dates yet','Current status only')}
     <span class="lsep"></span><b>Milestones:</b><span class="lg"><i class="dm"></i>Release</span><span class="lg"><i class="dm eol"></i>EOL</span><span class="lg"><i class="dm ev"></i>Event</span><span class="lg" style="color:var(--acc);font-weight:600">→ Successor</span>
     <span class="ztip">${'ontouchstart' in window?'Pinch to zoom':'Ctrl/⌘ + scroll to zoom'}</span></div>
   <div class="sec"><h2>Next 12 months</h2>${canEdit()?`<button class="btn ghost sm" data-act="new" data-arg="events">+ Event</button>`:''}</div>
@@ -1613,6 +1637,8 @@ function viewMore(){
 }
 
 /* ---------- sheets ---------- */
+/* dialog sizes: detail views wide, forms narrow; forms ignore clicks on the dimmed background */
+const DLG_LG=['product','transition','customer'],DLG_MD=['cmpsaved','idea'],DLG_FORM=['form','ideaform','ideavote','ideastatus','cmpsave'];
 function push(e){hovHide();S.stack.push(e);renderSheet()}
 function renderSheet(){
   const el=$('#sheet');
@@ -1620,7 +1646,8 @@ function renderSheet(){
   const top=S.stack[S.stack.length-1],r=SHEETS[top.type](top);
   if(!r){S.stack.pop();return renderSheet()}
   const anim=S.sheetOpen?'':'anim';S.sheetOpen=true;
-  el.innerHTML=`<div class="sheet-bg ${anim}" data-act="closeall"></div><div class="sheet ${anim}"><div class="sheet-h"><div><button class="btn ghost" data-act="back">${S.stack.length>1?'‹ Back':'Close'}</button></div><h3>${esc(r.title)}</h3><div style="text-align:right">${r.right||''}</div></div><div class="sheet-b">${r.body}</div></div>`;
+  const sz=DLG_LG.includes(top.type)?'lg':DLG_MD.includes(top.type)?'md':'',form=DLG_FORM.includes(top.type);
+  el.innerHTML=`<div class="sheet-bg ${anim}" ${form?'':'data-act="closeall"'}></div><div class="sheet ${sz} ${anim}" role="dialog" aria-modal="true" aria-label="${esc(r.title)}"><div class="sheet-h">${S.stack.length>1?'<button class="btn ghost bk" data-act="back">‹ Back</button>':''}<h3>${esc(r.title)}</h3><div class="shr">${r.right||''}<button class="xbtn" data-act="closeall" aria-label="Close" title="Close (Esc)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div></div><div class="sheet-b">${r.body}</div></div>`;
   document.body.classList.add('noscroll');
 }
 const chipsKV=(l,a)=>`<div style="grid-column:1/-1"><span>${l}</span>${(a||[]).length?`<div class="chips wrap" style="margin-top:4px">${a.map(x=>`<span class="chip on" style="font-size:12.5px;padding:4px 10px">${esc(x)}</span>`).join('')}</div>`:'<b>—</b>'}</div>`;
@@ -1640,9 +1667,11 @@ const SHEETS={
    <div class="row" style="margin-top:8px;flex-wrap:wrap">${badge(ph)}<span class="tag"><i class="dot" style="background:${esc(s?.color||'#999')};width:7px;height:7px"></i> ${esc(s?.name||'')}</span><span class="tag">${esc(p.family||CATS1[p.category]||'')}</span>${p.website_status?`<span class="tag">Web: ${esc(p.website_status)}</span>`:''}</div>
    ${p.sub_type?`<div class="mut" style="margin-top:6px">${esc(p.sub_type)}${p.product_code?' · '+esc(p.product_code):''}</div>`:''}</div>
    ${ph==='rejected'?'':`<div class="card" style="margin-top:14px"><div class="stepper">${steps.map((k,i)=>`<i style="${i<=ri?`background:${LC[k].c}`:''}"></i>`).join('')}</div><div class="stepl"><span>Dev</span><span>Eval</span><span>Onboard</span><span>Active</span><span>NRND</span><span>LTB</span><span>EOL</span></div></div>`}
+   <div class="pcols"><div class="pa">
    <div class="sec"><h2>Lifecycle dates</h2></div><div class="card kv">
     ${dateRows.map(([k,l])=>kvItem(l,p[k]?fmt(p[k]):'',p[k]?relTxt(p[k]):'')).join('')}</div>
    ${gantt(p)}
+   </div><div class="pb">
    <div class="sec"><h2>Hardware</h2></div>${(()=>{const hw=p.hardware||{},ks=hwKeys(p.category,hw).filter(k=>hw[k]);
       const extra=[p.ip_rating&&['IP rating',p.ip_rating],p.connector&&['Connectors',p.connector]].filter(Boolean);
       return ks.length||extra.length?`<div class="card kv">${ks.map(k=>kvItem(esc(k),esc(hw[k]))).join('')}${extra.map(([l,v])=>kvItem(l,esc(v))).join('')}</div>`:`<div class="card empty" style="padding:14px">No hardware specs yet${canEdit()?' — tap Edit to add them.':'.'}</div>`})()}
@@ -1662,6 +1691,7 @@ const SHEETS={
    ${spec.length?`<details class="card" style="margin-top:10px"><summary style="font-weight:600;cursor:pointer">Original datasheet capture (${spec.length})</summary><table class="cmp" style="margin-top:8px">${spec.map(([k,v])=>`<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join('')}</table></details>`:''}
    ${p.product_url||p.datasheet_url?`<p class="row" style="gap:16px">${p.product_url?`<a href="${esc(p.product_url)}" target="_blank" rel="noopener">Product page ↗</a>`:''}${p.datasheet_url?`<a href="${esc(p.datasheet_url)}" target="_blank" rel="noopener">Datasheet ↗</a>`:''}</p>`:''}
    ${p.notes?`<div class="card" style="margin-top:10px;white-space:pre-wrap">${esc(p.notes)}</div>`:''}
+   </div><div class="pc">
    <div class="sec"><h2>Part numbers${pns.length?' · '+pns.length:''}</h2>${canEdit()?`<button class="btn ghost sm" data-act="new" data-arg="part_numbers" data-def="${esc(JSON.stringify({product_id:p.id}))}">+ Add</button>`:''}</div>
    ${pns.length?`<div class="card">${pns.slice(0,6).map(pnRow).join('')}${pns.length>6?`<details><summary class="btn ghost sm" style="list-style:none;cursor:pointer">Show all ${pns.length}</summary>${pns.slice(6).map(pnRow).join('')}</details>`:''}</div>`:'<div class="card empty" style="padding:16px">No part numbers listed.</div>'}
    <div class="sec"><h2>Successor</h2>${canEdit()?`<button class="btn ghost sm" data-act="new" data-arg="transitions" data-def="${esc(JSON.stringify({from_product_id:p.id}))}">+ Add</button>`:''}</div>
@@ -1671,7 +1701,7 @@ const SHEETS={
    ${cps.length?cps.map(c=>`<div class="li" data-act="customer" data-id="${c.customer_id}"><div class="grow"><div class="pn">${esc(byId('customers',c.customer_id)?.name)}</div><div class="mut">${c.annual_volume?c.annual_volume.toLocaleString()+'/yr · ':''}${c.transition_id?'→ '+esc(pnOf(byId('transitions',c.transition_id)?.to_product_id)):'No migration set'}</div></div>${migBadge(c.transition_status)}</div>`).join(''):'<div class="card empty" style="padding:16px">No customers linked.</div>'}
    ${productIdeas(p)}
    <div class="sec"><h2>History & notices</h2>${canEdit()?`<button class="btn ghost sm" data-act="new" data-arg="events" data-def="${esc(JSON.stringify({product_id:p.id,supplier_id:p.supplier_id}))}">+ Add</button>`:''}</div>
-   ${evs.length?`<div class="card">${evs.map(x=>`<div class="ev" data-act="edit" data-arg="events" data-id="${x.id}"><div class="dt">${fmtMY(x.event_date)}</div><div class="grow"><b>${esc(x.title)}</b>${x.details?`<div class="mut">${esc(x.details)}</div>`:''}</div></div>`).join('')}</div>`:'<div class="card empty" style="padding:16px">No events logged.</div>'}`};
+   ${evs.length?`<div class="card">${evs.map(x=>`<div class="ev" data-act="edit" data-arg="events" data-id="${x.id}"><div class="dt">${fmtMY(x.event_date)}</div><div class="grow"><b>${esc(x.title)}</b>${x.details?`<div class="mut">${esc(x.details)}</div>`:''}</div></div>`).join('')}</div>`:'<div class="card empty" style="padding:16px">No events logged.</div>'}</div></div>`};
  },
  transition(e){
   const t=byId('transitions',e.id);if(!t)return null;
