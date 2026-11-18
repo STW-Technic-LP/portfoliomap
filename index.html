@@ -38,6 +38,7 @@ header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--c
 .umenu .ml{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);padding:8px 10px 4px}
 .umenu .segc{margin:0 6px 6px}
 .umenu-bg{position:fixed;inset:0;z-index:44}
+.umenu .uver{border-top:1px solid var(--line);margin-top:6px;padding:8px 10px 2px;font-size:11.5px;color:var(--mut)}
 .ptitle{margin:14px 2px 14px}
 .ptitle h1{font-size:24px;margin:0;letter-spacing:-.02em;line-height:1.15}
 .ptitle p{margin:3px 0 0;color:var(--mut);font-size:13.5px}
@@ -704,6 +705,8 @@ body.wide .itabs{flex-wrap:wrap;overflow:visible}
 <div id="sheet"></div>
 <div id="toast"></div>
 <script>
+/* App version: bump on every delivered change (major.minor.patch) and add a line to Version history in HANDOFF.md */
+const APP_VERSION='2.7.1',APP_BUILD='2026-11-18';
 /* =====================================================================
    CONFIG — paste your Supabase project URL and anon (public) key here.
    Leave blank to run in Demo mode (sample data stored on this device),
@@ -1119,7 +1122,7 @@ function umenuHTML(){
   return`<div class="umenu-bg" data-act="umclose"></div><div class="umenu" role="menu">
     <div class="uh"><b>${esc(S.mode==='live'?S.user?.email:'Demo mode')}</b><span class="mut">${S.mode==='live'?esc(S.role):'Sample data on this device'}</span></div>
     ${wide()&&!document.body.classList.contains('solo')?`<div class="ml">Menu position</div>${menuPos()}`:''}
-    ${mi('tab','more','more','Settings')}${isContrib()?'':mi('tab','customers','customers','Customers')}${S.mode==='live'?mi('signout','','signout','Sign out'):''}</div>`;
+    ${mi('tab','more','more','Settings')}${isContrib()?'':mi('tab','customers','customers','Customers')}${S.mode==='live'?mi('signout','','signout','Sign out')+`<div class="uver">Portfolium v${APP_VERSION} · ${fmt(APP_BUILD)}</div>`:''}</div>`;
 }
 document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(S.stack.length&&!S.fpop&&!S.cxpop&&!S.tvpop&&!S.tvmenu&&!S.ipop){e.preventDefault();return A.back()}if($('#umenu')?.innerHTML)$('#umenu').innerHTML='';if(S.fpop)A.fpclose();if(S.ipop)A.ipclose();if(S.cxpop)A.cxclose();if(S.tvpop)A.tvpclose();if(S.tvmenu)A.tvmclose()});
 
