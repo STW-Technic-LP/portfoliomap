@@ -1021,6 +1021,10 @@ body:not(.wide) .pfdl2 .dl b,.pfdl2 .dl b{font-size:13.5px}
 .drwh .btn{white-space:nowrap}
 .drw-bg{z-index:46}.drw{z-index:47}
 body:not(.wide) #tvctl{flex:1 1 100%}body:not(.wide) .tbar .tsearch{flex:1 1 100%}
+/* solid lifecycle badges (v2.11.2) */
+.badge.lcb{background:var(--c);color:var(--k)}
+.badge.lcdev{background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.28) 0 3px,transparent 3px 7px)}
+@media (prefers-color-scheme:dark){.badge.lcb{color:var(--k)}}
 </style>
 </head>
 <body>
@@ -1029,7 +1033,7 @@ body:not(.wide) #tvctl{flex:1 1 100%}body:not(.wide) .tbar .tsearch{flex:1 1 100
 <div id="toast"></div>
 <script>
 /* App version: bump on every delivered change (major.minor.patch) and add a line to Version history in HANDOFF.md */
-const APP_VERSION='2.11.1',APP_BUILD='2026-11-18';
+const APP_VERSION='2.11.2',APP_BUILD='2026-11-18';
 /* =====================================================================
    CONFIG — paste your Supabase project URL and anon (public) key here.
    Leave blank to run in Demo mode (sample data stored on this device),
@@ -1105,7 +1109,9 @@ function phase(p){
   else if(p.nrnd_date&&d(p.nrnd_date)<=today)r=Math.max(r,3);
   return Object.keys(RANK).find(k=>RANK[k]===r);
 }
-const badge=k=>{const x=LC[k]||LC.evaluating;return`<span class="badge ib" style="--c:${x.c}${x.t?';--t:'+x.t:''}">${ic(PHI[k]||PHI.evaluating)}${x.l}</span>`};
+/* lifecycle badges: solid fill in the exact stage color used on the Portfolio page (owner decision 2026-11-18, v2.11.2) */
+const LCINK={development:'#0B2A5B',evaluating:'#0B2A5B',onboarding:'#0B2A5B',active:'#fff',nrnd:'#3B2300',ltb:'#fff',eol:'#334155',rejected:'#374151'};
+const badge=k=>{k=LC[k]?k:'evaluating';const x=LC[k];return`<span class="badge ib lcb${k==='development'?' lcdev':''}" style="--c:${x.c};--k:${LCINK[k]||'#141923'}">${ic(PHI[k]||PHI.evaluating)}${x.l}</span>`};
 const impPill=(lab,k)=>{const x=IMPACT[k]||IMPACT.none;return`<span class="pill" style="--c:${x.c}">${lab}: ${x.l}</span>`};
 const basisTag=b=>!b?'':/infer|confirm/i.test(b)?`<span class="pill" style="--c:#d97706">⚠ ${esc(b)}</span>`:`<span class="pill" style="--c:#0ea5e9">${esc(b)}</span>`;
 const migBadge=k=>`<span class="badge" style="--c:${MIGC[k]||'#94a3b8'}">${esc((MIG.find(m=>m[0]===k)||[,k])[1])}</span>`;
