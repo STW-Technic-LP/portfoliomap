@@ -8,18 +8,18 @@
 <meta name="apple-mobile-web-app-title" content="Portfolium">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>Portfolium</title>
-<meta name="theme-color" content="#141923">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0F1A2B">
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2.11.1">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2.11.1">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=2.11.1">
+<link rel="manifest" href="manifest.webmanifest?v=2.11.1">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 /* Portfolium palette: charcoal #141923 · crimson #C92C32 · off-white #F7F7F8 · slate #6B7280 */
-:root{--bg:#F7F7F8;--card:#fff;--ink:#141923;--mut:#6B7280;--line:#E4E6EA;--acc:#1263BD;--ok:#16a34a;--warn:#E58B20;--bad:#C92C32;--chip:#EEF0F3;
-  --brand:#C92C32;--pri:#1D4ED8;--pri-ink:#fff;--side:#141923;--side-ink:#C9CDD5;--side-on:#1D4ED8;
+:root{--bg:#F7F7F8;--card:#fff;--ink:#141923;--mut:#6B7280;--line:#E4E6EA;--acc:#2563EB;--ok:#16a34a;--warn:#F59E0B;--bad:#DC2626;--chip:#EEF0F3;
+  --brand:#C92C32;--pri:#1D4ED8;--pri-ink:#fff;--side:#0F1A2B;--side-ink:#C9CDD5;--side-on:#1D4ED8;
   --shadow:0 1px 2px rgba(20,25,35,.05),0 4px 14px rgba(20,25,35,.05);--lw:118px}
-@media (prefers-color-scheme:dark){:root{--bg:#0E1118;--card:#171B26;--ink:#E8EAEE;--mut:#9AA1AE;--line:#262C3A;--acc:#5B9BE6;--chip:#202634;--pri:#3B6FF0;--pri-ink:#fff;--side:#0A0D13;--shadow:none}}
+@media (prefers-color-scheme:dark){:root{--bg:#0E1118;--card:#171B26;--ink:#E8EAEE;--mut:#9AA1AE;--line:#262C3A;--acc:#5B9BE6;--chip:#202634;--pri:#3B6FF0;--pri-ink:#fff;--side:#0B1424;--shadow:none}}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.4 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif}
 body.noscroll{overflow:hidden}
@@ -260,7 +260,7 @@ a{color:var(--acc)}
 .pfi{width:44px;height:44px;border-radius:12px;flex:none;display:flex;align-items:center;justify-content:center;color:var(--c);background:color-mix(in srgb,var(--c) 12%,transparent)}.pfi .ic{width:24px;height:24px}
 .pfc .car.rt{flex:none}
 .pfr{width:64px;height:64px;flex:none;transform:rotate(-90deg)}
-.pfr circle{fill:none;stroke:var(--line);stroke-width:7}.pfr circle.on{stroke:#1263BD;stroke-linecap:round}
+.pfr circle{fill:none;stroke:var(--line);stroke-width:7}.pfr circle.on{stroke:#2563EB;stroke-linecap:round}
 .pfr text{transform:rotate(90deg);transform-origin:32px 32px;font-size:14px;font-weight:750;fill:var(--ink);text-anchor:middle}
 .pfd{padding:14px 18px;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"h l" "b l";gap:8px 24px;align-items:center;margin:0}
 .pfdh{grid-area:h;display:flex;align-items:baseline;gap:12px}.pfdh h3{margin:0;font-size:15px;display:flex;align-items:center;gap:6px}
@@ -280,7 +280,7 @@ a{color:var(--acc)}
 .tl-corner .tcm{width:30px;flex:none}
 .tl-lab .cxi.md{width:34px;height:34px}
 .rmm{flex:none;width:30px;height:30px}
-.bar.post{background:#A6AAB4;opacity:.45}
+.bar.post{background:#CBD5E1;opacity:.45}
 .ms.nm{pointer-events:none}
 .msl{position:absolute;top:calc(50% - 25px);z-index:2;font-size:10.5px;line-height:1.15;white-space:nowrap;pointer-events:none;background:color-mix(in srgb,var(--card) 82%,transparent);padding:0 3px;border-radius:4px}
 .msl b{font-weight:700;margin-right:4px}.msl span{color:var(--ink)}
@@ -505,7 +505,7 @@ body:not(.wide) .msl{font-size:9.5px}
 .gantt .gtoday{position:absolute;top:0;bottom:0;width:2px;background:var(--brand);opacity:.6;z-index:2}
 .gantt .gm{position:absolute;top:0;bottom:0;border-left:2px dashed var(--c,#94a3b8);z-index:2}
 .gantt .gm span{position:absolute;top:2px;left:3px;font-size:9.5px;font-weight:800;color:var(--c,#94a3b8);background:var(--card);padding:0 3px;border-radius:3px;white-space:nowrap}
-.gm-nrnd{--c:#E58B20}.gm-ltb{--c:#C92C32}.gm-eol{--c:#6B7280}.gm-supplier{--c:#2377D4}
+.gm-nrnd{--c:#F59E0B}.gm-ltb{--c:#DC2626}.gm-eol{--c:#6B7280}.gm-supplier{--c:#60A5FA}
 @media (max-width:600px){.gantt .glab{width:32%}.gantt .glab b{font-size:12px}.gantt .glab span{font-size:10px;white-space:normal}.gantt{padding:8px 8px 10px}}
 .gantt .glegend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:11.5px;color:var(--mut);margin-top:10px}
 .gantt .glegend i{display:inline-block;width:14px;height:8px;border-radius:4px;margin-right:4px;vertical-align:middle}
@@ -554,7 +554,7 @@ body.wide.navl{padding-left:var(--sw)}
 body.wide.navl header .brand{display:none}
 body.wide.navl nav.tabs{top:0;bottom:0;right:auto;width:var(--sw);flex-direction:column;justify-content:flex-start;gap:4px;background:var(--side);border:0;padding:calc(env(safe-area-inset-top) + 16px) 12px 16px}
 body.wide.navl nav.tabs .sbrand{display:flex;flex:none;flex-direction:row;gap:10px;padding:0;color:#fff;margin:2px 8px 26px;font-size:21px;font-weight:800}
-body.wide.navl nav.tabs .sbrand svg{width:30px;height:30px}
+body.wide.navl nav.tabs .sbrand svg{width:30px;height:30px;stroke:none}
 body.wide.navl nav.tabs button:not(.sbrand){flex:none;flex-direction:row;justify-content:flex-start;gap:14px;padding:11px 14px;font-size:15px;font-weight:500;color:var(--side-ink);border-radius:10px}
 body.wide.navl nav.tabs button:not(.sbrand):hover{background:rgba(255,255,255,.07);color:#fff}
 body.wide.navl nav.tabs button.on:not(.sbrand),body.wide.navl nav.tabs button.on:not(.sbrand):hover{background:var(--side-on);color:#fff;font-weight:600}
@@ -804,6 +804,223 @@ body.wide .itab{flex:1 1 0;min-width:0}body.wide .itab:first-child{flex:.75 1 0}
 @media (max-width:1299px){.ptab td.idesc{max-width:240px}body.wide .itab{padding:10px 10px;font-size:14px}}
 @media (max-width:1099px){.itab2 td.idesc,.itab2 th:nth-child(2){display:none}}
 
+
+/* ---- v2.10: view switch on the right of every toolbar (on phones it stays on top, full width) ---- */
+body:not(.wide) .tbar>.tsw{order:-1}body:not(.wide) .tbar>.hsp{display:none}
+/* ---- Compare v2.10 ---- */
+.cxbar .cxtop{flex-wrap:nowrap}
+.cxbar .cxchips{flex-wrap:wrap}
+.cxchip{padding:5px 5px 5px 7px;border-radius:10px;font-size:13.5px}
+.cxadd{flex:none;margin-left:auto}
+.cxtools{margin:0 0 12px}
+.cxact2{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.cxact2 .btn{display:inline-flex;align-items:center;gap:7px}.cxact2 .btn:disabled{opacity:.45;cursor:default}
+.cxact2 .btn .ic+span+.ic{width:15px;height:15px;margin-left:-2px;color:var(--mut)}
+.cxmore{padding-left:11px;padding-right:11px}
+.cxmenu2{width:250px}.cxmenu2 .mi .ic{width:17px;height:17px;color:var(--mut)}.mis{width:17px;flex:none}
+.mck .ic{color:var(--pri)!important;width:17px;height:17px}
+.cx3{min-width:calc(200px + var(--n) * 230px)}
+.cx3 thead th.corner{width:200px;vertical-align:middle;font-size:13.5px;color:var(--ink);font-weight:650;background:color-mix(in srgb,var(--chip) 55%,var(--card))}
+.cx3 thead th.cxph{padding:14px 14px}
+.cx3 .cxh{align-items:center;gap:12px}
+.cx3 .cxh .cxi.lg{width:60px;height:60px;border-radius:12px}
+.cx3 .cxn b{font-size:16.5px}
+.cxnm{font-size:12.5px;color:var(--mut);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cx3 .cxm{align-self:flex-start}
+.cxsum td{vertical-align:middle}
+.cxsum tr.cxtop2 td{vertical-align:top}
+.cxl{display:inline-flex;align-items:center;gap:10px}.cxl .ic{width:19px;height:19px;color:var(--ink);stroke-width:1.7;flex:none}
+.cxsum th{font-size:14px}
+.hch{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:650;padding:4px 11px;border-radius:999px;background:color-mix(in srgb,var(--c) 13%,transparent);color:var(--t)}
+.hch .ic{width:15px;height:15px;stroke-width:2.2}
+.cxsup{display:inline-flex;align-items:center;gap:8px}
+.cxsup i{font-style:normal;font-size:11.5px;font-weight:750;padding:2px 6px;border-radius:6px;background:color-mix(in srgb,var(--c) 14%,transparent);color:var(--c);letter-spacing:.02em}
+.cxok,.cxrk{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.cxok li{display:flex;gap:7px;align-items:flex-start}.cxok .ic{width:15px;height:15px;color:#16A34A;stroke-width:2.6;flex:none;margin-top:2px}
+.cxrk li{display:flex;gap:9px;align-items:flex-start}.cxrk i{width:8px;height:8px;border-radius:50%;flex:none;margin-top:6px}
+.cxmore2{display:inline-block;margin-top:4px;font-size:12px;cursor:help}
+.cxmh td{border-bottom:0}.cxmh th{border-bottom:0}
+.cxmr th,.cxmr td{padding-top:4px;padding-bottom:4px;border-bottom:1px dashed color-mix(in srgb,var(--line) 70%,transparent)}
+.cxmr.last th,.cxmr.last td{border-bottom:1px solid var(--line);padding-bottom:10px}
+.cxml{display:block;padding-left:29px;font-weight:500;color:var(--mut);font-size:12.5px}
+.cxkd td{padding-top:14px;padding-bottom:12px}
+.kdb{min-width:170px;padding:2px 2px 0}
+.kdb .mtr{height:8px}
+.kdls{position:relative;height:34px;margin-top:6px}
+.kdl{position:absolute;top:0;transform:translateX(-50%);font-size:11.5px;line-height:1.3;color:var(--mut);text-align:center;white-space:nowrap}
+.kdl b{display:block;color:var(--ink);font-weight:650}.kdl.now{transform:none;margin-left:-2px;color:var(--ink);font-weight:650}
+.cxdh th{background:var(--card)!important;padding:16px 12px 8px!important;border-bottom:1px solid var(--line)}
+.cxdhi{position:sticky;left:12px;display:inline-flex;align-items:center;gap:10px}.cxdhi b{font-size:15px}
+.cxtg{cursor:pointer}.cxtg:hover th,.cxtg:hover td{background:color-mix(in srgb,var(--chip) 80%,var(--card))}
+.cx3 tr.cxsec th{text-transform:none;letter-spacing:0;font-size:14px;font-weight:650}
+.cx3 tr.cxsec th span .ic{width:16px;height:16px;transition:transform .15s;margin-right:6px;vertical-align:-3px}
+.cxdsec.open tr.cxsec th span .ic{transform:rotate(90deg)}
+.cx3 tr.cxsec small{font-weight:500;color:var(--mut);font-size:12px;margin-left:4px}
+.cxsph{font-size:12px;font-weight:650;color:var(--mut)}
+.cx3 .cxdsec:not(.open) tr.cxsec th,.cx3 .cxdsec:not(.open) tr.cxsec td{border-bottom:1px solid var(--line)}
+.cx3 tbody:last-child tr:last-child th,.cx3 tbody:last-child tr:last-child td{border-bottom:0}
+.cxw{max-height:none;min-height:0;overflow-x:auto;overflow-y:visible}
+.cxval{margin-top:14px;padding:0;overflow:hidden}
+.cxvh{display:flex;align-items:center;gap:10px;width:100%;border:0;background:none;padding:14px 16px;text-align:left;color:var(--ink);cursor:pointer;font-size:14.5px}
+.cxvh:hover{background:var(--chip)}.cxvh .ic{width:16px;height:16px;transition:transform .15s}.cxval.open .cxvh .ic{transform:rotate(90deg)}
+.cxvh .mut{font-size:12.5px}
+.cxvb{padding:0 16px 16px}
+/* Lifecycle view */
+.cxlife{padding:8px 16px 12px}
+.clrow{display:grid;grid-template-columns:240px minmax(0,1fr);gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.clrow.clax{padding:6px 0 4px}
+.cll{display:flex;gap:10px;align-items:center;min-width:0}
+.cllb{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:3px}
+.cxs2{font-size:12px;font-weight:600;color:var(--mut)}.cxs2.in{color:var(--pri)}
+.clt{position:relative;padding:0 6px}
+.cltax{position:relative;height:18px}.cltax span{position:absolute;transform:translateX(-50%);font-size:12px;color:var(--mut);font-weight:600}
+.cltg{position:absolute;inset:-12px 6px -12px 6px;pointer-events:none}.cltg i{position:absolute;top:0;bottom:0;width:1px;background:color-mix(in srgb,var(--line) 70%,transparent)}
+.clt .mtr{height:12px;border-radius:6px}.clt .mseg{border-radius:6px}
+.clt .mms{width:13px;height:13px;margin:-6.5px 0 0 -6.5px}
+.clml{position:relative;height:18px;margin-top:6px}
+.clml span{position:absolute;transform:translateX(-50%);font-size:11.5px;color:var(--mut);white-space:nowrap}.clml b{color:var(--ink);font-weight:650}
+.cltd{position:absolute;top:-12px;bottom:-12px;width:2px;margin-left:-1px;background:var(--ink);opacity:.75;border-radius:1px}
+.cxleg{display:flex;flex-wrap:wrap;gap:6px 16px;padding:12px 0 2px;font-size:12.5px;color:var(--mut)}
+.cxleg span{display:inline-flex;align-items:center;gap:6px}.cxleg i{width:14px;height:8px;border-radius:4px}
+.cxleg .lgd{width:9px;height:9px;border-radius:2px;transform:rotate(45deg);border:2px solid var(--mut);background:var(--card)}
+.cxleg .lgt{width:2px;height:12px;border-radius:1px;background:var(--ink)}
+.cxhand{margin-top:14px;padding:14px 16px}.cxhand h3{margin:0 0 8px;font-size:15px}
+.cxhand ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;font-size:13.5px}
+.okt{color:#15803D;font-weight:650}.badt{color:var(--bad);font-weight:650}
+/* Add products dialog */
+.cxpk{display:flex;flex-direction:column;gap:10px;min-height:min(560px,70vh)}
+.cxpk .tsearch{flex:none;min-width:0}
+.cxpf{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.cxpf select{font:inherit;font-size:13px;padding:7px 26px 7px 10px;border:1px solid var(--line);border-radius:9px;background-color:var(--card);color:var(--ink);flex:1 1 120px;min-width:0;width:auto}
+.cxpf select.on{border-color:var(--pri);color:var(--pri);font-weight:600;background-color:color-mix(in srgb,var(--pri) 7%,var(--card))}
+.cxsame{display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:6px 10px;border:1px solid var(--line);border-radius:9px;cursor:pointer;background:var(--card)}
+.cxsame.on{border-color:var(--pri);color:var(--pri);font-weight:600}
+.cxsame{flex:none;white-space:nowrap}.cxsame input{width:16px;height:16px;min-height:0;flex:none;margin:0;padding:0;accent-color:var(--pri)}
+.cxplist{flex:1;min-height:200px;border:1px solid var(--line);border-radius:12px;overflow:auto;padding:4px;background:var(--card)}
+.cx3 tr.cxpnr th,.cx3 tr.cxpnr td{padding-top:6px;padding-bottom:6px;background:var(--card)}
+.cxpn{font-size:12px;padding:6px 10px 0}
+.cxplist .cxo{gap:12px;padding:8px 10px}
+.cxplist .cxo.added{opacity:.6;cursor:default}
+.cxplist .cxo.on{background:color-mix(in srgb,var(--pri) 9%,transparent)}
+.cxcb{width:20px;height:20px;border-radius:6px;border:1.6px solid color-mix(in srgb,var(--mut) 60%,transparent);display:inline-flex;align-items:center;justify-content:center;flex:none;background:var(--card)}
+.cxcb .ic{width:14px;height:14px;stroke-width:3;color:#fff}
+.cxo.on .cxcb{background:var(--pri);border-color:var(--pri)}.cxo.added .cxcb{background:var(--mut);border-color:var(--mut)}
+.cxpkf{position:sticky;bottom:-26px;display:flex;align-items:center;gap:8px;background:var(--card);border-top:1px solid var(--line);margin:0 -22px -26px;padding:12px 22px}
+.sheet .cxpkf{background:var(--bg)}
+@media (max-width:899px){
+  .cxbar .cxtop{flex-wrap:wrap}.cxadd{width:100%;justify-content:center;margin-left:0}
+  .cxtools .cxact2{width:100%}.cxact2 .btn span{display:none}.cxact2 .btn{padding:8px 11px}
+  .cxtools .cxvsw{width:100%}
+  .cx3{min-width:calc(118px + var(--n) * 190px)}
+  .cx3 thead th.corner{width:118px}
+  .cxml{padding-left:0}.cxl{gap:6px}.cxl .ic{display:none}
+  .cxsum th{font-size:12.5px}
+  .clrow{grid-template-columns:1fr;gap:8px}.clrow.clax .cll{display:none}
+  .cxpkf{bottom:calc(-36px - env(safe-area-inset-bottom));margin:0 -16px calc(-36px - env(safe-area-inset-bottom));padding:12px 16px calc(12px + env(safe-area-inset-bottom))}
+  .cxpf select{flex:1 1 45%;max-width:none}
+  .cxvh .mut{display:none}
+}
+
+/* ---- v2.11: Portfolio summary row ---- */
+.pfs{margin:0 0 16px}
+.pfrow{display:grid;grid-template-columns:minmax(250px,1fr) minmax(330px,1.35fr) minmax(380px,1.6fr);gap:14px;align-items:stretch}
+.pfrow .pfc{margin:0}
+.pfh{cursor:pointer;padding:16px 18px;gap:16px}.pfh:hover{box-shadow:0 4px 18px rgba(20,25,35,.12)}
+.pfh .pfr{width:84px;height:84px}.pfh .pfr circle{stroke-width:7.5}.pfh .pfr circle.on{stroke:var(--pri)}
+.pfh .pfr text{font-size:15px}
+.pfh .pfl{font-size:16px}.pflv{font-weight:700;font-size:14px;margin:2px 0}.pfh .mut{font-size:13.5px}
+.pfh .hinfo{cursor:pointer}
+.pfdc{display:block;cursor:default;padding:14px 18px}.pfdc:hover{box-shadow:var(--shadow)}
+.pfdc h3{margin:0 0 8px;font-size:15.5px;display:flex;align-items:center;gap:8px}.pfdc h3 .ic{width:19px;height:19px}
+.pfdw{display:flex;align-items:center;gap:18px}
+.pfdn{width:116px;height:116px;flex:none}
+.pfdn .bgc{fill:none;stroke:var(--line);stroke-width:12}
+.pfdn .dsg{fill:none;stroke-width:12;cursor:pointer;transition:opacity .12s}.pfdn .dsg.off{opacity:.22}.pfdn .dsg:hover{opacity:.85}
+.pfdn .dn1{font-size:19px;font-weight:800;fill:var(--ink);text-anchor:middle}.pfdn .dn2{font-size:8.5px;font-weight:600;fill:var(--mut);text-anchor:middle}
+.pfdl2{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.pfdl2 .dl{display:flex;align-items:center;gap:8px;border:0;background:none;padding:3px 6px;border-radius:7px;font:inherit;font-size:13px;color:var(--ink);cursor:pointer;text-align:left}
+.pfdl2 .dl:hover{background:var(--chip)}.pfdl2 .dl.off{opacity:.45}
+.pfdl2 .dl i{width:11px;height:11px;border-radius:3px;flex:none}.pfdl2 .dl b{font-size:13.5px;font-weight:700;line-height:1.3;letter-spacing:0;min-width:24px;text-align:right}.pfdl2 .dl .mut{font-size:12px;min-width:42px;text-align:right}
+.pfmini{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pfsm{padding:11px 14px;gap:12px}.pfsm b{font-size:24px}.pfsm .pfl{font-size:13.5px}.pfsm .mut{font-size:12px}
+.pfsm .pfi{width:42px;height:42px;border-radius:11px}
+@media (max-width:1279px){.pfrow{grid-template-columns:1fr 1.3fr}.pfmini{grid-column:1/-1;grid-template-columns:repeat(4,1fr)}}
+body:not(.wide) .pfrow{grid-template-columns:1fr;gap:8px}
+body:not(.wide) .pfmini{grid-template-columns:1fr 1fr;gap:8px}
+body:not(.wide) .pfsm{padding:10px 12px}body:not(.wide) .pfsm .grow{display:flex}body:not(.wide) .pfsm b{font-size:21px;justify-self:auto}
+body:not(.wide) .pfsm .car{display:none}body:not(.wide) .pfsm .pfi{display:none}
+body:not(.wide) .pfdn{width:96px;height:96px}
+body:not(.wide) .pfh .pfr{width:64px;height:64px}
+/* health breakdown */
+.hpop{width:360px;padding:14px 16px}
+.hph{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px;font-size:15px}
+.hpr{display:flex;flex-direction:column;gap:3px;margin:0 0 10px}.hpr .mut{font-size:12px}
+.hprt{display:flex;justify-content:space-between;font-size:13.5px;font-weight:600}
+.hpb{display:block;height:6px;border-radius:3px;background:var(--line);overflow:hidden}.hpb b{display:block;height:100%;border-radius:3px}
+.hpf{font-size:12px;border-top:1px solid var(--line);padding-top:8px}
+/* Upcoming button + side panel */
+.plh .upb{margin-left:auto;display:inline-flex;align-items:center;gap:7px}.plh .upb .ic{width:17px;height:17px}
+.plh .upb+.tsw{margin-left:8px}
+.upb .fcnt{background:var(--chip);color:var(--ink)}
+.drw-bg{position:fixed;inset:0;background:rgba(2,6,23,.28);z-index:38;animation:fade .2s}
+.drw{position:fixed;top:0;right:0;bottom:0;width:min(440px,100vw);background:var(--card);z-index:39;display:flex;flex-direction:column;box-shadow:-12px 0 40px rgba(2,6,23,.18);border-left:1px solid var(--line);animation:drwin .22s ease-out}
+@keyframes drwin{from{transform:translateX(30px);opacity:.4}to{transform:none;opacity:1}}
+.drwh{display:flex;align-items:center;gap:10px;padding:16px 16px 12px 20px;border-bottom:1px solid var(--line);padding-top:calc(16px + env(safe-area-inset-top))}
+.drwh h3{margin:0;font-size:17px}.drwh .mut{font-size:12.5px}
+.drwb{overflow:auto;flex:1;padding:6px 12px calc(16px + env(safe-area-inset-bottom))}
+.drwb .ev{border-radius:10px}.drwb .ev:hover{background:var(--chip)}
+/* temporary password in the account menu */
+.avatar{position:relative}
+.avdot{position:absolute;top:-1px;right:-1px;width:11px;height:11px;border-radius:50%;background:#F59E0B;border:2px solid var(--card)}
+.umenu .upw{align-items:flex-start;background:color-mix(in srgb,#F59E0B 12%,transparent);margin-bottom:6px}
+.umenu .upw:hover{background:color-mix(in srgb,#F59E0B 20%,transparent)}
+.upw .grow{display:flex;flex-direction:column;min-width:0}.upw .grow .mut{font-size:12px;font-weight:400}.upwi{font-size:16px;line-height:1.2}
+/* Today marker: blue pill and dashed line */
+.tl-now{background:var(--pri);border-radius:999px;padding:2px 8px;font-size:10.5px;top:3px}
+.tl-today{background:none!important;border-left:2px dashed var(--pri);width:0!important}
+/* owners */
+.own{display:inline-flex;align-items:center;gap:8px;min-width:0;max-width:100%}
+.own i{font-style:normal;font-size:11px;font-weight:750;width:28px;height:28px;border-radius:50%;background:var(--chip);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;flex:none;letter-spacing:.02em}
+.own span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pco{margin-top:8px;font-size:13px}
+/* Products page */
+.pbar2{margin:2px 2px 10px}.pbar2 .pcount{white-space:nowrap}
+.ptab2 th.srt{cursor:pointer}
+.ptab2 .ckc{width:40px;padding-left:14px;padding-right:4px;cursor:default}
+.rck,.cxsame input{-webkit-appearance:checkbox;appearance:auto;width:17px;height:17px;padding:0;border:0;border-radius:4px;accent-color:var(--pri);cursor:pointer;margin:0;vertical-align:middle;flex:none}
+.ptab2 tr.rsel td,.tvt2 tr.rsel td{background:color-mix(in srgb,var(--pri) 6%,var(--card))}
+.pcat{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:550;padding:4px 10px;border-radius:8px;background:var(--chip);white-space:nowrap}.pcat .ic{width:14px;height:14px}
+.pupd{white-space:nowrap;color:var(--ink)}
+.ptab2 td.pact{width:44px;text-align:right}
+.bulk{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 12px;margin:0 0 10px;border-radius:12px;background:color-mix(in srgb,var(--pri) 8%,var(--card));border:1px solid color-mix(in srgb,var(--pri) 25%,transparent);font-size:13.5px}
+.bulk b{margin-right:6px}.bulk .btn{display:inline-flex;align-items:center;gap:6px}.bulk .btn .ic{width:15px;height:15px}
+@media (max-width:1279px){.ptab2 .pc-supplier{display:none}}
+@media (max-width:1099px){.ptab2 .pc-next{display:none}}
+/* Transitions page */
+.tvsb{display:flex;align-items:center;gap:12px 18px;flex-wrap:wrap;padding:12px 16px;margin:0 0 14px}
+.tvsbt{font-size:15px;white-space:nowrap}
+.tvsps{display:flex;gap:8px;flex-wrap:wrap}
+.tvsp{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:7px 13px;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;white-space:nowrap}
+.tvsp .ic{width:16px;height:16px;color:var(--c)}
+.tvsp:hover{border-color:color-mix(in srgb,var(--c) 45%,transparent)}
+.tvsp.on{background:color-mix(in srgb,var(--c) 11%,var(--card));border-color:var(--c)}
+.tvsp.all.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tvsortw select{font:inherit}
+.tvt2 th small{display:block;font-weight:500;color:var(--mut);font-size:11.5px}
+.tvt2 .ckc{width:40px;padding-left:14px;padding-right:4px}
+.tvt2 td.tvac{text-align:center;white-space:nowrap}.tvt2 td.tvac .tvarr{display:block;margin:0 auto 4px}
+.badge.tvty.sm{font-size:11px;padding:2px 7px}
+.tvpg{display:flex;flex-direction:column;gap:5px;min-width:110px}.tvpg span{font-weight:650;font-size:13px}
+.tvpg i{display:block;height:7px;border-radius:4px;background:var(--line);overflow:hidden}.tvpg i b{display:block;height:100%;background:var(--pri);border-radius:4px}
+.tvcf{display:flex;align-items:center;gap:10px;margin-top:10px}.tvcf .tvpg{min-width:120px}
+@media (max-width:1279px){.tvt2 .tvown{display:none}}
+body:not(.wide) .tvsb{padding:10px 12px}body:not(.wide) .tvsps{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;width:100%}
+body:not(.wide) .pfrow .pfc .grow{display:flex;flex-direction:column;align-items:flex-start;text-align:left}
+body:not(.wide) .pfrow .pfc b{grid-area:auto;justify-self:auto}
+body:not(.wide) .pfdl2 .dl b,.pfdl2 .dl b{font-size:13.5px}
+.drwh .btn{white-space:nowrap}
+.drw-bg{z-index:46}.drw{z-index:47}
+body:not(.wide) #tvctl{flex:1 1 100%}body:not(.wide) .tbar .tsearch{flex:1 1 100%}
 </style>
 </head>
 <body>
@@ -812,7 +1029,7 @@ body.wide .itab{flex:1 1 0;min-width:0}body.wide .itab:first-child{flex:.75 1 0}
 <div id="toast"></div>
 <script>
 /* App version: bump on every delivered change (major.minor.patch) and add a line to Version history in HANDOFF.md */
-const APP_VERSION='2.9.0',APP_BUILD='2026-11-18';
+const APP_VERSION='2.11.1',APP_BUILD='2026-11-18';
 /* =====================================================================
    CONFIG — paste your Supabase project URL and anon (public) key here.
    Leave blank to run in Demo mode (sample data stored on this device),
@@ -823,11 +1040,11 @@ const CONFIG = { SUPABASE_URL: 'https://sjwarllnehssyphoormc.supabase.co', SUPAB
 /* ---------- constants ---------- */
 // c = Portfolium lifecycle color; t = darker text color where the palette color is too light to read as text; f = label in the edit form
 const LIFECYCLE=[
- {k:'development',l:'In development',c:'#2377D4'},{k:'evaluating',l:'Evaluating',c:'#6889B9'},{k:'onboarding',l:'Onboarding',c:'#6889B9'},
- {k:'active',l:'Active',c:'#1263BD'},{k:'nrnd',l:'Phasing out',f:'Phasing out (NRND)',c:'#E58B20',t:'#B9690F'},
- {k:'ltb',l:'Last-time buy',c:'#C92C32'},{k:'eol',l:'End of life',c:'#A6AAB4',t:'#6B7280'},
+ {k:'development',l:'In development',c:'#60A5FA',t:'#1D4ED8'},{k:'evaluating',l:'Evaluating',c:'#93C5FD',t:'#2563EB'},{k:'onboarding',l:'Onboarding',c:'#93C5FD',t:'#2563EB'},
+ {k:'active',l:'Active',c:'#2563EB'},{k:'nrnd',l:'Phasing out',f:'Phasing out (NRND)',c:'#F59E0B',t:'#B45309'},
+ {k:'ltb',l:'Last-time buy',c:'#DC2626'},{k:'eol',l:'End of life',c:'#CBD5E1',t:'#64748B'},
  {k:'rejected',l:'Not onboarded',c:'#D1D5DB',t:'#6B7280'}];
-const MIG_C='#D7473E',BRAND='#C92C32';
+const MIG_C='#EF4444',BRAND='#C92C32';
 const LC=Object.fromEntries(LIFECYCLE.map(x=>[x.k,x]));
 const RANK={development:-1,evaluating:0,onboarding:1,active:2,nrnd:3,ltb:4,eol:5};
 const CATEGORIES=[['controller','Controllers'],['telematics','Telematics'],['display','Displays'],['module','I/O & modules'],['sensor','Sensors'],['software','Software'],['other','Other']];
@@ -851,16 +1068,16 @@ const PHG_OF={development:'dev',evaluating:'pipeline',onboarding:'pipeline',acti
 
 /* ---------- state ---------- */
 const S={mode:'demo',sb:null,user:null,role:'admin',tab:'roadmap',stack:[],data:{},
-  f:{group:'none'},lpp:50,lpage:0,tsort:1,F:{q:'',sup:[],cat:[],ph:[],mkt:[],can:[]},mw:wide()?30:22,fOpen:false,tlScroll:null,rows:[],cmp:{ids:[],diff:false,gaps:true,metric:'io',priceBy:'list',sec:'overview',saved:null},rmView:'timeline',pView:'table',det:{sup:true,mkt:true},hz:'12',coll:[],fpop:null,ipop:false,lsort:{k:'part',dir:1},incOnly:false,
+  f:{group:'none'},lpp:50,lpage:0,tsort:1,F:{q:'',sup:[],cat:[],ph:[],mkt:[],can:[]},mw:wide()?30:22,fOpen:false,tlScroll:null,rows:[],cmp:{ids:[],diff:false,gaps:true,metric:'io',priceBy:'list',sec:'overview',saved:null,view:'cmp',open:[]},rmView:'timeline',pView:'table',det:{sup:true,mkt:true},hz:'12',coll:[],fpop:null,ipop:false,lsort:{k:'part',dir:1},incOnly:false,
   tv:{q:'',type:[],st:[],mkt:[],sup:[],kpi:null,view:'list'},
   iv:{q:'',st:'all',cat:[],lab:[],prio:[],mine:false,waiting:false,sort:'updated',dir:1,view:'table'},imenu:null};
-try{const v=JSON.parse(localStorage.getItem('rm_view')||'null');if(v){Object.assign(S.F,v.F||{});if(v.group)S.f.group=v.group;if(v.mw)S.mw=v.mw;if(v.sideCol)S.sideCol=true;if(v.cmp)Object.assign(S.cmp,v.cmp);if(v.rmView)S.rmView=v.rmView;if(v.pView)S.pView=v.pView;if(v.det)S.det=v.det;if(v.hz)S.hz=v.hz;if(Array.isArray(v.coll))S.coll=v.coll;if(v.lsort)S.lsort=v.lsort;S.incOnly=!!v.incOnly;if(v.iv)Object.assign(S.iv,v.iv,{q:''});if(v.tv)Object.assign(S.tv,v.tv,{q:''});if(v.lpp!=null)S.lpp=v.lpp;if(v.tsort)S.tsort=v.tsort;if(!v.g2)S.f.group='none'}}catch(e){}
+try{const v=JSON.parse(localStorage.getItem('rm_view')||'null');if(v){Object.assign(S.F,v.F||{});if(v.group)S.f.group=v.group;if(v.mw)S.mw=v.mw;if(v.sideCol)S.sideCol=true;if(v.cmp)Object.assign(S.cmp,v.cmp);if(v.rmView)S.rmView=v.rmView;if(v.pView)S.pView=v.pView;if(v.det)S.det=v.det;if(v.hz)S.hz=v.hz;if(Array.isArray(v.coll))S.coll=v.coll;if(v.lsort)S.lsort=v.lsort;S.incOnly=!!v.incOnly;if(v.iv)Object.assign(S.iv,v.iv,{q:''});if(v.tv)Object.assign(S.tv,v.tv,{q:''});if(v.lpp!=null)S.lpp=v.lpp;if(v.tsort)S.tsort=v.tsort;if(v.psort)S.psort=v.psort;if(v.pdir)S.pdir=v.pdir;if(v.ppp!=null)S.ppp=v.ppp;if(v.tvpp!=null)S.tvpp=v.tvpp;if(!v.g2)S.f.group='none'}}catch(e){}
 // Ideas view saved by older versions: 'list' is now the table; status groups are now status tabs
 // Compare saved by older versions: one product list per category → one ordered list
 {const c=S.cmp;if(!Array.isArray(c.ids)){const o=c.sel&&c.cat&&c.sel[c.cat];c.ids=Array.isArray(o)?o.slice():[]}delete c.sel;delete c.cat;if(!c.sec)c.sec='overview';if(c.saved===undefined)c.saved=null}
 if(S.iv.view!=='board')S.iv.view='table';if(!['all','new','eval','approved','roadmap','declined'].includes(S.iv.st))S.iv.st='all';if(!S.iv.dir)S.iv.dir=1;
 ['cat','lab','prio'].forEach(k=>{if(!Array.isArray(S.iv[k]))S.iv[k]=[]});if(!['updated','new','prio','value','volume','title','cat','status'].includes(S.iv.sort)){S.iv.sort='updated';S.iv.dir=1}delete S.iv.grp;delete S.iv.type;
-function saveView(){try{localStorage.setItem('rm_view',JSON.stringify({F:S.F,group:S.f.group,mw:S.mw,sideCol:!!S.sideCol,cmp:S.cmp,rmView:S.rmView,pView:S.pView,det:S.det,hz:S.hz,coll:S.coll,lsort:S.lsort,incOnly:S.incOnly,iv:{...S.iv,q:''},tv:{...S.tv,q:''},lpp:S.lpp,tsort:S.tsort,g2:1}))}catch(e){}}
+function saveView(){try{localStorage.setItem('rm_view',JSON.stringify({F:S.F,group:S.f.group,mw:S.mw,sideCol:!!S.sideCol,cmp:S.cmp,rmView:S.rmView,pView:S.pView,det:S.det,hz:S.hz,coll:S.coll,lsort:S.lsort,incOnly:S.incOnly,iv:{...S.iv,q:''},tv:{...S.tv,q:''},lpp:S.lpp,tsort:S.tsort,psort:S.psort,pdir:S.pdir,ppp:S.ppp,tvpp:S.tvpp,g2:1}))}catch(e){}}
 TABLES.forEach(t=>S.data[t]=[]);
 
 /* ---------- helpers ---------- */
@@ -903,7 +1120,7 @@ function needsMig(cp){
   return ['nrnd','ltb','eol'].includes(phase(p))||!!cp.transition_id;
 }
 function toast(msg){const t=$('#toast');t.innerHTML=`<div class="toast">${esc(msg)}</div>`;clearTimeout(toast.h);toast.h=setTimeout(()=>t.innerHTML='',2600)}
-function errMsg(e){let m=e?.message||String(e);if(/'photo' column|column .*photo/i.test(m))return'The database needs 09_product_photos.sql before photos can be saved.';if(/schema/i.test(m)&&/must be one of|not exposed|Invalid schema/i.test(m))m+=' — add "roadmap" to Exposed schemas in Supabase API settings.';return m}
+function errMsg(e){let m=e?.message||String(e);if(/'(owner|progress)' column|column .*(owner|progress)/i.test(m)&&!/ideas/i.test(m))return'The database needs 10_owner_progress.sql before owners and progress can be saved.';if(/'photo' column|column .*photo/i.test(m))return'The database needs 09_product_photos.sql before photos can be saved.';if(/schema/i.test(m)&&/must be one of|not exposed|Invalid schema/i.test(m))m+=' — add "roadmap" to Exposed schemas in Supabase API settings.';return m}
 
 /* ---------- data layer (Supabase or local demo) ---------- */
 function cfg(){let s={};try{s=JSON.parse(localStorage.getItem('rm_cfg')||'{}')}catch(e){}return{url:CONFIG.SUPABASE_URL||s.url||'',key:CONFIG.SUPABASE_ANON_KEY||s.key||'',hard:!!CONFIG.SUPABASE_URL}}
@@ -970,6 +1187,9 @@ function seed(){
   const c200=P({supplier_id:stw.id,part_number:'C-200',name:'Mobile controller, 32 I/O (sample)',category:'controller',lifecycle:'nrnd',supplier_release_date:rel(-62),onboard_date:rel(-58),nrnd_date:rel(-4),ltb_date:rel(5),eol_date:rel(14),markets:['Agriculture','Construction','Mining'],software_platform:'CODESYS V3.5 SP16',connector:'2× 48-pin',length_mm:180,width_mm:140,height_mm:42,weight_g:520,mounting:'4× M6',ip_rating:'IP67'});
   const c300=P({supplier_id:stw.id,part_number:'C-300',name:'Mobile controller, 48 I/O (sample)',category:'controller',lifecycle:'active',supplier_release_date:rel(-15),onboard_date:rel(-10),markets:['Agriculture','Construction','Mining','Utility vehicles'],software_platform:'CODESYS V3.5 SP19',connector:'2× 48-pin (revised pinout)',length_mm:188,width_mm:140,height_mm:42,weight_g:560,mounting:'4× M6',ip_rating:'IP67 / IP69K'});
   const c400=P({supplier_id:stw.id,part_number:'C-400S',name:'Safety controller, PL d (sample)',category:'controller',lifecycle:'evaluating',supplier_release_date:rel(6),markets:['Construction','Mining'],software_platform:'CODESYS Safety',connector:'3× 40-pin',length_mm:210,width_mm:150,height_mm:45});
+  Object.assign(c200,{inputs:16,outputs:16,can_ports:2,can_protocols:['J1939','CANopen'],list_price:68,currency:'USD',hardware:{'Processor':'ARM Cortex-A7 (800 MHz)','RAM':'512 MB','Flash / storage':'4 GB eMMC','Operating temperature':'−40 to +85 °C','Power consumption':'3.2 W'}});
+  Object.assign(c300,{inputs:24,outputs:24,can_ports:4,can_protocols:['J1939','CANopen','ISOBUS'],ethernet_ports:1,list_price:79,currency:'USD',beacon_compatible:true,interfaces:['CAN','Ethernet','Bluetooth'],hardware:{'Processor':'ARM Cortex-A53 (1.2 GHz)','RAM':'1 GB','Flash / storage':'8 GB eMMC','Operating temperature':'−40 to +105 °C','Power consumption':'4.8 W'}});
+  Object.assign(c400,{inputs:32,outputs:16,can_ports:4,can_protocols:['J1939','CANopen Safety','CAN FD'],ethernet_ports:2,list_price:99,currency:'USD',functional_safety:'PL d / SIL 2',hardware:{'Processor':'ARM Cortex-A55 (1.8 GHz)','RAM':'2 GB','Flash / storage':'16 GB eMMC','Operating temperature':'−40 to +105 °C','Power consumption':'6.1 W'}});
   const t10=P({supplier_id:stw.id,part_number:'T-10',name:'Telematics gateway, 4G (sample)',category:'telematics',lifecycle:'ltb',supplier_release_date:rel(-74),onboard_date:rel(-70),nrnd_date:rel(-11),ltb_date:rel(-1),eol_date:rel(8),markets:['Agriculture','Construction','Mining'],software_platform:'Cloud API v1 (REST)',connector:'1× 18-pin + 2× FAKRA',length_mm:150,width_mm:110,height_mm:38,weight_g:380,ip_rating:'IP67'});
   const t20=P({supplier_id:stw.id,part_number:'T-20',name:'Telematics gateway, LTE-M/5G (sample)',category:'telematics',lifecycle:'active',supplier_release_date:rel(-9),onboard_date:rel(-5),markets:['Agriculture','Construction','Mining'],software_platform:'Cloud API v2 (MQTT)',connector:'1× 18-pin + 2× FAKRA',length_mm:150,width_mm:110,height_mm:38,weight_g:395,ip_rating:'IP67'});
   const io16=P({supplier_id:stw.id,part_number:'IO-16',name:'CAN I/O expansion module (sample)',category:'module',lifecycle:'active',supplier_release_date:rel(-42),onboard_date:rel(-39),markets:['Agriculture','Construction','Mining','Marine'],software_platform:'CANopen',connector:'1× 26-pin',length_mm:120,width_mm:90,height_mm:35});
@@ -993,6 +1213,7 @@ function seed(){
     mk({event_date:rel(-1),kind:'ltb',title:'T-10 last-time-buy orders due',product_id:t10.id,supplier_id:stw.id}),
     mk({event_date:rel(6),kind:'release',title:'C-400S supplier target release',product_id:c400.id,supplier_id:stw.id}),
     mk({event_date:rel(1),kind:'milestone',title:'Marlin line card review',supplier_id:mar.id})];
+  const OWN=['Sarah Tran','Daniel Weber','Ana Gomez','James Wu'];products.forEach((p,i)=>{if(i%5!==4)p.owner=OWN[i%4]});tr1.owner='M. Flores';tr2.owner='J. Lewis';tr3.progress=10;
   return{suppliers:[stw,tro,mar],markets,products,transitions:[tr1,tr2,tr3],customers:[cA,cB,cC],customer_products:cps,events};
 }
 
@@ -1098,7 +1319,7 @@ const FORMS={
   {h:'Product'},{k:'photo',l:'Photo',t:'photo'},{k:'part_number',l:'Model / part number',req:1},{k:'name',l:'Description',req:1},
   {k:'supplier_id',l:'Supplier',t:'select',o:supOpts(),req:1},{k:'category',l:'Category',t:'select',o:Object.entries(CATS1),req:1},
   {k:'family',l:'Series / family'},{k:'sub_type',l:'Sub-type'},{k:'product_code',l:'Product ID (e.g. CTL-17)'},
-  {k:'lifecycle',l:'Lifecycle status',t:'select',o:LIFECYCLE.map(x=>[x.k,x.f||x.l]),req:1},
+  {k:'lifecycle',l:'Lifecycle status',t:'select',o:LIFECYCLE.map(x=>[x.k,x.f||x.l]),req:1},{k:'owner',l:'Owner (person responsible)',list:1,opt:1},
   {k:'website_status',l:'Website status',t:'select',o:WEBSTATUS.map(x=>[x,x])},
   {k:'markets',l:'Markets',t:'multi',o:S.data.markets.map(m=>[m.name,m.name+(m.status==='considering'?' (considering)':'')])},
   {h:'Lifecycle dates'},{k:'supplier_release_date',l:'Supplier release',t:'date'},{k:'sample_date',l:'Samples available',t:'date'},{k:'onboard_date',l:'Onboarded by us',t:'date'},
@@ -1126,6 +1347,7 @@ const FORMS={
   {k:'status',l:'PN status'},{k:'successor_pn',l:'Successor PN'},{k:'ltb_date',l:'Last-time buy',t:'date'},{k:'notes',l:'Notes',t:'textarea'}]},
  transitions:{title:'Transition',defaults:{kind:'form_fit',software_impact:'unknown',harness_impact:'unknown',mechanical_impact:'unknown',basis:'Inferred - confirm'},fields:()=>[
   {h:'Products'},{k:'from_product_id',l:'From (outgoing)',t:'select',o:prodOpts(),req:1},{k:'to_product_id',l:'To (successor)',t:'select',o:prodOpts(),req:1},
+  {row2:[{k:'owner',l:'Owner',list:1,opt:1},{k:'progress',l:'Progress % (empty = from customer migrations)',t:'number',opt:1}]},
   {k:'transition_type',l:'Transition type',t:'select',o:TTYPES.map(x=>[x,x])},
   {k:'kind',l:'Customer fit',t:'select',o:Object.entries(KIND),req:1},{k:'basis',l:'Basis',t:'select',o:BASIS},
   {k:'pin_compatible',l:'Pin / connector compatible',t:'select',o:[['Y','Yes'],['N','No'],['Partial','Partial']]},
@@ -1164,10 +1386,10 @@ function fieldHTML(f,v){
   if(f.t==='select')inp=`<select name="${f.k}" ${req}>${f.req?'':'<option value="">—</option>'}${f.o.map(([a,b])=>`<option value="${esc(a)}" ${String(val??'')===String(a)?'selected':''}>${esc(b)}</option>`).join('')}</select>`;
   else if(f.t==='multi')inp=`<div class="chips wrap">${f.o.map(([a,b])=>{const on=(val||[]).includes(a);return`<label class="chip ${on?'on':''}"><input type="checkbox" name="${f.k}" value="${esc(a)}" ${on?'checked':''} hidden>${esc(b)}</label>`}).join('')||'<span class="mut">Add markets in Settings</span>'}</div>`;
   else if(f.t==='textarea')inp=`<textarea name="${f.k}">${esc(val)}</textarea>`;
-  else inp=`<input name="${f.k}" type="${f.t||'text'}" value="${esc(val??'')}" ${req} ${f.t==='number'?'step="any" inputmode="decimal"':''}>`;
+  else inp=`<input name="${f.k}" type="${f.t||'text'}" value="${esc(val??'')}" ${req} ${f.t==='number'?(f.k==='progress'?'min="0" max="100" step="1" inputmode="numeric"':'step="any" inputmode="decimal"'):''} ${f.list?'list="ownl" autocomplete="off"':''} ${f.opt&&val!=null&&val!==''?'data-orig="1"':''}>${f.list?ownDL():''}`;
   return`<div class="field"><label class="l">${esc(f.l)}${f.req?' *':''}</label>${inp}</div>`;
 }
-function collect(form,fields){const fd=new FormData(form),o={};flat(fields).forEach(f=>{if(f.t==='hw')o[f.k]=collectHW(form);else if(f.t==='photo'){const v=fd.get(f.k)||null,el=form.querySelector(`[name=${f.k}]`);if(v||el?.dataset.orig)o[f.k]=v}else if(f.t==='multi')o[f.k]=fd.getAll(f.k);else{let v=fd.get(f.k);v=(v===''||v==null)?null:f.t==='number'?Number(v):v;o[f.k]=v}});return o}
+function collect(form,fields){const fd=new FormData(form),o={};flat(fields).forEach(f=>{if(f.t==='hw')o[f.k]=collectHW(form);else if(f.t==='photo'){const v=fd.get(f.k)||null,el=form.querySelector(`[name=${f.k}]`);if(v||el?.dataset.orig)o[f.k]=v}else if(f.t==='multi')o[f.k]=fd.getAll(f.k);else{let v=fd.get(f.k);v=(v===''||v==null)?null:f.t==='number'?Number(v):v;if(v==null&&f.opt&&!form.querySelector(`[name=${f.k}]`)?.dataset.orig)return;o[f.k]=v}});return o}
 
 /* ---------- views ---------- */
 const ICONS={roadmap:'<path d="M12 3 21 8l-9 5-9-5z"/><path d="m3 12.5 9 5 9-5"/><path d="m3 17 9 5 9-5"/>',
@@ -1185,7 +1407,7 @@ const SUBS={roadmap:'Analyze portfolio health, lifecycle coverage, and upcoming 
 const NAV=['roadmap','products','transitions','ideas','compare'];
 const navTabs=()=>isContrib()?['ideas']:NAV;
 const allowedTabs=()=>[...navTabs(),'more',...(isContrib()?[]:['customers'])];
-const LOGO='<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5 29 10.3 16 17.1 3 10.3z" fill="currentColor"/><path d="m5.4 14.6 10.6 5.6 10.6-5.6 2.4 1.3L16 22.7 3 15.9z" fill="#C92C32"/><path d="m5.4 19.8 10.6 5.6 10.6-5.6 2.4 1.3L16 27.9 3 21.1z" fill="#C92C32"/></svg>';
+const LOGO='<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5 29 10.3 16 17.1 3 10.3z" fill="currentColor"/><path d="m5.4 14.6 10.6 5.6 10.6-5.6 2.4 1.3L16 22.7 3 15.9z" fill="#F2272E"/><path d="m5.4 19.8 10.6 5.6 10.6-5.6 2.4 1.3L16 27.9 3 21.1z" fill="#F2272E"/></svg>';
 // desktop menu position: 'top' (default) or 'left'. Kept on this device (pf_nav) and, when signed in, in roadmap.user_prefs so it follows the person
 S.nav=(()=>{try{return localStorage.getItem('pf_nav')==='left'?'left':'top'}catch(e){return'top'}})();
 S.prefs={};
@@ -1213,7 +1435,7 @@ function renderAll(){
     ${solo?'':`<nav class="tnav">${navTabs().map(tabBtn).join('')}</nav>`}<span class="hsp"></span>
     ${S.mode==='demo'?'<span class="tag">Demo</span>':''}
     ${S.mode==='live'?'<button class="btn ghost" data-act="refresh" aria-label="Refresh">↻ Sync</button>':''}
-    <button class="avatar" data-act="umenu" aria-label="Account and settings" title="${esc(S.mode==='live'?S.user?.email||'':'Demo mode')}">${esc(initials())}</button></header>
+    <button class="avatar" data-act="umenu" aria-label="Account and settings${tempPw()?' (set your own password)':''}" title="${esc(S.mode==='live'?S.user?.email||'':'Demo mode')}">${esc(initials())}${tempPw()?'<i class="avdot"></i>':''}</button></header>
     <main id="main"></main>
     ${solo?'':`<nav class="tabs"><button class="brand sbrand" data-act="tab" data-arg="${home}" aria-label="Portfolium home">${LOGO}<span>Portfolium</span></button>${navTabs().map(tabBtn).join('')}</nav>`}
     <div id="umenu"></div>`;
@@ -1232,10 +1454,11 @@ function umenuHTML(){
   const mi=(act,arg,ico,l)=>`<button class="mi" data-act="${act}" ${arg?`data-arg="${arg}"`:''}><svg viewBox="0 0 24 24">${ICONS[ico]}</svg>${l}</button>`;
   return`<div class="umenu-bg" data-act="umclose"></div><div class="umenu" role="menu">
     <div class="uh"><b>${esc(S.mode==='live'?S.user?.email:'Demo mode')}</b><span class="mut">${S.mode==='live'?esc(S.role):'Sample data on this device'}</span></div>
+    ${tempPw()?`<button class="mi upw" data-act="gopw"><span class="upwi">🔑</span><span class="grow"><b>Set your own password</b><span class="mut">You're using a temporary password</span></span></button>`:''}
     ${wide()&&!document.body.classList.contains('solo')?`<div class="ml">Menu position</div>${menuPos()}`:''}
     ${mi('tab','more','more','Settings')}${isContrib()?'':mi('tab','customers','customers','Customers')}${S.mode==='live'?mi('signout','','signout','Sign out')+`<div class="uver">Portfolium v${APP_VERSION} · ${fmt(APP_BUILD)}</div>`:''}</div>`;
 }
-document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(S.rmmenu)return A.rmmclose();if(S.stack.length&&!S.fpop&&!S.cxpop&&!S.tvpop&&!S.tvmenu&&!S.ipop&&!S.imenu){e.preventDefault();return A.back()}if($('#umenu')?.innerHTML)$('#umenu').innerHTML='';if(S.fpop)A.fpclose();if(S.ipop)A.ipclose();if(S.cxpop)A.cxclose();if(S.tvpop)A.tvpclose();if(S.tvmenu)A.tvmclose();if(S.imenu)imClose()});
+document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(S.hpop)return A.hpclose();if(S.updr&&!S.stack.length)return A.upclose();if(S.rmmenu)return A.rmmclose();if(S.stack.length&&!S.fpop&&!S.cxpop&&!S.tvpop&&!S.tvmenu&&!S.ipop&&!S.imenu){e.preventDefault();return A.back()}if($('#umenu')?.innerHTML)$('#umenu').innerHTML='';if(S.fpop)A.fpclose();if(S.ipop)A.ipclose();if(S.cxpop)A.cxclose();if(S.tvpop)A.tvpclose();if(S.tvmenu)A.tvmclose();if(S.imenu)imClose()});
 
 /* ---------- shared filters (Portfolio + Products) ---------- */
 const PHC={dev:LC.development.c,pipeline:LC.evaluating.c,active:LC.active.c,phasing:LC.nrnd.c,ltb:LC.ltb.c,eol:LC.eol.c,rejected:LC.rejected.c};
@@ -1299,8 +1522,8 @@ function toolbar(){
   const prod=S.tab==='products',v=prod?S.pView:S.rmView;
   const seg=prod?[['table','Table',ICO_LIST],['cards','Cards',ic(I.cards)]]:[['timeline','Timeline',ICO_TL],['list','List',ICO_LIST],['health','Health',ic('<path d="M5 20V11M10 20V5M15 20v-7M20 20V8"/>')]];
   const segH=(prod&&!wide())||!prod?'':`<div class="segc vsw tsw">${seg.map(([k,l,i])=>`<button class="${v===k?'on':''}" data-act="${prod?'pview':'rmview'}" data-arg="${k}">${i} ${l}</button>`).join('')}</div>`;
-  return`<div class="tbar">${segH}<div class="tsearch">${ICO_SEARCH}<input id="q" type="search" placeholder="Search products, part number, supplier or market…" value="${esc(S.F.q)}" autocomplete="off"></div>
-    <div id="fctl" class="fctl">${fctl()}</div><div id="fpop"></div></div>`;
+  return`<div class="tbar"><div class="tsearch">${ICO_SEARCH}<input id="q" type="search" placeholder="Search products, part number, supplier or market…" value="${esc(S.F.q)}" autocomplete="off"></div>
+    <div id="fctl" class="fctl">${fctl()}</div>${segH}<div id="fpop"></div></div>`;
 }
 function renderFpop(){
   const el=$('#fpop');if(!el)return;if(!S.fpop){el.innerHTML='';return}
@@ -1310,9 +1533,9 @@ function renderFpop(){
   if(b&&p&&wide())p.style.left=Math.max(0,Math.min(b.offsetLeft,bar.clientWidth-p.offsetWidth))+'px';
 }
 function refreshResults(){hovHide();
-  if(!S._keepPage)S.lpage=0;S._keepPage=false;
+  if(!S._keepPage){S.lpage=0;S.ppg=0}S._keepPage=false;
   saveTl();
-  const k=$('#kpis');if(k)k.innerHTML=kpis();
+  const k=$('#kpis');if(k)k.innerHTML=kpis();const un=$('#upn');if(un)un.textContent=S.upN??'';if(S.updr)renderUp();
   const c=$('#fctl');if(c)c.innerHTML=fctl();
   renderFpop();
   const r=$('#results');if(r)r.innerHTML=roadmapResults();
@@ -1341,15 +1564,15 @@ function kpis(){
 
 /* ---------- Portfolio & Products pages ---------- */
 function viewRoadmap(){
-  const banners=`${tempPw()?`<div class="banner" data-act="gopw">🔑 You're using a temporary password. <b style="text-decoration:underline">Set your own</b></div>`:''}${S.mode==='demo'?`<div class="banner">You're viewing sample data on this device. Connect Supabase in <b data-act="tab" data-arg="more" style="text-decoration:underline">Settings</b> to share with your team.</div>`:''}`;
-  if(S.tab==='roadmap')return`${banners}<div id="kpis" class="pfs">${kpis()}</div><section class="card plcard"><div class="plh"><span class="plhi">${ic(I.mkt)}</span><div class="grow"><h2>Product lifecycle</h2><p class="mut">View products across their lifecycle, key dates, and upcoming transitions.</p></div>${rmSwitch()}</div>${toolbar()}<div id="results">${roadmapResults()}</div></section><div id="rmmenu"></div>`+fab('products');
-  return`${banners}<div id="kpis" class="kpis">${kpis()}</div>${toolbar()}<div id="results">${roadmapResults()}</div>`+fab('products');
+  const banners=`${S.mode==='demo'?`<div class="banner">You're viewing sample data on this device. Connect Supabase in <b data-act="tab" data-arg="more" style="text-decoration:underline">Settings</b> to share with your team.</div>`:''}`;
+  if(S.tab==='roadmap')return`${banners}<div id="kpis" class="pfs">${kpis()}</div><section class="card plcard"><div class="plh"><span class="plhi">${ic(I.mkt)}</span><div class="grow"><h2>Product lifecycle</h2><p class="mut">View products across their lifecycle, key dates, and upcoming transitions.</p></div>${upBtn()}${rmSwitch()}</div>${toolbar()}<div id="results">${roadmapResults()}</div></section><div id="rmmenu"></div><div id="pfpop"></div><div id="updr"></div>`+fab('products');
+  return`${banners}${toolbar()}<div id="results">${roadmapResults()}</div><div id="rmmenu"></div>`+fab('products');
 }
 function viewProducts(){return viewRoadmap()}
-const titleActions=()=>S.tab==='products'?`<button class="btn tb" data-act="csv">${ic(I.dl)} Export CSV</button>${canEdit()?'<button class="btn pri" data-act="new" data-arg="products">+ Add product</button>':''}`
-  :S.tab==='roadmap'&&canEdit()?'<button class="btn pri" data-act="new" data-arg="products">+ Add product</button>'
+const titleActions=()=>S.tab==='products'?`<button class="btn tb" data-act="csv">${ic(I.dl)} Export CSV</button>${canEdit()?`<button class="btn pri ibtn" data-act="new" data-arg="products">${ic('<path d="M12 5v14M5 12h14"/>')} Create product</button>`:''}`
+  :S.tab==='roadmap'&&canEdit()?`<button class="btn pri ibtn" data-act="new" data-arg="products">${ic('<path d="M12 5v14M5 12h14"/>')} Create product</button>`
   :S.tab==='ideas'?`<button class="btn pri ibtn" data-act="ideanew">${ic('<path d="M12 5v14M5 12h14"/>')} Create idea</button>`
-  :S.tab==='transitions'?`<button class="btn tb" data-act="tvcsv">${ic(I.dl)} Export</button>${canEdit()?'<button class="btn pri" data-act="new" data-arg="transitions">+ Add transition</button>':''}`:'';
+  :S.tab==='transitions'?`<button class="btn tb" data-act="tvcsv">${ic(I.dl)} Export</button>${canEdit()?`<button class="btn pri ibtn" data-act="new" data-arg="transitions">${ic('<path d="M12 5v14M5 12h14"/>')} Create transition</button>`:''}`:'';
 const HZ=[['12','Next 12 months',4],['24','Next 2 years',6],['36','Next 3 years',6],['60','Next 5 years',12],['all','All dates',0]];
 const GROUPS=[['none','None'],['category','Category'],['supplier','Supplier'],['market','Market'],['lifecycle','Lifecycle']];
 function portfolioOpts(){
@@ -1412,8 +1635,8 @@ function healthView(ps){
   const pIds=f=>ps.filter(f).map(p=>p.id);
   const RISK=riskRows(ps);
   const migN=S.data.customer_products.filter(c=>ids.has(c.product_id)&&needsMig(c)).length;
-  const MS=[['rel6','Releases (next 6 months)',pIds(p=>inNext(p.supplier_release_date,6)||inNext(p.onboard_date,6)),'#2377D4'],
-    ['ltb12','Last-time buy deadlines (next 12 months)',pIds(p=>inNext(p.ltb_date,12)),'#C92C32'],
+  const MS=[['rel6','Releases (next 6 months)',pIds(p=>inNext(p.supplier_release_date,6)||inNext(p.onboard_date,6)),'#60A5FA'],
+    ['ltb12','Last-time buy deadlines (next 12 months)',pIds(p=>inNext(p.ltb_date,12)),'#DC2626'],
     ['migs','Customer migrations open',null,MIG_C,migN]];
   S.hsets={...(S.hsets||{}),...Object.fromEntries([...RISK,...MS].filter(r=>r[2]).map(r=>[r[0],{l:r[1],ids:r[2]}]))};
   const hrow=r=>{const n=r[2]?r[2].length:r[4],act=r[0]==='migs'?'data-act="statgo" data-arg="mig"':`data-act="hset" data-arg="${r[0]}"`;
@@ -1439,7 +1662,7 @@ function hevRows(ev){
     const kind={'Phasing out':'nrnd','Last-time buy':'ltb','End of life':'eol','Supplier release':'release','Onboard':'onboard'}[u.l]||'milestone';
     return{date:u.date,kind,ev:EVL[kind]||u.l,p:u.p,sup:sup(u.p)?.name,act:`data-act="product" data-id="${u.p.id}"`}});
 }
-const EVKC={release:LC.development.c,onboard:LC.active.c,nrnd:LC.nrnd.c,ltb:LC.ltb.c,eol:'#6B7280',pcn:'#6889B9',announcement:'#6889B9',milestone:'#141923',note:'#6B7280'};
+const EVKC={release:LC.development.c,onboard:LC.active.c,nrnd:LC.nrnd.c,ltb:LC.ltb.c,eol:'#6B7280',pcn:'#93C5FD',announcement:'#93C5FD',milestone:'#141923',note:'#6B7280'};
 function hevents(ev){
   if(!ev.length)return'<div class="empty" style="padding:18px">No dates or events in this period.</div>';
   const H=[['date','Date'],['prod','Product'],['ev','Event'],['st','Lifecycle status'],['cat','Category'],['sup','Supplier']];
@@ -1456,12 +1679,7 @@ const PH_ORD=['development','evaluating','onboarding','active','nrnd','ltb','eol
 function roadmapResults(){
   const ps=filtered();S.rows=ps;
   const pills=filterPills(),none='<div class="card empty">No products match these filters.</div>';
-  if(S.tab==='products'){
-    const L=listRows(ps,S.incOnly),miss=ps.filter(p=>completeness(p).ratio<1).length,table=wide()&&S.pView!=='cards';
-    const head=`<div class="lbar mut"><span>Showing <b>${L.length}</b> of ${S.data.products.length} products</span>
-      <label class="tg"><input type="checkbox" data-change="incOnly" ${S.incOnly?'checked':''}> Missing data only <span class="mut">(${miss})</span></label>${table?'<span class="hint">Click a column heading to sort</span>':''}</div>`;
-    return pills+head+(!L.length?none:table?prodTable(L,false):`<div class="pcards">${L.map(pcard).join('')}</div>`);
-  }
+  if(S.tab==='products')return prodBody(ps,pills);
   const opts=portfolioOpts();
   if(!ps.length)return pills+opts+none;
   if(S.rmView==='health')return pills+opts+healthView(ps);
@@ -1493,7 +1711,7 @@ const rowTags=p=>{const h=(S.det.sup?supTag(p):'')+(S.det.mkt?mktTags(p):'');ret
 function nextMs(p){
   for(const[k,l,c]of[['nrnd_date','Phasing out',LC.nrnd.t],['ltb_date','Last-time buy',LC.ltb.c],['eol_date','End of life','#6B7280']])if(p[k]&&d(p[k])>=today)return{l,date:p[k],c};
   if(['development','evaluating','onboarding'].includes(p.lifecycle)){
-    if(p.supplier_release_date&&d(p.supplier_release_date)>=today)return{l:'Release',date:p.supplier_release_date};
+    if(p.supplier_release_date&&d(p.supplier_release_date)>=today)return{l:'Release',date:p.supplier_release_date,c:'#2563EB'};
     if(p.onboard_date&&d(p.onboard_date)>=today)return{l:'Onboarding',date:p.onboard_date}}
   return null;
 }
@@ -1515,7 +1733,7 @@ function pcard(p){
     <div class="pch">${catIc(p,'md')}<div class="pnm"><b title="${esc(p.name)}">${esc(p.part_number)}</b>${pnSel(p)}</div>${badge(ph)}</div>
     <div class="mut ell" style="font-size:12.5px">${esc(p.name)}</div>
     <div class="tags">${supTag(p)}${mktTags(p)}</div>
-    <div class="pcf">${nmCell(p)}${keyCell(p)}</div></div>`;
+    <div class="pcf">${nmCell(p)}${keyCell(p)}</div>${p.owner?`<div class="pco">${ownerChip(p.owner)}</div>`:''}</div>`;
 }
 /* sortable product table (Products page, and Portfolio → List grouped like the timeline) */
 const PCOLS=[['part','Product'],['status','Lifecycle'],['sup','Supplier'],['mkt','Market / Industry'],['next','Next milestone'],['comp','Key details']];
@@ -1549,8 +1767,8 @@ function prodTable(L,grouped){
 function exportCSV(){
   const L=listRows(S.rows,S.tab==='products'&&S.incOnly),q=v=>{v=v==null?'':String(v);return/[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
   const ORD=[...new Set(Object.values(HWT).flat())],hwk=[...new Set(L.flatMap(p=>Object.keys(p.hardware||{})))].sort((a,b)=>(ORD.indexOf(a)+1||99)-(ORD.indexOf(b)+1||99));
-  const H=['Product ID','Part number','Description','Supplier','Category','Status','Supplier release','Onboard','NRND','LTB','Last ship','EOL','List price','Cost','Currency','Price basis','Inputs','Outputs','I/O types','CAN ports','Ethernet ports','Interfaces','CAN protocols','Markets','Successor','Missing data','Part numbers',...hwk.map(k=>'HW: '+k)];
-  const rows=L.map(p=>[p.product_code,p.part_number,p.name,sup(p)?.name,CATS1[p.category],LC[phase(p)]?.l,p.supplier_release_date,p.onboard_date,p.nrnd_date,p.ltb_date,p.last_ship_date,p.eol_date,p.list_price,p.cost,p.currency,p.price_basis,p.inputs,p.outputs,(p.io_types||[]).join('; '),p.can_ports,p.ethernet_ports,(p.interfaces||[]).join('; '),(p.can_protocols||[]).join('; '),(p.markets||[]).join('; '),S.data.transitions.filter(t=>t.from_product_id===p.id).map(t=>pnOf(t.to_product_id)).join('; '),completeness(p).missing.join('; '),pnsOf(p).map(x=>x.part_number).join('; '),...hwk.map(k=>(p.hardware||{})[k])].map(q).join(','));
+  const H=['Product ID','Part number','Description','Owner','Supplier','Category','Status','Supplier release','Onboard','NRND','LTB','Last ship','EOL','List price','Cost','Currency','Price basis','Inputs','Outputs','I/O types','CAN ports','Ethernet ports','Interfaces','CAN protocols','Markets','Successor','Missing data','Part numbers',...hwk.map(k=>'HW: '+k)];
+  const rows=L.map(p=>[p.product_code,p.part_number,p.name,p.owner,sup(p)?.name,CATS1[p.category],LC[phase(p)]?.l,p.supplier_release_date,p.onboard_date,p.nrnd_date,p.ltb_date,p.last_ship_date,p.eol_date,p.list_price,p.cost,p.currency,p.price_basis,p.inputs,p.outputs,(p.io_types||[]).join('; '),p.can_ports,p.ethernet_ports,(p.interfaces||[]).join('; '),(p.can_protocols||[]).join('; '),(p.markets||[]).join('; '),S.data.transitions.filter(t=>t.from_product_id===p.id).map(t=>pnOf(t.to_product_id)).join('; '),completeness(p).missing.join('; '),pnsOf(p).map(x=>x.part_number).join('; '),...hwk.map(k=>(p.hardware||{})[k])].map(q).join(','));
   const b=new Blob(['﻿'+[H.join(','),...rows].join('\r\n')],{type:'text/csv'}),a=document.createElement('a');
   a.href=URL.createObjectURL(b);a.download=`portfolium-${iso(today)}.csv`;document.body.appendChild(a);a.click();a.remove();
 }
@@ -1574,15 +1792,13 @@ const ICO_LIST='<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stro
 // width of the sticky product column: wider when the supplier / market tags are shown
 function calcLW(){if(!wide())return 150;const big=innerWidth>=1300,det=S.det.sup||S.det.mkt;return(det?(big?330:250):(big?220:180))+(big?118:110)+70}
 function timelineSection(ps,ids){
-  const up=upcoming(12,ids).slice(0,10);
   const hat=c=>`background:repeating-linear-gradient(135deg,${c}55 0 3px,transparent 3px 6px);box-shadow:inset 0 0 0 1.5px ${c}`;
   const lg=(st,l,s)=>`<span class="lg" title="${s}"><i style="${st}"></i><span>${l}</span></span>`;
   return`${timeline(ps)}
   <div class="legend lgfix"><b>Lifecycle:</b>${lg(hat(LC.development.c),'Development','Building &amp; testing')}${lg(hat(LC.evaluating.c),'Evaluation','Assessing, onboarding')}${lg('background:'+LC.active.c,'Active','In market')}${lg('background:'+LC.nrnd.c,'Phasing out','Planned replacement')}${lg('background:'+LC.ltb.c,'Last-time buy','Final purchase window')}${lg('background:'+LC.active.c+';opacity:.22','No dates yet','Current status only')}
     <span class="lsep"></span><b>Milestones:</b><span class="lg"><i class="dm"></i>Release</span><span class="lg"><i class="dm eol"></i>EOL</span><span class="lg"><i class="dm ev"></i>Event</span><span class="lg" style="color:var(--acc);font-weight:600">→ Successor</span>
     <span class="ztip">${'ontouchstart' in window?'Pinch to zoom':'Ctrl/⌘ + scroll to zoom'}</span></div>
-  <div class="sec"><h2>Next 12 months</h2>${canEdit()?`<button class="btn ghost sm" data-act="new" data-arg="events">+ Event</button>`:''}</div>
-  ${up.length?`<div class="card">${up.map(upItem).join('')}</div>`:'<div class="card empty">Nothing scheduled in the next 12 months.</div>'}`;
+`;
 }
 function upcoming(months,ids){
   const lim=new Date(today);lim.setMonth(lim.getMonth()+months);const out=[];
@@ -1757,7 +1973,7 @@ function viewMore(){
 
 /* ---------- sheets ---------- */
 /* dialog sizes: detail views wide, forms narrow; forms ignore clicks on the dimmed background */
-const DLG_LG=['product','transition','customer'],DLG_MD=['cmpsaved','idea'],DLG_FORM=['form','ideaform','ideavote','ideastatus','cmpsave'];
+const DLG_LG=['product','transition','customer'],DLG_MD=['cmpsaved','idea','cmppick'],DLG_FORM=['form','ideaform','ideavote','ideastatus','cmpsave','cmppick'];
 function push(e){hovHide();S.stack.push(e);renderSheet()}
 function renderSheet(){
   const el=$('#sheet');
@@ -1883,7 +2099,7 @@ const SHEETS={
 /* ---------- actions ---------- */
 async function reload(){try{await loadAll();renderMain();renderSheet()}catch(e){toast(errMsg(e))}}
 const A={
- tab:(id,arg)=>{S.tab=arg;S.stack=[];S.tlScroll=null;S.fpop=null;S.ipop=false;S.cxpop=null;S.cxq='';S.tvpop=null;S.tvmenu=null;S.imenu=null;S.rmmenu=null;renderAll();window.scrollTo(0,0)},
+ tab:(id,arg)=>{S.tab=arg;S.stack=[];S.hpop=false;S.updr=false;S.tlScroll=null;S.fpop=null;S.ipop=false;S.cxpop=null;S.cxq='';S.tvpop=null;S.tvmenu=null;S.imenu=null;S.rmmenu=null;renderAll();window.scrollTo(0,0)},
  product:id=>push({type:'product',id}),transition:id=>push({type:'transition',id}),customer:id=>push({type:'customer',id}),
  edit:(id,arg)=>push({type:'form',table:arg,id}),
  new:(id,arg,el)=>push({type:'form',table:arg,defaults:el.dataset.def?JSON.parse(el.dataset.def):{}}),
@@ -1931,6 +2147,7 @@ document.addEventListener('change',async e=>{
   if(t.id==='hz'){S.hz=t.value;S.refit=true;refreshResults();return}
   if(t.dataset.change==='det'){S.det[t.dataset.arg]=t.checked;LW=calcLW();S.refit=true;refreshResults();return}
   if(t.dataset.change==='cmpopt'){S.cmp[t.dataset.arg]=t.checked;refreshCompare();return}
+  if(t.dataset.change==='cxpf'&&S.cxp){const k=t.dataset.arg;S.cxp[k]=k==='same'?t.checked:t.value;t.classList.toggle('on',!!S.cxp[k]);t.closest('.cxsame')?.classList.toggle('on',t.checked);cxpUpd();return}
   if(t.dataset.change==='mig'){try{await save('customer_products',{id:t.dataset.id,transition_status:t.value});t.style.borderLeftColor=MIGC[t.value];toast('Status updated');renderMain()}catch(err){toast(errMsg(err))}}
 });
 document.addEventListener('input',e=>{if(e.target.id==='q'){S.F.q=e.target.value;clearTimeout(refreshResults.t);refreshResults.t=setTimeout(refreshResults,120)}});
@@ -2097,42 +2314,167 @@ function cmpModel(cols){
   return{rows:out,same};
 }
 
+/* ---- Compare v2.10: products bar · actions left, view switch right · summary table · collapsible details · Lifecycle view · Add-products dialog ---- */
+const CXI={lc:'<path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/>',cat:I.mkt,sup:'<circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/>',health:'<path d="M3 12h4l2-5 4 10 2-5h6"/>',
+  cap:'<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
+  risk:I.warn,met:'<path d="M5 20v-6M10 20V9M15 20v-9M20 20V5"/>',dates:I.cal,
+  car:'<path d="m9 6 6 6-6 6"/>',dots:'<circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/>',
+  bm:'<path d="M6 3h12v18l-6-4.5L6 21z"/>',down:'<path d="m6 9 6 6 6-6"/>',plus:'<path d="M12 5v14M5 12h14"/>',ok:'<path d="m5 12.5 4.5 4.5L19 7.5"/>',
+  life:'<path d="M4 8h13l-3-3M20 16H7l3 3"/>',link:'<path d="M10 14a4 4 0 0 0 5.7 0l3.6-3.6a4 4 0 0 0-5.7-5.7L12 6.3M14 10a4 4 0 0 0-5.7 0l-3.6 3.6a4 4 0 0 0 5.7 5.7L12 17.7"/>',
+  list:'<path d="M4 6h16M4 12h16M4 18h10"/>',grid:'<rect x="3.5" y="4" width="17" height="16" rx="2"/><path d="M3.5 10h17M10 4v16"/>'};
+const KD=[['supplier_release_date','Release'],['onboard_date','Onboard'],['nrnd_date','NRND'],['ltb_date','LTB'],['last_ship_date','Last ship'],['eol_date','EOL']];
+const KDC={Release:'#60A5FA',Onboard:'#2563EB',NRND:'#F59E0B',LTB:'#DC2626','Last ship':'#DC2626',EOL:'#6B7280'};
+const cxMig=p=>S.data.customer_products.filter(c=>c.product_id===p.id&&needsMig(c)&&c.transition_status!=='complete').length;
+/* Health: the same rules as the Portfolio "At risk" card; no scoring */
+function cmpHealth(p){
+  const ph=phase(p),out=['nrnd','ltb'].includes(ph),why=[];
+  if(inNext(p.eol_date,12))why.push('End of life within 12 months');
+  if(out&&cxMig(p))why.push('Customers still migrating');
+  if(['nrnd','ltb','eol'].includes(ph)&&!S.data.transitions.some(t=>t.from_product_id===p.id))why.push('No successor mapped');
+  if(why.length)return{l:'At risk',c:'#DC2626',i:I.warn,why};
+  if(ph==='eol')return{l:'End of life',c:'#6B7280',i:I.power,why:['End of life; successor mapped']};
+  if(out)return{l:'Watch',c:'#F59E0B',t:'#B45309',i:I.glass,why:['Phasing out; successor mapped']};
+  if(ph==='rejected')return{l:'Not onboarded',c:'#6B7280',i:I.x,why:['Not onboarded']};
+  if(['development','evaluating','onboarding'].includes(ph))return{l:'On track',c:'#1D4ED8',i:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/>',why:['Not active yet; no risks found']};
+  return{l:'Healthy',c:'#16A34A',t:'#15803D',i:I.check,why:['Active; no risks found']};
+}
+const cxHealthChip=p=>{const h=cmpHealth(p);return`<span class="hch" style="--c:${h.c};--t:${h.t||h.c}" title="${esc(h.why.join(' · '))}">${ic(h.i)}${h.l}</span>`};
+/* Key risks: worked out from lifecycle dates, transitions and customer migrations */
+function cmpRisks(p){
+  const ph=phase(p),R=[],red='#DC2626',amb='#F59E0B',ld=d(p.ltb_date);
+  if(ld&&ld>=today)R.push([`Last-time buy on ${fmt(p.ltb_date)}`,inNext(p.ltb_date,12)?red:amb]);
+  else if(ld&&ph==='ltb')R.push([`Last-time buy passed (${fmt(p.ltb_date)})`,red]);
+  if(inNext(p.eol_date,12))R.push([`End of life on ${fmt(p.eol_date)}`,red]);
+  if(['nrnd','ltb','eol'].includes(ph)&&!succOf(p).length)R.push(['No successor mapped',red]);
+  const m=cxMig(p);if(m&&['nrnd','ltb','eol'].includes(ph))R.push([`${m} customer${m>1?'s':''} still to migrate`,amb]);
+  if(['development','evaluating','onboarding'].includes(ph)){const rd=d(p.supplier_release_date);
+    if(!rd)R.push(['No release date set',amb]);else if(rd<today&&ph!=='onboarding')R.push([`Release date passed (${fmt(p.supplier_release_date)})`,amb])}
+  return R;
+}
+/* Capabilities: a short ✓ list from the product's specs */
+function cmpCaps(p){
+  const hw=p.hardware||{},L=[],pr=p.can_protocols||[];
+  if(p.can_ports)L.push(`${p.can_ports} × CAN${pr.length?` (${pr.slice(0,3).join(', ')}${pr.length>3?', …':''})`:''}`);else if(pr.length)L.push(pr.join(', '));
+  if(p.inputs!=null||p.outputs!=null)L.push(`I/O: ${p.inputs??0} in, ${p.outputs??0} out`);
+  if(p.ethernet_ports)L.push(`${p.ethernet_ports} × Ethernet`);
+  const wl=ifIn(p,'Wireless');if(wl.length)L.push(wl.join(', '));
+  if(hw['Operating temperature'])L.push(`Operating temp: ${hw['Operating temperature']}`);
+  if(p.ip_rating)L.push(p.ip_rating);
+  if(p.functional_safety)L.push(`Safety: ${p.functional_safety}`);
+  if(p.software_platform)L.push(p.software_platform);
+  if(p.beacon_compatible)L.push('Beacon ready');
+  if(p.opensyde_compatible)L.push('openSYDE');
+  return L;
+}
+/* Key metrics: power, list price and the key specs of the categories in the comparison */
+function cmpMetrics(cols){
+  const cats=[...new Set(cols.map(p=>p.category))];
+  const M=[['Power consumption',p=>(p.hardware||{})['Power consumption']||'',hwAp('Power consumption')],
+    ['List price',p=>p.list_price!=null&&p.list_price!==''?money(p.list_price,p.currency):'',()=>true],
+    ...[...new Set(cats.flatMap(c=>KEYSPEC[c]||[]))].map(k=>[SPEC_LBL[k]||k,p=>(p.hardware||{})[k]||'',hwAp(k)])];
+  return M.filter(([,g])=>cols.some(p=>g(p)));
+}
+/* Key dates: a short bar from now to the next one or two milestones */
+function kdBar(p){
+  const up=KD.map(([k,l])=>({l,date:p[k],t:d(p[k])})).filter(x=>x.t&&x.t>=today).sort((a,b)=>a.t-b.t).slice(0,2);
+  if(!up.length)return`<span class="cn">No upcoming dates</span>`;
+  const last=up[up.length-1].t,span=Math.max(last-today,180*864e5),X=t=>Math.max(0,Math.min(100,6+(t-today)/span*80));
+  let bars=lcBars(p,X)+`<i class="mtd" style="left:${X(today)}%"></i>`;
+  up.forEach(x=>bars+=`<i class="mms" style="left:${X(x.t)}%;--c:${KDC[x.l]}" title="${x.l} ${fmt(x.date)}"></i>`);
+  const pos=up.map(x=>Math.min(84,Math.max(36,X(x.t))));if(pos.length===2&&pos[1]-pos[0]<30){pos[1]=Math.min(84,pos[0]+30);pos[0]=Math.min(pos[0],pos[1]-30)}
+  return`<div class="kdb"><div class="mtr">${bars}</div><div class="kdls"><span class="kdl now" style="left:${X(today)}%">Now</span>${up.map((x,i)=>`<span class="kdl" style="left:${pos[i]}%"><b>${x.l}</b>${fmt(x.date)}</span>`).join('')}</div></div>`;
+}
+const cxSup=p=>{const s=sup(p);if(!s)return'<span class="cn">—</span>';const ini=s.name.split(/\s+/).filter(Boolean).map(w=>w[0]).join('').slice(0,2).toUpperCase();
+  return`<span class="cxsup"><i style="--c:${esc(s.color||'#6B7280')}">${esc(ini)}</i>${esc(s.name)}</span>`};
+
 function viewCompare(){return`<div id="cmpres">${compareResults()}</div><div id="cxpop"></div>`}
 function cmpBar(cols){
-  const c=cmpSaved(),nSaved=(S.data.comparisons||[]).length;
+  const c=cmpSaved();
   const chips=cols.map(p=>`<span class="cxchip" title="${esc(p.name)}">${catIc(p)}<span>${esc(p.part_number)}</span><button data-act="cmprm" data-id="${p.id}" aria-label="Remove ${esc(p.part_number)}">×</button></span>`).join('');
-  const savedLine=c?`<div class="cxsv">${ic('<path d="M6 3h12v18l-6-4.5L6 21z"/>')}<span>Saved comparison: <b>${esc(c.name)}</b> · ${c.shared?'Shared with the team':'Only you'}${c.owner&&c.owner!==me()?' · by '+esc(c.owner):''}${cmpDirty()?' · <span class="warnt">changed, not saved</span>':''}</span><button class="btn ghost sm" data-act="cmpclose">Close</button></div>`:'';
-  return`<div class="card cxbar"><div class="cxtop"><b class="cxt">Selected products <span class="mut">(${cols.length})</span></b>
-    <div class="cxchips">${chips}<button class="btn sm cxadd" id="cxaddb" data-act="cmpadd">+ Add product to compare</button></div>
-    <div class="cxact"><button class="btn sm" data-act="cmpsaved" title="Open a saved comparison">${ic('<path d="M4 6h16M4 12h16M4 18h10"/>')}<span>Saved${nSaved?` (${nSaved})`:''}</span></button>
-    <button class="btn sm" data-act="cmpsave" ${cols.length?'':'disabled'}>${ic('<path d="M6 3h12v18l-6-4.5L6 21z"/>')}<span>Save comparison</span></button>
-    <button class="btn sm" data-act="cmpcsv" ${cols.length?'':'disabled'}>${ic(I.dl)}<span>Export</span></button>
-    <button class="btn sm" data-act="cmplink" ${cols.length?'':'disabled'} title="Copy a link to this comparison">${ic('<path d="M10 14a4 4 0 0 0 5.7 0l3.6-3.6a4 4 0 0 0-5.7-5.7L12 6.3M14 10a4 4 0 0 0-5.7 0l-3.6 3.6a4 4 0 0 0 5.7 5.7L12 17.7"/>')}<span>Copy link</span></button>
-    ${cols.length?`<button class="btn ghost sm" data-act="cmpclear">Clear all</button>`:''}</div></div>${savedLine}</div>`;
+  const savedLine=c?`<div class="cxsv">${ic(CXI.bm)}<span>Saved comparison: <b>${esc(c.name)}</b> · ${c.shared?'Shared with the team':'Only you'}${c.owner&&c.owner!==me()?' · by '+esc(c.owner):''}${cmpDirty()?' · <span class="warnt">changed, not saved</span>':''}</span><button class="btn ghost sm" data-act="cmpclose">Close</button></div>`:'';
+  return`<div class="card cxbar"><div class="cxtop"><b class="cxt">Products to compare <span class="mut">(${cols.length})</span></b>
+    <div class="cxchips">${chips||'<span class="mut">No products selected yet</span>'}</div>
+    <button class="btn tb cxadd" data-act="cmpadd">${ic(CXI.plus)} Add product</button></div>${savedLine}</div>`;
+}
+/* action row: Export ▾ · Save comparison · ⋯ on the left; the view switch on the right (same place as on every page) */
+function cmpTools(cols){
+  const v=S.cmp.view==='life'?'life':'cmp',dis=cols.length?'':'disabled';
+  return`<div class="tbar cxtools"><div class="cxact2">
+    <button class="btn tb" id="cxexpb" data-act="cxpopm" data-arg="exp" ${dis}>${ic(I.dl)}<span>Export</span>${ic(CXI.down)}</button>
+    <button class="btn tb" data-act="cmpsave" ${dis}>${ic(CXI.bm)}<span>Save comparison</span></button>
+    <button class="btn tb cxmore" id="cxmoreb" data-act="cxpopm" data-arg="more" aria-label="More options">${ic(CXI.dots)}</button></div>
+    <span class="hsp"></span>
+    <div class="segc vsw tsw cxvsw"><button class="${v==='cmp'?'on':''}" data-act="cmpview" data-arg="cmp">${ic(CXI.grid)} Comparison</button><button class="${v==='life'?'on':''}" data-act="cmpview" data-arg="life">${ic(CXI.life)} Lifecycle view</button></div></div>`;
+}
+function cmpSummary(cols){
+  const lab=(k,l)=>`<th><span class="cxl">${ic(CXI[k])}${l}</span></th>`;
+  const tr=(k,l,f,cls='')=>`<tr class="${cls}">${lab(k,l)}${cols.map(p=>`<td>${f(p)}</td>`).join('')}</tr>`;
+  const caps=p=>{const L=cmpCaps(p);if(!L.length)return'<span class="cn">No capabilities recorded</span>';
+    return`<ul class="cxok">${L.slice(0,6).map(x=>`<li>${ic(CXI.ok)}<span>${esc(x)}</span></li>`).join('')}</ul>${L.length>6?`<span class="mut cxmore2" title="${esc(L.slice(6).join(' · '))}">+${L.length-6} more</span>`:''}`};
+  const risks=p=>{const R=cmpRisks(p);return R.length?`<ul class="cxrk">${R.map(([l,c])=>`<li><i style="background:${c}"></i><span>${esc(l)}</span></li>`).join('')}</ul>`:'<span class="cn">No risks found</span>'};
+  const met=cmpMetrics(cols);
+  const metRows=met.length?`<tr class="cxmh">${lab('met','Key metrics')}${cols.map(()=>'<td></td>').join('')}</tr>`
+      +met.map(([l,g,ap],i)=>`<tr class="cxmr ${i===met.length-1?'last':''}"><th><span class="cxml">${esc(l)}</span></th>${cols.map(p=>{const v=g(p);return!v&&!ap(p)?'<td class="cna"><span class="na">n/a</span></td>':`<td>${v?esc(v):'<span class="cn">—</span>'}</td>`}).join('')}</tr>`).join('')
+    :tr('met','Key metrics',()=>'<span class="cn">No metrics recorded</span>');
+  return tr('lc','Lifecycle stage',p=>badge(phase(p)))+tr('cat','Category',p=>esc(CATS1[p.category]||'—'))+tr('sup','Supplier',cxSup)+tr('health','Health',cxHealthChip)
+    +tr('cap','Capabilities',caps,'cxtop2')+tr('risk','Key risks',risks,'cxtop2')+metRows+tr('dates','Key dates',kdBar,'cxkd');
+}
+const CX_DET=['specs','lifecycle','pricing','notes','value'];
+function cmpDetails(cols){
+  const {rows}=cmpModel(cols),G=[];let g=null;
+  rows.forEach(r=>{if(r.sec){g=r.sec==='overview'?null:{k:r.sec,t:r.t,rows:[]};if(g)G.push(g);return}if(g)g.rows.push(r)});
+  const open=new Set(S.cmp.open||[]),n=cols.length,all=CX_DET.every(k=>open.has(k));
+  let h=`<tbody><tr class="cxdh"><th colspan="${n+1}"><span class="cxdhi"><b>Details</b>${S.cmp.diff?`<button class="fpill" data-act="cmpdiff">Differences only ✕</button>`:''}<button class="btn ghost sm" data-act="cmpexp">${all?'Collapse all':'Expand all'}</button></span></th></tr></tbody>`;
+  if(!G.length)h+=`<tbody><tr><td colspan="${n+1}" class="empty">No differences to show. Turn off "Differences only" to see all fields.</td></tr></tbody>`;
+  G.forEach(g=>{const on=open.has(g.k),cnt=g.rows.filter(r=>!r.sub).length;
+    h+=`<tbody class="cxdsec ${on?'open':''}"><tr class="cxsec cxtg" data-act="cmptgl" data-arg="${g.k}" aria-expanded="${on}"><th colspan="${n+1}"><span>${ic(CXI.car)}${esc(g.t)} <small>${cnt} field${cnt===1?'':'s'}</small></span></th></tr>`
+      +(on?`<tr class="cxpnr"><th></th>${cols.map(p=>`<td><span class="cxsph">${esc(p.part_number)}</span></td>`).join('')}</tr>`:'');
+    if(on)g.rows.forEach(r=>{h+=r.sub?`<tr class="cxsub"><th colspan="${n+1}"><span>${esc(r.sub)}</span></th></tr>`
+      :`<tr class="${r.gap?'gap':''}${r.tl?' cxtl':''}"><th>${esc(r.label)}${r.gap?' <span class="gapt">Gap</span>':''}</th>${r.cells.map(c=>`<td class="${c.cls||''}">${c.h}</td>`).join('')}</tr>`});
+    h+='</tbody>'});
+  return h;
+}
+/* Lifecycle view: every selected product on one time axis, with handovers between them */
+function cmpLife(cols){
+  const ds=cols.flatMap(p=>KD.map(([k])=>d(p[k])).filter(Boolean)),ty=today.getFullYear();
+  const y0=Math.max(ty-8,Math.min(ty-1,...ds.map(t=>t.getFullYear()))),y1=Math.min(ty+8,Math.max(ty+3,...ds.map(t=>t.getFullYear()+1)));
+  const s=new Date(y0,0,1),e=new Date(y1,0,1),X=t=>Math.max(0,Math.min(100,(t-s)/(e-s)*100));
+  let grid='',ax='';for(let y=y0;y<y1;y++){grid+=`<i style="left:${X(new Date(y,0,1))}%"></i>`;ax+=`<span style="left:${X(new Date(y,6,1))}%">${y}</span>`}
+  const sel=new Set(S.cmp.ids);
+  const rows=cols.map(p=>{
+    const ms=KD.map(([k,l])=>({l,date:p[k],t:d(p[k])})).filter(x=>x.t&&x.t>=s&&x.t<e).sort((a,b)=>a.t-b.t);
+    let lastX=-99;const labs=ms.map(x=>{const xx=X(x.t);if(xx-lastX<9)return'';lastX=xx;return`<span style="left:${Math.min(94,Math.max(3,xx))}%"><b>${x.l}</b> ${fmtMY(x.date)}</span>`}).join('');
+    const sc=succOf(p);
+    return`<div class="clrow"><div class="cll">${catIc(p,'md')}<div class="cxn"><b data-act="product" data-id="${p.id}" title="${esc(p.name)}">${esc(p.part_number)}</b>
+      <div class="cllb">${badge(phase(p))}${sc.map(q=>`<span class="cxs2 ${sel.has(q.id)?'in':''}" title="Successor">→ ${esc(q.part_number)}</span>`).join('')}</div></div></div>
+      <div class="clt"><div class="cltg">${grid}</div><div class="mtr">${lcBars(p,X)}${ms.map(x=>`<i class="mms" style="left:${X(x.t)}%;--c:${KDC[x.l]}" title="${x.l} ${fmt(x.date)}"></i>`).join('')}</div>
+      <div class="clml">${labs}</div><i class="cltd" style="left:${X(today)}%"></i></div></div>`}).join('');
+  const hand=S.data.transitions.filter(t=>sel.has(t.from_product_id)&&sel.has(t.to_product_id)).map(t=>{
+    const a=byId('products',t.from_product_id),b=byId('products',t.to_product_id);if(!a||!b)return'';
+    const ae=d(a.eol_date)||d(a.last_ship_date)||d(a.ltb_date),bs=d(b.onboard_date)||d(b.supplier_release_date),nm=`<b>${esc(a.part_number)} → ${esc(b.part_number)}</b>`;
+    if(!ae||!bs)return`<li>${nm}: <span class="mut">add ${!bs?esc(b.part_number)+"'s release or onboarding date":esc(a.part_number)+"'s end-of-life date"} to see the overlap.</span></li>`;
+    const m=Math.round((ae-bs)/(30.44*864e5)),from=fmtMY(iso(bs)),to=fmtMY(iso(ae));
+    return m>=0?`<li>${nm}: <span class="okt">${m} month${m===1?'':'s'} overlap</span> <span class="mut">· ${esc(b.part_number)} available from ${from}, ${esc(a.part_number)} ends ${to}</span></li>`
+      :`<li>${nm}: <span class="badt">${-m} month${m===-1?'':'s'} gap</span> <span class="mut">· ${esc(a.part_number)} ends ${to}, ${esc(b.part_number)} available from ${from}</span></li>`}).join('');
+  const used=[...new Set(cols.map(p=>phase(p)))];
+  const leg=used.map(k=>`<span><i style="background:${LC[k]?.c||'#999'}"></i>${LC[k]?.l||k}</span>`).join('')+`<span><i class="lgd"></i>Milestone</span><span><i class="lgt"></i>Today</span>`;
+  return`<div class="card cxlife"><div class="clrow clax"><div class="cll"><span class="mut">${cols.length} product${cols.length>1?'s':''}</span></div><div class="clt"><div class="cltax">${ax}</div></div></div>${rows}
+    <div class="cxleg">${leg}</div></div>
+    ${hand?`<div class="card cxhand"><h3>Handovers between these products</h3><ul>${hand}</ul></div>`:''}`;
 }
 function compareResults(){
   const cols=cmpCols();
   if(!cols.length)return cmpBar(cols)+`<div class="card empty cxempty">${ic(ICO_CMP)}<b>Pick the products to compare</b><span>Add two or more products. You can mix categories; fields that do not apply to a product show <i>n/a</i>.</span>
-    <div class="btns" style="justify-content:center"><button class="btn pri" data-act="cmpadd">+ Add product to compare</button>${(S.data.comparisons||[]).length?'<button class="btn" data-act="cmpsaved">Open a saved comparison</button>':''}</div></div>`;
-  const {rows,same}=cmpModel(cols);
-  const secs=CXSEC.filter(([k])=>k==='value'||rows.some(r=>r.sec===k));
-  if(!secs.some(s=>s[0]===S.cmp.sec))S.cmp.sec='overview';
-  const nav=`<nav class="cxnav" aria-label="Sections">${secs.map(([k,l,i])=>`<button class="${S.cmp.sec===k?'on':''}" data-act="cmpsec" data-arg="${k}">${ic(i)}<span>${l}</span></button>`).join('')}</nav>`;
-  let body='';
-  rows.forEach(r=>{
-    if(r.sec){body+=`<tr class="cxsec" id="cx-${r.sec}"><th colspan="${cols.length+1}"><span>${esc(r.t)}</span></th></tr>`;return}
-    if(r.sub){body+=`<tr class="cxsub"><th colspan="${cols.length+1}"><span>${esc(r.sub)}</span></th></tr>`;return}
-    body+=`<tr class="${r.gap?'gap':''}${r.tl?' cxtl':''}"><th>${esc(r.label)}${r.gap?' <span class="gapt">Gap</span>':''}</th>${r.cells.map(c=>`<td class="${c.cls||''}">${c.h}</td>`).join('')}</tr>`;
-  });
-  if(!rows.length)body=`<tr><td colspan="${cols.length+1}" class="empty">No differences to show. Turn off "Differences only" to see all fields.</td></tr>`;
-  const head=`<tr><th class="corner">${cols.length} product${cols.length>1?'s':''}</th>${cols.map((p,i)=>`<th class="cxph"><div class="cxh">${catIc(p)}<div class="cxn"><b data-act="product" data-id="${p.id}" title="${esc(p.name)}">${esc(p.part_number)}</b>${pnSel(p)}</div>
-    <button class="cxm" data-act="cmpmenu" data-id="${p.id}" aria-label="Options for ${esc(p.part_number)}">${ic('<circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/>')}</button></div></th>`).join('')}</tr>`;
+    <div class="btns" style="justify-content:center"><button class="btn pri" data-act="cmpadd">${ic(CXI.plus)} Add product</button>${(S.data.comparisons||[]).length?'<button class="btn" data-act="cmpsaved">Open a saved comparison</button>':''}</div></div>`;
+  if(S.cmp.view==='life')return cmpBar(cols)+cmpTools(cols)+cmpLife(cols);
+  const same=new Set(cols.map(p=>p.category)).size===1,n=cols.length;
+  const head=`<tr><th class="corner">Product</th>${cols.map(p=>`<th class="cxph"><div class="cxh">${catIc(p,'lg')}<div class="cxn"><b data-act="product" data-id="${p.id}" title="${esc(p.name)}">${esc(p.part_number)}</b><span class="cxnm">${esc(p.name||'')}</span>${pnSel(p)}</div>
+    <button class="cxm" data-act="cmpmenu" data-id="${p.id}" aria-label="Options for ${esc(p.part_number)}">${ic(CXI.dots)}</button></div></th>`).join('')}</tr>`;
   const mixed=!same?`<div class="cxnote">${ic('<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.01"/>')}<span>These products are from different categories. Fields that do not apply to a product show <i>n/a</i>. Gaps are flagged only when all products are in the same category.</span></div>`:'';
-  const opts=`<div class="cmpopts"><label class="tg"><input type="checkbox" data-change="cmpopt" data-arg="diff" ${S.cmp.diff?'checked':''}> Differences only</label>
-    ${same&&cols.length?`<label class="tg"><input type="checkbox" data-change="cmpopt" data-arg="gaps" ${S.cmp.gaps!==false?'checked':''}> Show gaps <span class="mut">(features none of these have)</span></label>`:''}</div>`;
-  return cmpBar(cols)+`<div class="cxgrid">${nav}<div class="cxmain">${mixed}${opts}
-    <div class="cxw" id="cxw"><table class="cxt2" style="--n:${cols.length}"><thead>${head}</thead><tbody>${body}</tbody></table></div>
-    <div id="cx-value">${valueChart(cols)}</div></div></div>`;
+  const vOn=(S.cmp.open||[]).includes('value');
+  return cmpBar(cols)+cmpTools(cols)+mixed
+    +`<div class="cxw" id="cxw"><table class="cxt2 cx3" style="--n:${n}"><thead>${head}</thead><tbody class="cxsum">${cmpSummary(cols)}</tbody>${cmpDetails(cols)}</table></div>
+    <div class="card cxval ${vOn?'open':''}" id="cx-value"><button class="cxvh" data-act="cmptgl" data-arg="value" aria-expanded="${vOn}">${ic(CXI.car)}<b>Value vs capability</b><span class="mut">Price against capability for these products</span></button>${vOn?`<div class="cxvb">${valueChart(cols)}</div>`:''}</div>`;
 }
 const ICO_CMP='<rect x="3.5" y="4" width="7" height="16" rx="1.6"/><rect x="13.5" y="4" width="7" height="16" rx="1.6"/><path d="M5.5 9h3M5.5 13h3M15.5 9h3M15.5 13h3"/>';
 /* value vs capability scatter */
@@ -2163,43 +2505,63 @@ function valueChart(cols){
       <text transform="translate(14 ${(T+H-B)/2}) rotate(-90)" text-anchor="middle" class="ax">${esc(ml)}</text></svg>
       <div class="mut" style="font-size:12px">Above the dashed line = more ${esc(ml)} per ${cur} than the middle of this group (better value); below = less.${missing?` ${missing} selected product${missing>1?'s have':' has'} no ${pl.toLowerCase()} yet, so ${missing>1?'they are':'it is'} not shown.`:''}</div>`;
   }
-  return`<div class="sec"><h2>Value vs capability</h2></div><div class="card">${ctl}${svg}</div>`;
+  return`${ctl}${svg}`;
 }
 function refreshCompare(){const sc=$('#cxw')?.scrollTop||0;const r=$('#cmpres');if(r)r.innerHTML=compareResults();const w=$('#cxw');if(w)w.scrollTop=sc;renderCxPop();saveView()}
 
-/* "Add product" picker and the ⋯ column menu (both float above the page) */
-function cxPickList(){
-  const q=(S.cxq||'').trim().toLowerCase(),sel=new Set(S.cmp.ids),cats=new Set(cmpCols().map(p=>p.category));
-  const CO=CATEGORIES.map(c=>c[0]);
-  let L=S.data.products.filter(p=>!q||[p.part_number,p.name,sup(p)?.name,CATS1[p.category],p.family,...pnsOf(p).map(x=>x.part_number)].some(v=>String(v||'').toLowerCase().includes(q)));
-  L.sort((a,b)=>(cats.size?(cats.has(b.category)-cats.has(a.category)):0)||CO.indexOf(a.category)-CO.indexOf(b.category)||a.part_number.localeCompare(b.part_number));
-  const n=L.length;L=L.slice(0,80);
-  let h='',last=null;
-  L.forEach(p=>{const g=cats.size?(cats.has(p.category)?'Categories already in this comparison':'Other categories'):CATEGORIES.find(c=>c[0]===p.category)?.[1];
-    if(g!==last){h+=`<div class="cxog">${esc(g)}</div>`;last=g}
-    const on=sel.has(p.id);
-    h+=`<button class="cxo ${on?'on':''}" data-act="cmptog" data-id="${p.id}">${catIc(p)}<span class="cxot"><b>${esc(p.part_number)}</b><span>${esc([p.name,sup(p)?.name].filter(Boolean).join(' · '))}</span></span>${badge(phase(p))}<span class="cxck">${on?'✓':''}</span></button>`});
-  if(!n)h='<div class="empty" style="padding:16px">No products match.</div>';
-  else if(n>L.length)h+=`<div class="mut" style="padding:8px 12px;font-size:12px">${n-L.length} more — type to narrow the list.</div>`;
+/* "Add products" dialog (search + filters + multi-select) and the small menus (Export ▾, ⋯, column ⋯) */
+const CXP0=()=>({q:'',cat:'',sup:'',ph:'',mkt:'',same:false,sel:[]});
+const cxpOn=()=>{const f=S.cxp||CXP0();return!!(f.cat||f.sup||f.ph||f.mkt||f.same)};
+function cxpList(){
+  const f=S.cxp||(S.cxp=CXP0()),q=f.q.trim().toLowerCase(),inC=new Set(S.cmp.ids),sel=new Set(f.sel),cats=new Set(cmpCols().map(p=>p.category)),CO=CATEGORIES.map(c=>c[0]);
+  const L=S.data.products.filter(p=>(!q||[p.part_number,p.name,sup(p)?.name,CATS1[p.category],p.family,...pnsOf(p).map(x=>x.part_number)].some(v=>String(v||'').toLowerCase().includes(q)))
+    &&(!f.cat||p.category===f.cat)&&(!f.sup||p.supplier_id===f.sup)&&(!f.ph||PHG_OF[phase(p)]===f.ph)&&(!f.mkt||(p.markets||[]).includes(f.mkt))&&(!f.same||!cats.size||cats.has(p.category)))
+    .sort((a,b)=>CO.indexOf(a.category)-CO.indexOf(b.category)||a.part_number.localeCompare(b.part_number));
+  if(!L.length)return'<div class="empty" style="padding:22px">No products match. Change the search or clear the filters.</div>';
+  let h=`<div class="cxpn mut">${L.length} product${L.length===1?'':'s'}</div>`,last=null;
+  L.slice(0,300).forEach(p=>{const g=CATEGORIES.find(c=>c[0]===p.category)?.[1]||'Other';if(g!==last){h+=`<div class="cxog">${esc(g)}</div>`;last=g}
+    const added=inC.has(p.id),on=sel.has(p.id),npn=pnsOf(p).length;
+    h+=`<button type="button" class="cxo ${on?'on':''} ${added?'added':''}" data-act="cxpk" data-id="${p.id}" ${added?'disabled':''} aria-pressed="${on||added}">
+      <span class="cxcb">${on||added?ic(CXI.ok):''}</span>${catIc(p,'md')}<span class="cxot"><b>${esc(p.part_number)}</b><span>${esc([p.name,sup(p)?.name,npn>1?npn+' part numbers':pnsOf(p)[0]?.part_number].filter(Boolean).join(' · '))}</span></span>
+      ${added?'<span class="tag">Added</span>':badge(phase(p))}</button>`});
+  if(L.length>300)h+=`<div class="mut" style="padding:8px 12px;font-size:12px">${L.length-300} more — type to narrow the list.</div>`;
   return h;
 }
+function cxpFoot(){const n=(S.cxp?.sel||[]).length;
+  return`<span class="mut">${n?`<b>${n}</b> selected`:'Select one or more products'}</span><span class="hsp"></span><button type="button" class="btn" data-act="back">Cancel</button><button type="button" class="btn pri" data-act="cxpadd" ${n?'':'disabled'}>${n?`Add ${n} product${n===1?'':'s'}`:'Add products'}</button>`}
+function cxpUpd(){const ls=$('#cxlist');if(ls){const st=ls.scrollTop;ls.innerHTML=cxpList();ls.scrollTop=st}
+  const ft=$('#cxpkf');if(ft)ft.innerHTML=cxpFoot();const c=$('#cxpclr');if(c)c.hidden=!cxpOn()}
+SHEETS.cmppick=()=>{
+  const f=S.cxp||(S.cxp=CXP0()),o=(v,l,cur)=>`<option value="${esc(v)}" ${cur===v?'selected':''}>${esc(l)}</option>`;
+  const sel=(k,all,opts)=>`<select data-change="cxpf" data-arg="${k}" aria-label="${all}" class="${f[k]?'on':''}">${o('',all,f[k])}${opts.map(([v,l])=>o(v,l,f[k])).join('')}</select>`;
+  const sups=S.data.suppliers.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(s=>[s.id,s.name]);
+  return{title:'Add products to compare',body:`<div class="cxpk">
+    <div class="tsearch">${ICO_SEARCH}<input id="cxq" type="search" placeholder="Search part number, name, supplier…" autocomplete="off" value="${esc(f.q)}"></div>
+    <div class="cxpf">${sel('cat','All categories',CATEGORIES)}${sel('sup','All suppliers',sups)}${sel('ph','All lifecycle stages',PHG)}${sel('mkt','All markets',S.data.markets.map(m=>[m.name,m.name]))}
+      ${S.cmp.ids.length?`<label class="cxsame ${f.same?'on':''}"><input type="checkbox" data-change="cxpf" data-arg="same" ${f.same?'checked':''}> Same category as selected</label>`:''}
+      <button type="button" class="btn ghost sm" id="cxpclr" data-act="cxpclr" ${cxpOn()?'':'hidden'}>Clear filters</button></div>
+    <div class="cxplist" id="cxlist">${cxpList()}</div>
+    <div class="cxpkf" id="cxpkf">${cxpFoot()}</div></div>`};
+};
 function renderCxPop(){
   const el=$('#cxpop');if(!el)return;
-  if(S.cxpop==='add'){
-    const keep=document.activeElement?.id==='cxq';
-    if(!el.querySelector('#cxq'))el.innerHTML=`<div class="fpop-bg" data-act="cxclose"></div><div class="cxpanel" role="dialog" aria-label="Add product to compare"><div class="fph"><b>Add products</b><button class="btn ghost sm" data-act="cxclose">Done</button></div>
-      <div class="tsearch">${ICO_SEARCH}<input id="cxq" type="search" placeholder="Search part number, name, supplier…" autocomplete="off" value="${esc(S.cxq||'')}"></div><div class="cxlist" id="cxlist"></div></div>`;
-    const ls=el.querySelector('#cxlist'),st=ls.scrollTop;ls.innerHTML=cxPickList();ls.scrollTop=st;
-    const p=el.querySelector('.cxpanel'),b=$('#cxaddb');
-    if(wide()&&b){const r=b.getBoundingClientRect();p.style.left=Math.max(12,Math.min(r.left,innerWidth-p.offsetWidth-12))+'px';p.style.top=(r.bottom+6)+'px'}
-    if(!keep&&wide())el.querySelector('#cxq').focus();
-    return}
-  if(S.cxpop&&S.cxpop.menu){
-    const id=S.cxpop.menu,i=S.cmp.ids.indexOf(id),n=S.cmp.ids.length,mi=(act,l,dis)=>`<button class="mi" data-act="${act}" data-id="${id}" ${dis?'disabled':''}>${l}</button>`;
+  const P=S.cxpop;if(!P){el.innerHTML='';return}
+  const place=(m,b,alignRight)=>{if(!b)return;const r=b.getBoundingClientRect();m.style.top=(r.bottom+4)+'px';m.style.right='auto';
+    m.style.left=Math.max(12,Math.min(alignRight?r.right-m.offsetWidth:r.left,innerWidth-m.offsetWidth-12))+'px'};
+  if(P.pop){
+    const mi=(k,l,ico,extra='')=>`<button class="mi" data-act="cxdo" data-arg="${k}">${ico?ic(ico):'<span class="mis"></span>'}<span class="grow">${l}</span>${extra}</button>`,cols=cmpCols();
+    let h;
+    if(P.pop==='exp')h=mi('cmpcsv','Export CSV',I.dl)+mi('cmplink','Copy link',CXI.link);
+    else{const n=(S.data.comparisons||[]).length,same=new Set(cols.map(p=>p.category)).size===1,open=new Set(S.cmp.open||[]),all=CX_DET.every(k=>open.has(k)),ck=on=>on?`<span class="mck">${ic(CXI.ok)}</span>`:'';
+      h=mi('cmpsaved',`Saved comparisons${n?` (${n})`:''}`,CXI.list)+'<div class="msep"></div>'
+        +(S.cmp.view==='life'?'':mi('cmpdiff','Differences only',null,ck(S.cmp.diff))+(same?mi('cmpgaps','Show gaps',null,ck(S.cmp.gaps!==false)):'')+mi('cmpexp',all?'Collapse all details':'Expand all details',null)+'<div class="msep"></div>')
+        +mi('cmpclear','Clear all products',I.x)}
+    el.innerHTML=`<div class="umenu-bg" data-act="cxclose"></div><div class="umenu cxmenu cxmenu2">${h}</div>`;
+    place(el.querySelector('.cxmenu'),$(P.pop==='exp'?'#cxexpb':'#cxmoreb'),false);return}
+  if(P.menu){
+    const id=P.menu,i=S.cmp.ids.indexOf(id),n=S.cmp.ids.length,mi=(act,l,dis)=>`<button class="mi" data-act="${act}" data-id="${id}" ${dis?'disabled':''}>${l}</button>`;
     el.innerHTML=`<div class="umenu-bg" data-act="cxclose"></div><div class="umenu cxmenu">${mi('cxopen','Open product')}${mi('cxleft','Move left',i<=0)}${mi('cxright','Move right',i>=n-1)}${mi('cmprm','Remove from comparison')}</div>`;
-    const m=el.querySelector('.cxmenu'),b=document.querySelector(`.cxm[data-id="${id}"]`);
-    if(b){const r=b.getBoundingClientRect();m.style.top=(r.bottom+4)+'px';m.style.right='auto';m.style.left=Math.max(12,Math.min(r.right-m.offsetWidth,innerWidth-m.offsetWidth-12))+'px'}
-    return}
+    place(el.querySelector('.cxmenu'),document.querySelector(`.cxm[data-id="${id}"]`),true);return}
   el.innerHTML='';
 }
 function cxCloseMenu(){if(S.cxpop&&S.cxpop.menu){S.cxpop=null;renderCxPop()}}
@@ -2222,7 +2584,7 @@ document.addEventListener('scroll',e=>{const w=e.target;if(!w||w.id!=='cxw')retu
 function cmpCSV(){
   const cols=cmpCols();if(!cols.length)return;
   const {rows}=cmpModel(cols),q=v=>{v=v==null?'':String(v);return/[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
-  const lines=[['Field',...cols.map(p=>p.part_number)],['Description',...cols.map(p=>p.name)],['Category',...cols.map(p=>CATS1[p.category])],['Part numbers',...cols.map(p=>pnsOf(p).map(x=>x.part_number).join('; '))]];
+  const lines=[['Field',...cols.map(p=>p.part_number)],['Description',...cols.map(p=>p.name)],['Category',...cols.map(p=>CATS1[p.category])],['Part numbers',...cols.map(p=>pnsOf(p).map(x=>x.part_number).join('; '))],['Health',...cols.map(p=>cmpHealth(p).l)],['Capabilities',...cols.map(p=>cmpCaps(p).join('; '))],['Key risks',...cols.map(p=>cmpRisks(p).map(r=>r[0]).join('; '))]];
   rows.forEach(r=>{if(r.sec)lines.push([r.t.toUpperCase()]);else if(r.sub)lines.push([r.sub]);else if(!r.tl)lines.push([r.label+(r.gap?' (gap)':''),...r.cells.map(c=>c.t)])});
   const b=new Blob(['﻿'+lines.map(l=>l.map(q).join(',')).join('\r\n')],{type:'text/csv'}),a=document.createElement('a');
   const nm=(cmpSaved()?.name||'comparison').replace(/[^\w.-]+/g,'-').replace(/^-|-$/g,'').toLowerCase()||'comparison';
@@ -2288,11 +2650,22 @@ async function cmpSubmit(f,sub){
   catch(err){toast(/comparisons/.test(errMsg(err))&&/exist|schema cache|not find/i.test(errMsg(err))?'Saving needs the database upgrade 07_saved_comparisons.sql.':errMsg(err))}
 }
 Object.assign(A,{
- cmpadd:()=>{S.cxpop=S.cxpop==='add'?null:'add';renderCxPop()},
+ cmpadd:()=>{S.cxpop=null;renderCxPop();S.cxp=CXP0();push({type:'cmppick'});if(wide())setTimeout(()=>$('#cxq')?.focus(),30)},
+ cxpk:id=>{const L=S.cxp.sel,i=L.indexOf(id);if(i>=0)L.splice(i,1);else L.push(id);cxpUpd()},
+ cxpclr:()=>{S.cxp={...CXP0(),q:S.cxp.q,sel:S.cxp.sel};S.stack.length&&renderSheet();setTimeout(()=>$('#cxq')?.focus(),0)},
+ cxpadd:()=>{const add=(S.cxp?.sel||[]).filter(id=>!S.cmp.ids.includes(id));S.cmp.ids.push(...add);S.cxp=CXP0();
+   if(S.stack[S.stack.length-1]?.type==='cmppick')S.stack.pop();renderSheet();refreshCompare();if(add.length)toast(`Added ${add.length} product${add.length>1?'s':''}`)},
+ cxpopm:(id,k)=>{S.cxpop=S.cxpop&&S.cxpop.pop===k?null:{pop:k};renderCxPop()},
+ cxdo:(id,k)=>{S.cxpop=null;renderCxPop();A[k](null)},
+ cmpview:(id,k)=>{S.cmp.view=k==='life'?'life':'cmp';S.cxpop=null;refreshCompare()},
+ cmptgl:(id,k)=>{const L=S.cmp.open||(S.cmp.open=[]),i=L.indexOf(k);if(i>=0)L.splice(i,1);else L.push(k);refreshCompare()},
+ cmpexp:()=>{const all=CX_DET.every(k=>(S.cmp.open||[]).includes(k));S.cmp.open=all?[]:CX_DET.slice();refreshCompare()},
+ cmpdiff:()=>{S.cmp.diff=!S.cmp.diff;if(S.cmp.diff&&!(S.cmp.open||[]).some(k=>k!=='value'))S.cmp.open=CX_DET.slice();refreshCompare()},
+ cmpgaps:()=>{S.cmp.gaps=S.cmp.gaps===false;refreshCompare()},
  cxclose:()=>{S.cxpop=null;S.cxq='';renderCxPop()},
  cmptog:id=>{const L=S.cmp.ids,i=L.indexOf(id);if(i>=0)L.splice(i,1);else L.push(id);refreshCompare()},
  cmprm:id=>{S.cmp.ids=S.cmp.ids.filter(x=>x!==id);if(S.cxpop&&S.cxpop.menu)S.cxpop=null;refreshCompare()},
- cmpclear:()=>{S.cmp.ids=[];S.cmp.saved=null;refreshCompare()},
+ cmpclear:()=>{if(S.cmp.ids.length>1&&!confirm('Remove all products from this comparison?'))return;S.cmp.ids=[];S.cmp.saved=null;refreshCompare()},
  cmpclose:()=>{S.cmp.saved=null;refreshCompare()},
  cmpmenu:id=>{S.cxpop=S.cxpop&&S.cxpop.menu===id?null:{menu:id};renderCxPop()},
  cxopen:id=>{S.cxpop=null;renderCxPop();push({type:'product',id})},
@@ -2315,17 +2688,17 @@ Object.assign(A,{
    toast(c&&!cmpDirty()&&!c.shared?'Link copied. Only you can open it until you share the comparison.':c&&!cmpDirty()?'Link to the saved comparison copied':'Link copied')},
  cmpgo:id=>{const p=byId('products',id);if(!p)return;if(!S.cmp.ids.includes(id))S.cmp.ids.push(id);S.cmp.sec='overview';S.tab='compare';S.stack=[];saveView();renderAll();window.scrollTo(0,0)}
 });
-document.addEventListener('input',e=>{if(e.target.id==='cxq'){S.cxq=e.target.value;const ls=$('#cxlist');if(ls)ls.innerHTML=cxPickList()}});
+document.addEventListener('input',e=>{if(e.target.id==='cxq'&&S.cxp){S.cxp.q=e.target.value;cxpUpd()}});
 /* ---------- Transitions page ---------- */
 // One row per transition, plus one row per phasing-out product that has no successor ("Phase out").
 // Status is derived from lifecycle dates and customer migrations (no status field in the database).
 // S.tv = {q, type:[], st:[], mkt:[], sup:[], kpi, view:'list'|'timeline'}
-const TV_TYPE=[['replace','Replace','<path d="m5 7 5 5-5 5M12 7l5 5-5 5"/>','#1263BD'],['migrate','Migrate','<path d="M4 12h13M13 7l5 5-5 5"/><path d="M4 7v10"/>','#6889B9'],
-  ['extend','Extend','<path d="M12 5v14M5 12h14"/>','#6B7280'],['phaseout','Phase out',I.glass,'#E58B20','#B9690F']];
+const TV_TYPE=[['replace','Replace','<path d="m5 7 5 5-5 5M12 7l5 5-5 5"/>','#2563EB'],['migrate','Migrate','<path d="M4 12h13M13 7l5 5-5 5"/><path d="M4 7v10"/>','#93C5FD'],
+  ['extend','Extend','<path d="M12 5v14M5 12h14"/>','#6B7280'],['phaseout','Phase out',I.glass,'#F59E0B','#B45309']];
 const TV_TYPEM=Object.fromEntries(TV_TYPE.map(([k,l,i,c,t])=>[k,{l,i,c,t}]));
-const TV_ST=[['at_risk','At risk',I.warn,'#C92C32'],['not_started','Not started','<circle cx="12" cy="12" r="8.5"/><path d="M12 8v4.5l2.5 1.5"/>','#6B7280'],
-  ['in_progress','In progress','<path d="M20 11a8 8 0 0 0-14.9-3M4 13a8 8 0 0 0 14.9 3"/><path d="M5 3.5V8h4.5M19 20.5V16h-4.5"/>','#E58B20','#B9690F'],
-  ['planned','Planned',I.cal,'#1263BD'],['phasing','Phasing out',I.glass,'#E58B20','#B9690F'],['complete','Complete',I.check,'#16a34a','#15803d']];
+const TV_ST=[['at_risk','At risk',I.warn,'#DC2626'],['not_started','Not started','<circle cx="12" cy="12" r="8.5"/><path d="M12 8v4.5l2.5 1.5"/>','#6B7280'],
+  ['in_progress','In progress','<path d="M20 11a8 8 0 0 0-14.9-3M4 13a8 8 0 0 0 14.9 3"/><path d="M5 3.5V8h4.5M19 20.5V16h-4.5"/>','#F59E0B','#B45309'],
+  ['planned','Planned',I.cal,'#2563EB'],['phasing','Phasing out',I.glass,'#F59E0B','#B45309'],['complete','Complete',I.check,'#16a34a','#15803d']];
 const TV_STM=Object.fromEntries(TV_ST.map(([k,l,i,c,t])=>[k,{l,i,c,t}]));
 const tvChip=(m,cls='')=>`<span class="badge ib ${cls}" style="--c:${m.c}${m.t?';--t:'+m.t:''}">${ic(m.i)}${m.l}</span>`;
 const tvTypeOf=t=>!t?'phaseout':/software platform/i.test(t.transition_type||'')?'migrate':/family expansion/i.test(t.transition_type||'')?'extend':'replace';
@@ -2384,24 +2757,9 @@ function tvQ(x){
 const tvPass=(x,except)=>tvQ(x)&&(except==='kpi'||!S.tv.kpi||TV_KPI[S.tv.kpi](x))&&TVG.every(g=>g.k===except||!S.tv[g.k].length||g.val(x).some(v=>S.tv[g.k].includes(v)));
 const TV_ORD={at_risk:0,not_started:1,in_progress:2,phasing:3,planned:4,complete:5};
 function tvKey(x){return x.ltb||x.a.eol_date||x.a.nrnd_date||x.b?.supplier_release_date||x.b?.onboard_date||'9999'}
-function tvList(){return tvItems().filter(x=>tvPass(x)).sort((p,q)=>(p.st==='complete')-(q.st==='complete')||tvKey(p).localeCompare(tvKey(q))||TV_ORD[p.st]-TV_ORD[q.st]||p.a.part_number.localeCompare(q.a.part_number))}
 const tvCount=()=>TVG.reduce((n,g)=>n+S.tv[g.k].length,0);
 const tvActive=()=>tvCount()+((S.tv.q||'').trim()?1:0)+(S.tv.kpi?1:0);
 
-function tvKpis(){
-  const L=tvItems().filter(x=>tvPass(x,'kpi')),act=L.filter(TV_KPI.active),n=f=>L.filter(f).length,tot=act.length;
-  const k=(key,ico,l,v,c,pct)=>`<div class="kpi ${c?'tint':''} ${S.tv.kpi===key?'on':''}" ${c?`style="--c:${c}"`:''} data-act="tvkpi" data-arg="${key}" title="Show only these">
-    <span class="ki">${ic(ico)}</span><div><span class="kl">${l}</span><b>${v}${pct&&tot?`<small>${Math.round(v/tot*100)}%</small>`:''}</b></div></div>`;
-  return k('active','<path d="M4 8h14M14 4l4 4-4 4M20 16H6M10 12l-4 4 4 4"/>','Active transitions',tot,null,0)
-    +k('ltb',I.cal,'Last-time buy',n(TV_KPI.ltb),LC.ltb.c,1)+k('nrnd',I.glass,'Phasing out',n(TV_KPI.nrnd),LC.nrnd.c,1)
-    +k('succ',I.dev,'With successor',n(TV_KPI.succ),LC.active.c,1)+k('risk',I.warn,'At risk',n(TV_KPI.risk),'#6B7280',1);
-}
-function tvFctl(){
-  const n=tvCount();
-  return`<button class="btn tb ${S.tvpop==='all'?'open':''}" data-act="tvpop" data-arg="all">${ic('<path d="M3 5h18l-7 8.5V19l-4 2v-7.5z"/>')} Filters${n?`<span class="fcnt">${n}</span>`:''}</button>`+
-    TVG.map(g=>{const c=S.tv[g.k].length;return`<button class="btn tb qf ${c?'has':''} ${S.tvpop===g.k?'open':''}" data-act="tvpop" data-arg="${g.k}">${g.l}${c?` · ${c}`:''}<i class="car"></i></button>`}).join('')+
-    (tvActive()?'<button class="btn ghost sm clr" data-act="tvclr">Clear all</button>':'');
-}
 function tvFbody(gs){
   const all=tvItems(),shown=all.filter(x=>tvPass(x)).length;
   return`<div class="fsum"><span>${shown===all.length?`All ${all.length} transitions`:`<b>${shown}</b> of ${all.length} transitions`}</span>${tvActive()?'<button class="btn ghost sm" data-act="tvclr">Clear all</button>':''}</div>`+
@@ -2426,30 +2784,14 @@ function tvPills(){
 }
 function viewTransitions(){
   const seg=[['list','List',ICO_LIST],['timeline','Timeline',ICO_TL]];
-  return`<div id="tvkpis" class="kpis">${tvKpis()}</div>
-    <div class="tbar"><div class="segc vsw tsw tvsw">${seg.map(([k,l,i])=>`<button class="${S.tv.view===k?'on':''}" data-act="tvview" data-arg="${k}">${i} ${l}</button>`).join('')}</div>
-    <div class="tsearch">${ICO_SEARCH}<input id="tvq" type="search" placeholder="Search transitions, products or part numbers…" value="${esc(S.tv.q||'')}" autocomplete="off"></div>
-    <div id="tvctl" class="fctl">${tvFctl()}</div><div id="tvpop"></div></div>
+  S.tv.kpi=null;
+  return`<div id="tvkpis" class="card tvsb">${tvKpis()}</div>
+    <div class="tbar"><div class="tsearch">${ICO_SEARCH}<input id="tvq" type="search" placeholder="Search transitions, products or part numbers…" value="${esc(S.tv.q||'')}" autocomplete="off"></div>
+    <div id="tvctl" class="fctl">${tvFctl()}</div><div class="segc vsw tsw tvsw">${seg.map(([k,l,i])=>`<button class="${S.tv.view===k?'on':''}" data-act="tvview" data-arg="${k}">${i} ${l}</button>`).join('')}</div><div id="tvpop"></div></div>
     <div id="tvres">${tvResults()}</div><div id="tvmenu"></div>${fab('transitions')}`;
-}
-function tvResults(){
-  const L=tvList(),all=tvItems().length;
-  if(!all)return'<div class="card empty">No transitions yet. Add one to map an outgoing product to its successor.</div>';
-  if(!L.length)return tvPills()+'<div class="card empty">No transitions match these filters.</div>';
-  return tvPills()+(S.tv.view==='timeline'?tvTimeline(L):wide()?tvTable(L):`<div class="tvcards">${L.map(tvCard).join('')}</div>`)+`<div class="mut tvfoot">Showing ${L.length} of ${all} transition${all===1?'':'s'}</div>`;
 }
 const tvMenuBtn=x=>`<button class="cxm" data-act="tvmenu" data-id="${x.id}" aria-label="More actions">${ic('<circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/>')}</button>`;
 const tvOpen=x=>x.t?`data-act="transition" data-id="${x.t.id}"`:`data-act="product" data-id="${x.a.id}"`;
-function tvTable(L){
-  return`<div class="card tvtab"><table class="ptab tvt"><thead><tr><th>Current product</th><th>Transition</th><th>Replacement / successor</th><th>Key dates</th><th class="tvtlh">Transition timeline</th><th>Status</th><th></th></tr></thead><tbody>${L.map(x=>`<tr ${tvOpen(x)}>
-    <td>${tvProd(x.a)}</td><td><span class="tvarr">→</span>${tvChip(TV_TYPEM[x.type],'tvty')}</td><td>${tvProd(x.b)}</td><td>${tvDatesHTML(x)}</td>
-    <td class="tvtlc">${tvMini(x)}</td><td>${tvChip(TV_STM[x.st],'tvst')}${tvCust(x)}</td><td>${tvMenuBtn(x)}</td></tr>`).join('')}</tbody></table></div>`;
-}
-function tvCard(x){
-  return`<div class="card tvcard" ${tvOpen(x)}><div class="tvch">${tvChip(TV_STM[x.st],'tvst')}${tvCust(x)}<span class="hsp"></span>${tvMenuBtn(x)}</div>
-    <div class="tvcp">${tvProd(x.a)}<div class="tvcm"><span class="tvarr">↓</span>${tvChip(TV_TYPEM[x.type],'tvty')}</div>${tvProd(x.b)}</div>
-    ${tvDatesHTML(x)}<div class="tvcl">${tvMini(x)}</div></div>`;
-}
 /* timeline view: outgoing and successor on one row; the space between last-time buy (or end of life) and the successor's release is a supply gap */
 function tvTimeline(L){
   const y0=today.getFullYear()-2,y1=today.getFullYear()+4,s=new Date(y0,0,1),e=new Date(y1,0,1),X=t=>Math.max(0,Math.min(100,(t-s)/(e-s)*100));
@@ -2468,11 +2810,11 @@ function tvTimeline(L){
     ${rows}<div class="tvtoday" style="--x:${X(today)}"></div></div>
     <div class="tvlg"><span><i class="tvgap"></i>Supply gap: successor released after last-time buy</span><span><i class="tvov"></i>Overlap: both available</span><span><i class="tvtd"></i>Today</span></div></div>`;
 }
-function tvCSV(){
-  const L=tvList(),q=v=>{v=v==null?'':String(v);return/[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
-  const H=['Current product','Current part numbers','Supplier','Category','Lifecycle','Transition','Transition type','Customer fit','Successor','Successor part numbers','Successor lifecycle','Last-time buy','End of life','Successor release','Migration target','Status','Customers','Customers moved','Customers at risk','Software impact','Harness impact','Mechanical impact','Basis'];
+function tvCSV(only){
+  const L=tvList().filter(x=>!(only instanceof Set)||only.has(x.id)),q=v=>{v=v==null?'':String(v);return/[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
+  const H=['Current product','Current part numbers','Supplier','Category','Lifecycle','Transition','Transition type','Customer fit','Successor','Successor part numbers','Successor lifecycle','Last-time buy','End of life','Successor release','Migration target','Status','Customers','Customers moved','Customers at risk','Software impact','Harness impact','Mechanical impact','Basis','Owner','Progress %'];
   const rows=L.map(x=>{const{a,b,t}=x;return[a.part_number,pnsOf(a).map(n=>n.part_number).join('; '),sup(a)?.name,CATS1[a.category],LC[phase(a)]?.l,TV_TYPEM[x.type].l,t?.transition_type,t?KIND[t.kind]:'',b?.part_number,b?pnsOf(b).map(n=>n.part_number).join('; '):'',b?LC[phase(b)]?.l:'',
-    x.ltb,a.eol_date,b?.supplier_release_date||b?.onboard_date,x.tgt,TV_STM[x.st].l,x.cps.length||'',x.cps.length?x.done:'',x.cps.length?x.risk:'',t?IMPACT[t.software_impact]?.l:'',t?IMPACT[t.harness_impact]?.l:'',t?IMPACT[t.mechanical_impact]?.l:'',t?.basis].map(q).join(',')});
+    x.ltb,a.eol_date,b?.supplier_release_date||b?.onboard_date,x.tgt,TV_STM[x.st].l,x.cps.length||'',x.cps.length?x.done:'',x.cps.length?x.risk:'',t?IMPACT[t.software_impact]?.l:'',t?IMPACT[t.harness_impact]?.l:'',t?IMPACT[t.mechanical_impact]?.l:'',t?.basis,tvOwn(x),tvProg(x)?.v].map(q).join(',')});
   const bl=new Blob(['﻿'+[H.join(','),...rows].join('\r\n')],{type:'text/csv'}),el=document.createElement('a');
   el.href=URL.createObjectURL(bl);el.download=`portfolium-transitions-${iso(today)}.csv`;document.body.appendChild(el);el.click();el.remove();
 }
@@ -3215,8 +3557,9 @@ document.addEventListener('submit',async e=>{
       else if(/different from the old/i.test(m))m='Choose a password different from your current one.';
       err.textContent=m;return}
     if(data?.user)S.user=data.user;
-    f.reset();toast('Password changed');renderMain();return}
+    f.reset();toast('Password changed');renderAll();return}
   if(f.id==='cxsave')return cmpSubmit(f,e.submitter);
+  if(f.id==='ownfrm')return ownSubmit(f,e.submitter);
   if(f.id==='login'){const fd=new FormData(f),btn=f.querySelector('button');btn.disabled=true;btn.textContent='Signing in…';
     const{data,error}=await S.sb.auth.signInWithPassword({email:fd.get('email').trim(),password:fd.get('password')});
     if(error){btn.disabled=false;btn.textContent='Sign in';$('#lerr').textContent=error.message;return}
@@ -3280,35 +3623,231 @@ function riskRows(ps){
   const ids=new Set(ps.map(p=>p.id)),pIds=f=>ps.filter(f).map(p=>p.id);
   const migP=new Set(S.data.customer_products.filter(c=>ids.has(c.product_id)&&needsMig(c)&&c.transition_status!=='complete').map(c=>c.product_id));
   const phOut=p=>['nrnd','ltb'].includes(phase(p));
-  return[['eol12','Products at risk (end of life within 12 months)',pIds(p=>inNext(p.eol_date,12)),'#C92C32'],
-    ['mig','Phasing out with customers still migrating',pIds(p=>phOut(p)&&migP.has(p.id)),'#E58B20'],
-    ['nosucc','Phasing out with no successor mapped',pIds(p=>['nrnd','ltb','eol'].includes(phase(p))&&!S.data.transitions.some(t=>t.from_product_id===p.id)),'#E58B20'],
+  return[['eol12','Products at risk (end of life within 12 months)',pIds(p=>inNext(p.eol_date,12)),'#DC2626'],
+    ['mig','Phasing out with customers still migrating',pIds(p=>phOut(p)&&migP.has(p.id)),'#F59E0B'],
+    ['nosucc','Phasing out with no successor mapped',pIds(p=>['nrnd','ltb','eol'].includes(phase(p))&&!S.data.transitions.some(t=>t.from_product_id===p.id)),'#F59E0B'],
     ['eol','Already end of life',pIds(p=>phase(p)==='eol'),'#6B7280']];
 }
 const IDEA_OPEN=['new','under_review','needs_info','accepted','in_progress'];
 const DIST=[['active','Active'],['dev','In development'],['pipeline','Evaluating / onboarding'],['phasing','Phasing out'],['ltb','Last-time buy'],['eol','End of life'],['rejected','Not onboarded']];
 const DIST_INK={eol:'#141923',rejected:'#141923'};
+/* ---------- v2.11: Portfolio summary (health score, donut, cards), Upcoming panel, owners, Products and Transitions pages ---------- */
+/* Portfolio health = average of five plain parts (each 0–100 %); follows the filters except Lifecycle */
+function pfScore(ps){
+  const n=ps.length,pc=x=>Math.round(x*100);
+  if(!n)return{score:0,parts:[],act:0};
+  const act=ps.filter(p=>phase(p)==='active').length;
+  const risk=new Set(riskRows(ps).slice(0,3).flatMap(r=>r[2]));
+  const out=ps.filter(p=>['nrnd','ltb'].includes(phase(p))),cov=out.filter(p=>S.data.transitions.some(t=>t.from_product_id===p.id)).length;
+  const bySup={};ps.forEach(p=>{bySup[p.supplier_id]=(bySup[p.supplier_id]||0)+1});
+  const top=Math.max(...Object.values(bySup)),topS=Object.keys(bySup).find(k=>bySup[k]===top),share=top/n;
+  const mk=S.data.markets.filter(m=>m.status!=='considering').map(m=>m.name);
+  const mOk=mk.filter(m=>ps.filter(p=>phase(p)==='active'&&(p.markets||[]).includes(m)).length>=3);
+  const parts=[
+    {l:'Active share',v:pc(act/n),d:`${act} of ${n} products are Active`},
+    {l:'Not at risk',v:pc(1-risk.size/n),d:`${risk.size} product${risk.size===1?' is':'s are'} at risk`},
+    {l:'Phase-out coverage',v:out.length?pc(cov/out.length):100,d:out.length?`${cov} of ${out.length} phasing-out products have a successor`:'No products are phasing out'},
+    {l:'Supplier spread',v:share<=.5?100:pc((1-share)/.5),d:`Largest supplier: ${byId('suppliers',topS)?.name||'—'}, ${pc(share)}% of products`},
+    {l:'Market coverage',v:mk.length?pc(mOk.length/mk.length):100,d:mk.length?`${mOk.length} of ${mk.length} active markets have 3 or more Active products`:'No active markets set'}];
+  return{score:Math.round(parts.reduce((a,p)=>a+p.v,0)/parts.length),parts,act};
+}
+const hLvl=s=>s>=75?['Good','#16A34A']:s>=50?['Fair','#D97706']:['Needs attention','#DC2626'];
+const ICO_UP='<rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M8 14h3M8 17h6"/>';
 function pfSummary(){
   // like the old tiles: follow every filter except Lifecycle, so the whole lifecycle picture stays visible
-  const ps=S.data.products.filter(p=>passes(p,'ph')),tot=ps.length,act=ps.filter(p=>phase(p)==='active').length,pct=tot?Math.round(act/tot*100):0;
-  const R=riskRows(ps),risk=[...new Set(R.slice(0,3).flatMap(r=>r[2]))];
+  const ps=S.data.products.filter(p=>passes(p,'ph')),tot=ps.length;
+  const risk=[...new Set(riskRows(ps).slice(0,3).flatMap(r=>r[2]))];
   S.hsets={...(S.hsets||{}),atrisk:{l:'At risk (needs action)',ids:risk}};
-  const trn=tvItems().filter(TV_KPI.active).length,ide=(S.data.ideas||[]).filter(i=>IDEA_OPEN.includes(i.status)).length;
-  const C=2*Math.PI*26,ring=`<svg class="pfr" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26"/><circle class="on" cx="32" cy="32" r="26" stroke-dasharray="${C*pct/100} ${C}"/><text x="32" y="37">${pct}%</text></svg>`;
-  const card=(act,arg,ico,c,l,n,sub)=>`<button class="pfc" data-act="${act}" data-arg="${arg}"><span class="pfi" style="--c:${c}">${ic(ico)}</span><span class="grow"><span class="pfl">${l}</span><b>${n}</b><span class="mut">${sub}</span></span><i class="car rt"></i></button>`;
-  const cards=`<div class="pfcards"><div class="pfc pfh">${ring}<span class="grow"><span class="pfl">Portfolio health <span class="hinfo" title="Share of products (after the current filters, except Lifecycle) that are Active">i</span></span><span class="mut">${act} of ${tot} products active</span></span></div>`
-    +card('hset','atrisk',I.warn,'#C92C32','At risk',risk.length,'Products requiring action')
-    +card('statgo','mig','<path d="M4 8h13l-3-3M20 16H7l3 3"/>','#1263BD','Transitions',trn,'Active replacements &amp; migrations')
-    +card('tab','ideas','<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>','#2377D4','Ideas',ide,'Product opportunities in pipeline')+`</div>`;
-  if(S.rmView==='health')return cards;
+  const trn=tvItems().filter(x=>x.st!=='complete').length,ide=(S.data.ideas||[]).filter(i=>IDEA_OPEN.includes(i.status)).length;
+  S.upN=upcoming(12,new Set(filtered().map(p=>p.id))).length;
+  const H=pfScore(ps),[lv,lc]=hLvl(H.score),C=2*Math.PI*26;
+  const ring=`<svg class="pfr" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26"/><circle class="on" cx="32" cy="32" r="26" stroke-dasharray="${C*H.score/100} ${C}"/><text x="32" y="37">${tot?H.score+'%':'—'}</text></svg>`;
+  const health=`<button class="pfc pfh" id="pfhc" data-act="hpop" title="How the score works">${ring}<span class="grow"><span class="pfl">Portfolio health <span class="hinfo">i</span></span>
+    ${tot?`<span class="pflv" style="color:${lc}">${lv}</span><span class="mut">${H.act} of ${tot} products active</span>`:'<span class="mut">No products</span>'}</span></button>`;
   const cnt=Object.fromEntries(DIST.map(([k])=>[k,ps.filter(p=>PHG_OF[phase(p)]===k).length]));
-  const segs=DIST.filter(([k])=>cnt[k]),sel=S.F.ph;
-  const bar=segs.map(([k,l])=>{const n=cnt[k],w=n/tot*100,c=PHC[k],on=!sel.length||sel.includes(k);
-    return`<button class="dseg ${on?'':'off'}" style="flex:${n} 1 0;background:${c};color:${DIST_INK[k]||'#fff'}" data-act="dseg" data-arg="${k}" title="${l}: ${n} (${Math.round(w)}%)">${w>=7?`${Math.round(w)}% (${n})`:''}</button>`}).join('');
-  const leg=segs.map(([k,l])=>`<button class="dl ${!sel.length||sel.includes(k)?'':'off'}" data-act="dseg" data-arg="${k}"><i style="background:${PHC[k]}"></i>${l}: ${cnt[k]} (${Math.round(cnt[k]/tot*100)}%)</button>`).join('');
-  return cards+`<section class="card pfd"><div class="pfdh"><h3>Lifecycle distribution <span class="hinfo" title="Click a segment to show only that stage; click again to show all">i</span></h3><span class="mut">${tot} total products</span></div>
-    <div class="pfdb">${tot?bar:'<span class="mut">No products</span>'}</div><div class="pfdl">${leg}</div></section>`;
+  const segs=DIST.filter(([k])=>cnt[k]),sel=S.F.ph,R2=38,C2=2*Math.PI*R2;let off=0;
+  const arcs=segs.map(([k,l])=>{const f=cnt[k]/tot,len=C2*f,on=!sel.length||sel.includes(k);
+    const s=`<circle class="dsg ${on?'':'off'}" cx="50" cy="50" r="${R2}" stroke="${PHC[k]}" stroke-dasharray="${Math.max(.01,len-(segs.length>1?1.2:0))} ${C2}" stroke-dashoffset="${-off}" data-act="dseg" data-arg="${k}"><title>${l}: ${cnt[k]} (${Math.round(f*100)}%)</title></circle>`;off+=len;return s}).join('');
+  const donut=`<svg class="pfdn" viewBox="0 0 100 100" role="img" aria-label="Lifecycle distribution"><g transform="rotate(-90 50 50)"><circle class="bgc" cx="50" cy="50" r="${R2}"/>${arcs}</g><text x="50" y="50" class="dn1">${tot}</text><text x="50" y="62" class="dn2">Products</text></svg>`;
+  const leg=segs.map(([k,l])=>`<button class="dl ${!sel.length||sel.includes(k)?'':'off'}" data-act="dseg" data-arg="${k}"><i style="background:${PHC[k]}"></i><span class="grow">${l}</span><b>${cnt[k]}</b><span class="mut">(${Math.round(cnt[k]/tot*100)}%)</span></button>`).join('');
+  const dist=`<section class="pfc pfdc"><h3>${ic(I.mkt)} Lifecycle distribution <span class="hinfo" title="Click a stage to show only that stage; click again to show all">i</span></h3><div class="pfdw">${tot?donut:''}<div class="pfdl2">${leg||'<span class="mut">No products</span>'}</div></div></section>`;
+  const card=(act,arg,ico,c,l,n,sub)=>`<button class="pfc pfsm" data-act="${act}" data-arg="${arg}"><span class="pfi" style="--c:${c}">${ic(ico)}</span><span class="grow"><span class="pfl">${l}</span><b>${n}</b><span class="mut">${sub}</span></span><i class="car rt"></i></button>`;
+  const mini=`<div class="pfmini">${card('hset','atrisk',I.warn,'#DC2626','At risk',risk.length,'Products requiring action')
+    +card('tab','ideas','<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>','#2563EB','Ideas',ide,'Opportunities in pipeline')
+    +card('statgo','mig','<path d="M4 8h13l-3-3M20 16H7l3 3"/>','#2563EB','Transitions',trn,'Active replacements')
+    +card('upopen','',ICO_UP,'#D97706','Upcoming',S.upN,'Dates in the next 12 months')}</div>`;
+  return`<div class="pfrow">${health}${dist}${mini}</div>`;
 }
+/* the health breakdown (click the Portfolio health card) */
+function renderHpop(){
+  const el=$('#pfpop');if(!el)return;if(!S.hpop){el.innerHTML='';return}
+  const H=pfScore(S.data.products.filter(p=>passes(p,'ph'))),[lv,lc]=hLvl(H.score);
+  el.innerHTML=`<div class="umenu-bg" data-act="hpclose"></div><div class="umenu hpop" role="dialog" aria-label="Portfolio health"><div class="hph"><b>Portfolio health · ${H.score}%</b><span style="color:${lc};font-weight:650">${lv}</span></div>
+    ${H.parts.map(p=>`<div class="hpr"><div class="hprt"><span>${esc(p.l)}</span><b>${p.v}%</b></div><i class="hpb"><b style="width:${p.v}%;background:${hLvl(p.v)[1]}"></b></i><span class="mut">${esc(p.d)}</span></div>`).join('')}
+    <div class="mut hpf">The score is the average of these five parts. It follows the current search and filters, except Lifecycle.</div></div>`;
+  const m=el.querySelector('.hpop'),b=$('#pfhc');if(b&&wide()){const r=b.getBoundingClientRect();m.style.top=(r.bottom+6)+'px';m.style.right='auto';m.style.left=Math.max(12,Math.min(r.left,innerWidth-m.offsetWidth-12))+'px'}
+}
+/* "Next 12 months" side panel (was a section under the timeline) */
+function renderUp(){
+  const el=$('#updr');if(!el)return;if(!S.updr){el.innerHTML='';return}
+  const up=upcoming(12,new Set(filtered().map(p=>p.id)));
+  el.innerHTML=`<div class="drw-bg" data-act="upclose"></div><aside class="drw" role="dialog" aria-label="Next 12 months"><div class="drwh"><div class="grow"><h3>Next 12 months</h3><span class="mut">${up.length} date${up.length===1?'':'s'} and event${up.length===1?'':'s'} · follows the current search and filters</span></div>
+    ${canEdit()?`<button class="btn sm" data-act="new" data-arg="events">+ Event</button>`:''}<button class="xbtn" data-act="upclose" aria-label="Close">${ic('<path d="M6 6l12 12M18 6 6 18"/>')}</button></div>
+    <div class="drwb">${up.length?up.map(upItem).join(''):'<div class="empty">Nothing scheduled in the next 12 months.</div>'}</div></aside>`;
+}
+const upBtn=()=>`<button class="btn tb upb" data-act="upopen" title="Dates and events in the next 12 months">${ic(ICO_UP)}<span>Upcoming</span><span class="fcnt" id="upn">${S.upN??''}</span></button>`;
+
+/* owners (a name or an email, free text) */
+const ownIni=o=>{const s=String(o||'').trim(),b=s.includes('@')?s.split('@')[0].split(/[._-]+/):s.split(/\s+/);return b.filter(Boolean).map(w=>w[0]).join('').slice(0,2).toUpperCase()||'?'};
+const ownName=o=>{const s=String(o||'').trim();return s.includes('@')?s.split('@')[0].split(/[._-]+/).filter(Boolean).map(w=>w[0].toUpperCase()+w.slice(1)).join(' '):s};
+const ownerChip=o=>o?`<span class="own" title="${esc(o)}"><i>${esc(ownIni(o))}</i><span>${esc(ownName(o))}</span></span>`:'<span class="mut">—</span>';
+const ownerList=()=>[...new Set([...S.data.products.map(p=>p.owner),...S.data.transitions.map(t=>t.owner),S.mode==='live'?S.user?.email:null].filter(Boolean))].sort();
+const ownDL=()=>`<datalist id="ownl">${ownerList().map(o=>`<option value="${esc(o)}">`).join('')}</datalist>`;
+SHEETS.setowner=e=>{
+  const n=e.items.length;
+  return{title:'Set owner',body:`<form id="ownfrm"><p class="mut" style="margin-top:0">${n} ${e.noun}${n===1?'':'s'} selected.</p>
+    <div class="field"><label class="l">Owner (name or email)</label><input name="owner" list="ownl" autocomplete="off" maxlength="120" placeholder="e.g. Sarah Tran">${ownDL()}</div>
+    <button class="btn pri block" name="go" value="set">Set owner</button><button class="btn block" name="go" value="clear">Remove owner</button></form>`};
+};
+async function ownSubmit(f,sub){
+  const top=S.stack[S.stack.length-1];if(!top||top.type!=='setowner')return;
+  const v=sub?.value==='clear'?null:String(new FormData(f).get('owner')||'').trim()||null;
+  if(sub?.value!=='clear'&&!v)return toast('Enter a name or an email.');
+  try{for(const it of top.items)await save(it.table,{id:it.id,owner:v});
+    S.stack.pop();renderSheet();toast(v?`Owner set for ${top.items.length}`:'Owner removed');
+    if(S.tab==='transitions'){S.tvsel?.clear();tvRefresh()}else{S.psel?.clear();refreshResults()}}
+  catch(err){toast(errMsg(err))}
+}
+
+/* shared pager: rows per page and page buttons */
+function pager2(n,pp,pg,act,selId,noun,sizes){
+  if(!n)return'';const pages=pp?Math.max(1,Math.ceil(n/pp)):1,a=pp?pg*pp+1:1,b=pp?Math.min(n,pg*pp+pp):n;
+  let nums=[];if(pages<=7)nums=[...Array(pages).keys()];else{nums=[0];const lo=Math.max(1,pg-1),hi=Math.min(pages-2,pg+1);if(lo>1)nums.push('…');for(let i=lo;i<=hi;i++)nums.push(i);if(hi<pages-2)nums.push('…');nums.push(pages-1)}
+  const btn=i=>i==='…'?'<span class="pgd">…</span>':`<button class="pgb ${i===pg?'on':''}" data-act="${act}" data-arg="${i}">${i+1}</button>`;
+  return`<div class="pager"><span class="mut">Showing ${a}–${b} of ${n} ${noun}${n===1?'':'s'}</span><span class="hsp"></span>
+    <label class="sel">Rows per page <select id="${selId}">${sizes.map(v=>`<option value="${v}" ${pp===v?'selected':''}>${v||'All'}</option>`).join('')}</select></label>
+    ${pages>1?`<span class="pgs"><button class="pgb" data-act="${act}" data-arg="${pg-1}" ${pg?'':'disabled'} aria-label="Previous page">‹</button>${nums.map(btn).join('')}<button class="pgb" data-act="${act}" data-arg="${pg+1}" ${pg<pages-1?'':'disabled'} aria-label="Next page">›</button></span>`:''}</div>`;
+}
+const ckBox=(chg,id,on,lbl)=>`<input type="checkbox" class="rck" data-change="${chg}" ${id?`data-id="${esc(id)}"`:''} ${on?'checked':''} aria-label="${esc(lbl)}">`;
+
+/* ---------- Products page ---------- */
+const PSORT=[['updated','Last updated'],['name','Name A–Z'],['lifecycle','Lifecycle stage'],['cat','Category'],['next','Next milestone'],['owner','Owner'],['supplier','Supplier']];
+function prodSorted(L){
+  const k=S.psort||'updated',lcI=p=>LIFECYCLE.findIndex(x=>x.k===phase(p)),CO=CATEGORIES.map(c=>c[0]),nm=(a,b)=>a.part_number.localeCompare(b.part_number,undefined,{numeric:true});
+  const f={updated:(a,b)=>String(b.updated_at||'').localeCompare(String(a.updated_at||'')),name:nm,lifecycle:(a,b)=>lcI(a)-lcI(b),cat:(a,b)=>CO.indexOf(a.category)-CO.indexOf(b.category),
+    next:(a,b)=>String(nextMs(a)?.date||'9999').localeCompare(String(nextMs(b)?.date||'9999')),owner:(a,b)=>(a.owner?0:1)-(b.owner?0:1)||ownName(a.owner).localeCompare(ownName(b.owner)),
+    supplier:(a,b)=>String(sup(a)?.name||'').localeCompare(String(sup(b)?.name||''))}[k]||nm;
+  const R=L.slice().sort((a,b)=>f(a,b)||nm(a,b));return S.pdir<0?R.reverse():R;
+}
+const catChip2=p=>`<span class="pcat">${ic(CATICO[p.category]||CATICO.other)}${esc(CATS1[p.category]||'Other')}</span>`;
+function prodTable2(L){
+  const sel=S.psel,all=L.length&&L.every(p=>sel.has(p.id)),k=S.psort||'updated';
+  const H=[['name','Product'],['owner','Owner'],['lifecycle','Lifecycle stage'],['cat','Category'],['supplier','Supplier'],['next','Next milestone'],['updated','Last updated']];
+  const th=H.map(([c,l])=>`<th class="srt ${k===c?'on':''} pc-${c}" data-act="psortc" data-arg="${c}">${l}${k===c?(S.pdir<0?' ↓':' ↑'):''}</th>`).join('');
+  const tr=p=>`<tr data-act="product" data-id="${p.id}" class="${sel.has(p.id)?'rsel':''}"><td class="ckc" data-act="noop">${ckBox('psel',p.id,sel.has(p.id),'Select '+p.part_number)}</td>
+    <td class="pcol"><div class="pcw">${catIc(p,'md')}<div class="pnm"><b title="${esc(p.name)}">${esc(p.part_number)}</b>${pnSel(p)}</div></div></td>
+    <td class="pc-owner">${ownerChip(p.owner)}</td><td>${badge(phase(p))}</td><td>${catChip2(p)}</td>
+    <td class="psup pc-supplier">${sup(p)?`<span class="supn">${ic(I.bld)}${esc(sup(p).name)}</span>`:'<span class="mut">—</span>'}</td>
+    <td class="pc-next">${nmCell(p)}</td><td class="pupd pc-updated">${p.updated_at?fmt(String(p.updated_at).slice(0,10)):'—'}</td>
+    <td class="pact"><button class="cxm rmm" data-act="rmmenu" data-id="${p.id}" aria-label="More actions">${ic(ICO_DOTS)}</button></td></tr>`;
+  return`<div class="ptw"><table class="ptab ptab2"><thead><tr><th class="ckc">${ckBox('pselall','',all,'Select all on this page')}</th>${th}<th></th></tr></thead><tbody>${L.map(tr).join('')}</tbody></table></div>`;
+}
+function prodBody(ps,pills){
+  const sel=S.psel||(S.psel=new Set());[...sel].forEach(id=>{if(!byId('products',id))sel.delete(id)});
+  let L=S.incOnly?ps.filter(p=>completeness(p).ratio<1):ps;L=prodSorted(L);
+  const miss=ps.filter(p=>completeness(p).ratio<1).length,table=wide()&&S.pView!=='cards',n=L.length,pp=S.ppp??25,pages=pp?Math.max(1,Math.ceil(n/pp)):1;
+  S.ppg=Math.min(S.ppg||0,pages-1);const page=pp?L.slice(S.ppg*pp,S.ppg*pp+pp):L;
+  const bar=`<div class="lbar pbar2"><label class="tg"><input type="checkbox" data-change="incOnly" ${S.incOnly?'checked':''}> Missing data only <span class="mut">(${miss})</span></label><span class="hsp"></span>
+    <label class="sel">Sort by <select id="psort">${PSORT.map(([v,l])=>`<option value="${v}" ${(S.psort||'updated')===v?'selected':''}>${l}</option>`).join('')}</select></label><span class="mut pcount">${n} product${n===1?'':'s'}</span></div>`;
+  const bulk=sel.size?`<div class="bulk"><b>${sel.size} selected</b><button class="btn sm" data-act="pbcmp">${ic(ICO_CMP)} Compare</button><button class="btn sm" data-act="pbcsv">${ic(I.dl)} Export CSV</button>${canEdit()?`<button class="btn sm" data-act="pbown">${ic(CXI.sup)} Set owner</button>`:''}<button class="btn ghost sm" data-act="pbclr">Clear selection</button></div>`:'';
+  const body=!n?'<div class="card empty">No products match these filters.</div>':table?prodTable2(page):`<div class="pcards">${page.map(pcard).join('')}</div>`;
+  return pills+bar+bulk+body+pager2(n,pp,S.ppg,'ppg','ppp','product',[25,50,100,0]);
+}
+
+/* ---------- Transitions page ---------- */
+const tvOwn=x=>x.t?x.t.owner:x.a.owner;
+function tvProg(x){
+  if(x.t&&x.t.progress!=null&&x.t.progress!=='')return{v:Math.max(0,Math.min(100,+x.t.progress)),src:'Set by hand'};
+  if(x.cps.length)return{v:Math.round(x.done/x.cps.length*100),src:`From customer migrations: ${x.done} of ${x.cps.length} moved`};
+  if(x.st==='complete')return{v:100,src:'Complete'};
+  return null;
+}
+const tvProgHTML=x=>{const p=tvProg(x);return p?`<div class="tvpg" title="${esc(p.src)}"><span>${p.v}%</span><i><b style="width:${p.v}%"></b></i></div>`:'<span class="mut">—</span>'};
+const TVSORT=[['date','Key date (earliest)'],['date_d','Key date (latest)'],['src','Source product A–Z'],['status','Status'],['prog','Progress (high to low)'],['owner','Owner']];
+const TV_PILLS=['planned','in_progress','at_risk','not_started','phasing','complete'];
+function tvKpis(){
+  const L=tvItems().filter(x=>tvPass(x,'st')),n=k=>L.filter(x=>x.st===k).length,cur=S.tv.st.length===1?S.tv.st[0]:null;
+  const pill=(k,l,i,c,cnt,on)=>`<button class="tvsp ${on?'on':''} ${k==='all'?'all':''}" data-act="tvstp" data-arg="${k}" style="--c:${c}">${i?ic(i):''}<span>${l} · ${cnt}</span></button>`;
+  return`<b class="tvsbt">Transitions by status</b><div class="tvsps">${pill('all','All',null,'#141923',L.length,!S.tv.st.length)}`
+    +TV_PILLS.map(k=>{const m=TV_STM[k],c=n(k);return c||['planned','in_progress','at_risk','complete'].includes(k)?pill(k,m.l,m.i,m.c,c,S.tv.st.includes(k)&&S.tv.st.length===1):''}).join('')+`</div>`;
+}
+function tvFctl(){
+  const n=tvCount();
+  return`<button class="btn tb ${S.tvpop==='all'?'open':''}" data-act="tvpop" data-arg="all">${ic('<path d="M3 5h18l-7 8.5V19l-4 2v-7.5z"/>')} Filters${n?`<span class="fcnt">${n}</span>`:''}</button>`
+    +`<label class="sel isortw tvsortw"><span>Sort:</span><select id="tvsort">${TVSORT.map(([v,l])=>`<option value="${v}" ${(S.tv.sort||'date')===v?'selected':''}>${l}</option>`).join('')}</select></label>`
+    +(tvActive()?'<button class="btn ghost sm clr" data-act="tvclr">Clear all</button>':'');
+}
+function tvList(){
+  const k=S.tv.sort||'date',pn=x=>x.a.part_number,key=x=>tvKey(x)==='9999'?null:tvKey(x);
+  const f={date:(p,q)=>(p.st==='complete')-(q.st==='complete')||tvKey(p).localeCompare(tvKey(q)),
+    date_d:(p,q)=>(key(p)?0:1)-(key(q)?0:1)||String(key(q)||'').localeCompare(String(key(p)||'')),
+    src:(p,q)=>pn(p).localeCompare(pn(q),undefined,{numeric:true}),status:(p,q)=>TV_ORD[p.st]-TV_ORD[q.st],
+    prog:(p,q)=>(tvProg(q)?.v??-1)-(tvProg(p)?.v??-1),owner:(p,q)=>(tvOwn(p)?0:1)-(tvOwn(q)?0:1)||ownName(tvOwn(p)).localeCompare(ownName(tvOwn(q)))}[k]||(()=>0);
+  return tvItems().filter(x=>tvPass(x)).sort((p,q)=>f(p,q)||TV_ORD[p.st]-TV_ORD[q.st]||pn(p).localeCompare(pn(q)));
+}
+function tvResults(){
+  const L=tvList(),all=tvItems().length,sel=S.tvsel||(S.tvsel=new Set());
+  const ids=new Set(tvItems().map(x=>x.id));[...sel].forEach(id=>{if(!ids.has(id))sel.delete(id)});
+  if(!all)return'<div class="card empty">No transitions yet. Create one to map an outgoing product to its successor.</div>';
+  if(!L.length)return tvPills()+'<div class="card empty">No transitions match these filters.</div>';
+  if(S.tv.view==='timeline')return tvPills()+tvTimeline(L)+`<div class="mut tvfoot">Showing ${L.length} of ${all} transition${all===1?'':'s'}</div>`;
+  const pp=S.tvpp??25,pages=pp?Math.max(1,Math.ceil(L.length/pp)):1;S.tvpg=Math.min(S.tvpg||0,pages-1);const page=pp?L.slice(S.tvpg*pp,S.tvpg*pp+pp):L;
+  const bulk=sel.size?`<div class="bulk"><b>${sel.size} selected</b><button class="btn sm" data-act="tvbcsv">${ic(I.dl)} Export CSV</button>${canEdit()?`<button class="btn sm" data-act="tvbown">${ic(CXI.sup)} Set owner</button>`:''}<button class="btn ghost sm" data-act="tvbclr">Clear selection</button></div>`:'';
+  return tvPills()+bulk+(wide()?tvTable(page):`<div class="tvcards">${page.map(tvCard).join('')}</div>`)+pager2(L.length,pp,S.tvpg,'tvpg','tvpp','transition',[10,25,50,0]);
+}
+function tvTable(L){
+  const sel=S.tvsel,all=L.length&&L.every(x=>sel.has(x.id));
+  return`<div class="card tvtab"><table class="ptab tvt tvt2"><thead><tr><th class="ckc">${ckBox('tvselall','',all,'Select all on this page')}</th><th>Source product<small>Current</small></th><th></th><th>Target product<small>Replacement / successor</small></th><th>Status</th><th class="tvown">Owner</th><th>Timeline</th><th class="tvpgh">Progress</th><th></th></tr></thead><tbody>${L.map(x=>`<tr ${tvOpen(x)} class="${sel.has(x.id)?'rsel':''}">
+    <td class="ckc" data-act="noop">${ckBox('tvsel',x.id,sel.has(x.id),'Select '+x.a.part_number)}</td>
+    <td>${tvProd(x.a)}</td><td class="tvac"><span class="tvarr">→</span>${tvChip(TV_TYPEM[x.type],'tvty sm')}</td><td>${tvProd(x.b)}</td>
+    <td>${tvChip(TV_STM[x.st],'tvst')}${tvCust(x)}</td><td class="tvown">${ownerChip(tvOwn(x))}</td><td>${tvDatesHTML(x)}</td><td>${tvProgHTML(x)}</td><td>${tvMenuBtn(x)}</td></tr>`).join('')}</tbody></table></div>`;
+}
+function tvCard(x){
+  return`<div class="card tvcard" ${tvOpen(x)}><div class="tvch">${tvChip(TV_STM[x.st],'tvst')}${tvCust(x)}<span class="hsp"></span>${tvMenuBtn(x)}</div>
+    <div class="tvcp">${tvProd(x.a)}<div class="tvcm"><span class="tvarr">↓</span>${tvChip(TV_TYPEM[x.type],'tvty')}</div>${tvProd(x.b)}</div>
+    ${tvDatesHTML(x)}<div class="tvcf">${ownerChip(tvOwn(x))}<span class="hsp"></span>${tvProgHTML(x)}</div></div>`;
+}
+
+Object.assign(A,{
+ hpop:()=>{S.hpop=!S.hpop;renderHpop()},hpclose:()=>{S.hpop=false;renderHpop()},
+ upopen:()=>{S.hpop=false;renderHpop();S.updr=true;renderUp()},upclose:()=>{S.updr=false;renderUp()},
+ psortc:(id,k)=>{if((S.psort||'updated')===k)S.pdir=(S.pdir||1)*-1;else{S.psort=k;S.pdir=1}S.ppg=0;refreshResults()},
+ ppg:(id,k)=>{S.ppg=Math.max(0,+k);S._keepPage=true;refreshResults();$('#results')?.scrollIntoView({block:'start'})},
+ pbclr:()=>{S.psel.clear();refreshResults()},
+ pbcmp:()=>{const ids=[...S.psel];if(!ids.length)return;S.cmp.ids=ids;S.cmp.saved=null;S.cmp.view='cmp';S.psel.clear();S.tab='compare';S.stack=[];saveView();renderAll();window.scrollTo(0,0)},
+ pbcsv:()=>{const keep=S.rows,inc=S.incOnly;S.rows=S.data.products.filter(p=>S.psel.has(p.id));S.incOnly=false;exportCSV();S.rows=keep;S.incOnly=inc},
+ pbown:()=>push({type:'setowner',noun:'product',items:[...S.psel].map(id=>({table:'products',id}))}),
+ tvstp:(id,k)=>{S.tv.st=k==='all'||(S.tv.st.length===1&&S.tv.st[0]===k)?[]:[k];S.tvpg=0;tvRefresh()},
+ tvpg:(id,k)=>{S.tvpg=Math.max(0,+k);tvRefresh();$('#tvres')?.scrollIntoView({block:'start'})},
+ tvbclr:()=>{S.tvsel.clear();tvRefresh()},
+ tvbcsv:()=>tvCSV(new Set(S.tvsel)),
+ tvbown:()=>{const L=tvItems().filter(x=>S.tvsel.has(x.id));push({type:'setowner',noun:'transition',items:L.map(x=>x.t?{table:'transitions',id:x.t.id}:{table:'products',id:x.a.id})})}
+});
+document.addEventListener('change',e=>{const t=e.target;
+  if(t.id==='psort'){S.psort=t.value;S.pdir=1;S.ppg=0;refreshResults();return}
+  if(t.id==='ppp'){S.ppp=+t.value;S.ppg=0;refreshResults();return}
+  if(t.id==='tvsort'){S.tv.sort=t.value;S.tvpg=0;tvRefresh();return}
+  if(t.id==='tvpp'){S.tvpp=+t.value;S.tvpg=0;tvRefresh();return}
+  const c=t.dataset?.change;if(!c)return;
+  if(c==='psel'){const s=S.psel;t.checked?s.add(t.dataset.id):s.delete(t.dataset.id);refreshResults();return}
+  if(c==='pselall'){const ids=[...document.querySelectorAll('.ptab2 tbody .rck')].map(x=>x.dataset.id);ids.forEach(id=>t.checked?S.psel.add(id):S.psel.delete(id));refreshResults();return}
+  if(c==='tvsel'){const s=S.tvsel;t.checked?s.add(t.dataset.id):s.delete(t.dataset.id);tvRefresh();return}
+  if(c==='tvselall'){const ids=[...document.querySelectorAll('.tvt2 tbody .rck')].map(x=>x.dataset.id);ids.forEach(id=>t.checked?S.tvsel.add(id):S.tvsel.delete(id));tvRefresh();return}
+});
+
+// an item or "+ Event" in the Upcoming panel opens a dialog: close the panel first so the dialog is on top
+document.addEventListener('click',e=>{const a=e.target.closest?.('.drwb [data-act], .drwh [data-act=new]');if(a&&S.updr)setTimeout(()=>{S.updr=false;renderUp()},0)},true);
+
 function rmSwitch(){
   const seg=[['timeline','Timeline',ICO_TL],['list','List',ICO_LIST],['health','Health',ic('<path d="M5 20V11M10 20V5M15 20v-7M20 20V8"/>')]];
   return`<div class="segc vsw tsw">${seg.map(([k,l,i])=>`<button class="${S.rmView===k?'on':''}" data-act="rmview" data-arg="${k}">${i} ${l}</button>`).join('')}</div>`;
