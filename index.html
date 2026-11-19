@@ -1025,6 +1025,18 @@ body:not(.wide) #tvctl{flex:1 1 100%}body:not(.wide) .tbar .tsearch{flex:1 1 100
 .badge.lcb{background:var(--c);color:var(--k)}
 .badge.lcdev{background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.28) 0 3px,transparent 3px 7px)}
 @media (prefers-color-scheme:dark){.badge.lcb{color:var(--k)}}
+/* Portfolio card: one header row (v2.12.1) */
+.plh .plt{flex:0 1 auto;min-width:0}
+.plh .tbar{flex:1 1 720px;margin:0;flex-wrap:nowrap;min-width:0}
+.plh .tbar .tsearch{min-width:170px}
+.plh .fctl{flex-wrap:nowrap}
+.plh .fctl .clr{display:none} /* the "Filtered:" row under the header has its own Clear all */
+.plh .tbar .tsw{margin-left:0}
+.plh .tbar .upb{flex:none}
+.swg{display:inline-flex;align-items:center;gap:12px;font-size:12.5px}
+.sw.sm{gap:6px}.sw.sm i{width:28px;height:16px;border-radius:8px}.sw.sm i::after{width:12px;height:12px}.sw.sm input:checked+i::after{left:14px}
+body:not(.wide) .popts .hsp{display:none}
+body:not(.wide) .plh .tbar{flex-wrap:wrap}
 </style>
 </head>
 <body>
@@ -1033,7 +1045,7 @@ body:not(.wide) #tvctl{flex:1 1 100%}body:not(.wide) .tbar .tsearch{flex:1 1 100
 <div id="toast"></div>
 <script>
 /* App version: bump on every delivered change (major.minor.patch) and add a line to Version history in HANDOFF.md */
-const APP_VERSION='2.12.0',APP_BUILD='2026-11-18';
+const APP_VERSION='2.12.1',APP_BUILD='2026-11-18';
 /* =====================================================================
    CONFIG — paste your Supabase project URL and anon (public) key here.
    Leave blank to run in Demo mode (sample data stored on this device),
@@ -1538,12 +1550,12 @@ function fctl(){
   return`<button class="btn tb ${S.fpop==='all'?'open':''}" data-act="fpop" data-arg="all">${ic('<path d="M3 5h18l-7 8.5V19l-4 2v-7.5z"/>')} Filters${n?`<span class="fcnt">${n}</span>`:''}</button>`+
     (activeCount()?'<button class="btn ghost sm clr" data-act="fclrall">Clear all</button>':'');
 }
-function toolbar(){
+function toolbar(tail=''){
   const prod=S.tab==='products',v=prod?S.pView:S.rmView;
   const seg=prod?[['table','Table',ICO_LIST],['cards','Cards',ic(I.cards)]]:[['timeline','Timeline',ICO_TL],['list','List',ICO_LIST],['health','Health',ic('<path d="M5 20V11M10 20V5M15 20v-7M20 20V8"/>')]];
   const segH=(prod&&!wide())||!prod?'':`<div class="segc vsw tsw">${seg.map(([k,l,i])=>`<button class="${v===k?'on':''}" data-act="${prod?'pview':'rmview'}" data-arg="${k}">${i} ${l}</button>`).join('')}</div>`;
   return`<div class="tbar"><div class="tsearch">${ICO_SEARCH}<input id="q" type="search" placeholder="Search products, part number, supplier or market…" value="${esc(S.F.q)}" autocomplete="off"></div>
-    <div id="fctl" class="fctl">${fctl()}</div>${segH}<div id="fpop"></div></div>`;
+    <div id="fctl" class="fctl">${fctl()}</div>${segH}${tail}<div id="fpop"></div></div>`;
 }
 function renderFpop(){
   const el=$('#fpop');if(!el)return;if(!S.fpop){el.innerHTML='';return}
@@ -1585,7 +1597,7 @@ function kpis(){
 /* ---------- Portfolio & Products pages ---------- */
 function viewRoadmap(){
   const banners=`${S.mode==='demo'?`<div class="banner">You're viewing sample data on this device. Connect Supabase in <b data-act="tab" data-arg="more" style="text-decoration:underline">Settings</b> to share with your team.</div>`:''}`;
-  if(S.tab==='roadmap')return`${banners}<div id="kpis" class="pfs">${kpis()}</div><section class="card plcard"><div class="plh"><span class="plhi">${ic(I.mkt)}</span><div class="grow"><h2>Product lifecycle</h2><p class="mut">View products across their lifecycle, key dates, and upcoming transitions.</p></div>${upBtn()}${rmSwitch()}</div>${toolbar()}<div id="results">${roadmapResults()}</div></section><div id="rmmenu"></div><div id="pfpop"></div><div id="updr"></div>`+fab('products');
+  if(S.tab==='roadmap')return`${banners}<div id="kpis" class="pfs">${kpis()}</div><section class="card plcard"><div class="plh"><span class="plhi">${ic(I.mkt)}</span><div class="plt"><h2>Product lifecycle</h2><p class="mut">View products across their lifecycle, key dates, and upcoming transitions.</p></div>${toolbar(upBtn()+rmSwitch())}</div><div id="results">${roadmapResults()}</div></section><div id="rmmenu"></div><div id="pfpop"></div><div id="updr"></div>`+fab('products');
   return`${banners}${toolbar()}<div id="results">${roadmapResults()}</div><div id="rmmenu"></div>`+fab('products');
 }
 function viewProducts(){return viewRoadmap()}
@@ -1597,10 +1609,9 @@ const HZ=[['12','Next 12 months',4],['24','Next 2 years',6],['36','Next 3 years'
 const GROUPS=[['none','None'],['category','Category'],['supplier','Supplier'],['market','Market'],['lifecycle','Lifecycle']];
 function portfolioOpts(){
   const tl=S.rmView==='timeline',hl=S.rmView==='health';
-  return`<div class="popts">${wide()&&tl?`<span class="mut">Show product details:</span>
-    <label class="sw"><input type="checkbox" data-change="det" data-arg="sup" ${S.det.sup?'checked':''}><i></i>Supplier</label>
-    <label class="sw"><input type="checkbox" data-change="det" data-arg="mkt" ${S.det.mkt?'checked':''}><i></i>Market / Industry</label>`:''}
-    <span class="hsp"></span>
+  return`<div class="popts"><span class="hsp"></span>${wide()&&tl?`<span class="swg"><span class="mut">Show</span>
+    <label class="sw sm"><input type="checkbox" data-change="det" data-arg="sup" ${S.det.sup?'checked':''}><i></i>Supplier</label>
+    <label class="sw sm"><input type="checkbox" data-change="det" data-arg="mkt" ${S.det.mkt?'checked':''}><i></i>Market / Industry</label></span>`:''}
     ${hl?'':`<label class="sel">Group by <select id="grp">${GROUPS.map(([k,l])=>`<option value="${k}" ${S.f.group===k?'selected':''}>${l}</option>`).join('')}</select></label>`}
     ${tl||hl?`<label class="sel">Horizon <select id="hz">${HZ.map(([k,l])=>`<option value="${k}" ${S.hz===k?'selected':''}>${l}</option>`).join('')}${S.hz==='custom'?'<option value="custom" selected>Custom zoom</option>':''}</select></label>`:''}</div>`;
 }
