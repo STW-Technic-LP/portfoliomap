@@ -1033,7 +1033,7 @@ body:not(.wide) #tvctl{flex:1 1 100%}body:not(.wide) .tbar .tsearch{flex:1 1 100
 <div id="toast"></div>
 <script>
 /* App version: bump on every delivered change (major.minor.patch) and add a line to Version history in HANDOFF.md */
-const APP_VERSION='2.11.2',APP_BUILD='2026-11-18';
+const APP_VERSION='2.12.0',APP_BUILD='2026-11-18';
 /* =====================================================================
    CONFIG — paste your Supabase project URL and anon (public) key here.
    Leave blank to run in Demo mode (sample data stored on this device),
@@ -1417,16 +1417,29 @@ const LOGO='<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5 29 10.3
 // desktop menu position: 'top' (default) or 'left'. Kept on this device (pf_nav) and, when signed in, in roadmap.user_prefs so it follows the person
 S.nav=(()=>{try{return localStorage.getItem('pf_nav')==='left'?'left':'top'}catch(e){return'top'}})();
 S.prefs={};
+// appearance: 'light', 'dark' or 'system' (default). Kept on this device (pf_theme) and, when signed in, in roadmap.user_prefs (prefs.theme)
+// The stylesheet's dark rules are written as @media (prefers-color-scheme:dark); applyTheme() switches those media rules on, off or back to the system setting.
+const THEMES=[['light','Light'],['dark','Dark'],['system','System']];
+const DARK_RULES=(()=>{const out=[];for(const sh of document.styleSheets){let rs;try{rs=sh.cssRules}catch(e){continue}
+  for(const r of rs)if(r.media&&/prefers-color-scheme:\s*dark/.test(r.media.mediaText))out.push([r,r.media.mediaText])}return out})();
+S.theme=(()=>{try{const t=localStorage.getItem('pf_theme');return['light','dark'].includes(t)?t:'system'}catch(e){return'system'}})();
+function applyTheme(){
+  DARK_RULES.forEach(([r,orig])=>{r.media.mediaText=S.theme==='dark'?'all':S.theme==='light'?'not all':orig});
+  document.documentElement.dataset.theme=S.theme;
+}
+applyTheme();
+const themePick=()=>`<div class="segc vsw thsw" style="min-width:0">${THEMES.map(([k,l])=>`<button class="${S.theme===k?'on':''}" data-act="theme" data-arg="${k}">${l}</button>`).join('')}</div>`;
 function savePrefs(p){
   S.prefs={...S.prefs,...p};
   if(S.mode==='live'&&S.sb)S.sb.from('user_prefs').upsert({email:me(),prefs:S.prefs}).then(({error})=>{
-    if(error&&canEdit())toast('Menu position saved on this device only. Run 06_user_prefs.sql to keep it across devices.')});
+    if(error&&canEdit())toast('Saved on this device only. Run 06_user_prefs.sql to keep your settings across devices.')});
 }
 async function loadPrefs(){
   if(S.mode!=='live')return;
   try{const{data,error}=await S.sb.from('user_prefs').select('prefs').maybeSingle();
     if(error||!data)return;S.prefs=data.prefs||{};
-    if(['top','left'].includes(S.prefs.nav)){S.nav=S.prefs.nav;try{localStorage.setItem('pf_nav',S.nav)}catch(e){}}}catch(e){}
+    if(['top','left'].includes(S.prefs.nav)){S.nav=S.prefs.nav;try{localStorage.setItem('pf_nav',S.nav)}catch(e){}}
+    S.theme=['light','dark'].includes(S.prefs.theme)?S.prefs.theme:'system';try{localStorage.setItem('pf_theme',S.theme)}catch(e){}applyTheme()}catch(e){}
 }
 const initials=()=>{const n=S.mode==='live'?who(S.user?.email):'Demo';const w=n.split(' ').filter(Boolean);return((w[0]||'?')[0]+(w[1]?w[1][0]:'')).toUpperCase()};
 const fab=(table,def)=>canEdit()?`<button class="fab" data-act="new" data-arg="${table}" ${def?`data-def="${esc(JSON.stringify(def))}"`:''} aria-label="Add">+</button>`:'';
@@ -1461,6 +1474,7 @@ function umenuHTML(){
   return`<div class="umenu-bg" data-act="umclose"></div><div class="umenu" role="menu">
     <div class="uh"><b>${esc(S.mode==='live'?S.user?.email:'Demo mode')}</b><span class="mut">${S.mode==='live'?esc(S.role):'Sample data on this device'}</span></div>
     ${tempPw()?`<button class="mi upw" data-act="gopw"><span class="upwi">🔑</span><span class="grow"><b>Set your own password</b><span class="mut">You're using a temporary password</span></span></button>`:''}
+    <div class="ml">Appearance</div>${themePick()}
     ${wide()&&!document.body.classList.contains('solo')?`<div class="ml">Menu position</div>${menuPos()}`:''}
     ${mi('tab','more','more','Settings')}${isContrib()?'':mi('tab','customers','customers','Customers')}${S.mode==='live'?mi('signout','','signout','Sign out')+`<div class="uver">Portfolium v${APP_VERSION} · ${fmt(APP_BUILD)}</div>`:''}</div>`;
 }
@@ -1958,8 +1972,8 @@ function viewMore(){
   <div class="card"><div class="chips wrap">${S.data.markets.map(m=>`<button class="chip" data-act="edit" data-arg="markets" data-id="${m.id}">${esc(m.name)}${m.status==='considering'?' <span class="mut">· considering</span>':''}</button>`).join('')}</div></div>
   <div class="sec"><h2>Supplier notices & events</h2>${canEdit()?'<button class="btn ghost sm" data-act="new" data-arg="events">+ Add</button>':''}</div>
   ${ev.length?`<div class="card">${ev.map(e=>`<div class="ev" data-act="edit" data-arg="events" data-id="${e.id}"><div class="dt">${fmtMY(e.event_date)}</div><div class="grow"><b>${esc(e.title)}</b><div class="mut">${esc((EVK.find(k=>k[0]===e.kind)||[])[1]||'')}${e.product_id?' · '+esc(pnOf(e.product_id)):''}</div></div></div>`).join('')}</div>`:'<div class="card empty">No events yet.</div>'}`;
-  const display=`<div class="sec"><h2>Display</h2></div><div class="card"><label class="l">Menu position on a computer or tablet</label><div style="max-width:360px">${menuPos()}</div>
-    <div class="mut" style="font-size:12px;margin-top:8px">${S.mode==='live'?'Saved to your account, so it follows you to other devices.':'Saved on this device.'} Phones always use the bar at the bottom.</div></div>`;
+  const display=`<div class="sec"><h2>Display</h2></div><div class="card"><label class="l">Appearance</label><div style="max-width:360px;margin-bottom:14px">${themePick()}</div>${isContrib()?'':`<label class="l">Menu position on a computer or tablet</label><div style="max-width:360px">${menuPos()}</div>`}
+    <div class="mut" style="font-size:12px;margin-top:8px">${S.mode==='live'?'Saved to your account, so it follows you to other devices.':'Saved on this device.'}${isContrib()?'':' Phones always use the bar at the bottom.'} System follows the light or dark setting of your device.</div></div>`;
   return`<div class="narrow">${display}${isContrib()?`<div class="card" style="margin-top:12px"><b>Contributor access</b><div class="mut" style="margin-top:4px">You can submit ideas, add +1s, comment and follow ideas. Ask the product team if you need access to the roadmap.</div></div>`:''}${staffPart}
   ${S.mode==='live'?`<div class="sec" id="account"><h2>Your account</h2></div>
   <div class="card">${tempPw()?`<div class="banner" style="margin:0 0 12px">You're still using the password you were given. Set your own below.</div>`:''}
@@ -2132,6 +2146,8 @@ const A={
  csv:()=>exportCSV(),
  umenu:()=>{const m=$('#umenu');if(m)m.innerHTML=m.innerHTML?'':umenuHTML()},
  umclose:()=>{const m=$('#umenu');if(m)m.innerHTML=''},
+ theme:(id,arg)=>{S.theme=['light','dark'].includes(arg)?arg:'system';try{localStorage.setItem('pf_theme',S.theme)}catch(e){}applyTheme();savePrefs({theme:S.theme});
+   const open=!!$('#umenu .umenu');renderAll();if(open)$('#umenu').innerHTML=umenuHTML()},
  navpos:(id,arg)=>{S.nav=arg==='left'?'left':'top';try{localStorage.setItem('pf_nav',S.nav)}catch(e){}savePrefs({nav:S.nav});
    const open=!!$('#umenu .umenu');saveTl();renderAll();if(open)$('#umenu').innerHTML=umenuHTML()},
  refresh:async()=>{await reload();toast('Up to date')},
