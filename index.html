@@ -512,7 +512,7 @@ body:not(.wide) .msl{font-size:9.5px}
 .gantt .glegend .gl-today{width:2px;height:12px;background:var(--brand);border-radius:0}
 .gantt .glegend .gl-mark{width:0;height:12px;border-left:2px dashed #94a3b8;border-radius:0}
 .fpills{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 10px;font-size:12.5px}
-.fpill{border:1px solid var(--line);background:color-mix(in srgb,var(--acc) 10%,var(--card));color:var(--ink);border-radius:999px;padding:4px 10px;font-size:12.5px}
+/*old*/.fpill-old{border:1px solid var(--line);background:color-mix(in srgb,var(--acc) 10%,var(--card));color:var(--ink);border-radius:999px;padding:4px 10px;font-size:12.5px}
 .fpill:hover{border-color:var(--acc)}
 /* desktop & landscape */
 @media (min-width:900px), (orientation:landscape) and (min-width:700px){
@@ -605,7 +605,7 @@ body:not(.wide) .fpanel{position:fixed;left:12px;right:12px;top:50%;transform:tr
 .sw input{display:none}
 .sw i{width:34px;height:20px;border-radius:10px;background:var(--line);position:relative;transition:background .15s;flex:none}
 .sw i::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:left .15s}
-.sw input:checked+i{background:var(--brand)}.sw input:checked+i::after{left:16px}
+.sw input:checked+i{background:var(--pri)}.sw input:checked+i::after{left:16px}
 .sel{display:inline-flex;align-items:center;gap:8px;color:var(--mut);white-space:nowrap}
 .sel select{width:auto;padding:7px 32px 7px 10px;font-size:14px}
 .tl{--pcw:108px}
@@ -859,7 +859,7 @@ body:not(.wide) .tbar>.tsw{order:-1}body:not(.wide) .tbar>.hsp{display:none}
 .cxsph{font-size:12px;font-weight:650;color:var(--mut)}
 .cx3 .cxdsec:not(.open) tr.cxsec th,.cx3 .cxdsec:not(.open) tr.cxsec td{border-bottom:1px solid var(--line)}
 .cx3 tbody:last-child tr:last-child th,.cx3 tbody:last-child tr:last-child td{border-bottom:0}
-.cxw{max-height:none;min-height:0;overflow-x:auto;overflow-y:visible}
+.cxw{max-height:none;min-height:0;overflow-x:auto;overflow-y:visible;overscroll-behavior:auto}
 .cxval{margin-top:14px;padding:0;overflow:hidden}
 .cxvh{display:flex;align-items:center;gap:10px;width:100%;border:0;background:none;padding:14px 16px;text-align:left;color:var(--ink);cursor:pointer;font-size:14.5px}
 .cxvh:hover{background:var(--chip)}.cxvh .ic{width:16px;height:16px;transition:transform .15s}.cxval.open .cxvh .ic{transform:rotate(90deg)}
@@ -1022,9 +1022,10 @@ body:not(.wide) .pfdl2 .dl b,.pfdl2 .dl b{font-size:13.5px}
 .drw-bg{z-index:46}.drw{z-index:47}
 body:not(.wide) #tvctl{flex:1 1 100%}body:not(.wide) .tbar .tsearch{flex:1 1 100%}
 /* solid lifecycle badges (v2.11.2) */
-.badge.lcb{background:var(--c);color:var(--k)}
-.badge.lcdev{background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.28) 0 3px,transparent 3px 7px)}
-@media (prefers-color-scheme:dark){.badge.lcb{color:var(--k)}}
+.badge.lcb{background:color-mix(in srgb,var(--c) 16%,var(--card));color:var(--k);font-weight:700;box-shadow:none;border:0}
+.badge.lcb .ic{color:var(--k)}
+.badge.lcdev{background-image:repeating-linear-gradient(135deg,color-mix(in srgb,var(--c) 14%,transparent) 0 3px,transparent 3px 7px)}
+@media (prefers-color-scheme:dark){.badge.lcb{background:color-mix(in srgb,var(--c) 24%,var(--card));color:color-mix(in srgb,var(--c) 55%,#fff)}.badge.lcb .ic{color:inherit}}
 /* Portfolio card: one header row (v2.12.1) */
 .plh .plt{flex:0 1 auto;min-width:0}
 .plh .tbar{flex:1 1 720px;margin:0;flex-wrap:nowrap;min-width:0}
@@ -1037,6 +1038,284 @@ body:not(.wide) #tvctl{flex:1 1 100%}body:not(.wide) .tbar .tsearch{flex:1 1 100
 .sw.sm{gap:6px}.sw.sm i{width:28px;height:16px;border-radius:8px}.sw.sm i::after{width:12px;height:12px}.sw.sm input:checked+i::after{left:14px}
 body:not(.wide) .popts .hsp{display:none}
 body:not(.wide) .plh .tbar{flex-wrap:wrap}
+
+
+/* ---- v2.14: Portfolio card tool row ---- */
+.plh .tsw{margin-left:auto!important;width:auto}
+.pfbar{display:flex;align-items:center;flex-wrap:wrap;gap:10px 12px;margin:0 0 12px}
+.pfbar .tsearch{flex:1 1 260px;max-width:460px;min-width:200px;margin:0}
+.pfbar .fctl{flex:none;flex-wrap:nowrap}
+.pfbar .fctl .clr{display:none}
+.poptw{flex:1 1 auto;min-width:0}
+.poptw .popts{margin:0;justify-content:flex-end}
+.poptw .popts .hsp{display:none}
+body:not(.wide) .plh .tsw{width:100%}
+body:not(.wide) .pfbar .tsearch{max-width:none;flex:1 1 100%}
+body:not(.wide) .poptw .popts{justify-content:flex-start}
+
+
+/* ---- v2.14: Compare scrolling ---- */
+.cxclr{flex:none}
+.cxw{scrollbar-width:none}.cxw::-webkit-scrollbar{display:none}
+.cxhs{position:sticky;bottom:0;z-index:6;overflow-x:scroll;overflow-y:hidden;height:16px;margin:4px 0 0;background:var(--bg);border-radius:8px}
+.cxhs>div{height:1px}
+.cxhs::-webkit-scrollbar{height:12px}
+.cxhs::-webkit-scrollbar-track{background:var(--chip);border-radius:6px}
+.cxhs::-webkit-scrollbar-thumb{background:#94A3B8;border-radius:6px;border:2px solid var(--chip)}
+.cxhs::-webkit-scrollbar-thumb:hover{background:#64748B}
+.cxw thead{position:relative;z-index:6}
+.cxw thead.stuck th{box-shadow:0 6px 10px -8px rgba(2,6,23,.35)}
+body:not(.wide) .cxhs{display:none}
+body:not(.wide) .cxw{scrollbar-width:auto}body:not(.wide) .cxw::-webkit-scrollbar{display:initial}
+
+
+/* ---- v2.14: dialogs ---- */
+@media (min-width:760px){
+  #sheet .sheet{--dw:880px}#sheet .sheet.md{--dw:900px}#sheet .sheet.lg{--dw:1200px}#sheet .sheet.sm{--dw:600px}
+}
+.sheet-h{background:var(--card)}
+.sheet-h .shr{gap:8px}
+.xbtn{width:36px;height:36px;border-radius:50%;background:var(--chip);color:var(--ink)}
+.xbtn:hover{background:color-mix(in srgb,var(--ink) 12%,var(--chip))}
+.sheet-h .sedit,.sheet-h .ied{display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font-weight:600;font-size:14px;cursor:pointer}
+.sheet-h .sedit:not(:disabled):hover,.sheet-h .ied:not(:disabled):hover{border-color:var(--pri);color:var(--pri)}
+.sheet-h .sedit .ic,.sheet-h .ied .ic{width:15px;height:15px}
+.sheet-f{display:flex;align-items:center;gap:10px;padding:12px 22px calc(12px + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:var(--card);flex:none}
+.sheet-f .sfl{flex:1;display:flex;gap:8px;min-width:0}
+.sheet-f .btn{height:40px;min-width:100px;justify-content:center;display:inline-flex;align-items:center;font-size:14.5px;padding:0 18px;margin:0;width:auto}
+.sheet-f .btn.pri{font-weight:650;box-shadow:0 1px 2px rgba(29,78,216,.25)}
+.sheet-f .btn.pri:not(:disabled):hover{filter:brightness(1.08)}
+.btn.dangert{background:transparent;border:0;color:var(--bad);min-width:0!important;padding:0 10px!important}
+.btn.dangert:not(:disabled):hover{background:color-mix(in srgb,var(--bad) 9%,transparent)}
+.sheet.hasf .sheet-b{padding-bottom:22px}
+body:not(.wide) .sheet-f{padding-left:16px;padding-right:16px}
+body:not(.wide) .sheet-f .btn{min-width:0;flex:1}
+body:not(.wide) .sheet-f .sfl{flex:none}
+/* form sections */
+.fjump{position:sticky;top:-18px;z-index:4;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:-18px -22px 14px;padding:12px 22px;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.fjump::-webkit-scrollbar{display:none}
+.fjump button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--mut);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
+.fjump button:hover{color:var(--ink)}
+.fjump button.on{background:color-mix(in srgb,var(--pri) 10%,var(--card));border-color:color-mix(in srgb,var(--pri) 45%,var(--line));color:var(--pri)}
+.fcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px 6px;margin-bottom:14px;scroll-margin-top:70px}
+.fch{margin:0 0 12px;font-size:14.5px;font-weight:700;letter-spacing:-.005em}
+.fsg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+.fsg>.field:has(textarea),.fsg>.field:has(.chips),.fsg>.field:has(.phf),.fsg>.hwgrid,.fsg>.grid3,.fsg>#hwfields,.fsg>.fh,.fsg>:not(.field):not(.hwgrid){grid-column:1/-1}
+.fsg .hwgrid{gap:0 16px}
+.fcard input:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=color]),.fcard select{height:42px;font-size:14.5px;border-radius:10px}
+.fcard label.l{font-size:12.5px;color:var(--mut);font-weight:600}
+body:not(.wide) .fsg{grid-template-columns:1fr}
+body:not(.wide) .fjump{top:-16px;margin:-16px -16px 12px;padding:10px 16px}
+body:not(.wide) .fcard{padding:14px 14px 4px}
+/* selectable option pills: royal-blue tint and a tick (not black); value pills: soft, not button-like */
+label.chip.on,.sizing label.chip.on{background:color-mix(in srgb,var(--pri) 10%,var(--card));border-color:var(--pri);color:var(--pri);font-weight:600}
+label.chip.on:not(.icchip)::before{content:"";display:inline-block;width:8px;height:4px;border-left:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(-45deg);margin-right:1px}
+label.chip:not(.on):hover{border-color:color-mix(in srgb,var(--pri) 45%,var(--line))}
+span.chip.on{background:color-mix(in srgb,var(--pri) 8%,var(--card));color:var(--ink);border-color:color-mix(in srgb,var(--pri) 18%,var(--line))}
+
+
+/* ---- v2.15 ---- */
+@font-face{font-family:"Twemoji Country Flags";unicode-range:U+1F1E6-1F1FF,U+1F3F4,U+E0062-E0063,U+E0065,U+E0067,U+E006C,U+E006E,U+E0073-E0074,U+E0077,U+E007F;src:url('https://cdn.jsdelivr.net/npm/country-flag-emoji-polyfill@0.1.10/dist/TwemojiCountryFlags.woff2') format('woff2');font-display:swap}
+.flag{font-family:"Twemoji Country Flags","Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;font-size:1.05em;line-height:1;margin-right:5px;font-style:normal}
+.tg2 .flag{margin-right:1px}
+/* summary: Products tall on the left, At risk and Upcoming on the right */
+.pfm3{grid-template-columns:1fr 1fr;grid-template-areas:"p r" "p u"}
+.pfm3>.pfprod{grid-area:p}.pfm3>:nth-child(2){grid-area:r}.pfm3>:nth-child(3){grid-area:u}
+.pfprod{flex-direction:row;align-items:center}
+.pfprod b{font-size:34px!important}
+.pfsm b small{font-size:15px;font-weight:600;color:var(--mut)}
+@media (max-width:1279px){.pfm3{grid-template-columns:repeat(3,1fr);grid-template-areas:"p r u"}}
+body:not(.wide) .pfm3{grid-template-columns:1fr 1fr;grid-template-areas:"p p" "r u"}
+/* Transitions status tabs (like Ideas) */
+.tvtabs{margin:0 0 14px}
+/* Products grouping and missing data */
+.ptab2 tr.pgrp2 td{background:var(--chip);font-size:13.5px;padding:8px 12px;cursor:default}
+.pgh{font-size:15px;margin:14px 2px 8px}
+.miss2{font-size:11.5px;color:var(--warn,#B45309);margin-top:3px;white-space:normal;line-height:1.3}
+/* markets: Focus vs Considering */
+.tg2.mkt.cons{border-style:dashed;background:transparent;color:var(--mut)}
+.tg2.mkt.cons .mkd{background:transparent;border:1.5px solid var(--c);box-sizing:border-box}
+.mkd{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--c);flex:none;margin-right:6px;vertical-align:1px}
+.mkgrp+.mkgrp{margin-top:12px}.mkgl{font-size:12px;font-weight:650;margin:0 0 6px}
+.chip.mkcons{border-style:dashed;color:var(--mut)}
+.cvtag{display:inline-block;font-size:10.5px;font-weight:650;color:var(--mut);border:1px dashed var(--line);border-radius:6px;padding:0 5px;margin-left:6px;vertical-align:1px;white-space:nowrap}
+/* Health v2.15 */
+.hch{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.hch h3{margin:0;flex:1;min-width:0}
+.hva{border:0;background:none;color:var(--pri);font:inherit;font-size:13px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:2px;white-space:nowrap;padding:4px 6px;border-radius:8px}
+.hva:hover{background:color-mix(in srgb,var(--pri) 8%,transparent)}
+.htab{display:flex;flex-direction:column;gap:2px;font-size:14px}
+.hth,.htr{display:grid;grid-template-columns:minmax(0,1.5fr) 40px minmax(50px,1fr) 40px;align-items:center;gap:10px;padding:5px 6px}
+.hth{font-size:12px;font-weight:700;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:7px;margin-bottom:2px}
+.hth .hsp2{grid-column:3/5}
+.hth .r,.htr .r,.htr b{text-align:right}
+.htr{border-radius:8px}
+.htr.go{cursor:pointer}.htr.go:hover{background:var(--chip)}
+.htr .ell{display:flex;align-items:center;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.htr .hbt{height:12px}
+.hcat{display:inline-flex;color:var(--mut);margin-right:7px;flex:none}.hcat .ic{width:16px;height:16px}
+.hrow.hins{align-items:center;padding:9px 12px}
+.hrow.hins b{display:block;font-size:14px}
+.hrow.hins small{display:block;color:var(--mut);font-size:12px;margin-top:1px}
+.hii{width:34px;height:34px;flex:none;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;color:var(--c);background:color-mix(in srgb,var(--c) 12%,transparent)}
+.hii .ic{width:18px;height:18px}
+.hrow.go{cursor:pointer}.hrow.go:hover{border-color:color-mix(in srgb,var(--pri) 40%,var(--line))}
+/* detail panel */
+.hdrw{width:min(480px,100vw)}
+.hdr2{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;font-size:14px}
+.hdr2.go{cursor:pointer}.hdr2.go:hover{background:var(--chip)}
+.hdr2 .grow{display:flex;align-items:center;flex-wrap:wrap;gap:0 4px;min-width:0}
+.hdr2 small{flex-basis:100%;font-size:12px;padding-left:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.hdr2>.grow{flex:1 1 0;overflow:hidden}
+.hdr2 b{min-width:26px;text-align:right}
+.hbrk{display:inline-flex;gap:3px}
+.hbrk i{font-style:normal;font-size:11.5px;font-weight:700;min-width:22px;text-align:center;padding:1px 5px;border-radius:6px;color:var(--ink);background:color-mix(in srgb,var(--c) 22%,var(--card))}
+.hdleg{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--mut);padding:8px 10px 6px}
+.hdleg i{display:inline-block;width:10px;height:10px;border-radius:3px;background:color-mix(in srgb,var(--c) 40%,var(--card));margin-right:5px;vertical-align:-1px}
+.hdsec{display:flex;align-items:center;gap:8px;justify-content:space-between;font-size:12px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.05em;padding:14px 10px 4px}
+.hdsec .btn{text-transform:none;letter-spacing:0}
+.hdp{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:10px;cursor:pointer}
+.hdp:hover{background:var(--chip)}
+.hdp .grow{min-width:0;display:flex;flex-direction:column}
+.hdp small{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hdps{font-size:12px;white-space:nowrap;max-width:120px;overflow:hidden;text-overflow:ellipsis}
+.cvsum{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 4px}
+.cvsum>div{background:var(--chip);border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:2px}
+.cvsum span{font-size:11.5px}.cvsum b{font-size:16px}
+.cvst{margin:4px 4px 6px;padding:8px 10px;border-radius:10px;font-size:13px;font-weight:600}
+/* coverage matrix */
+.cvcard{padding:16px 18px 14px}
+.cvhd{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.cvhd h3{margin:0;font-size:18px}.cvhd p{margin:2px 0 0;font-size:13px}
+.cvmodes{margin:0 0 6px;display:inline-flex}
+.cvmodes .ic{width:15px;height:15px}
+.cvnote{font-size:12.5px;margin:4px 2px 10px}
+.cvw{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+.cvt{border-collapse:collapse;width:100%;min-width:640px}
+.cvt th,.cvt td{border-bottom:1px solid var(--line);padding:6px;text-align:center;vertical-align:middle}
+.cvt tr:last-child th,.cvt tr:last-child td{border-bottom:0}
+.cvt th+th,.cvt td{border-left:1px solid var(--line)}
+.cvcorner{text-align:left!important;font-size:13px;padding:10px 12px!important;width:200px;background:color-mix(in srgb,var(--chip) 55%,var(--card))}
+.cvmh{font-size:13px;min-width:92px;padding:10px 6px!important;background:color-mix(in srgb,var(--chip) 30%,var(--card))}
+.cvmh b{display:block;font-size:13px}.cvmh small{display:block;font-size:11.5px;color:var(--mut);font-weight:500}
+.cvmh .mkd{margin:0 0 4px}
+.cvmh.cons{background:repeating-linear-gradient(135deg,transparent 0 6px,color-mix(in srgb,var(--line) 45%,transparent) 6px 7px)}
+.cvch{text-align:left!important;padding:8px 12px!important;display:table-cell;background:color-mix(in srgb,var(--chip) 30%,var(--card))}
+.cvch>span:last-child,.cvch.cvmr{white-space:nowrap}
+.cvch b{display:block;font-size:13.5px}.cvch small{display:block;font-size:11.5px;color:var(--mut);font-weight:500}
+.cvch{white-space:nowrap}.cvch .hcat{vertical-align:middle}.cvch>span{display:inline-block;vertical-align:middle}
+.cvc{width:100%;min-height:38px;border:1.5px solid transparent;border-radius:9px;font:inherit;font-size:15px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:5px;color:var(--ink);background:var(--chip)}
+.cvc small{font-size:11.5px;font-weight:600;color:var(--mut)}
+.cvc .ic{width:15px;height:15px}
+.cvc:hover{filter:brightness(.97)}
+.cvc.sel{border-color:var(--pri);box-shadow:0 0 0 2px color-mix(in srgb,var(--pri) 25%,transparent)}
+.cv-strong{background:#93C5FD;color:#0B2A5B}
+.cv-good{background:#BFDBFE;color:#0B2A5B}
+.cv-partial,.cv-ok{background:#DBEAFE;color:#1E3A8A}
+.cv-risk{background:#FDE7C2;color:#92400E}
+.cv-gap{background:#FEE2E2;color:#B91C1C}
+.cv-na,.cv-none,.cv-mute{background:color-mix(in srgb,var(--chip) 80%,transparent);color:var(--mut);font-weight:600}
+.cvleg{display:flex;flex-wrap:wrap;align-items:flex-start;gap:10px 18px;margin-top:12px;font-size:12.5px}
+.cvleg>b{padding-top:2px}
+.cvleg>span{display:inline-flex;gap:7px;align-items:flex-start}
+.cvleg .cvc{width:14px;height:14px;min-height:0;border-radius:4px;padding:0;cursor:default;flex:none;margin-top:2px}
+.cvleg small{display:block;color:var(--mut);font-size:11px}
+.cvhint{font-size:12.5px}
+.cvt th.cvch,.cvt th.cvcorner{position:sticky;left:0;z-index:2}
+.cvt th.cvch{background:color-mix(in srgb,var(--chip) 30%,var(--card))}
+.cvt th.cvch,.cvt th.cvcorner{box-shadow:1px 0 0 var(--line)}
+.cvhd>.grow{flex:1;min-width:0}
+.cvmodes button{white-space:nowrap}
+.mkd.mkdc{background:transparent;border:1.5px solid var(--c);box-sizing:border-box}
+@media (prefers-color-scheme:dark){.cv-strong{background:#1E40AF;color:#fff}.cv-good{background:#1E3A8A;color:#DBEAFE}.cv-partial,.cv-ok{background:#172554;color:#BFDBFE}.cv-risk{background:#78350F;color:#FDE68A}.cv-gap{background:#7F1D1D;color:#FECACA}}
+body:not(.wide) .cvsum{grid-template-columns:1fr 1fr}
+body:not(.wide) .cvhd .btn span,body:not(.wide) .cvmodes{display:flex;overflow-x:auto}
+
+
+/* ---- v2.16: not-applicable sections, pricing ---- */
+.fchr{display:flex;align-items:center;gap:10px;margin:0 0 12px}
+.fchr .fch{margin:0;flex:1}
+.nasw{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--mut);cursor:pointer;user-select:none;white-space:nowrap}
+.nasw input{-webkit-appearance:checkbox;appearance:auto;width:15px;height:15px;margin:0;accent-color:var(--pri);cursor:pointer}
+.nasw input:disabled+span{opacity:.75}
+.fcard.na{background:color-mix(in srgb,var(--chip) 55%,var(--card));border-style:dashed}
+.fcard.na .fsg{display:none}
+.fcard.na .fch{color:var(--mut)}
+.nanote{display:none;font-size:13px;color:var(--mut);padding:0 0 12px}
+.fcard.na>.nanote,.field.na>.nanote{display:block}
+.field.na>.chips,.field.na>select,.field.na>input{display:none}
+.field.na .nanote{padding:2px 0 0}
+.lrow{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:4px}
+.lrow label.l{margin:0}
+.fwrap[hidden]{display:none!important}
+.fhint{font-size:12px;margin-top:4px}
+.nainfo{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--mut);margin:12px 2px 0}
+.nainfo .ic{width:15px;height:15px}
+
+/* ---- v2.12: filter drawer ---- */
+body.fdlock{overflow:hidden}
+.fdbg{position:fixed;inset:0;background:rgba(2,6,23,.32);z-index:48;animation:fade .18s}
+.fdr{position:fixed;top:0;right:0;bottom:0;width:min(420px,100vw);background:var(--card);z-index:49;display:flex;flex-direction:column;box-shadow:-14px 0 44px rgba(2,6,23,.2);border-left:1px solid var(--line);animation:drwin .2s ease-out}
+.fdh{display:flex;align-items:center;gap:10px;padding:16px 14px 12px 20px;padding-top:calc(16px + env(safe-area-inset-top));border-bottom:1px solid var(--line);flex:none}
+.fdh h3{margin:0;font-size:19px;font-weight:750}.fdhi .ic{width:22px;height:22px;stroke-width:2}
+.fdtop{padding:12px 20px 10px;flex:none;display:flex;flex-direction:column;gap:10px}
+.fdsum{font-size:14px}.fdsum b{color:var(--ink)}
+.fdtop .tsearch,.fdgq{min-width:0}
+.fdbody{flex:1;overflow:auto;padding:2px 14px 14px;display:flex;flex-direction:column;gap:10px;overscroll-behavior:contain}
+.fds{border:1px solid var(--line);border-radius:14px;background:var(--card);flex:none}
+.fds.open{box-shadow:0 1px 3px rgba(20,25,35,.05)}
+.fdsh{display:flex;align-items:center;gap:9px;width:100%;border:0;background:none;padding:12px 14px;font:inherit;color:var(--ink);cursor:pointer;text-align:left;border-radius:14px}
+.fdsh:hover{background:color-mix(in srgb,var(--chip) 60%,transparent)}
+.fdsh b{font-size:15px}.fdsh .mut{font-size:12.5px}
+.fdsi .ic{width:19px;height:19px;stroke-width:1.8}
+.fdsn{font-size:12.5px;color:var(--mut);white-space:nowrap}.fdsn.on{color:var(--pri);font-weight:650}
+.fdcar .ic{width:17px;height:17px;transition:transform .15s}.fds.open .fdcar .ic{transform:rotate(180deg)}
+.fdsb{padding:0 14px 14px;display:flex;flex-direction:column;gap:10px}
+.fdgq input{font-size:13.5px}
+.fdos{display:flex;flex-wrap:wrap;gap:7px}
+.fdo{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:6px 10px 6px 8px;font:inherit;font-size:13.5px;cursor:pointer;max-width:100%;transition:background .12s,border-color .12s}
+.fdo:hover:not(:disabled){border-color:color-mix(in srgb,var(--pri) 45%,var(--line))}
+.fdo.on{background:color-mix(in srgb,var(--pri) 9%,var(--card));border-color:var(--pri);font-weight:600}
+.fdo:disabled{opacity:.45;cursor:not-allowed}
+.fdcb{width:17px;height:17px;border-radius:5px;border:1.6px solid color-mix(in srgb,var(--mut) 55%,transparent);display:inline-flex;align-items:center;justify-content:center;flex:none;background:var(--card)}
+.fdcb .ic{width:12px;height:12px;stroke-width:3.2;color:#fff}
+.fdo.on .fdcb{background:var(--pri);border-color:var(--pri)}
+.fdd{width:9px;height:9px;border-radius:50%;flex:none}
+.fdoi{display:flex}.fdoi .ic{width:15px;height:15px}
+.fdl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fdo .cnt{color:var(--mut);font-size:12px;font-weight:500;margin-left:1px}
+.fdmore{align-self:flex-start;border:0;background:none;color:var(--pri);font:inherit;font-size:13px;font-weight:600;cursor:pointer;padding:2px 2px}
+.fdmore:hover{text-decoration:underline}
+.fdf{flex:none;display:flex;align-items:center;gap:10px;padding:12px 20px calc(12px + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:var(--card)}
+.btn.dark{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:650;padding-left:18px;padding-right:18px}
+.btn.dark:hover{filter:brightness(1.15)}
+.fdf .btn:disabled{opacity:.45;cursor:default}
+/* applied filters: removable chips */
+.fpill{display:inline-flex;align-items:center;gap:6px;border:1px solid color-mix(in srgb,var(--pri) 30%,var(--line));background:color-mix(in srgb,var(--pri) 8%,var(--card));color:var(--ink);border-radius:999px;padding:4px 11px;font-size:12.5px;font-weight:550;cursor:pointer}
+.fpill:hover{border-color:var(--pri)}
+#ipills .fpills{margin-top:-4px}
+body:not(.wide) .fdr{width:100vw;border-left:0}
+.fdh .grow,.fdsh .grow{flex:1 1 auto}
+
+/* ---- v2.13.1 ---- */
+/* read-only for viewers */
+.btn:disabled,.btn[aria-disabled=true],.btn.locked{opacity:.45;cursor:not-allowed;filter:grayscale(.3)}
+.btn.locked{pointer-events:auto}
+.ronote{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;margin:0 0 14px;border-radius:10px;background:var(--chip);color:var(--ink);font-size:13.5px;border:1px solid var(--line)}
+.ronote .ic{width:18px;height:18px;flex:none;margin-top:1px;color:var(--mut)}
+.frmfs{border:0;padding:0;margin:0;min-width:0}
+.roform input,.roform select,.roform textarea{background:var(--chip)!important;color:var(--mut)!important;cursor:not-allowed;border-color:var(--line)!important;opacity:1}
+.roform .chip,.roform .icchip,.roform label{cursor:not-allowed}
+.roform fieldset:disabled .chip,.roform fieldset:disabled .seg button{opacity:.7}
+select:disabled{opacity:.6;cursor:not-allowed}
+.ied{display:inline-flex;align-items:center;gap:5px}.ied .ic{width:14px;height:14px}
+/* one scrollbar */
+.tl,.ltw,.ptw{max-height:none!important;min-height:0!important;overscroll-behavior:auto}
+.ltw thead,.ptw thead{position:relative;z-index:5}
+.tl-head.stuck,.ltw thead.stuck th,.ptw thead.stuck th{box-shadow:0 2px 6px rgba(20,25,35,.08)}
+/* market labels */
+.tg2.mkt{border-color:color-mix(in srgb,var(--c) 35%,var(--line));background:color-mix(in srgb,var(--c) 10%,var(--card))}
+.tg2.mkt .mkd{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--c);flex:none}
 </style>
 </head>
 <body>
@@ -1045,7 +1324,7 @@ body:not(.wide) .plh .tbar{flex-wrap:wrap}
 <div id="toast"></div>
 <script>
 /* App version: bump on every delivered change (major.minor.patch) and add a line to Version history in HANDOFF.md */
-const APP_VERSION='2.12.1',APP_BUILD='2026-11-18';
+const APP_VERSION='2.16.0',APP_BUILD='2026-11-20';
 /* =====================================================================
    CONFIG — paste your Supabase project URL and anon (public) key here.
    Leave blank to run in Demo mode (sample data stored on this device),
@@ -1063,8 +1342,8 @@ const LIFECYCLE=[
 const MIG_C='#EF4444',BRAND='#C92C32';
 const LC=Object.fromEntries(LIFECYCLE.map(x=>[x.k,x]));
 const RANK={development:-1,evaluating:0,onboarding:1,active:2,nrnd:3,ltb:4,eol:5};
-const CATEGORIES=[['controller','Controllers'],['telematics','Telematics'],['display','Displays'],['module','I/O & modules'],['sensor','Sensors'],['software','Software'],['other','Other']];
-const CATS1={controller:'Controller',telematics:'Telematics',module:'I/O module',sensor:'Sensor',display:'Display',software:'Software',other:'Other'};
+const CATEGORIES=[['controller','Controllers'],['telematics','Telematics'],['display','Displays'],['module','I/O & modules'],['sensor','Sensors'],['software','Software'],['service','Services'],['other','Other']];
+const CATS1={controller:'Controller',telematics:'Telematics',module:'I/O module',sensor:'Sensor',display:'Display',software:'Software',service:'Service',other:'Other'};
 const IMPACT={unknown:{l:'Not assessed',c:'#94a3b8'},none:{l:'None',c:'#16a34a'},minor:{l:'Minor',c:'#d97706'},major:{l:'Major',c:'#dc2626'}};
 const WEBSTATUS=['Coming Soon','New','Active (no badge)','Previous Gen','End of Life','Not on website'];
 const KIND={drop_in:'Drop-in',form_fit:'Form-fit',redesign:'Redesign'};
@@ -1084,16 +1363,16 @@ const PHG_OF={development:'dev',evaluating:'pipeline',onboarding:'pipeline',acti
 
 /* ---------- state ---------- */
 const S={mode:'demo',sb:null,user:null,role:'admin',tab:'roadmap',stack:[],data:{},
-  f:{group:'none'},lpp:50,lpage:0,tsort:1,F:{q:'',sup:[],cat:[],ph:[],mkt:[],can:[]},mw:wide()?30:22,fOpen:false,tlScroll:null,rows:[],cmp:{ids:[],diff:false,gaps:true,metric:'io',priceBy:'list',sec:'overview',saved:null,view:'cmp',open:[]},rmView:'timeline',pView:'table',det:{sup:true,mkt:true},hz:'12',coll:[],fpop:null,ipop:false,lsort:{k:'part',dir:1},incOnly:false,
+  f:{group:'none'},lpp:50,lpage:0,tsort:1,F:{q:'',sup:[],cat:[],ph:[],mkt:[],can:[]},mw:wide()?30:22,fOpen:false,tlScroll:null,rows:[],cmp:{ids:[],diff:false,gaps:true,metric:'io',priceBy:'list',sec:'overview',saved:null,view:'cmp',open:[]},rmView:'timeline',pView:'table',det:{sup:true,mkt:true},hz:'12',coll:[],fpop:null,ipop:false,lsort:{k:'part',dir:1},incOnly:false,pgroup:'none',cov:{mode:'presence',tr:false},hdet:null,
   tv:{q:'',type:[],st:[],mkt:[],sup:[],kpi:null,view:'list'},
   iv:{q:'',st:'all',cat:[],lab:[],prio:[],mine:false,waiting:false,sort:'updated',dir:1,view:'table'},imenu:null};
-try{const v=JSON.parse(localStorage.getItem('rm_view')||'null');if(v){Object.assign(S.F,v.F||{});if(v.group)S.f.group=v.group;if(v.mw)S.mw=v.mw;if(v.sideCol)S.sideCol=true;if(v.cmp)Object.assign(S.cmp,v.cmp);if(v.rmView)S.rmView=v.rmView;if(v.pView)S.pView=v.pView;if(v.det)S.det=v.det;if(v.hz)S.hz=v.hz;if(Array.isArray(v.coll))S.coll=v.coll;if(v.lsort)S.lsort=v.lsort;S.incOnly=!!v.incOnly;if(v.iv)Object.assign(S.iv,v.iv,{q:''});if(v.tv)Object.assign(S.tv,v.tv,{q:''});if(v.lpp!=null)S.lpp=v.lpp;if(v.tsort)S.tsort=v.tsort;if(v.psort)S.psort=v.psort;if(v.pdir)S.pdir=v.pdir;if(v.ppp!=null)S.ppp=v.ppp;if(v.tvpp!=null)S.tvpp=v.tvpp;if(!v.g2)S.f.group='none'}}catch(e){}
+try{const v=JSON.parse(localStorage.getItem('rm_view')||'null');if(v){Object.assign(S.F,v.F||{});if(v.group)S.f.group=v.group;if(v.mw)S.mw=v.mw;if(v.sideCol)S.sideCol=true;if(v.cmp)Object.assign(S.cmp,v.cmp);if(v.rmView)S.rmView=v.rmView;if(v.pView)S.pView=v.pView;if(v.det)S.det=v.det;if(v.hz)S.hz=v.hz;if(Array.isArray(v.coll))S.coll=v.coll;if(v.lsort)S.lsort=v.lsort;S.incOnly=!!v.incOnly;if(v.pgroup)S.pgroup=v.pgroup;if(v.cov)S.cov=Object.assign({mode:'presence',tr:false},v.cov);if(v.iv)Object.assign(S.iv,v.iv,{q:''});if(v.tv)Object.assign(S.tv,v.tv,{q:''});if(v.lpp!=null)S.lpp=v.lpp;if(v.tsort)S.tsort=v.tsort;if(v.psort)S.psort=v.psort;if(v.pdir)S.pdir=v.pdir;if(v.ppp!=null)S.ppp=v.ppp;if(v.tvpp!=null)S.tvpp=v.tvpp;if(!v.g2)S.f.group='none'}}catch(e){}
 // Ideas view saved by older versions: 'list' is now the table; status groups are now status tabs
 // Compare saved by older versions: one product list per category → one ordered list
 {const c=S.cmp;if(!Array.isArray(c.ids)){const o=c.sel&&c.cat&&c.sel[c.cat];c.ids=Array.isArray(o)?o.slice():[]}delete c.sel;delete c.cat;if(!c.sec)c.sec='overview';if(c.saved===undefined)c.saved=null}
 if(S.iv.view!=='board')S.iv.view='table';if(!['all','new','eval','approved','roadmap','declined'].includes(S.iv.st))S.iv.st='all';if(!S.iv.dir)S.iv.dir=1;
 ['cat','lab','prio'].forEach(k=>{if(!Array.isArray(S.iv[k]))S.iv[k]=[]});if(!['updated','new','prio','value','volume','title','cat','status'].includes(S.iv.sort)){S.iv.sort='updated';S.iv.dir=1}delete S.iv.grp;delete S.iv.type;
-function saveView(){try{localStorage.setItem('rm_view',JSON.stringify({F:S.F,group:S.f.group,mw:S.mw,sideCol:!!S.sideCol,cmp:S.cmp,rmView:S.rmView,pView:S.pView,det:S.det,hz:S.hz,coll:S.coll,lsort:S.lsort,incOnly:S.incOnly,iv:{...S.iv,q:''},tv:{...S.tv,q:''},lpp:S.lpp,tsort:S.tsort,psort:S.psort,pdir:S.pdir,ppp:S.ppp,tvpp:S.tvpp,g2:1}))}catch(e){}}
+function saveView(){try{localStorage.setItem('rm_view',JSON.stringify({F:S.F,group:S.f.group,mw:S.mw,sideCol:!!S.sideCol,cmp:S.cmp,rmView:S.rmView,pView:S.pView,det:S.det,hz:S.hz,coll:S.coll,lsort:S.lsort,incOnly:S.incOnly,pgroup:S.pgroup,cov:S.cov,iv:{...S.iv,q:''},tv:{...S.tv,q:''},lpp:S.lpp,tsort:S.tsort,psort:S.psort,pdir:S.pdir,ppp:S.ppp,tvpp:S.tvpp,g2:1}))}catch(e){}}
 TABLES.forEach(t=>S.data[t]=[]);
 
 /* ---------- helpers ---------- */
@@ -1122,8 +1401,10 @@ function phase(p){
   return Object.keys(RANK).find(k=>RANK[k]===r);
 }
 /* lifecycle badges: solid fill in the exact stage color used on the Portfolio page (owner decision 2026-11-18, v2.11.2) */
-const LCINK={development:'#0B2A5B',evaluating:'#0B2A5B',onboarding:'#0B2A5B',active:'#fff',nrnd:'#3B2300',ltb:'#fff',eol:'#334155',rejected:'#374151'};
-const badge=k=>{k=LC[k]?k:'evaluating';const x=LC[k];return`<span class="badge ib lcb${k==='development'?' lcdev':''}" style="--c:${x.c};--k:${LCINK[k]||'#141923'}">${ic(PHI[k]||PHI.evaluating)}${x.l}</span>`};
+const LCINK={development:'#1E40AF',evaluating:'#1D4ED8',onboarding:'#1D4ED8',active:'#1D4ED8',nrnd:'#B45309',ltb:'#B91C1C',eol:'#475569',rejected:'#4B5563'};
+/* v2.14: soft badge background (stage color mixed with the card) and bold dark text, per the mockups; labels must not look like buttons */
+const LCBG={development:'#60A5FA',evaluating:'#93C5FD',onboarding:'#93C5FD',active:'#2563EB',nrnd:'#F59E0B',ltb:'#DC2626',eol:'#94A3B8',rejected:'#9CA3AF'};
+const badge=k=>{k=LC[k]?k:'evaluating';const x=LC[k];return`<span class="badge ib lcb${k==='development'?' lcdev':''}" style="--c:${LCBG[k]||x.c};--k:${LCINK[k]||'#141923'}">${ic(PHI[k]||PHI.evaluating)}${x.l}</span>`};
 const impPill=(lab,k)=>{const x=IMPACT[k]||IMPACT.none;return`<span class="pill" style="--c:${x.c}">${lab}: ${x.l}</span>`};
 const basisTag=b=>!b?'':/infer|confirm/i.test(b)?`<span class="pill" style="--c:#d97706">⚠ ${esc(b)}</span>`:`<span class="pill" style="--c:#0ea5e9">${esc(b)}</span>`;
 const migBadge=k=>`<span class="badge" style="--c:${MIGC[k]||'#94a3b8'}">${esc((MIG.find(m=>m[0]===k)||[,k])[1])}</span>`;
@@ -1138,7 +1419,7 @@ function needsMig(cp){
   return ['nrnd','ltb','eol'].includes(phase(p))||!!cp.transition_id;
 }
 function toast(msg){const t=$('#toast');t.innerHTML=`<div class="toast">${esc(msg)}</div>`;clearTimeout(toast.h);toast.h=setTimeout(()=>t.innerHTML='',2600)}
-function errMsg(e){let m=e?.message||String(e);if(/'(owner|progress)' column|column .*(owner|progress)/i.test(m)&&!/ideas/i.test(m))return'The database needs 10_owner_progress.sql before owners and progress can be saved.';if(/'photo' column|column .*photo/i.test(m))return'The database needs 09_product_photos.sql before photos can be saved.';if(/schema/i.test(m)&&/must be one of|not exposed|Invalid schema/i.test(m))m+=' — add "roadmap" to Exposed schemas in Supabase API settings.';return m}
+function errMsg(e){let m=e?.message||String(e);if(/na_sections|pricing_model|billing_period|renewal_price|products_category_check|size_basis_check/i.test(m))return'The database needs 11_na_service_pricing.sql before this can be saved (Not applicable sections, pricing model, the Service category or a one-time idea value).';if(/'(owner|progress)' column|column .*(owner|progress)/i.test(m)&&!/ideas/i.test(m))return'The database needs 10_owner_progress.sql before owners and progress can be saved.';if(/'photo' column|column .*photo/i.test(m))return'The database needs 09_product_photos.sql before photos can be saved.';if(/schema/i.test(m)&&/must be one of|not exposed|Invalid schema/i.test(m))m+=' — add "roadmap" to Exposed schemas in Supabase API settings.';return m}
 
 /* ---------- data layer (Supabase or local demo) ---------- */
 function cfg(){let s={};try{s=JSON.parse(localStorage.getItem('rm_cfg')||'{}')}catch(e){}return{url:CONFIG.SUPABASE_URL||s.url||'',key:CONFIG.SUPABASE_ANON_KEY||s.key||'',hard:!!CONFIG.SUPABASE_URL}}
@@ -1257,7 +1538,7 @@ const DEVK=[{k:'feature',l:'Feature',c:'#2563eb'},{k:'maintenance',l:'Maintenanc
 const DEVS=[{k:'planned',l:'Planned'},{k:'in_progress',l:'In progress'},{k:'done',l:'Done'},{k:'at_risk',l:'At risk'},{k:'cancelled',l:'Cancelled'}];
 function gantt(p){
   const items=(S.data.dev_items||[]).filter(x=>x.product_id===p.id&&x.start_date&&x.end_date);
-  const add=canEdit()?`<button class="btn ghost sm" data-act="new" data-arg="dev_items" data-def="${esc(JSON.stringify({product_id:p.id}))}">+ Add</button>`:'';
+  const add=lk(`<button class="btn ghost sm" data-act="new" data-arg="dev_items" data-def="${esc(JSON.stringify({product_id:p.id}))}">+ Add</button>`);
   const head=`<div class="sec"><h2>Product roadmap</h2>${add}</div>`;
   if(!items.length)return head+`<div class="card empty" style="padding:16px">No features, maintenance or test work planned yet.${canEdit()?'<br><span class="mut">Add items like secure boot, a framework update or a validation campaign.</span>':''}</div>`;
   // time window: whole quarters covering the items, today, and at least ~12 months ahead
@@ -1295,6 +1576,7 @@ const HWT={controller:HW_CTL,telematics:HW_CTL,
   sensor:['Measurand / technology','Range','Accuracy / resolution','Field of view','Update rate','Output signal','Media','Power / supply','Operating temperature'],
   module:['Channels','Max current','Power / supply','Operating temperature'],
   software:['License model','Supported hardware / OS'],
+  service:[],
   other:['Power / supply','Operating temperature']};
 const HW_PH={'Processor':'e.g. Infineon AURIX TC397','Cores / clock':'e.g. 6-core @ 300 MHz','RAM':'e.g. 512 MB DDR3','Flash / storage':'e.g. 8 GB eMMC',
   'Co-processor / GPU':'e.g. i.MX6, FPGA','Operating system':'e.g. Linux (Yocto)','Power / supply':'e.g. 8–32 VDC','Operating temperature':'e.g. -40 to +85 °C',
@@ -1339,21 +1621,22 @@ const FORMS={
   {k:'family',l:'Series / family'},{k:'sub_type',l:'Sub-type'},{k:'product_code',l:'Product ID (e.g. CTL-17)'},
   {k:'lifecycle',l:'Lifecycle status',t:'select',o:LIFECYCLE.map(x=>[x.k,x.f||x.l]),req:1},{k:'owner',l:'Owner (person responsible)',list:1,opt:1},
   {k:'website_status',l:'Website status',t:'select',o:WEBSTATUS.map(x=>[x,x])},
-  {k:'markets',l:'Markets',t:'multi',o:S.data.markets.map(m=>[m.name,m.name+(m.status==='considering'?' (considering)':'')])},
+  {k:'markets',l:'Markets',t:'multi',na:'markets',o:S.data.markets.map(m=>[m.name,m.name+(m.status==='considering'?' (considering)':'')])},
   {h:'Lifecycle dates'},{k:'supplier_release_date',l:'Supplier release',t:'date'},{k:'sample_date',l:'Samples available',t:'date'},{k:'onboard_date',l:'Onboarded by us',t:'date'},
   {k:'nrnd_date',l:'NRND / supplier EOL notice',t:'date'},{k:'ltb_date',l:'Last-time buy',t:'date'},{k:'last_ship_date',l:'Last ship',t:'date'},
   {k:'end_of_support_date',l:'End of support',t:'date'},{k:'eol_date',l:'End of life (timeline end)',t:'date'},
   {h:'Software & safety'},{k:'software_platform',l:'Software platform / version'},{k:'functional_safety',l:'Functional safety'},
   {h:'Hardware'},{k:'hardware',t:'hw'},{row2:[{k:'ip_rating',l:'IP rating'},{k:'connector',l:'Connectors / pinout'}]},
   {h:'Connectivity'},{k:'interfaces',l:'Wired networking',t:'multi',o:ifGroupOpts('Wired networking')},{k:'can_protocols',l:'CAN protocols',t:'multi',o:canOpts()},
-  {k:'interfaces',l:'Wireless',t:'multi',o:ifGroupOpts('Wireless')},{k:'interfaces',l:'Sensor & video links',t:'multi',o:ifGroupOpts('Sensor & video links')},
+  {k:'interfaces',l:'Wireless',t:'multi',cats:WIRELESS_CATS,o:ifGroupOpts('Wireless')},{k:'interfaces',l:'Sensor & video links',t:'multi',o:ifGroupOpts('Sensor & video links')},
   ...(ifGroupOpts('Other interfaces').length?[{k:'interfaces',l:'Other interfaces',t:'multi',o:ifGroupOpts('Other interfaces')}]:[]),
   {h:'I/O'},{k:'io_types',l:'Input types',t:'multi',o:ioOpts('Input types')},{k:'io_types',l:'Output types',t:'multi',o:ioOpts('Output types')},{row:[{k:'inputs',l:'Inputs',t:'number'},{k:'outputs',l:'Outputs',t:'number'},{k:'can_ports',l:'CAN ports',t:'number'}]},{k:'ethernet_ports',l:'Ethernet ports',t:'number'},
 
-  {h:'Pricing'},{row:[{k:'list_price',l:'List price',t:'number'},{k:'cost',l:'Our cost',t:'number'},{k:'currency',l:'Currency',t:'select',o:CURR.map(c=>[c,c]),req:1}]},
-  {k:'price_basis',l:'Price basis (e.g. qty 100, per unit)'},{k:'price_date',l:'Price as of',t:'date'},
+  {h:'Pricing'},{row:[{k:'pricing_model',l:'Pricing model',t:'select',o:PRICING,opt:1},{k:'billing_period',l:'Billing / renewal period',t:'select',o:BILLING,opt:1},{k:'currency',l:'Currency',t:'select',o:CURR.map(c=>[c,c]),req:1}]},
+  {row:[{k:'list_price',l:'List price',t:'number'},{k:'renewal_price',l:'Renewal / maintenance',t:'number',opt:1},{k:'cost',l:'Our cost',t:'number'}]},
+  {k:'price_basis',l:'Price basis (e.g. qty 100, per seat, min. 10 licenses)'},{k:'price_date',l:'Price as of',t:'date'},
   {h:'Links'},{k:'product_url',l:'Product page',t:'url'},{k:'datasheet_url',l:'Datasheet link',t:'url'},
-  {h:'Notes'},{k:'notes',l:'Notes',t:'textarea'}]},
+  {h:'Notes'},{k:'notes',l:'Notes',t:'textarea'},{k:'na_sections',t:'na'}]},
  dev_items:{title:'Roadmap item',defaults:{kind:'feature',status:'planned'},fields:()=>[
   {k:'product_id',l:'Product',t:'select',o:prodOpts(),req:1},{k:'kind',l:'Type',t:'select',o:DEVK.map(k=>[k.k,k.l]),req:1},
   {k:'title',l:'Title (e.g. Secure boot, new framework)',req:1},
@@ -1387,27 +1670,63 @@ const FORMS={
   {k:'event_date',l:'Date',t:'date',req:1},{k:'kind',l:'Type',t:'select',o:EVK,req:1},{k:'title',l:'Title',req:1},
   {k:'product_id',l:'Product',t:'select',o:prodOpts()},{k:'supplier_id',l:'Supplier',t:'select',o:supOpts()},
   {k:'details',l:'Details',t:'textarea'},{k:'source_url',l:'Link (PCN, roadmap deck…)',t:'url'}]},
- suppliers:{title:'Supplier',defaults:{color:'#2563eb'},fields:()=>[{k:'name',l:'Name',req:1},{k:'color',l:'Color on timeline',t:'color'},{k:'country',l:'Country'},{k:'roadmap_cadence',l:'Roadmap cadence'},{k:'contact',l:'Contact'},{k:'notes',l:'Notes',t:'textarea'}]},
- markets:{title:'Market',defaults:{status:'active'},fields:()=>[{k:'name',l:'Name',req:1},{k:'status',l:'Status',t:'select',o:[['active','Active'],['considering','Considering']],req:1},{k:'notes',l:'Notes',t:'textarea'}]}
+ suppliers:{title:'Supplier',defaults:{color:'#2563eb'},fields:()=>[{k:'name',l:'Name',req:1},{k:'color',l:'Color on timeline',t:'color'},{k:'country',l:'Country (name or 2-letter code, e.g. Germany or DE)'},{k:'roadmap_cadence',l:'Roadmap cadence'},{k:'contact',l:'Contact'},{k:'notes',l:'Notes',t:'textarea'}]},
+ markets:{title:'Market',defaults:{status:'active'},fields:()=>[{k:'name',l:'Name',req:1},{k:'status',l:'Status',t:'select',o:[['active','Focus market'],['considering','Considering (new market)']],req:1},{k:'notes',l:'Notes',t:'textarea'}]}
 };
+/* v2.16: sections that do not apply. Category rules (automatic) + per-product switch (products.na_sections) */
+const NA_SEC={'Lifecycle dates':'lifecycle','Software & safety':'software','Hardware':'hardware','Connectivity':'connectivity','I/O':'io','Pricing':'pricing'};
+const NA_L={markets:'Markets',lifecycle:'Lifecycle dates',software:'Software & safety',hardware:'Hardware',connectivity:'Connectivity',io:'I/O',pricing:'Pricing'};
+const CAT_NA={software:['hardware','io'],service:['hardware','io','connectivity','software']};
+const WIRELESS_CATS=['telematics','display'];
+const naAuto=cat=>CAT_NA[cat]||[];
+const naOf=p=>new Set([...(p.na_sections||[]),...naAuto(p.category)]);
+const isNA=(p,k)=>naOf(p).has(k);
+const PRICING=[['unit','Per unit (hardware)'],['one_time','One-time fee'],['perpetual','Perpetual license'],['subscription','Subscription'],['per_device','License per device'],['per_seat','License per seat / user'],['nre','NRE / engineering project'],['hourly','Hourly service rate']];
+const PRM=Object.fromEntries(PRICING),BILLING=[['month','Monthly'],['quarter','Quarterly'],['year','Yearly']],BPL={month:'month',quarter:'quarter',year:'year'};
+function priceText(p,v=p.list_price){if(v==null||v==='')return'';const per=p.billing_period?` / ${BPL[p.billing_period]}`:'';
+  return money(v,p.currency)+({subscription:per||' / period',per_device:' per device'+per,per_seat:' per seat'+per,hourly:' / hour',one_time:' one-time',nre:' (NRE)'}[p.pricing_model]||'')}
+function naApply(f){if(!f||f.id!=='frm')return;const ce=f.querySelector('[name=category]');if(!ce)return;const cat=ce.value,auto=naAuto(cat);
+  f.querySelectorAll('.fcard[data-na],.field[data-na]').forEach(el=>{const k=el.dataset.na,inp=el.querySelector('input[data-na]');if(!inp)return;const a=auto.includes(k);
+    if(a){inp.checked=true;inp.disabled=true}else{if(inp.disabled&&!f.querySelector('fieldset.frmfs')?.disabled)inp.disabled=false;inp.checked=!!inp.dataset.man}
+    el.classList.toggle('na',inp.checked);el.classList.toggle('naauto',a);const nt=el.querySelector('.nanote');if(nt)nt.textContent=a?`Not used for ${(CATS1[cat]||cat).toLowerCase()} products.`:'Marked not applicable for this product. Its data is kept but not shown or counted as missing.'});
+  f.querySelectorAll('[data-cats]').forEach(w=>{w.hidden=!w.dataset.cats.split(' ').includes(cat)&&!w.querySelector('input:checked')})}
 const flat=fs=>fs.flatMap(f=>f.row?f.row:f.row2?f.row2:f.h?[]:[f]);
+/* v2.14: forms in section cards (one card per heading), fields in two columns, and a jump bar when there are 3+ sections */
+function formGroups(fields){const out=[];let cur={h:'',f:[]};fields.forEach(f=>{if(f.h){if(cur.h||cur.f.length)out.push(cur);cur={h:f.h,f:[]}}else cur.f.push(f)});out.push(cur);return out}
+function formSecs(fields,row,table){
+  const prod=table==='products',cat=row.category||'',auto=naAuto(cat),man=new Set(row.na_sections||[]);
+  const nasw=(k,on,a)=>`<label class="nasw" title="Not applicable to this product: hide it and do not count it as missing data"><input type="checkbox" name="na_sections" value="${k}" data-na="${k}" ${on?'checked':''} ${a?'disabled':''} ${man.has(k)?'data-man="1"':''}><span>Not applicable</span></label>`;
+  const fld=f=>{let h=fieldHTML(f,row);
+    if(prod&&f.na){const on=man.has(f.na);h=h.replace('<div class="field">',`<div class="field ${on?'na':''}" data-na="${f.na}">`).replace(/(<label class="l">[^<]*<\/label>)/,`<div class="lrow">$1${nasw(f.na,on,false)}</div>`).replace(/<\/div>$/,'<div class="nanote">Marked not applicable for this product. Its data is kept but not shown or counted as missing.</div></div>')}
+    if(prod&&f.cats){const has=f.k==='interfaces'?ifIn(row,f.l).length:0;h=`<div class="fwrap" data-cats="${f.cats.join(' ')}" ${f.cats.includes(cat)||has?'':'hidden'}>${h}</div>`}
+    return h};
+  return formGroups(fields).map((g,i)=>{const k=prod?NA_SEC[g.h]:null,a=k&&auto.includes(k),on=k&&(a||man.has(k));
+    return`<section class="fcard ${on?'na':''} ${a?'naauto':''}" id="fs${i}" ${k?`data-na="${k}"`:''}>${g.h?`<div class="fchr"><h4 class="fch">${esc(g.h)}</h4>${k?nasw(k,on,a):''}</div>`:''}<div class="fsg">${g.f.map(fld).join('')}</div>${k?`<div class="nanote">${a?`Not used for ${(CATS1[cat]||cat).toLowerCase()} products.`:'Marked not applicable for this product. Its data is kept but not shown or counted as missing.'}</div>`:''}</section>`}).join('')}
+function formJump(fields){const G=formGroups(fields);if(G.filter(g=>g.h).length<3)return'';
+  return`<nav class="fjump" aria-label="Sections">${G.map((g,i)=>g.h?`<button type="button" class="${i===G.findIndex(x=>x.h)?'on':''}" data-act="fjump" data-arg="${i}">${esc(g.h)}</button>`:'').join('')}</nav>`}
+function fjSpy(b){const nav=b.querySelector('.fjump');if(!nav)return;const top=b.getBoundingClientRect().top+nav.offsetHeight+24;let cur=null;
+  b.querySelectorAll('.fcard').forEach(c=>{if(c.getBoundingClientRect().top<=top)cur=c.id.slice(2)});
+  if(b.scrollTop+b.clientHeight>=b.scrollHeight-4){const L=b.querySelectorAll('.fcard');cur=L[L.length-1]?.id.slice(2)}
+  if(cur!=null)nav.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x.dataset.arg===cur))}
+document.addEventListener('scroll',e=>{if(e.target.classList?.contains('sheet-b'))fjSpy(e.target)},true);
 function fieldHTML(f,v){
   if(f.h)return`<div class="fh">${esc(f.h)}</div>`;
+  if(f.t==='na')return`<input type="hidden" name="__na" ${(v.na_sections||[]).length?'data-orig="1"':''}>`;
   if(f.row2)return`<div class="hwgrid">${f.row2.map(x=>fieldHTML(x,v)).join('')}</div>`;
   if(f.row)return`<div class="grid3">${f.row.map(x=>fieldHTML(x,v)).join('')}</div>`;
   if(f.t==='hw')return`<div id="hwfields" class="hwgrid">${hwFieldsHTML(v.category,v.hardware)}</div>`;
   if(f.t==='photo'){const has=hasPhoto(v);return`<div class="field"><label class="l">${esc(f.l)}</label><div class="phf"><span id="phprev">${catIc({category:v.category||'other',photo:has?v.photo:null,part_number:''},'lg')}</span>
-    <div class="phb">${canEdit()?`<label class="btn sm">Upload photo<input type="file" accept="image/*" data-photo hidden></label> <button type="button" class="btn ghost sm" data-act="phclr" ${has?'':'hidden'}>Remove</button>`:''}
+    <div class="phb">${lk(`<label class="btn sm">Upload photo<input type="file" accept="image/*" data-photo hidden></label> <button type="button" class="btn ghost sm" data-act="phclr" ${has?'':'hidden'}>Remove</button>`)}
     <div class="mut phn">Resized to 100 × 100 px and stored with the product.</div></div>
     <input type="hidden" name="photo" value="${has?v.photo:''}" ${v.photo?'data-orig="1"':''}></div></div>`}
   const val=v[f.k],req=f.req?'required':'';let inp;
-  if(f.t==='select')inp=`<select name="${f.k}" ${req}>${f.req?'':'<option value="">—</option>'}${f.o.map(([a,b])=>`<option value="${esc(a)}" ${String(val??'')===String(a)?'selected':''}>${esc(b)}</option>`).join('')}</select>`;
+  if(f.t==='select')inp=`<select name="${f.k}" ${req} ${f.opt&&val!=null&&val!==''?'data-orig="1"':''}>${f.req?'':'<option value="">—</option>'}${f.o.map(([a,b])=>`<option value="${esc(a)}" ${String(val??'')===String(a)?'selected':''}>${esc(b)}</option>`).join('')}</select>`;
   else if(f.t==='multi')inp=`<div class="chips wrap">${f.o.map(([a,b])=>{const on=(val||[]).includes(a);return`<label class="chip ${on?'on':''}"><input type="checkbox" name="${f.k}" value="${esc(a)}" ${on?'checked':''} hidden>${esc(b)}</label>`}).join('')||'<span class="mut">Add markets in Settings</span>'}</div>`;
   else if(f.t==='textarea')inp=`<textarea name="${f.k}">${esc(val)}</textarea>`;
   else inp=`<input name="${f.k}" type="${f.t||'text'}" value="${esc(val??'')}" ${req} ${f.t==='number'?(f.k==='progress'?'min="0" max="100" step="1" inputmode="numeric"':'step="any" inputmode="decimal"'):''} ${f.list?'list="ownl" autocomplete="off"':''} ${f.opt&&val!=null&&val!==''?'data-orig="1"':''}>${f.list?ownDL():''}`;
   return`<div class="field"><label class="l">${esc(f.l)}${f.req?' *':''}</label>${inp}</div>`;
 }
-function collect(form,fields){const fd=new FormData(form),o={};flat(fields).forEach(f=>{if(f.t==='hw')o[f.k]=collectHW(form);else if(f.t==='photo'){const v=fd.get(f.k)||null,el=form.querySelector(`[name=${f.k}]`);if(v||el?.dataset.orig)o[f.k]=v}else if(f.t==='multi')o[f.k]=fd.getAll(f.k);else{let v=fd.get(f.k);v=(v===''||v==null)?null:f.t==='number'?Number(v):v;if(v==null&&f.opt&&!form.querySelector(`[name=${f.k}]`)?.dataset.orig)return;o[f.k]=v}});return o}
+function collect(form,fields){const fd=new FormData(form),o={};flat(fields).forEach(f=>{if(f.t==='hw')o[f.k]=collectHW(form);else if(f.t==='photo'){const v=fd.get(f.k)||null,el=form.querySelector(`[name=${f.k}]`);if(v||el?.dataset.orig)o[f.k]=v}else if(f.t==='multi')o[f.k]=fd.getAll(f.k);else if(f.t==='na'){const v=fd.getAll('na_sections');if(v.length||form.querySelector('[name=__na]')?.dataset.orig)o.na_sections=v}else{let v=fd.get(f.k);v=(v===''||v==null)?null:f.t==='number'?Number(v):v;if(v==null&&f.opt&&!form.querySelector(`[name=${f.k}]`)?.dataset.orig)return;o[f.k]=v}});return o}
 
 /* ---------- views ---------- */
 const ICONS={roadmap:'<path d="M12 3 21 8l-9 5-9-5z"/><path d="m3 12.5 9 5 9-5"/><path d="m3 17 9 5 9-5"/>',
@@ -1454,6 +1773,10 @@ async function loadPrefs(){
     S.theme=['light','dark'].includes(S.prefs.theme)?S.prefs.theme:'system';try{localStorage.setItem('pf_theme',S.theme)}catch(e){}applyTheme()}catch(e){}
 }
 const initials=()=>{const n=S.mode==='live'?who(S.user?.email):'Demo';const w=n.split(' ').filter(Boolean);return((w[0]||'?')[0]+(w[1]?w[1][0]:'')).toUpperCase()};
+/* v2.13.1: for people who cannot edit, show edit controls greyed out (disabled, with a tooltip) instead of hiding them */
+const LKT='View only: your role cannot change this';
+const lk=h=>canEdit()?h:String(h).replace(/(<button\b[^>]*?)\sdata-act="[^"]*"/g,'$1').replace(/<button\b/g,`<button disabled aria-disabled="true" title="${LKT}"`)
+  .replace(/<label class="btn([^"]*)"/g,`<label aria-disabled="true" title="${LKT}" class="btn locked$1"`).replace(/<input type="file"[^>]*>/g,'');
 const fab=(table,def)=>canEdit()?`<button class="fab" data-act="new" data-arg="${table}" ${def?`data-def="${esc(JSON.stringify(def))}"`:''} aria-label="Add">+</button>`:'';
 
 function renderAll(){
@@ -1490,14 +1813,14 @@ function umenuHTML(){
     ${wide()&&!document.body.classList.contains('solo')?`<div class="ml">Menu position</div>${menuPos()}`:''}
     ${mi('tab','more','more','Settings')}${isContrib()?'':mi('tab','customers','customers','Customers')}${S.mode==='live'?mi('signout','','signout','Sign out')+`<div class="uver">Portfolium v${APP_VERSION} · ${fmt(APP_BUILD)}</div>`:''}</div>`;
 }
-document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(S.hpop)return A.hpclose();if(S.updr&&!S.stack.length)return A.upclose();if(S.rmmenu)return A.rmmclose();if(S.stack.length&&!S.fpop&&!S.cxpop&&!S.tvpop&&!S.tvmenu&&!S.ipop&&!S.imenu){e.preventDefault();return A.back()}if($('#umenu')?.innerHTML)$('#umenu').innerHTML='';if(S.fpop)A.fpclose();if(S.ipop)A.ipclose();if(S.cxpop)A.cxclose();if(S.tvpop)A.tvpclose();if(S.tvmenu)A.tvmclose();if(S.imenu)imClose()});
+document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(S.fd)return A.fdcancel();if(S.hpop)return A.hpclose();if(S.updr&&!S.stack.length)return A.upclose();if(S.hdet&&!S.stack.length)return A.hdclose();if(S.rmmenu)return A.rmmclose();if(S.stack.length&&!S.fpop&&!S.cxpop&&!S.tvpop&&!S.tvmenu&&!S.ipop&&!S.imenu){e.preventDefault();return A.back()}if($('#umenu')?.innerHTML)$('#umenu').innerHTML='';if(S.fpop)A.fpclose();if(S.ipop)A.ipclose();if(S.cxpop)A.cxclose();if(S.tvpop)A.tvpclose();if(S.tvmenu)A.tvmclose();if(S.imenu)imClose()});
 
 /* ---------- shared filters (Portfolio + Products) ---------- */
 const PHC={dev:LC.development.c,pipeline:LC.evaluating.c,active:LC.active.c,phasing:LC.nrnd.c,ltb:LC.ltb.c,eol:LC.eol.c,rejected:LC.rejected.c};
 const FGROUPS=[
   {k:'ph',l:'Lifecycle',opts:()=>PHG.map(([k,l])=>[k,l,PHC[k]]),val:p=>[PHG_OF[phase(p)]]},
   {k:'sup',l:'Supplier',opts:()=>S.data.suppliers.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(s=>[s.id,s.name,s.color]),val:p=>[p.supplier_id]},
-  {k:'mkt',l:'Market',opts:()=>S.data.markets.map(m=>[m.name,m.name+(m.status==='considering'?' (considering)':'')]),val:p=>p.markets||[]},
+  {k:'mkt',l:'Market',opts:()=>S.data.markets.slice().sort((a,b)=>(a.status==='considering')-(b.status==='considering')).map(m=>[m.name,m.name+(m.status==='considering'?' · considering':''),mktC(m.name)]),val:p=>p.markets||[]},
   {k:'cat',l:'Category',opts:()=>CATEGORIES.filter(([k])=>S.data.products.some(p=>p.category===k)),val:p=>[p.category]},
   {k:'can',l:'CAN protocol',opts:()=>canOpts(),val:p=>p.can_protocols||[]}];
 let _pnHit=null,_pnQ=null;
@@ -1547,7 +1870,7 @@ function filterPills(){
 /* toolbar above the roadmap / table: view switch · search · Filters */
 function fctl(){
   const n=FGROUPS.reduce((a,g)=>a+S.F[g.k].length,0);
-  return`<button class="btn tb ${S.fpop==='all'?'open':''}" data-act="fpop" data-arg="all">${ic('<path d="M3 5h18l-7 8.5V19l-4 2v-7.5z"/>')} Filters${n?`<span class="fcnt">${n}</span>`:''}</button>`+
+  return`<button class="btn tb" data-act="fdopen" data-arg="products">${ic('<path d="M3 5h18l-7 8.5V19l-4 2v-7.5z"/>')} Filters${n?`<span class="fcnt">${n}</span>`:''}</button>`+
     (activeCount()?'<button class="btn ghost sm clr" data-act="fclrall">Clear all</button>':'');
 }
 function toolbar(tail=''){
@@ -1597,23 +1920,23 @@ function kpis(){
 /* ---------- Portfolio & Products pages ---------- */
 function viewRoadmap(){
   const banners=`${S.mode==='demo'?`<div class="banner">You're viewing sample data on this device. Connect Supabase in <b data-act="tab" data-arg="more" style="text-decoration:underline">Settings</b> to share with your team.</div>`:''}`;
-  if(S.tab==='roadmap')return`${banners}<div id="kpis" class="pfs">${kpis()}</div><section class="card plcard"><div class="plh"><span class="plhi">${ic(I.mkt)}</span><div class="plt"><h2>Product lifecycle</h2><p class="mut">View products across their lifecycle, key dates, and upcoming transitions.</p></div>${toolbar(upBtn()+rmSwitch())}</div><div id="results">${roadmapResults()}</div></section><div id="rmmenu"></div><div id="pfpop"></div><div id="updr"></div>`+fab('products');
+  if(S.tab==='roadmap')return`${banners}<div id="kpis" class="pfs">${kpis()}</div><section class="card plcard"><div class="plh"><span class="plhi">${ic(I.mkt)}</span><div class="plt"><h2>Product lifecycle</h2><p class="mut">View products across their lifecycle, key dates, and upcoming transitions.</p></div>${rmSwitch()}</div>${pfBar()}<div id="results">${roadmapResults()}</div></section><div id="rmmenu"></div><div id="pfpop"></div><div id="updr"></div><div id="hdr"></div>`;
   return`${banners}${toolbar()}<div id="results">${roadmapResults()}</div><div id="rmmenu"></div>`+fab('products');
 }
 function viewProducts(){return viewRoadmap()}
-const titleActions=()=>S.tab==='products'?`<button class="btn tb" data-act="csv">${ic(I.dl)} Export CSV</button>${canEdit()?`<button class="btn pri ibtn" data-act="new" data-arg="products">${ic('<path d="M12 5v14M5 12h14"/>')} Create product</button>`:''}`
-  :S.tab==='roadmap'&&canEdit()?`<button class="btn pri ibtn" data-act="new" data-arg="products">${ic('<path d="M12 5v14M5 12h14"/>')} Create product</button>`
+const titleActions=()=>S.tab==='products'?`<button class="btn tb" data-act="csv">${ic(I.dl)} Export CSV</button>${lk(`<button class="btn pri ibtn" data-act="new" data-arg="products">${ic('<path d="M12 5v14M5 12h14"/>')} Create product</button>`)}`
   :S.tab==='ideas'?`<button class="btn pri ibtn" data-act="ideanew">${ic('<path d="M12 5v14M5 12h14"/>')} Create idea</button>`
-  :S.tab==='transitions'?`<button class="btn tb" data-act="tvcsv">${ic(I.dl)} Export</button>${canEdit()?`<button class="btn pri ibtn" data-act="new" data-arg="transitions">${ic('<path d="M12 5v14M5 12h14"/>')} Create transition</button>`:''}`:'';
+  :S.tab==='transitions'?`<button class="btn tb" data-act="tvcsv">${ic(I.dl)} Export</button>${lk(`<button class="btn pri ibtn" data-act="new" data-arg="transitions">${ic('<path d="M12 5v14M5 12h14"/>')} Create transition</button>`)}`:'';
 const HZ=[['12','Next 12 months',4],['24','Next 2 years',6],['36','Next 3 years',6],['60','Next 5 years',12],['all','All dates',0]];
 const GROUPS=[['none','None'],['category','Category'],['supplier','Supplier'],['market','Market'],['lifecycle','Lifecycle']];
 function portfolioOpts(){
   const tl=S.rmView==='timeline',hl=S.rmView==='health';
+  if(S.rmView==='coverage')return`<div class="popts"><span class="mut cvhint">Rows: categories · columns: markets</span></div>`;
   return`<div class="popts"><span class="hsp"></span>${wide()&&tl?`<span class="swg"><span class="mut">Show</span>
     <label class="sw sm"><input type="checkbox" data-change="det" data-arg="sup" ${S.det.sup?'checked':''}><i></i>Supplier</label>
-    <label class="sw sm"><input type="checkbox" data-change="det" data-arg="mkt" ${S.det.mkt?'checked':''}><i></i>Market / Industry</label></span>`:''}
+    <label class="sw sm"><input type="checkbox" data-change="det" data-arg="mkt" ${S.det.mkt?'checked':''}><i></i>Market</label></span>`:''}
     ${hl?'':`<label class="sel">Group by <select id="grp">${GROUPS.map(([k,l])=>`<option value="${k}" ${S.f.group===k?'selected':''}>${l}</option>`).join('')}</select></label>`}
-    ${tl||hl?`<label class="sel">Horizon <select id="hz">${HZ.map(([k,l])=>`<option value="${k}" ${S.hz===k?'selected':''}>${l}</option>`).join('')}${S.hz==='custom'?'<option value="custom" selected>Custom zoom</option>':''}</select></label>`:''}</div>`;
+    ${tl||hl?`<label class="sel">Time range <select id="hz">${HZ.map(([k,l])=>`<option value="${k}" ${S.hz===k?'selected':''}>${l}</option>`).join('')}${S.hz==='custom'?'<option value="custom" selected>Custom zoom</option>':''}</select></label>`:''}</div>`;
 }
 /* from a Health panel row: apply the filter and show those products in List view */
 function hgo(f){f();S.rmView='list';S.tlScroll=null;refreshResults();$('#results')?.scrollIntoView({behavior:'smooth',block:'start'})}
@@ -1627,7 +1950,7 @@ const HBAR=[1,.8,.66,.52,.4,.3];
 function hbars(rows,tot){
   const max=Math.max(1,...rows.map(r=>r[1]));
   return`<div class="hb">${rows.map((r,i)=>`<div class="hbr ${r[2]?'go':''}" ${r[2]?`data-act="${r[2]}" data-arg="${esc(r[3])}" data-id="${esc(r[4]||'')}" title="Show these products"`:''}>
-    <span class="hbl ell">${esc(r[0])}</span><span class="hbt"><i style="width:${Math.max(2,r[1]/max*100)}%;opacity:${HBAR[Math.min(i,5)]}"></i></span>
+    <span class="hbl ell">${esc(r[0])}</span><span class="hbt"><i style="width:${Math.max(2,r[1]/max*100)}%;${r[5]?`background:${r[5]}`:`opacity:${HBAR[Math.min(i,5)]}`}"></i></span>
     <b>${r[1]}</b><span class="mut">${tot?Math.round(r[1]/tot*100):0}%</span></div>`).join('')}</div>`;
 }
 // top n by count, the rest folded into "Other"
@@ -1637,54 +1960,140 @@ function topN(map,n,labelOf){
   return{top,rest};
 }
 const hcard=(title,info,body,cls='')=>`<section class="card hcard ${cls}"><h3>${title}${info?`<span class="hinfo" title="${esc(info)}">i</span>`:''}</h3>${body}</section>`;
+/* ---------- v2.15: coverage cells (categories × markets) shared by the Health insights and the Coverage view ---------- */
+const ICO_GRID='<rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="M3.5 9.5h17M3.5 14.5h17M9.5 3.5v17M14.5 3.5v17"/>';
+const COV_PH=['development','evaluating','onboarding','active','nrnd','ltb'];
+const covOut=p=>['nrnd','ltb'].includes(phase(p))||inNext(p.eol_date,12);
+const catLab=k=>(CATEGORIES.find(c=>c[0]===k)||[,'Other'])[1];
+function covCells(ps){
+  const cats=CATEGORIES.filter(([k])=>ps.some(p=>(p.category||'other')===k)).map(([k,l])=>({k,l,n:ps.filter(p=>(p.category||'other')===k).length}));
+  const names=[...S.data.markets.filter(m=>m.status!=='considering').map(m=>m.name),...S.data.markets.filter(m=>m.status==='considering').map(m=>m.name)];
+  ps.forEach(p=>(p.markets||[]).forEach(m=>{if(!names.includes(m))names.push(m)}));
+  const mkts=names.map(n=>({k:n,l:n,cons:isCons(n),n:ps.filter(p=>(p.markets||[]).includes(n)).length}));
+  const cell={};
+  cats.forEach(c=>mkts.forEach(m=>{const L=ps.filter(p=>(p.category||'other')===c.k&&(p.markets||[]).includes(m.k)&&COV_PH.includes(phase(p)));
+    const out=L.filter(covOut).length,sups=new Set(L.map(p=>p.supplier_id||''));
+    const st=m.cons?'na':!L.length?'gap':out===L.length?'risk':L.length>=3?'strong':L.length===2?'good':'partial';
+    cell[c.k+'|'+m.k]={c,m,L,n:L.length,out,act:L.filter(p=>phase(p)==='active').length,sups:sups.size,st}}));
+  return{cats,mkts,cell};
+}
+function covInsights(ps){
+  const {cats,cell}=covCells(ps),C=Object.values(cell);
+  const risk=C.filter(x=>x.st==='risk'),riskM=[...new Set(risk.map(x=>x.m.k))];
+  const single=C.filter(x=>!x.m.cons&&x.n>=2&&x.sups===1);
+  const byCat=new Map();single.forEach(x=>{if(!byCat.has(x.c.l))byCat.set(x.c.l,[]);byCat.get(x.c.l).push(x.m.k)});
+  const weak=cats.map(c=>{const L=ps.filter(p=>(p.category||'other')===c.k),a=L.filter(p=>phase(p)==='active').length;return{c,n:L.length,a,pct:L.length?Math.round(a/L.length*100):0}}).filter(x=>x.n>=2&&x.pct<50);
+  const pl=(n,a,b)=>n===1?a:b;
+  return[
+    {k:'covrisk',n:riskM.length,t:`${pl(riskM.length,'market','markets')} at risk of coverage gap`,sub:riskM.length?`${riskM.join(', ')} (every product in a segment is phasing out or ends within 12 months)`:'No segment depends only on products that are phasing out',c:'#DC2626',i:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',cells:risk},
+    {k:'single',n:single.length,t:`${pl(single.length,'segment','segments')} with single-supplier dependency`,sub:single.length?[...byCat].map(([c,m])=>`${c} (${m.join(', ')})`).join(', '):'Every segment with 2+ products has more than one supplier',c:'#D97706',i:I.bld,cells:single},
+    {k:'weak',n:weak.length,t:`${pl(weak.length,'category','categories')} with limited active coverage`,sub:weak.length?weak.map(x=>`${x.c.l} (${x.pct}% active)`).join(', '):'Every category has at least half of its products active',c:'#2563EB',i:'<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 12l6-6"/>',weak}];
+}
+/* table card rows: {l, lh (html label), n, pct, c (bar color), act, arg, id} */
+function htab(h,rows){
+  return`<div class="htab"><div class="hth"><span>${h[0]}</span><span class="r">${h[1]}</span><span class="r hsp2">${h[2]}</span></div>${rows.map(r=>`<div class="htr ${r.act?'go':''}" ${r.act?`data-act="${r.act}" data-arg="${esc(r.arg)}" data-id="${esc(r.id??'')}" title="${esc(r.tip||'Show these products')}"`:''}>
+    <span class="ell">${r.lh||esc(r.l)}</span><b>${r.n}</b><span class="hbt"><i style="width:${Math.max(2,Math.min(100,r.pct))}%;background:${r.c||'var(--pri)'}"></i></span><span class="mut r">${r.pct}%</span></div>`).join('')}</div>`;
+}
+const hcard2=(k,title,info,body,cls='')=>`<section class="card hcard ${cls}"><div class="hch"><h3>${title}${info?`<span class="hinfo" title="${esc(info)}">i</span>`:''}</h3>${k?`<button class="hva" data-act="hdet" data-arg="${k}">View all <i class="car rt"></i></button>`:''}</div>${body}</section>`;
+function healthData(ps){
+  const tot=ps.length;
+  const grp=f=>{const m=new Map();ps.forEach(p=>[].concat(f(p)).forEach(k=>{if(!m.has(k))m.set(k,[]);m.get(k).push(p)}));return[...m.entries()].sort((a,b)=>b[1].length-a[1].length)};
+  return{tot,cats:grp(p=>p.category||'other'),sups:grp(p=>p.supplier_id||''),mkts:grp(p=>(p.markets||[]).length?p.markets:['—'])};
+}
 function healthView(ps){
-  const tot=ps.length,ids=new Set(ps.map(p=>p.id));
-  // lifecycle donut
-  const LG=[['active','Active',['active'],LC.active.c,['active']],['dev','In development',['development','evaluating','onboarding'],LC.development.c,['dev','pipeline']],
-    ['nrnd','Phasing out',['nrnd'],LC.nrnd.c,['phasing']],['ltb','Last-time buy',['ltb'],LC.ltb.c,['ltb']],['eol','End of life',['eol'],LC.eol.c,['eol']],['rej','Not onboarded',['rejected'],LC.rejected.c,['rejected']]]
-    .map(g=>[...g,ps.filter(p=>g[2].includes(phase(p))).length]).filter(g=>g[5]);
-  const R=52,C=2*Math.PI*R;let off=0;
-  const segs=LG.map(g=>{const len=g[5]/tot*C,s=`<circle r="${R}" cx="70" cy="70" fill="none" stroke="${g[0]==='dev'?'url(#hdev)':g[3]}" stroke-width="22" stroke-dasharray="${len} ${C-len}" stroke-dashoffset="${-off}" transform="rotate(-90 70 70)"><title>${g[1]}: ${g[5]}</title></circle>`;off+=len;return s}).join('');
-  const donut=`<div class="hdonut"><svg viewBox="0 0 140 140" aria-hidden="true"><defs><pattern id="hdev" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="${LC.development.c}55"/><rect width="3" height="6" fill="${LC.development.c}"/></pattern></defs>${segs}</svg>
-    <div class="hdc"><b>${tot}</b><span>Products &amp;<br>services</span></div></div>
-    <div class="hleg">${LG.map(g=>`<div class="hlr go" data-act="hph" data-arg="${g[4].join(',')}" title="Show these products"><i style="${g[0]==='dev'?`background:repeating-linear-gradient(135deg,${g[3]} 0 3px,${g[3]}66 3px 6px)`:`background:${g[3]}`}"></i><span>${g[1]}</span><b>${g[5]}</b><span class="mut">${Math.round(g[5]/tot*100)}%</span></div>`).join('')}</div>`;
-  // category
-  const cm=new Map();ps.forEach(p=>{const k=p.category||'other';if(!cm.has(k))cm.set(k,[]);cm.get(k).push(p)});
-  const catL=k=>(CATEGORIES.find(c=>c[0]===k)||[,'Other'])[1];
-  const ct=topN(cm,4,catL);
-  const catRows=[...ct.top.map(([k,L])=>[catL(k),L.length,'hflt','cat',k]),...(ct.rest.length?[[`Other (${ct.rest.length})`,ct.rest.reduce((n,[,L])=>n+L.length,0),'hflt','cat',ct.rest.map(r=>r[0]).join(',')]]:[])];
-  // supplier
-  const sm=new Map();ps.forEach(p=>{const k=p.supplier_id||'';if(!sm.has(k))sm.set(k,[]);sm.get(k).push(p)});
-  const supL=k=>byId('suppliers',k)?.name||'No supplier';
-  const st=topN(sm,4,supL);
-  const supRows=[...st.top.map(([k,L])=>[supL(k),L.length,k?'hflt':'','sup',k]),...(st.rest.length?[[`Other (${st.rest.length})`,st.rest.reduce((n,[,L])=>n+L.length,0),'hflt','sup',st.rest.map(r=>r[0]).filter(Boolean).join(',')]]:[])];
-  // market (a product can be in several markets)
-  const mm=new Map();ps.forEach(p=>(p.markets||[]).forEach(m=>{if(!mm.has(m))mm.set(m,[]);mm.get(m).push(p)}));
-  const mt=topN(mm,5,x=>x),noMkt=ps.filter(p=>!(p.markets||[]).length).length;
-  const mktRows=[...mt.top.map(([k,L])=>[k,L.length,'hflt','mkt',k]),...(mt.rest.length?[[`Other (${mt.rest.length})`,new Set(mt.rest.flatMap(r=>r[1].map(p=>p.id))).size,'hflt','mkt',mt.rest.map(r=>r[0]).join(',')]]:[])];
-  // risks & milestones (lists of products → shown in List view)
-  const pIds=f=>ps.filter(f).map(p=>p.id);
-  const RISK=riskRows(ps);
+  const tot=ps.length,ids=new Set(ps.map(p=>p.id)),D=healthData(ps),actP=L=>L.length?Math.round(L.filter(p=>phase(p)==='active').length/L.length*100):0;
+  const top=(L,n)=>L.length>n+1?[L.slice(0,n),L.slice(n)]:[L,[]];
+  // category: products and share active
+  const [ct,cr]=top(D.cats,4);
+  const catRows=[...ct.map(([k,L])=>({l:catLab(k),lh:`<span class="hcat">${ic(CATICO[k]||CATICO.other||ICO_GRID)}</span>${esc(catLab(k))}`,n:L.length,pct:actP(L),c:actP(L)>=60?'#2563EB':actP(L)>=40?'#60A5FA':'#F59E0B',act:'hflt',arg:'cat',id:k,tip:'Show these products'})),
+    ...(cr.length?[{l:`Other (${cr.length})`,n:cr.reduce((a,[,L])=>a+L.length,0),pct:actP(cr.flatMap(x=>x[1])),c:'#93C5FD',act:'hdet',arg:'cat',tip:'See every category'}]:[])];
+  // markets (Focus first in the detail panel; here the biggest)
+  const mk=D.mkts.filter(([k])=>k!=='—'),[mt,mr]=top(mk,5),noMkt=(D.mkts.find(([k])=>k==='—')||[,[]])[1].length;
+  const mlab=k=>isCons(k)?`<span class="mkd mkdc" style="--c:${mktC(k)}" title="Considering market"></span><span class="mut" title="Considering market">${esc(k)}</span>`:`<span class="mkd" style="--c:${mktC(k)}"></span>${esc(k)}`;
+  const mktRows=[...mt.map(([k,L])=>({l:k,lh:mlab(k),n:L.length,pct:tot?Math.round(L.length/tot*100):0,c:mktC(k),act:'hflt',arg:'mkt',id:k})),
+    ...(mr.length?[{l:`Other (${mr.length})`,n:new Set(mr.flatMap(x=>x[1].map(p=>p.id))).size,pct:tot?Math.round(new Set(mr.flatMap(x=>x[1].map(p=>p.id))).size/tot*100):0,c:'#94A3B8',act:'hdet',arg:'mkt',tip:'See every market'}]:[])];
+  // suppliers
+  const [st,sr]=top(D.sups,4),sl=k=>{const s=byId('suppliers',k);return s?`${supFlag(s)}${esc(s.name)}`:'No supplier'};
+  const supRows=[...st.map(([k,L])=>({l:byId('suppliers',k)?.name||'No supplier',lh:sl(k),n:L.length,pct:tot?Math.round(L.length/tot*100):0,c:'#2563EB',act:k?'hflt':'',arg:'sup',id:k})),
+    ...(sr.length?[{l:`Other (${sr.length})`,n:sr.reduce((a,[,L])=>a+L.length,0),pct:tot?Math.round(sr.reduce((a,[,L])=>a+L.length,0)/tot*100):0,c:'#93C5FD',act:'hdet',arg:'sup',tip:'See every supplier'}]:[])];
+  // risks, insights, milestones
+  const pIds=f=>ps.filter(f).map(p=>p.id),RISK=riskRows(ps),INS=covInsights(ps);
   const migN=S.data.customer_products.filter(c=>ids.has(c.product_id)&&needsMig(c)).length;
-  const MS=[['rel6','Releases (next 6 months)',pIds(p=>inNext(p.supplier_release_date,6)||inNext(p.onboard_date,6)),'#60A5FA'],
+  const MS=[['rel6','Releases (next 6 months)',pIds(p=>inNext(p.supplier_release_date,6)||inNext(p.onboard_date,6)),'#2563EB'],
     ['ltb12','Last-time buy deadlines (next 12 months)',pIds(p=>inNext(p.ltb_date,12)),'#DC2626'],
     ['migs','Customer migrations open',null,MIG_C,migN]];
   S.hsets={...(S.hsets||{}),...Object.fromEntries([...RISK,...MS].filter(r=>r[2]).map(r=>[r[0],{l:r[1],ids:r[2]}]))};
   const hrow=r=>{const n=r[2]?r[2].length:r[4],act=r[0]==='migs'?'data-act="statgo" data-arg="mig"':`data-act="hset" data-arg="${r[0]}"`;
     return`<div class="hrow ${n?'go':'zero'}" ${n?act:''}><span class="hn" style="--c:${r[3]}">${n}</span><span class="grow">${r[1]}</span>${n?'<i class="car rt"></i>':''}</div>`};
-  // key lifecycle events within the horizon
-  const ev=upcoming(hzMonths(),ids);
-  const hzL=S.hz==='all'?'all dates':(HZ.find(h=>h[0]===S.hz)||HZ[0])[1].toLowerCase();
+  const irow=x=>`<div class="hrow hins ${x.n?'go':'zero'}" ${x.n?`data-act="hdet" data-arg="${x.k}"`:''}><span class="hii" style="--c:${x.c}">${ic(x.i)}</span><span class="grow"><b>${x.n} ${esc(x.t)}</b><small>${esc(x.sub)}</small></span>${x.n?'<i class="car rt"></i>':''}</div>`;
+  const ev=upcoming(hzMonths(),ids),hzL=S.hz==='all'?'all dates':(HZ.find(h=>h[0]===S.hz)||HZ[0])[1].toLowerCase();
   return`<div class="hgrid">
-    ${hcard('Lifecycle distribution','Products by lifecycle stage. Click a stage to list its products.',`<div class="hlife">${donut}</div>`)}
-    ${hcard('Portfolio by category','Number of products in each category. The smallest categories are combined as Other.',hbars(catRows,tot))}
-    ${hcard('Supplier concentration','How many of these products come from each supplier.',hbars(supRows,tot))}
-    ${hcard('Market / Industry distribution','Share of products sold into each market.',hbars(mktRows,tot)+`<div class="hnote">A product can be in more than one market, so the percentages can add up to more than 100%.${noMkt?` ${noMkt} product${noMkt>1?'s have':' has'} no market.`:''}</div>`)}
-    ${hcard(`<span class="hti" style="color:var(--bad)">${ic(I.warn)}</span>Lifecycle risks &amp; attention`,'',`<div class="hrows">${RISK.map(hrow).join('')}</div>`)}
-    ${hcard(`<span class="hti">${ic(I.cal)}</span>Upcoming milestones`,'',`<div class="hrows">${MS.map(hrow).join('')}</div>`)}
-    ${hcard(`<span class="hti">${ic(I.cal)}</span>Key lifecycle events <span class="mut" style="font-weight:500">· ${hzL}</span>`,'Dates from the products and from the Events list. Change the period with Horizon.',hevents(ev),'hwide')}
+    ${hcard2('cat','Portfolio by category','Products in each category, and the share of them that is Active. Smaller categories are combined as Other.',htab(['Category','Products','Active'],catRows))}
+    ${hcard2('mkt','Market distribution','Share of products sold into each market. A hollow dot marks a Considering (new) market. A product can be in more than one market, so shares can add up to more than 100%.',htab(['Market','Products','Share'],mktRows)+(noMkt?`<div class="hnote">${noMkt} product${noMkt>1?'s have':' has'} no market.</div>`:''))}
+    ${hcard2('sup','Supplier concentration','How many of these products come from each supplier.',htab(['Supplier','Products','Share'],supRows))}
+    ${hcard2('',`<span class="hti" style="color:var(--bad)">${ic(I.warn)}</span>Lifecycle risks &amp; attention`,'',`<div class="hrows">${RISK.map(hrow).join('')}</div>`)}
+    ${hcard2('',`<span class="hti">${ic(I.mkt)}</span>Coverage &amp; dependency insights`,'From the Coverage view: categories × markets. Only Focus markets count; Considering markets are not assessed.',`<div class="hrows">${INS.map(irow).join('')}</div>`)}
+    ${hcard2('',`<span class="hti">${ic(I.cal)}</span>Upcoming milestones`,'',`<div class="hrows">${MS.map(hrow).join('')}</div>`)}
+    ${hcard2('',`<span class="hti">${ic(I.cal)}</span>Key lifecycle events <span class="mut" style="font-weight:500">· ${hzL}</span>`,'Dates from the products and from the Events list. Change the period with Time range.',hevents(ev),'hwide')}
   </div>`;
 }
+/* ---------- v2.15: detail side panel for Health cards, insights and Coverage cells ---------- */
+function renderHdet(){
+  const el=$('#hdr');if(!el)return;const D0=S.hdet;if(!D0){el.innerHTML='';return}
+  const ps=filtered(),tot=ps.length,D=healthData(ps);let title='',sub='',body='';
+  const row=(lh,n,extra,act,arg,id)=>`<div class="hdr2 ${act?'go':''}" ${act?`data-act="${act}" data-arg="${esc(arg)}" data-id="${esc(id??'')}"`:''}><span class="grow ell">${lh}</span>${extra||''}<b>${n}</b>${act?'<i class="car rt"></i>':''}</div>`;
+  const brk=L=>{const a=L.filter(p=>phase(p)==='active').length,o=L.filter(p=>['nrnd','ltb'].includes(phase(p))).length,dv=L.filter(p=>['development','evaluating','onboarding'].includes(phase(p))).length;
+    return`<span class="hbrk"><i style="--c:${LC.active.c}" title="Active">${a}</i><i style="--c:${LC.evaluating.c}" title="In development or evaluation">${dv}</i><i style="--c:${LC.nrnd.c}" title="Phasing out or last-time buy">${o}</i></span>`};
+  const leg=`<div class="hdleg"><span><i style="--c:${LC.active.c}"></i>Active</span><span><i style="--c:${LC.evaluating.c}"></i>Dev / evaluation</span><span><i style="--c:${LC.nrnd.c}"></i>Phasing out / LTB</span></div>`;
+  const prow=p=>`<div class="hdp" data-act="product" data-id="${p.id}">${catIc(p,'md')}<span class="grow"><b>${esc(p.part_number)}</b><small class="mut ell">${esc(p.name||'')}</small></span>${badge(phase(p))}<span class="mut hdps">${supFlag(sup(p))}${esc(sup(p)?.name||'')}</span></div>`;
+  const k=D0.k;
+  if(k==='cat'){title='Portfolio by category';sub=`${D.cats.length} categories · ${tot} products`;
+    body=leg+D.cats.map(([c,L])=>row(`<span class="hcat">${ic(CATICO[c]||ICO_GRID)}</span>${esc(catLab(c))}`,L.length,brk(L),'hdgo','cat',c)).join('')}
+  else if(k==='sup'){title='Supplier concentration';sub=`${D.sups.length} suppliers · ${tot} products`;
+    body=leg+D.sups.map(([sid,L])=>{const s=byId('suppliers',sid);const cats=[...new Set(L.map(p=>catLab(p.category||'other')))].join(', ');
+      return row(`${supFlag(s)}${esc(s?.name||'No supplier')}<small class="mut">${tot?Math.round(L.length/tot*100):0}% · ${esc(cats)}${s?.country?' · '+esc(s.country):''}</small>`,L.length,brk(L),sid?'hdgo':'','sup',sid)}).join('')}
+  else if(k==='mkt'){title='Market distribution';const mk=D.mkts.filter(([m])=>m!=='—');sub=`${mk.length} markets · ${tot} products`;
+    const sec=(l,f)=>{const L=mk.filter(([m])=>f(m));return L.length?`<div class="hdsec">${l}</div>`+L.map(([m,Lp])=>row(`<span class="mkd" style="--c:${mktC(m)}"></span>${esc(m)}<small class="mut">${tot?Math.round(Lp.length/tot*100):0}% of products</small>`,Lp.length,brk(Lp),'hdgo','mkt',m)).join(''):''};
+    body=leg+sec('Focus markets',m=>!isCons(m))+sec('Considering',m=>isCons(m))}
+  else if(['covrisk','single','weak'].includes(k)){const x=covInsights(ps).find(i=>i.k===k);title=`${x.n} ${x.t}`;sub=x.sub;
+    body=k==='weak'?x.weak.map(w=>row(`<span class="hcat">${ic(CATICO[w.c.k]||ICO_GRID)}</span>${esc(w.c.l)}<small class="mut">${w.a} of ${w.n} active (${w.pct}%)</small>`,w.n,'','hdgo','cat',w.c.k)).join('')
+      :x.cells.map(c=>`<div class="hdsec">${esc(c.c.l)} · ${esc(c.m.l)} <button class="btn ghost sm" data-act="hcell" data-arg="${esc(c.c.k+'|'+c.m.k)}">Show in list</button></div>`+c.L.map(prow).join('')).join('')}
+  else if(k==='cov'){const i=D0.id.indexOf('|'),ck=D0.id.slice(0,i),mk=D0.id.slice(i+1),C=covCells(ps).cell[D0.id];if(!C){S.hdet=null;el.innerHTML='';return}
+    title=`${C.m.l} · ${C.c.l}`;sub=C.m.cons?'Considering market: not assessed':'';
+    const STL={strong:'Strong (3 or more)',good:'Good (2)',partial:'Partial (1)',risk:'At risk: every product is phasing out or ends within 12 months',gap:'Gap: no product in this Focus market',na:'Not assessed (Considering market)'};
+    body=`<div class="cvsum"><div><span class="mut">Presence</span><b>${C.n} product${C.n===1?'':'s'}</b></div><div><span class="mut">Active</span><b>${C.act}</b></div><div><span class="mut">Phasing out / ending</span><b>${C.out}</b></div><div><span class="mut">Suppliers</span><b>${C.sups}</b></div></div>
+      <div class="cvst cv-${C.st}">${STL[C.st]}</div>${C.L.length?`<div class="hdsec">Products (${C.L.length}) <button class="btn ghost sm" data-act="hcell" data-arg="${esc(D0.id)}">Show in list</button></div>`+C.L.map(prow).join(''):'<div class="empty">No products in this segment.</div>'}`}
+  el.innerHTML=`<div class="drw-bg" data-act="hdclose"></div><aside class="drw hdrw" role="dialog" aria-label="${esc(title)}"><div class="drwh"><div class="grow"><h3>${esc(title)}</h3>${sub?`<span class="mut">${esc(sub)}</span>`:''}</div><button class="xbtn" data-act="hdclose" aria-label="Close">${ic('<path d="M6 6l12 12M18 6 6 18"/>')}</button></div><div class="drwb">${body}</div></aside>`;
+}
+/* ---------- v2.15: Coverage view (market coverage matrix) ---------- */
+function covView(ps){
+  const {cats,mkts,cell}=covCells(ps),M=S.cov||(S.cov={mode:'presence',tr:false}),mode=M.mode;
+  if(!cats.length||!mkts.length)return'<div class="card empty">Add markets to products to see coverage.</div>';
+  const sel=S.hdet?.k==='cov'?S.hdet.id:'';
+  const cv=x=>{let cls='cv-'+x.st,txt;
+    if(mode==='exposure'){txt=x.m.cons&&!x.n?'—':x.n?`${x.out}<small>/${x.n}</small>`:'—';cls=x.m.cons?'cv-na':!x.n?'cv-none':x.out===0?'cv-ok':x.out===x.n?'cv-gap':'cv-risk'}
+    else if(mode==='gaps'){txt=x.st==='gap'?`${ic('<circle cx="12" cy="12" r="8"/><path d="M8 12h8"/>')}`:x.st==='risk'?`${ic(I.warn)} ${x.n}`:x.n||'—';cls=['gap','risk'].includes(x.st)?'cv-'+x.st:'cv-mute'}
+    else{txt=x.st==='gap'?'—':x.st==='risk'?`${ic(I.warn)} ${x.n}`:x.n||'—'}
+    const tip=`${x.c.l} · ${x.m.l}: ${x.n} product${x.n===1?'':'s'}${x.out?`, ${x.out} phasing out or ending`:''}${x.m.cons?' (considering market)':''}`;
+    return`<td><button class="cvc ${cls} ${sel===x.c.k+'|'+x.m.k?'sel':''}" data-act="cvcell" data-arg="${esc(x.c.k+'|'+x.m.k)}" title="${esc(tip)}">${txt}</button></td>`};
+  const mh=m=>`<th class="cvmh ${m.cons?'cons':''}"><span class="mkd" style="--c:${mktC(m.k)}"></span><b>${esc(m.l)}</b><small>${m.n} product${m.n===1?'':'s'}</small>${m.cons?'<span class="cvtag">Considering</span>':''}</th>`;
+  const ch=c=>`<th class="cvch"><span class="hcat">${ic(CATICO[c.k]||ICO_GRID)}</span><span><b>${esc(c.l)}</b><small>${c.n} product${c.n===1?'':'s'}</small></span></th>`;
+  const R=M.tr?mkts:cats,Cc=M.tr?cats:mkts,get=(r,c)=>M.tr?cell[c.k+'|'+r.k]:cell[r.k+'|'+c.k];
+  const head=`<tr><th class="cvcorner">${M.tr?'Market':'Category'}</th>${Cc.map(c=>M.tr?`<th class="cvmh">${ch(c).replace(/^<th class="cvch">|<\/th>$/g,'')}</th>`:mh(c)).join('')}</tr>`;
+  const rows=R.map(r=>`<tr>${M.tr?mh(r).replace('<th class="cvmh','<th class="cvch cvmr'):ch(r)}${Cc.map(c=>cv(get(r,c))).join('')}</tr>`).join('');
+  const LEG={presence:[['strong','Strong','3 or more'],['good','Good','2 products'],['partial','Partial','1 product'],['risk','At risk','all phasing out or ending'],['gap','Gap','none in a Focus market'],['na','Not assessed','Considering market']],
+    exposure:[['ok','None at risk','no product phasing out'],['risk','Some at risk','part of the segment ending'],['gap','All at risk','every product ending'],['na','Not assessed','Considering market']],
+    gaps:[['gap','Gap','none in a Focus market'],['risk','At risk','all phasing out or ending'],['mute','Covered','no action needed']]}[mode];
+  const MODES=[['presence','Product presence',ICO_GRID],['exposure','Lifecycle exposure','<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>'],['gaps','Strategic gaps','<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 12l6-6"/>']];
+  const note={presence:'Number of products (in development to last-time buy) per category and market.',exposure:'Products phasing out, at last-time buy or ending within 12 months, out of all products in the segment.',gaps:'Only gaps and at-risk segments are highlighted.'}[mode];
+  return`<section class="card cvcard"><div class="cvhd"><span class="plhi">${ic(ICO_GRID)}</span><div class="grow"><h3>Market coverage matrix</h3><p class="mut">Portfolio coverage across market segments and product categories. Click a cell for details.</p></div>
+    <button class="btn tb" data-act="cvtr" title="Swap rows and columns">${ic('<path d="M4 8h14l-4-4M20 16H6l4 4"/>')} Transpose</button></div>
+    <div class="segc cvmodes">${MODES.map(([k,l,i])=>`<button class="${mode===k?'on':''}" data-act="cvmode" data-arg="${k}">${ic(i)} ${l}</button>`).join('')}</div>
+    <p class="mut cvnote">${note}</p>
+    <div class="cvw"><table class="cvt">${head}${rows}</table></div>
+    <div class="cvleg"><b>Coverage</b>${LEG.map(([k,l,d])=>`<span><i class="cvc cv-${k}"></i><span><b>${l}</b><small>${d}</small></span></span>`).join('')}</div></section>`;
+}
+function refreshCovSel(){const sel=S.hdet?.k==='cov'?S.hdet.id:'';document.querySelectorAll('.cvc[data-arg]').forEach(b=>b.classList.toggle('sel',b.dataset.arg===sel))}
 const EVL={release:'Release',nrnd:'Phasing out',ltb:'Last-time buy',eol:'End of life',announcement:'Announcement',pcn:'PCN',milestone:'Milestone',note:'Note',onboard:'Onboarding'};
 function hevRows(ev){
   return ev.map(u=>{
@@ -1711,9 +2120,10 @@ function roadmapResults(){
   const ps=filtered();S.rows=ps;
   const pills=filterPills(),none='<div class="card empty">No products match these filters.</div>';
   if(S.tab==='products')return prodBody(ps,pills);
-  const opts=portfolioOpts();
+  const opts='';const po=$('#popts');if(po)po.innerHTML=portfolioOpts();
   if(!ps.length)return pills+opts+none;
   if(S.rmView==='health')return pills+opts+healthView(ps);
+  if(S.rmView==='coverage')return pills+opts+covView(ps);
   if(S.rmView==='list'){const all=listRows(ps),pp=S.lpp||all.length||1,pages=Math.max(1,Math.ceil(all.length/pp));S.lpage=Math.min(S.lpage||0,pages-1);
     const L=all.slice(S.lpage*pp,S.lpage*pp+pp);
     return pills+opts+(wide()?prodTable(L,true):`<div class="pcards">${L.map(pcard).join('')}</div>`)+pager(all.length,pp,pages)}
@@ -1736,8 +2146,20 @@ function pnSel(p,plain){
   const o=x=>[x.part_number,x.variant,x.status,x.ltb_date&&'LTB '+fmtMY(x.ltb_date)].filter(Boolean).map(esc).join(' · ');
   return`<span class="pnw"><select class="pnsel" data-act="noop" aria-label="Part numbers for ${esc(p.part_number)}" title="${L.length} part numbers">${L.map(x=>`<option>${o(x)}</option>`).join('')}</select><span class="pnc">${L.length}</span></span>`;
 }
-const supTag=p=>sup(p)?`<span class="tg2">${ic(I.bld)}${esc(sup(p).name)}</span>`:'';
-const mktTags=p=>(p.markets||[]).map(m=>`<span class="tg2">${ic(I.mkt)}${esc(m)}</span>`).join('');
+/* v2.15: country flag from the supplier's Country (name or 2-letter code); flag emoji drawn with the Twemoji flag font so they also show on Windows */
+const CTRY={germany:'DE',deutschland:'DE',usa:'US','united states':'US','united states of america':'US',america:'US',italy:'IT',france:'FR','united kingdom':'GB','great britain':'GB',england:'GB',britain:'GB',japan:'JP',china:'CN',taiwan:'TW','south korea':'KR',korea:'KR',canada:'CA',mexico:'MX',brazil:'BR',netherlands:'NL',holland:'NL',belgium:'BE',switzerland:'CH',austria:'AT',sweden:'SE',norway:'NO',finland:'FI',denmark:'DK',spain:'ES',portugal:'PT',poland:'PL',czechia:'CZ','czech republic':'CZ',hungary:'HU',israel:'IL',india:'IN',australia:'AU','new zealand':'NZ',ireland:'IE',turkey:'TR','türkiye':'TR',singapore:'SG',slovenia:'SI',slovakia:'SK',romania:'RO',croatia:'HR',estonia:'EE',lithuania:'LT',latvia:'LV',luxembourg:'LU',greece:'GR','south africa':'ZA',chile:'CL',argentina:'AR',thailand:'TH',vietnam:'VN',malaysia:'MY',indonesia:'ID',philippines:'PH','united arab emirates':'AE',uae:'AE','saudi arabia':'SA',ukraine:'UA',bulgaria:'BG',serbia:'RS',iceland:'IS'};
+const ctryCode=c=>{const s=String(c||'').trim();if(!s)return'';if(/^[A-Za-z]{2}$/.test(s)){const u=s.toUpperCase();return u==='UK'?'GB':u}return CTRY[s.toLowerCase()]||''};
+const flag=c=>{const k=ctryCode(c);return k?`<span class="flag" title="${esc(c)}" role="img" aria-label="${esc(c)}">${String.fromCodePoint(...[...k].map(ch=>0x1F1E6+ch.charCodeAt(0)-65))}</span>`:''};
+const supFlag=s=>s?flag(s.country):'';
+const supTag=p=>sup(p)?`<span class="tg2">${supFlag(sup(p))||ic(I.bld)}${esc(sup(p).name)}</span>`:'';
+/* v2.15: markets are Focus (status active) or Considering */
+const isCons=n=>S.data.markets.some(m=>m.name===n&&m.status==='considering');
+/* v2.13.1: a color per market, used on market labels, the Health market bars and the filter drawer */
+const MKTC={agriculture:'#16A34A',construction:'#D97706',mining:'#78716C',marine:'#0891B2','utility vehicles':'#7C3AED',vocational:'#DB2777',military:'#4D7C0F',forestry:'#15803D','material handling':'#EA580C',rail:'#BE123C',automotive:'#475569'};
+const MKTX=['#2563EB','#0D9488','#9333EA','#C2410C','#0369A1','#A16207','#BE185D','#4338CA'];
+const mktC=m=>{const k=String(m||'').toLowerCase().replace(/\s*\(considering\)\s*/,'').trim();if(MKTC[k])return MKTC[k];let h=0;for(const ch of k)h=(h*31+ch.charCodeAt(0))>>>0;return MKTX[h%MKTX.length]};
+const mktTags=p=>(p.markets||[]).map(m=>isCons(m)?`<span class="tg2 mkt cons" style="--c:${mktC(m)}" title="Considering: a new market we are evaluating"><span class="mkd"></span>${esc(m)}</span>`:`<span class="tg2 mkt" style="--c:${mktC(m)}" title="Focus market"><span class="mkd"></span>${esc(m)}</span>`).join('');
+
 const rowTags=p=>{const h=(S.det.sup?supTag(p):'')+(S.det.mkt?mktTags(p):'');return h?`<div class="tags">${h}</div>`:''};
 function nextMs(p){
   for(const[k,l,c]of[['nrnd_date','Phasing out',LC.nrnd.t],['ltb_date','Last-time buy',LC.ltb.c],['eol_date','End of life','#6B7280']])if(p[k]&&d(p[k])>=today)return{l,date:p[k],c};
@@ -1767,7 +2189,7 @@ function pcard(p){
     <div class="pcf">${nmCell(p)}${keyCell(p)}</div>${p.owner?`<div class="pco">${ownerChip(p.owner)}</div>`:''}</div>`;
 }
 /* sortable product table (Products page, and Portfolio → List grouped like the timeline) */
-const PCOLS=[['part','Product'],['status','Lifecycle'],['sup','Supplier'],['mkt','Market / Industry'],['next','Next milestone'],['comp','Key details']];
+const PCOLS=[['part','Product'],['status','Lifecycle'],['sup','Supplier'],['mkt','Market'],['next','Next milestone'],['comp','Key details']];
 const LCOLS=[
   ['part','Product',p=>p.part_number.toLowerCase()],
   ['status','Lifecycle',p=>['development','evaluating','onboarding','active','nrnd','ltb','eol','rejected'].indexOf(phase(p))],
@@ -1798,20 +2220,20 @@ function prodTable(L,grouped){
 function exportCSV(){
   const L=listRows(S.rows,S.tab==='products'&&S.incOnly),q=v=>{v=v==null?'':String(v);return/[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
   const ORD=[...new Set(Object.values(HWT).flat())],hwk=[...new Set(L.flatMap(p=>Object.keys(p.hardware||{})))].sort((a,b)=>(ORD.indexOf(a)+1||99)-(ORD.indexOf(b)+1||99));
-  const H=['Product ID','Part number','Description','Owner','Supplier','Category','Status','Supplier release','Onboard','NRND','LTB','Last ship','EOL','List price','Cost','Currency','Price basis','Inputs','Outputs','I/O types','CAN ports','Ethernet ports','Interfaces','CAN protocols','Markets','Successor','Missing data','Part numbers',...hwk.map(k=>'HW: '+k)];
-  const rows=L.map(p=>[p.product_code,p.part_number,p.name,p.owner,sup(p)?.name,CATS1[p.category],LC[phase(p)]?.l,p.supplier_release_date,p.onboard_date,p.nrnd_date,p.ltb_date,p.last_ship_date,p.eol_date,p.list_price,p.cost,p.currency,p.price_basis,p.inputs,p.outputs,(p.io_types||[]).join('; '),p.can_ports,p.ethernet_ports,(p.interfaces||[]).join('; '),(p.can_protocols||[]).join('; '),(p.markets||[]).join('; '),S.data.transitions.filter(t=>t.from_product_id===p.id).map(t=>pnOf(t.to_product_id)).join('; '),completeness(p).missing.join('; '),pnsOf(p).map(x=>x.part_number).join('; '),...hwk.map(k=>(p.hardware||{})[k])].map(q).join(','));
+  const H=['Product ID','Part number','Description','Owner','Supplier','Category','Status','Supplier release','Onboard','NRND','LTB','Last ship','EOL','List price','Cost','Currency','Price basis','Pricing model','Billing period','Renewal price','Inputs','Outputs','I/O types','CAN ports','Ethernet ports','Interfaces','CAN protocols','Markets','Successor','Missing data','Not applicable','Part numbers',...hwk.map(k=>'HW: '+k)];
+  const rows=L.map(p=>[p.product_code,p.part_number,p.name,p.owner,sup(p)?.name,CATS1[p.category],LC[phase(p)]?.l,p.supplier_release_date,p.onboard_date,p.nrnd_date,p.ltb_date,p.last_ship_date,p.eol_date,p.list_price,p.cost,p.currency,p.price_basis,PRM[p.pricing_model]||'',p.billing_period||'',p.renewal_price??'',p.inputs,p.outputs,(p.io_types||[]).join('; '),p.can_ports,p.ethernet_ports,(p.interfaces||[]).join('; '),(p.can_protocols||[]).join('; '),(p.markets||[]).join('; '),S.data.transitions.filter(t=>t.from_product_id===p.id).map(t=>pnOf(t.to_product_id)).join('; '),completeness(p).missing.join('; '),[...naOf(p)].map(k=>NA_L[k]).join('; '),pnsOf(p).map(x=>x.part_number).join('; '),...hwk.map(k=>(p.hardware||{})[k])].map(q).join(','));
   const b=new Blob(['﻿'+[H.join(','),...rows].join('\r\n')],{type:'text/csv'}),a=document.createElement('a');
   a.href=URL.createObjectURL(b);a.download=`portfolium-${iso(today)}.csv`;document.body.appendChild(a);a.click();a.remove();
 }
 /* what a product record should have, depending on its category / status */
 function completeness(p){
-  const sw=p.category==='software',ph=phase(p),c=[];
-  c.push(['Lifecycle dates',['supplier_release_date','onboard_date','nrnd_date','ltb_date','eol_date'].some(k=>p[k])]);
-  c.push(['Markets',(p.markets||[]).length>0]);
-  c.push(['Price',p.list_price!=null]);
-  if(!sw)c.push(['Interfaces',(p.interfaces||[]).length>0]);
-  if(['controller','module'].includes(p.category)){c.push(['I/O counts',p.inputs!=null||p.outputs!=null]);c.push(['I/O types',(p.io_types||[]).length>0])}
-  if(!sw){const t=HWT[p.category]||HWT.other,n=t.filter(k=>(p.hardware||{})[k]).length;c.push(['Hardware specs',n>=Math.ceil(t.length/2)])}
+  const sw=['software','service'].includes(p.category),ph=phase(p),c=[],na=naOf(p);
+  if(!na.has('lifecycle'))c.push(['Lifecycle dates',['supplier_release_date','onboard_date','nrnd_date','ltb_date','eol_date'].some(k=>p[k])]);
+  if(!na.has('markets'))c.push(['Markets',(p.markets||[]).length>0]);
+  if(!na.has('pricing'))c.push(['Price',p.list_price!=null||p.renewal_price!=null]);
+  if(!sw&&!na.has('connectivity'))c.push(['Interfaces',(p.interfaces||[]).length>0]);
+  if(['controller','module'].includes(p.category)&&!na.has('io')){c.push(['I/O counts',p.inputs!=null||p.outputs!=null]);c.push(['I/O types',(p.io_types||[]).length>0])}
+  if(!sw&&!na.has('hardware')){const t=HWT[p.category]||HWT.other,n=t.filter(k=>(p.hardware||{})[k]).length;c.push(['Hardware specs',n>=Math.ceil(t.length/2)])}
   if(['nrnd','ltb','eol'].includes(ph))c.push(['Successor',S.data.transitions.some(t=>t.from_product_id===p.id)]);
   const done=c.filter(x=>x[1]).length;
   return{done,total:c.length,ratio:c.length?done/c.length:1,missing:c.filter(x=>!x[1]).map(x=>x[0])};
@@ -1858,7 +2280,7 @@ function groupMap(products){
   if(S.f.group==='category')keys.sort(ord(CATEGORIES.map(c=>c[1])));
   else if(S.f.group==='market')keys.sort(ord(S.data.markets.map(m=>m.name)));
   else if(S.f.group==='lifecycle')keys.sort(ord(PHG.map(g=>g[1])));
-  else keys.sort();
+  else keys.sort((a,b)=>String(a).localeCompare(String(b),undefined,{sensitivity:'base'}));
   return{map,keys};
 }
 /* timeline geometry depends on the zoom (S.mw = px per month) */
@@ -1977,11 +2399,11 @@ function viewCustomers(){
 /* More tab */
 function viewMore(){
   const c=cfg(),ev=S.data.events.slice().sort((a,b)=>b.event_date.localeCompare(a.event_date)).slice(0,12);
-  const staffPart=isContrib()?'':`<div class="sec"><h2>Suppliers</h2>${canEdit()?'<button class="btn ghost sm" data-act="new" data-arg="suppliers">+ Add</button>':''}</div>
-  ${S.data.suppliers.map(s=>{const n=S.data.products.filter(p=>p.supplier_id===s.id).length;return`<div class="li" data-act="edit" data-arg="suppliers" data-id="${s.id}"><i class="dot" style="background:${esc(s.color)}"></i><div class="grow"><div class="pn">${esc(s.name)}</div><div class="mut">${n} product${n===1?'':'s'}${s.roadmap_cadence?' · '+esc(s.roadmap_cadence):''}</div></div></div>`}).join('')}
-  <div class="sec"><h2>Markets</h2>${canEdit()?'<button class="btn ghost sm" data-act="new" data-arg="markets">+ Add</button>':''}</div>
-  <div class="card"><div class="chips wrap">${S.data.markets.map(m=>`<button class="chip" data-act="edit" data-arg="markets" data-id="${m.id}">${esc(m.name)}${m.status==='considering'?' <span class="mut">· considering</span>':''}</button>`).join('')}</div></div>
-  <div class="sec"><h2>Supplier notices & events</h2>${canEdit()?'<button class="btn ghost sm" data-act="new" data-arg="events">+ Add</button>':''}</div>
+  const staffPart=isContrib()?'':`<div class="sec"><h2>Suppliers</h2>${lk('<button class="btn ghost sm" data-act="new" data-arg="suppliers">+ Add</button>')}</div>
+  ${S.data.suppliers.map(s=>{const n=S.data.products.filter(p=>p.supplier_id===s.id).length;return`<div class="li" data-act="edit" data-arg="suppliers" data-id="${s.id}"><i class="dot" style="background:${esc(s.color)}"></i><div class="grow"><div class="pn">${supFlag(s)}${esc(s.name)}</div><div class="mut">${n} product${n===1?'':'s'}${s.roadmap_cadence?' · '+esc(s.roadmap_cadence):''}</div></div></div>`}).join('')}
+  <div class="sec"><h2>Markets</h2>${lk('<button class="btn ghost sm" data-act="new" data-arg="markets">+ Add</button>')}</div>
+  <div class="card">${[['active','Focus markets'],['considering','Considering']].map(([st,l])=>{const L=S.data.markets.filter(m=>(m.status==='considering')===(st==='considering'));return L.length?`<div class="mkgrp"><div class="mut mkgl">${l}</div><div class="chips wrap">${L.map(m=>`<button class="chip ${st==='considering'?'mkcons':''}" data-act="edit" data-arg="markets" data-id="${m.id}"><span class="mkd" style="--c:${mktC(m.name)}"></span>${esc(m.name)}</button>`).join('')}</div></div>`:''}).join('')}</div>
+  <div class="sec"><h2>Supplier notices & events</h2>${lk('<button class="btn ghost sm" data-act="new" data-arg="events">+ Add</button>')}</div>
   ${ev.length?`<div class="card">${ev.map(e=>`<div class="ev" data-act="edit" data-arg="events" data-id="${e.id}"><div class="dt">${fmtMY(e.event_date)}</div><div class="grow"><b>${esc(e.title)}</b><div class="mut">${esc((EVK.find(k=>k[0]===e.kind)||[])[1]||'')}${e.product_id?' · '+esc(pnOf(e.product_id)):''}</div></div></div>`).join('')}</div>`:'<div class="card empty">No events yet.</div>'}`;
   const display=`<div class="sec"><h2>Display</h2></div><div class="card"><label class="l">Appearance</label><div style="max-width:360px;margin-bottom:14px">${themePick()}</div>${isContrib()?'':`<label class="l">Menu position on a computer or tablet</label><div style="max-width:360px">${menuPos()}</div>`}
     <div class="mut" style="font-size:12px;margin-top:8px">${S.mode==='live'?'Saved to your account, so it follows you to other devices.':'Saved on this device.'}${isContrib()?'':' Phones always use the bar at the bottom.'} System follows the light or dark setting of your device.</div></div>`;
@@ -2006,14 +2428,33 @@ function viewMore(){
 /* dialog sizes: detail views wide, forms narrow; forms ignore clicks on the dimmed background */
 const DLG_LG=['product','transition','customer'],DLG_MD=['cmpsaved','idea','cmppick'],DLG_FORM=['form','ideaform','ideavote','ideastatus','cmpsave','cmppick'];
 function push(e){hovHide();S.stack.push(e);renderSheet()}
+/* v2.14: dialog buttons. A form's trailing Save / Delete buttons move to a fixed footer bar
+   (Delete left in red, Cancel, then Save in royal blue); detail dialogs get an outline Edit button with a pencil. */
+const DLG_SM=['ideastatus','cmpsave','setowner'];
+const ICO_PEN='<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m14 6 4 4"/>';
+function sheetParts(r){
+  let body=r.body||'',right=r.right||'',foot='';
+  const fm=body.match(/<form id="([\w-]+)"/);
+  if(fm){const tm=body.match(/((?:\s*<button\b[^>]*\bblock\b[^>]*>[\s\S]*?<\/button>)+)(\s*<\/form>)/);
+    if(tm){body=body.replace(tm[0],tm[2]);let L='',M='',P='';
+      (tm[1].match(/<button\b[^>]*>[\s\S]*?<\/button>/g)||[]).forEach(b=>{
+        let x=b.replace(/\s+block\b/,'');if(!/type="button"/.test(x)&&!/\sform="/.test(x))x=x.replace('<button',`<button form="${fm[1]}"`);
+        if(/class="btn danger/.test(x))L+=x.replace('class="btn danger','class="btn dangert');else if(/class="btn pri/.test(x))P+=x;else M+=x.replace('class="btn"','class="btn tb"').replace('class="btn ','class="btn tb ')});
+      right=right.replace(/<button\b[^>]*type="submit"[^>]*>[\s\S]*?<\/button>/g,'');
+      const ro=/disabled/.test(P)&&!M;
+      foot=`<div class="sheet-f"><div class="sfl">${L}</div><button type="button" class="btn tb" data-act="${S.stack.length>1?'back':'closeall'}">${ro?'Close':'Cancel'}</button>${M}${P}</div>`}}
+  right=right.replace(/<button([^>]*?)class="btn ghost"([^>]*)>Edit<\/button>/g,`<button$1class="btn tb sedit"$2>${ic(ICO_PEN)}Edit</button>`);
+  return{body,right,foot};
+}
 function renderSheet(){
   const el=$('#sheet');
   if(!S.stack.length){el.innerHTML='';document.body.classList.remove('noscroll');S.sheetOpen=false;return}
   const top=S.stack[S.stack.length-1],r=SHEETS[top.type](top);
   if(!r){S.stack.pop();return renderSheet()}
   const anim=S.sheetOpen?'':'anim';S.sheetOpen=true;
-  const sz=DLG_LG.includes(top.type)?'lg':DLG_MD.includes(top.type)?'md':'',form=DLG_FORM.includes(top.type);
-  el.innerHTML=`<div class="sheet-bg ${anim}" ${form?'':'data-act="closeall"'}></div><div class="sheet ${sz} ${anim}" role="dialog" aria-modal="true" aria-label="${esc(r.title)}"><div class="sheet-h">${S.stack.length>1?'<button class="btn ghost bk" data-act="back">‹ Back</button>':''}<h3>${esc(r.title)}</h3><div class="shr">${r.right||''}<button class="xbtn" data-act="closeall" aria-label="Close" title="Close (Esc)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div></div><div class="sheet-b">${r.body}</div></div>`;
+  const sz=DLG_LG.includes(top.type)?'lg':DLG_MD.includes(top.type)?'md':DLG_SM.includes(top.type)?'sm':'',form=DLG_FORM.includes(top.type);
+  const {body,right,foot}=sheetParts(r);
+  el.innerHTML=`<div class="sheet-bg ${anim}" ${form?'':'data-act="closeall"'}></div><div class="sheet ${sz} ${anim} ${foot?'hasf':''}" role="dialog" aria-modal="true" aria-label="${esc(r.title)}"><div class="sheet-h">${S.stack.length>1?'<button class="btn ghost bk" data-act="back">‹ Back</button>':''}<h3>${esc(r.title)}</h3><div class="shr">${right}<button class="xbtn" data-act="closeall" aria-label="Close" title="Close (Esc)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div></div><div class="sheet-b">${body}</div>${foot}</div>`;
   document.body.classList.add('noscroll');
 }
 const chipsKV=(l,a)=>`<div style="grid-column:1/-1"><span>${l}</span>${(a||[]).length?`<div class="chips wrap" style="margin-top:4px">${a.map(x=>`<span class="chip on" style="font-size:12.5px;padding:4px 10px">${esc(x)}</span>`).join('')}</div>`:'<b>—</b>'}</div>`;
@@ -2028,7 +2469,7 @@ const SHEETS={
   const spec=Object.entries(p.specs||{});
   const dateRows=[['supplier_release_date','Supplier release'],['sample_date','Samples'],['onboard_date','Onboarded'],['nrnd_date','NRND / EOL notice'],['ltb_date','Last-time buy'],['last_ship_date','Last ship'],['end_of_support_date','End of support'],['eol_date','End of life']].filter(([k],i)=>i<5||p[k]);
   const pnRow=x=>`<div class="ev" ${canEdit()?`data-act="edit" data-arg="part_numbers" data-id="${x.id}"`:''}><div class="grow"><b>${esc(x.part_number)}</b>${x.variant?` <span class="mut">· ${esc(x.variant)}</span>`:''}${x.successor_pn?`<div class="mut">→ ${esc(x.successor_pn)}</div>`:''}</div>${x.status?`<span class="tag">${esc(x.status)}</span>`:''}${x.ltb_date?`<span class="mut" style="font-size:12px">LTB ${fmtMY(x.ltb_date)}</span>`:''}</div>`;
-  return{title:p.part_number,right:canEdit()?`<button class="btn ghost" data-act="edit" data-arg="products" data-id="${p.id}">Edit</button>`:'',body:`
+  return{title:p.part_number,right:lk(`<button class="btn ghost" data-act="edit" data-arg="products" data-id="${p.id}">Edit</button>`),body:`
    <div class="hero"><div class="heroph">${catIc(p,'xl')}<div><h2>${esc(p.part_number)}</h2><div class="mut">${esc(p.name)}</div></div></div>
    <div class="row" style="margin-top:8px;flex-wrap:wrap">${badge(ph)}<span class="tag"><i class="dot" style="background:${esc(s?.color||'#999')};width:7px;height:7px"></i> ${esc(s?.name||'')}</span><span class="tag">${esc(p.family||CATS1[p.category]||'')}</span>${p.website_status?`<span class="tag">Web: ${esc(p.website_status)}</span>`:''}</div>
    ${p.sub_type?`<div class="mut" style="margin-top:6px">${esc(p.sub_type)}${p.product_code?' · '+esc(p.product_code):''}</div>`:''}</div>
@@ -2038,35 +2479,36 @@ const SHEETS={
     ${dateRows.map(([k,l])=>kvItem(l,p[k]?fmt(p[k]):'',p[k]?relTxt(p[k]):'')).join('')}</div>
    ${gantt(p)}
    </div><div class="pb">
-   <div class="sec"><h2>Hardware</h2></div>${(()=>{const hw=p.hardware||{},ks=hwKeys(p.category,hw).filter(k=>hw[k]);
+   ${isNA(p,'hardware')?'':'<div class="sec"><h2>Hardware</h2></div>'}${isNA(p,'hardware')?'':(()=>{const hw=p.hardware||{},ks=hwKeys(p.category,hw).filter(k=>hw[k]);
       const extra=[p.ip_rating&&['IP rating',p.ip_rating],p.connector&&['Connectors',p.connector]].filter(Boolean);
       return ks.length||extra.length?`<div class="card kv">${ks.map(k=>kvItem(esc(k),esc(hw[k]))).join('')}${extra.map(([l,v])=>kvItem(l,esc(v))).join('')}</div>`:`<div class="card empty" style="padding:14px">No hardware specs yet${canEdit()?' — tap Edit to add them.':'.'}</div>`})()}
-   ${(()=>{const has=[p.inputs,p.outputs,p.can_ports,p.ethernet_ports].some(v=>v!=null)||(p.io_types||[]).length,rel=['controller','module','telematics'].includes(p.category);
+   ${isNA(p,'io')?'':(()=>{const has=[p.inputs,p.outputs,p.can_ports,p.ethernet_ports].some(v=>v!=null)||(p.io_types||[]).length,rel=['controller','module','telematics'].includes(p.category);
       if(!has&&!rel)return'';
       return`<div class="sec"><h2>I/O</h2></div><div class="card kv">${kvItem('Inputs / outputs',`${p.inputs??'—'} in · ${p.outputs??'—'} out`,totalIO(p)!=null?`${totalIO(p)} total I/O`:'')+kvItem('CAN / Ethernet ports',`${p.can_ports??'—'} CAN · ${p.ethernet_ports??'—'} Eth`)}${chipsKV('Input types',ioIn(p,'Input types'))}${chipsKV('Output types',ioIn(p,'Output types'))}</div>`})()}
-   <div class="sec"><h2>Connectivity</h2></div><div class="card kv">${(()=>{const gs=IF_GROUPS().map(g=>[g,ifIn(p,g)]);
+   ${isNA(p,'connectivity')?'':`<div class="sec"><h2>Connectivity</h2></div><div class="card kv">${(()=>{const gs=IF_GROUPS().map(g=>[g,ifIn(p,g)]);
       const order=[gs[0],['CAN protocols',p.can_protocols||[]],...gs.slice(1)];
       const shown=order.filter(([g,a],i)=>a.length||i<2);
-      return shown.map(([g,a])=>chipsKV(g,a)).join('')})()}</div>
-   <div class="sec"><h2>Software &amp; safety</h2></div><div class="card kv">
+      return shown.map(([g,a])=>chipsKV(g,a)).join('')})()}</div>`}
+   ${isNA(p,'software')?'':`<div class="sec"><h2>Software &amp; safety</h2></div><div class="card kv">
     ${kvItem('Software',esc(p.software_platform))}${kvItem('Functional safety',esc(p.functional_safety))}
-    ${p.opensyde_compatible||p.beacon_compatible?kvItem('Compatible with',[p.opensyde_compatible&&'openSYDE',p.beacon_compatible&&'Beacon'].filter(Boolean).join(', ')):''}</div>
+    ${p.opensyde_compatible||p.beacon_compatible?kvItem('Compatible with',[p.opensyde_compatible&&'openSYDE',p.beacon_compatible&&'Beacon'].filter(Boolean).join(', ')):''}</div>`}
+   ${naOf(p).size?`<div class="nainfo">${ic('<circle cx="12" cy="12" r="9"/><path d="M8 12h8"/>')}<span>Not applicable: ${[...naOf(p)].map(k=>NA_L[k]).filter(Boolean).join(', ')}</span></div>`:''}
    ${p.markets?.length?`<div class="chips wrap" style="margin-top:4px">${p.markets.map(m=>`<span class="chip">${esc(m)}</span>`).join('')}</div>`:''}
-   ${p.list_price!=null||p.cost!=null?`<div class="sec"><h2>Pricing</h2>${p.price_date?`<span class="mut">as of ${fmt(p.price_date)}</span>`:''}</div><div class="card kv">${kvItem('List price',money(p.list_price,p.currency),p.price_basis?esc(p.price_basis):'')}${kvItem('Our cost',money(p.cost,p.currency))}${margin(p)!=null?kvItem('Margin',Math.round(margin(p)*100)+'%',money(p.list_price-p.cost,p.currency)+' per unit'):''}</div>`:''}
+   ${!isNA(p,'pricing')&&(p.list_price!=null||p.cost!=null||p.pricing_model||p.renewal_price!=null)?`<div class="sec"><h2>Pricing</h2>${p.price_date?`<span class="mut">as of ${fmt(p.price_date)}</span>`:''}</div><div class="card kv">${kvItem('List price',priceText(p)||'—',[PRM[p.pricing_model],p.price_basis?esc(p.price_basis):''].filter(Boolean).join(' · '))}${p.renewal_price!=null?kvItem('Renewal / maintenance',priceText({...p,pricing_model:p.billing_period?'subscription':''},p.renewal_price)):''}${kvItem('Our cost',money(p.cost,p.currency))}${margin(p)!=null?kvItem('Margin',Math.round(margin(p)*100)+'%',money(p.list_price-p.cost,p.currency)+(!p.pricing_model||p.pricing_model==='unit'?' per unit':'')):''}</div>`:''}
    <button class="btn sm" data-act="cmpgo" data-id="${p.id}" style="margin-top:12px">⇆ ${S.cmp.ids.includes(p.id)?'Open in Compare':'Add to Compare'}</button>
    ${spec.length?`<details class="card" style="margin-top:10px"><summary style="font-weight:600;cursor:pointer">Original datasheet capture (${spec.length})</summary><table class="cmp" style="margin-top:8px">${spec.map(([k,v])=>`<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join('')}</table></details>`:''}
    ${p.product_url||p.datasheet_url?`<p class="row" style="gap:16px">${p.product_url?`<a href="${esc(p.product_url)}" target="_blank" rel="noopener">Product page ↗</a>`:''}${p.datasheet_url?`<a href="${esc(p.datasheet_url)}" target="_blank" rel="noopener">Datasheet ↗</a>`:''}</p>`:''}
    ${p.notes?`<div class="card" style="margin-top:10px;white-space:pre-wrap">${esc(p.notes)}</div>`:''}
    </div><div class="pc">
-   <div class="sec"><h2>Part numbers${pns.length?' · '+pns.length:''}</h2>${canEdit()?`<button class="btn ghost sm" data-act="new" data-arg="part_numbers" data-def="${esc(JSON.stringify({product_id:p.id}))}">+ Add</button>`:''}</div>
+   <div class="sec"><h2>Part numbers${pns.length?' · '+pns.length:''}</h2>${lk(`<button class="btn ghost sm" data-act="new" data-arg="part_numbers" data-def="${esc(JSON.stringify({product_id:p.id}))}">+ Add</button>`)}</div>
    ${pns.length?`<div class="card">${pns.slice(0,6).map(pnRow).join('')}${pns.length>6?`<details><summary class="btn ghost sm" style="list-style:none;cursor:pointer">Show all ${pns.length}</summary>${pns.slice(6).map(pnRow).join('')}</details>`:''}</div>`:'<div class="card empty" style="padding:16px">No part numbers listed.</div>'}
-   <div class="sec"><h2>Successor</h2>${canEdit()?`<button class="btn ghost sm" data-act="new" data-arg="transitions" data-def="${esc(JSON.stringify({from_product_id:p.id}))}">+ Add</button>`:''}</div>
+   <div class="sec"><h2>Successor</h2>${lk(`<button class="btn ghost sm" data-act="new" data-arg="transitions" data-def="${esc(JSON.stringify({from_product_id:p.id}))}">+ Add</button>`)}</div>
    ${out.length?out.map(trCard).join(''):`<div class="card empty" style="padding:16px">${['nrnd','ltb','eol'].includes(ph)?'⚠️ Phasing out with no successor mapped.':'None defined.'}</div>`}
    ${inn.length?`<div class="sec"><h2>Replaces</h2></div>${inn.map(trCard).join('')}`:''}
-   <div class="sec"><h2>Customers using it</h2>${canEdit()?`<button class="btn ghost sm" data-act="new" data-arg="customer_products" data-def="${esc(JSON.stringify({product_id:p.id,transition_id:out[0]?.id||null}))}">+ Add</button>`:''}</div>
+   <div class="sec"><h2>Customers using it</h2>${lk(`<button class="btn ghost sm" data-act="new" data-arg="customer_products" data-def="${esc(JSON.stringify({product_id:p.id,transition_id:out[0]?.id||null}))}">+ Add</button>`)}</div>
    ${cps.length?cps.map(c=>`<div class="li" data-act="customer" data-id="${c.customer_id}"><div class="grow"><div class="pn">${esc(byId('customers',c.customer_id)?.name)}</div><div class="mut">${c.annual_volume?c.annual_volume.toLocaleString()+'/yr · ':''}${c.transition_id?'→ '+esc(pnOf(byId('transitions',c.transition_id)?.to_product_id)):'No migration set'}</div></div>${migBadge(c.transition_status)}</div>`).join(''):'<div class="card empty" style="padding:16px">No customers linked.</div>'}
    ${productIdeas(p)}
-   <div class="sec"><h2>History & notices</h2>${canEdit()?`<button class="btn ghost sm" data-act="new" data-arg="events" data-def="${esc(JSON.stringify({product_id:p.id,supplier_id:p.supplier_id}))}">+ Add</button>`:''}</div>
+   <div class="sec"><h2>History & notices</h2>${lk(`<button class="btn ghost sm" data-act="new" data-arg="events" data-def="${esc(JSON.stringify({product_id:p.id,supplier_id:p.supplier_id}))}">+ Add</button>`)}</div>
    ${evs.length?`<div class="card">${evs.map(x=>`<div class="ev" data-act="edit" data-arg="events" data-id="${x.id}"><div class="dt">${fmtMY(x.event_date)}</div><div class="grow"><b>${esc(x.title)}</b>${x.details?`<div class="mut">${esc(x.details)}</div>`:''}</div></div>`).join('')}</div>`:'<div class="card empty" style="padding:16px">No events logged.</div>'}</div></div>`};
  },
  transition(e){
@@ -2084,7 +2526,7 @@ const SHEETS={
     if(l==='CAN protocols'&&lostCan.length)dl=` <b style="color:var(--bad)">(drops ${esc(lostCan.join(', '))})</b>`;return`<tr class="${chg?'chg':''}"><td>${l}</td><td>${esc(x??'—')}</td><td>${esc(y??'—')}${dl}</td></tr>`}).join('');
   const cps=cpsFor(t),done=cps.filter(c=>['released','complete'].includes(c.transition_status)).length;
   const imp=(lab,k,n)=>`<div class="impact"><div class="t">${lab}</div><div style="flex:1"><span class="pill" style="--c:${IMPACT[t[k]]?.c}">${IMPACT[t[k]]?.l}</span>${t[n]?`<div style="margin-top:5px;white-space:pre-wrap">${esc(t[n])}</div>`:''}</div></div>`;
-  return{title:`${a.part_number} → ${b.part_number}`,right:canEdit()?`<button class="btn ghost" data-act="edit" data-arg="transitions" data-id="${t.id}">Edit</button>`:'',body:`
+  return{title:`${a.part_number} → ${b.part_number}`,right:lk(`<button class="btn ghost" data-act="edit" data-arg="transitions" data-id="${t.id}">Edit</button>`),body:`
    <div class="ac"><div class="mini" data-act="product" data-id="${a.id}"><span class="mut" style="font-size:11px">FROM</span><div class="pn">${esc(a.part_number)}</div><div class="mut ell" style="font-size:12px">${esc(a.name)}</div><div style="margin-top:4px">${badge(phase(a))}</div>${a.eol_date?`<div class="mut" style="font-size:11.5px;margin-top:4px">EOL ${fmtMY(a.eol_date)}</div>`:''}</div><div class="arr">→</div>
    <div class="mini" data-act="product" data-id="${b.id}"><span class="mut" style="font-size:11px">TO</span><div class="pn">${esc(b.part_number)}</div><div class="mut ell" style="font-size:12px">${esc(b.name)}</div><div style="margin-top:4px">${badge(phase(b))}</div></div></div>
    <div class="row" style="margin-top:12px;flex-wrap:wrap">${ttag(t)}${basisTag(t.basis)}${t.pin_compatible?`<span class="tag">Pin-compatible: ${esc(t.pin_compatible)}</span>`:''}${t.effort_weeks?`<span class="tag">~${esc(t.effort_weeks)} wks customer effort</span>`:''}</div>
@@ -2104,36 +2546,40 @@ const SHEETS={
  customer(e){
   const c=byId('customers',e.id);if(!c)return null;
   const cps=S.data.customer_products.filter(x=>x.customer_id===c.id);
-  return{title:c.name,right:canEdit()?`<button class="btn ghost" data-act="edit" data-arg="customers" data-id="${c.id}">Edit</button>`:'',body:`
+  return{title:c.name,right:lk(`<button class="btn ghost" data-act="edit" data-arg="customers" data-id="${c.id}">Edit</button>`),body:`
    <div class="hero"><h2>${esc(c.name)}</h2><div class="mut">${esc(c.market||'No market set')}${c.contact?' · '+esc(c.contact):''}</div></div>
    ${c.notes?`<div class="card" style="margin-top:12px;white-space:pre-wrap">${esc(c.notes)}</div>`:''}
-   <div class="sec"><h2>Products & migrations</h2>${canEdit()?`<button class="btn ghost sm" data-act="new" data-arg="customer_products" data-def="${esc(JSON.stringify({customer_id:c.id}))}">+ Add</button>`:''}</div>
+   <div class="sec"><h2>Products & migrations</h2>${lk(`<button class="btn ghost sm" data-act="new" data-arg="customer_products" data-def="${esc(JSON.stringify({customer_id:c.id}))}">+ Add</button>`)}</div>
    ${cps.length?cps.map(x=>{const p=byId('products',x.product_id),t=byId('transitions',x.transition_id),to=t&&byId('products',t.to_product_id);if(!p)return'';
     return`<div class="card"><div class="row"><div class="grow" data-act="product" data-id="${p.id}" style="flex:1;min-width:0"><div class="pn">${esc(p.part_number)}</div><div class="mut ell">${esc(x.application||p.name)}${x.annual_volume?' · '+x.annual_volume.toLocaleString()+'/yr':''}</div></div>${badge(phase(p))}</div>
     ${to?`<div class="ac" style="margin-top:10px" data-act="transition" data-id="${t.id}"><div class="mini"><b>${esc(p.part_number)}</b></div><div class="arr">→</div><div class="mini"><b>${esc(to.part_number)}</b> <span class="mut" style="font-size:11px">${KIND[t.kind]}</span></div></div>
      <div class="chips wrap" style="margin-top:8px">${impPill('SW',t.software_impact)}${impPill('Harness',t.harness_impact)}${impPill('Mech',t.mechanical_impact)}</div>
      <div class="mig"><select data-change="mig" data-id="${x.id}" ${canEdit()?'':'disabled'} style="border-left:4px solid ${MIGC[x.transition_status]}">${MIG.map(([k,l])=>`<option value="${k}" ${x.transition_status===k?'selected':''}>${l}</option>`).join('')}</select>${x.target_date?`<span class="mut">${fmtMY(x.target_date)}</span>`:''}</div>`
     :['nrnd','ltb','eol'].includes(phase(p))?`<div class="banner" style="margin:10px 0 0">Phasing out — no migration path set.</div>`:''}
-    ${canEdit()?`<div style="text-align:right"><button class="btn ghost sm" data-act="edit" data-arg="customer_products" data-id="${x.id}">Edit</button></div>`:''}</div>`}).join('')
+    ${lk(`<div style="text-align:right"><button class="btn ghost sm" data-act="edit" data-arg="customer_products" data-id="${x.id}">Edit</button></div>`)}</div>`}).join('')
    :'<div class="card empty" style="padding:16px">No products linked yet.</div>'}`};
  },
  form(e){
   const F=FORMS[e.table];let row;
   if(e.id){row=byId(e.table,e.id);if(!row)return null;row={...row}}else row={...(F.defaults||{}),...(e.defaults||{})};
   const fields=F.fields();
-  return{title:(e.id?'Edit ':'New ')+F.title.toLowerCase(),right:canEdit()?`<button class="btn ghost" type="submit" form="frm"><b>Save</b></button>`:'',body:`
-   <form id="frm">${fields.map(f=>fieldHTML(f,row)).join('')}
-   ${canEdit()?`<button class="btn pri block" type="submit">Save</button>${e.id?`<button type="button" class="btn danger block" data-act="del" data-arg="${e.table}" data-id="${e.id}">Delete</button>`:''}`:''}</form>`};
+  const ro=!canEdit();
+  return{title:(ro?'':e.id?'Edit ':'New ')+(ro?F.title:F.title.toLowerCase()),right:lk(`<button class="btn ghost" type="submit" form="frm"><b>Save</b></button>`),body:`
+   ${ro?`<div class="ronote">${ic('<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>')}<span><b>View only.</b> Your role can see this but cannot change it. Ask an editor to make changes.</span></div>`:''}
+   ${formJump(fields)}<form id="frm" class="${ro?'roform':''}"><fieldset ${ro?'disabled':''} class="frmfs">${formSecs(fields,row,e.table)}</fieldset>
+   ${lk(`<button class="btn pri block" type="submit">Save</button>${e.id?`<button type="button" class="btn danger block" data-act="del" data-arg="${e.table}" data-id="${e.id}">Delete</button>`:''}`)}</form>`};
  }
 };
 
 /* ---------- actions ---------- */
 async function reload(){try{await loadAll();renderMain();renderSheet()}catch(e){toast(errMsg(e))}}
 const A={
- tab:(id,arg)=>{S.tab=arg;S.stack=[];S.hpop=false;S.updr=false;S.tlScroll=null;S.fpop=null;S.ipop=false;S.cxpop=null;S.cxq='';S.tvpop=null;S.tvmenu=null;S.imenu=null;S.rmmenu=null;renderAll();window.scrollTo(0,0)},
+ tab:(id,arg)=>{S.tab=arg;S.stack=[];S.hpop=false;S.updr=false;S.hdet=null;if(S.fd){S.fd=null;renderFd()}S.tlScroll=null;S.fpop=null;S.ipop=false;S.cxpop=null;S.cxq='';S.tvpop=null;S.tvmenu=null;S.imenu=null;S.rmmenu=null;renderAll();window.scrollTo(0,0)},
  product:id=>push({type:'product',id}),transition:id=>push({type:'transition',id}),customer:id=>push({type:'customer',id}),
  edit:(id,arg)=>push({type:'form',table:arg,id}),
  new:(id,arg,el)=>push({type:'form',table:arg,defaults:el.dataset.def?JSON.parse(el.dataset.def):{}}),
+ fjump:(id,k)=>{const el=document.getElementById('fs'+k),b=el?.closest('.sheet-b'),nav=b?.querySelector('.fjump');if(!el||!b)return;
+   b.scrollTo({top:b.scrollTop+el.getBoundingClientRect().top-b.getBoundingClientRect().top-(nav?nav.offsetHeight:0)-6,behavior:'smooth'});nav?.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x.dataset.arg===String(k)))},
  back:()=>{S.stack.pop();renderSheet()},closeall:()=>{S.stack=[];renderSheet()},
  async del(id,arg){if(!confirm('Delete this record? This cannot be undone.'))return;try{await remove(arg,id);S.stack.pop();toast('Deleted');renderMain();renderSheet()}catch(e){toast(errMsg(e))}},
  fx:(v,k)=>{const L=S.F[k];const i=L.indexOf(v);if(i>=0)L.splice(i,1);else L.push(v);refreshResults()},
@@ -2147,7 +2593,12 @@ const A={
  pview:(id,k)=>{S.pView=k;refreshResults()},
  statgo:(id,arg)=>{if(arg==='mig'){S.tab='transitions';S.stack=[];renderAll();window.scrollTo(0,0);return}
    S.F.ph=arg==='total'||kpiOn(arg)?[]:[...KPI_PH[arg]];refreshResults()},
- rmview:(id,k)=>{S.rmView=k;S.tlScroll=null;refreshResults()},
+ rmview:(id,k)=>{S.rmView=k;S.tlScroll=null;S.hdet=null;renderHdet();refreshResults()},
+ hdet:(id,k)=>{S.hdet={k,id};renderHdet()},hdclose:()=>{S.hdet=null;renderHdet();refreshCovSel()},
+ hdgo:(v,k)=>{S.hdet=null;renderHdet();A.hflt(v,k)},
+ hcell:(id,arg)=>{S.hdet=null;renderHdet();const i=arg.indexOf('|'),c=arg.slice(0,i),m=arg.slice(i+1);hgo(()=>{S.F.cat=[c];S.F.mkt=[m]})},
+ cvcell:(id,arg)=>{S.hdet={k:'cov',id:arg};renderHdet();refreshCovSel()},
+ cvmode:(id,k)=>{S.cov.mode=k;saveView();refreshResults()},cvtr:()=>{S.cov.tr=!S.cov.tr;saveView();refreshResults()},
  hph:(id,arg)=>hgo(()=>{S.F.ph=arg.split(',')}),
  hflt:(v,k)=>hgo(()=>{S.F[k]=String(v).split(',').filter(Boolean)}),
  hset:(id,k)=>{const x=(S.hsets||{})[k];if(x)hgo(()=>{S.hsel={l:x.l,ids:x.ids}})},
@@ -2173,8 +2624,10 @@ document.addEventListener('change',async e=>{
   const t=e.target;
   if(t.type==='checkbox'&&t.closest('label.chip'))t.closest('label.chip').classList.toggle('on',t.checked);
   if(t.matches?.('input[data-photo]')){const f=t.files?.[0];t.value='';if(f)phLoad(f);return}
-  if(t.name==='category'&&t.closest('#frm')){const box=$('#hwfields');if(box)box.innerHTML=hwFieldsHTML(t.value,collectHW(box));return}
+  if(t.matches?.('#frm input[data-na]')){t.dataset.man=t.checked?'1':'';naApply(t.form);return}
+  if(t.name==='category'&&t.closest('#frm')){const box=$('#hwfields');if(box)box.innerHTML=hwFieldsHTML(t.value,collectHW(box));naApply(t.form);return}
   if(t.dataset.change==='incOnly'){S.incOnly=t.checked;refreshResults();return}
+  if(t.id==='pgrp'){S.pgroup=t.value;S.ppg=0;S._keepPage=false;refreshResults();return}
   if(t.id==='grp'){S.f.group=t.value;refreshResults();return}
   if(t.id==='lpp'){S.lpp=+t.value||0;refreshResults();return}
   if(t.id==='hz'){S.hz=t.value;S.refit=true;refreshResults();return}
@@ -2193,6 +2646,7 @@ const CATICO={controller:'<rect x="5" y="5" width="14" height="14" rx="2"/><rect
  display:'<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>',
  module:'<rect x="3" y="6" width="5" height="12" rx="1"/><rect x="9.5" y="6" width="5" height="12" rx="1"/><rect x="16" y="6" width="5" height="12" rx="1"/><path d="M5.5 9v1.5M12 9v1.5M18.5 9v1.5"/>',
  sensor:'<circle cx="12" cy="12" r="2.6"/><circle cx="12" cy="12" r="7.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22"/>',
+ service:'<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3.5 17.5l3 3 5.8-5.8a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/>',
  software:'<path d="m8 7-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/>',
  other:'<path d="M12 3 21 7.5v9L12 21 3 16.5v-9z"/><path d="m3 7.5 9 4.5 9-4.5M12 12v9"/>'};
 const PHOTO_RE=/^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/;
@@ -2206,7 +2660,7 @@ const CXSEC=[['overview','Overview','<rect x="4" y="4" width="16" height="16" rx
   ['notes','Notes & links','<path d="M10 14a4 4 0 0 0 5.7 0l3.6-3.6a4 4 0 0 0-5.7-5.7L12 6.3M14 10a4 4 0 0 0-5.7 0l-3.6 3.6a4 4 0 0 0 5.7 5.7L12 17.7"/>'],
   ['value','Value vs capability','<path d="M4 20V4M4 20h16"/><circle cx="9" cy="14" r="1.5"/><circle cx="13" cy="9" r="1.5"/><circle cx="17" cy="12" r="1.5"/>']];
 const KEYSPEC={controller:['Processor','RAM','Flash / storage'],telematics:['Processor','RAM','Flash / storage'],display:['Screen size','Resolution','Touch'],
-  sensor:['Measurand / technology','Range','Output signal'],module:['Channels','Max current'],software:['License model','Supported hardware / OS'],other:[]};
+  sensor:['Measurand / technology','Range','Output signal'],module:['Channels','Max current'],software:['License model','Supported hardware / OS'],service:[],other:[]};
 const SPEC_LBL={'Flash / storage':'Storage'};
 const IO_CATS=['controller','module','telematics'];
 const isSw=p=>p.category==='software';
@@ -2259,7 +2713,7 @@ function cmpRows(cols){
   row('Lifecycle',p=>LC[phase(p)]?.l||'',{html:p=>badge(phase(p))});
   row('Next milestone',p=>{const m=nextMs(p);return m?`${m.l}: ${fmt(m.date)}`:''},{html:p=>nextMs(p)?nmCell(p):''});
   row('Successor(s)',p=>succOf(p).map(q=>q.part_number).join(', '),{html:p=>succOf(p).map(q=>`<span class="cxs">→ ${plink(q)}</span>`).join('')});
-  row('Market / Industry',p=>(p.markets||[]).join(', '),{html:p=>(p.markets||[]).length?`<div class="tags">${mktTags(p)}</div>`:''});
+  row('Market',p=>(p.markets||[]).join(', '),{html:p=>(p.markets||[]).length?`<div class="tags">${mktTags(p)}</div>`:''});
   row('Supplier',p=>sup(p)?.name||'',{html:p=>supTag(p)});
   row('Lifecycle timeline',p=>'',{tl:1});
   sub('Key specifications');
@@ -2403,7 +2857,7 @@ function cmpCaps(p){
 function cmpMetrics(cols){
   const cats=[...new Set(cols.map(p=>p.category))];
   const M=[['Power consumption',p=>(p.hardware||{})['Power consumption']||'',hwAp('Power consumption')],
-    ['List price',p=>p.list_price!=null&&p.list_price!==''?money(p.list_price,p.currency):'',()=>true],
+    ['List price',p=>priceText(p),()=>true],
     ...[...new Set(cats.flatMap(c=>KEYSPEC[c]||[]))].map(k=>[SPEC_LBL[k]||k,p=>(p.hardware||{})[k]||'',hwAp(k)])];
   return M.filter(([,g])=>cols.some(p=>g(p)));
 }
@@ -2418,7 +2872,7 @@ function kdBar(p){
   return`<div class="kdb"><div class="mtr">${bars}</div><div class="kdls"><span class="kdl now" style="left:${X(today)}%">Now</span>${up.map((x,i)=>`<span class="kdl" style="left:${pos[i]}%"><b>${x.l}</b>${fmt(x.date)}</span>`).join('')}</div></div>`;
 }
 const cxSup=p=>{const s=sup(p);if(!s)return'<span class="cn">—</span>';const ini=s.name.split(/\s+/).filter(Boolean).map(w=>w[0]).join('').slice(0,2).toUpperCase();
-  return`<span class="cxsup"><i style="--c:${esc(s.color||'#6B7280')}">${esc(ini)}</i>${esc(s.name)}</span>`};
+  return`<span class="cxsup"><i style="--c:${esc(s.color||'#6B7280')}">${esc(ini)}</i>${supFlag(s)}${esc(s.name)}</span>`};
 
 function viewCompare(){return`<div id="cmpres">${compareResults()}</div><div id="cxpop"></div>`}
 function cmpBar(cols){
@@ -2427,7 +2881,7 @@ function cmpBar(cols){
   const savedLine=c?`<div class="cxsv">${ic(CXI.bm)}<span>Saved comparison: <b>${esc(c.name)}</b> · ${c.shared?'Shared with the team':'Only you'}${c.owner&&c.owner!==me()?' · by '+esc(c.owner):''}${cmpDirty()?' · <span class="warnt">changed, not saved</span>':''}</span><button class="btn ghost sm" data-act="cmpclose">Close</button></div>`:'';
   return`<div class="card cxbar"><div class="cxtop"><b class="cxt">Products to compare <span class="mut">(${cols.length})</span></b>
     <div class="cxchips">${chips||'<span class="mut">No products selected yet</span>'}</div>
-    <button class="btn tb cxadd" data-act="cmpadd">${ic(CXI.plus)} Add product</button></div>${savedLine}</div>`;
+    ${cols.length?'<button class="btn ghost sm cxclr" data-act="cmpclear">Clear all</button>':''}<button class="btn tb cxadd" data-act="cmpadd">${ic(CXI.plus)} Add product</button></div>${savedLine}</div>`;
 }
 /* action row: Export ▾ · Save comparison · ⋯ on the left; the view switch on the right (same place as on every page) */
 function cmpTools(cols){
@@ -2506,7 +2960,7 @@ function compareResults(){
   const mixed=!same?`<div class="cxnote">${ic('<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.01"/>')}<span>These products are from different categories. Fields that do not apply to a product show <i>n/a</i>. Gaps are flagged only when all products are in the same category.</span></div>`:'';
   const vOn=(S.cmp.open||[]).includes('value');
   return cmpBar(cols)+cmpTools(cols)+mixed
-    +`<div class="cxw" id="cxw"><table class="cxt2 cx3" style="--n:${n}"><thead>${head}</thead><tbody class="cxsum">${cmpSummary(cols)}</tbody>${cmpDetails(cols)}</table></div>
+    +`<div class="cxw" id="cxw"><table class="cxt2 cx3" style="--n:${n}"><thead>${head}</thead><tbody class="cxsum">${cmpSummary(cols)}</tbody>${cmpDetails(cols)}</table></div><div class="cxhs" id="cxhs" hidden><div></div></div>
     <div class="card cxval ${vOn?'open':''}" id="cx-value"><button class="cxvh" data-act="cmptgl" data-arg="value" aria-expanded="${vOn}">${ic(CXI.car)}<b>Value vs capability</b><span class="mut">Price against capability for these products</span></button>${vOn?`<div class="cxvb">${valueChart(cols)}</div>`:''}</div>`;
 }
 const ICO_CMP='<rect x="3.5" y="4" width="7" height="16" rx="1.6"/><rect x="13.5" y="4" width="7" height="16" rx="1.6"/><path d="M5.5 9h3M5.5 13h3M15.5 9h3M15.5 13h3"/>';
@@ -2779,7 +3233,7 @@ const tvProd=(p,muted)=>p?`<div class="tvp">${catIc(p)}<div class="tvpn"><b data
 const TVG=[
   {k:'type',l:'Transition type',opts:()=>TV_TYPE.map(([k,l,,c])=>[k,l,c]),val:x=>[x.type]},
   {k:'st',l:'Status',opts:()=>TV_ST.map(([k,l,,c])=>[k,l,c]),val:x=>[x.st]},
-  {k:'mkt',l:'Market',opts:()=>S.data.markets.map(m=>[m.name,m.name]),val:x=>[...new Set([...(x.a.markets||[]),...(x.b?.markets||[])])]},
+  {k:'mkt',l:'Market',opts:()=>S.data.markets.map(m=>[m.name,m.name,mktC(m.name)]),val:x=>[...new Set([...(x.a.markets||[]),...(x.b?.markets||[])])]},
   {k:'sup',l:'Supplier',opts:()=>S.data.suppliers.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(s=>[s.id,s.name,s.color]),val:x=>[...new Set([x.a.supplier_id,x.b?.supplier_id].filter(Boolean))]}];
 const TV_KPI={active:x=>x.st!=='complete',ltb:x=>phase(x.a)==='ltb',nrnd:x=>phase(x.a)==='nrnd',succ:x=>!!x.b&&x.st!=='complete',risk:x=>x.st==='at_risk'};
 function tvQ(x){
@@ -2818,7 +3272,7 @@ function tvPills(){
 function viewTransitions(){
   const seg=[['list','List',ICO_LIST],['timeline','Timeline',ICO_TL]];
   S.tv.kpi=null;
-  return`<div id="tvkpis" class="card tvsb">${tvKpis()}</div>
+  return`<div id="tvkpis" class="itabs tvtabs" role="tablist" aria-label="Transitions by status">${tvKpis()}</div>
     <div class="tbar"><div class="tsearch">${ICO_SEARCH}<input id="tvq" type="search" placeholder="Search transitions, products or part numbers…" value="${esc(S.tv.q||'')}" autocomplete="off"></div>
     <div id="tvctl" class="fctl">${tvFctl()}</div><div class="segc vsw tsw tvsw">${seg.map(([k,l,i])=>`<button class="${S.tv.view===k?'on':''}" data-act="tvview" data-arg="${k}">${i} ${l}</button>`).join('')}</div><div id="tvpop"></div></div>
     <div id="tvres">${tvResults()}</div><div id="tvmenu"></div>${fab('transitions')}`;
@@ -2931,7 +3385,8 @@ const labelsOf=i=>Array.isArray(i.labels)&&i.labels.length?i.labels:(!i.category
 const typeFor=(cat,labels)=>cat==='service'?'service':cat==='product'&&labels.length?labels[0]:'other';
 const PRIO=[['critical','Critical'],['high','High'],['medium','Medium'],['low','Low']];
 const RANGES={units:[['<100',50],['100–500',300],['500–2k',1250],['2k–10k',6000],['10k+',15000]],
-  revenue:[['<$25k',12500],['$25–100k',62500],['$100–500k',300000],['$500k–1M',750000],['$1M+',1500000]]};
+  revenue:[['<$25k',12500],['$25–100k',62500],['$100–500k',300000],['$500k–1M',750000],['$1M+',1500000]],
+  one_time:[['<$25k',12500],['$25–100k',62500],['$100–250k',175000],['$250k–1M',600000],['$1M+',1500000]]};
 const CONF=[['firm','Firm (RFQ / PO / nomination)',1],['stated','Customer stated',0.6],['estimate','Our estimate',0.25]];
 const CONFW=Object.fromEntries(CONF.map(c=>[c[0],c[2]]));
 const isContrib=()=>S.role==='contributor';
@@ -2952,6 +3407,7 @@ function sizingRev(x,price){
   const mid=(RANGES[x.size_basis].find(r=>r[0]===x.size_range)||[])[1],v=x.size_exact!=null&&x.size_exact!==''?+x.size_exact:mid;
   if(v==null)return null;
   if(x.size_basis==='revenue')return{rev:v};
+  if(x.size_basis==='one_time')return{once:v};
   return{units:v,rev:price!=null?v*price:null};
 }
 function ideaValue(i){
@@ -2961,15 +3417,16 @@ function ideaValue(i){
   const by=new Map(),fam=[i,...(S.data.ideas||[]).filter(x=>x.duplicate_of===i.id&&x.status==='duplicate')],ids=new Set(fam.map(x=>x.id));
   const V=(S.data.idea_votes||[]).filter(v=>ids.has(v.idea_id));
   [...fam.slice(1),i,...V].forEach(x=>{if(x.size_basis&&x.size_basis!=='unknown')by.set(key(x),x)});
-  let rev=0,units=0,w=0,firm=0,hasRev=false,hasUnits=false,uOnly=0;
+  let rev=0,units=0,w=0,firm=0,hasRev=false,hasUnits=false,uOnly=0,once=0,hasOnce=false;
   by.forEach(x=>{const s=sizingRev(x,price);if(!s)return;
+    if(s.once!=null){once+=s.once;hasOnce=true}
     if(s.units!=null){units+=s.units;hasUnits=true;if(s.rev==null)uOnly+=s.units}
     if(s.rev!=null){rev+=s.rev;w+=s.rev*(CONFW[x.confidence]??0.25);hasRev=true}
     if(x.confidence==='firm')firm++});
   const votes=V.length+fam.length-1;
   const customers=new Set([...fam,...V].filter(x=>x.customer_id||x.customer_name||(x.size_basis&&x.size_basis!=='unknown')).map(key)).size;
-  const years=i.program_years||5;
-  return{uOnly,rev:hasRev?rev:null,units:hasUnits?units:null,weighted:hasRev?w:null,lifetime:hasRev?rev*years:null,firm,customers,votes,sized:by.size>0,years};
+  const years=i.program_years||null;
+  return{uOnly,rev:hasRev?rev:null,units:hasUnits?units:null,once:hasOnce?once:null,weighted:hasRev?w:null,lifetime:hasRev&&years?rev*years:null,firm,customers,votes,sized:by.size>0,years};
 }
 const kfmt=v=>v>=1e6?'$'+(v/1e6).toFixed(v>=1e7?0:1)+'M':v>=1e3?'$'+Math.round(v/1e3)+'k':'$'+Math.round(v);
 const ufmt=v=>v>=1e4?Math.round(v/1e3)+'k':v>=1e3?(v/1e3).toFixed(1)+'k':String(Math.round(v));
@@ -2979,6 +3436,7 @@ function valueLine(i,v){
   const parts=[];
   if(v.units!=null)parts.push(`<b>~${ufmt(v.units)} units/yr</b>`);
   if(v.rev!=null&&v.rev>0&&(v.units==null||v.uOnly<v.units))parts.push(`<b>~${kfmt(v.rev)}/yr</b>`);
+  if(v.once)parts.push(`<b>~${kfmt(v.once)} one-time</b>`);
   if(v.customers)parts.push(`${v.customers} customer${v.customers>1?'s':''}${v.firm?` (${v.firm} firm)`:''}`);
   return parts.join(' · ');
 }
@@ -3043,7 +3501,7 @@ const ICOLS_T=()=>[['title','Idea'],['desc','Description'],['cat','Category'],..
 const ifCount=()=>S.iv.cat.length+S.iv.lab.length+(isContrib()?0:S.iv.prio.length)+(S.iv.mine?1:0)+(S.iv.waiting?1:0);
 function ictl(){
   const n=ifCount(),opts=ISORT(),cur=opts.some(s=>s[0]===S.iv.sort)?'':`<option value="${esc(S.iv.sort)}" selected>${esc((ICOLS_T().find(c=>c[0]===S.iv.sort)||[,'Column'])[1])}</option>`;
-  return`<button class="btn tb ${S.ipop?'open':''} ${n?'has':''}" data-act="ipop" aria-expanded="${!!S.ipop}">${ic(ICO_FUNNEL)} Filters${n?`<span class="fcnt">${n}</span>`:''}</button>
+  return`<button class="btn tb ${n?'has':''}" data-act="fdopen" data-arg="ideas">${ic(ICO_FUNNEL)} Filters${n?`<span class="fcnt">${n}</span>`:''}</button>
     <label class="btn tb isortw" title="Sort ideas"><span>Sort:</span><select id="isort" aria-label="Sort ideas">${cur}${opts.map(([k,l])=>`<option value="${k}" ${S.iv.sort===k?'selected':''}>${l}</option>`).join('')}</select></label>
     ${n||S.iv.q.trim()||S.iv.st!=='all'?'<button class="btn ghost sm clr" data-act="iclr">Clear all</button>':''}`;
 }
@@ -3102,7 +3560,7 @@ function ideasBody(){
   return`<div class="ilist">${S2.map(i=>`<div class="iline">${ideaCard(i).replace('class="icard"','class="icard il"')}<div class="ilst">${iBadge(i.status)}</div></div>`).join('')}</div>`+foot;
 }
 function viewIdeas(){
-  return`<div id="itabs" class="itabs">${ideaTabs()}</div>${ideaToolbar()}<div id="iresults">${ideasBody()}</div><div id="imenu"></div>
+  return`<div id="itabs" class="itabs">${ideaTabs()}</div>${ideaToolbar()}<div id="ipills">${ideaPills()}</div><div id="iresults">${ideasBody()}</div><div id="imenu"></div>
     <button class="fab" data-act="ideanew" aria-label="Create idea">+</button>`;
 }
 function refreshIdeas(){
@@ -3110,7 +3568,7 @@ function refreshIdeas(){
   const r=$('#iresults');if(!r)return renderMain();
   const t=$('#itabs');if(t)t.innerHTML=ideaTabs();
   const c=$('#ictl');if(c)c.innerHTML=ictl();
-  renderIpop();r.innerHTML=ideasBody();
+  renderIpop();const ip=$('#ipills');if(ip)ip.innerHTML=ideaPills();r.innerHTML=ideasBody();
 }
 /* row ⋯ menu */
 function renderImenu(){
@@ -3164,10 +3622,10 @@ function sizingFields(x){
   const radio=(name,val,label,cur)=>`<label class="chip rchip ${cur===val?'on':''}"><input type="radio" name="${name}" value="${val}" ${cur===val?'checked':''} hidden>${label}</label>`;
   return`<div class="sizing">
     <label class="l">How big is the opportunity? *</label>
-    <div class="chips wrap">${radio('size_basis','units','Units per year',b)}${radio('size_basis','revenue','Revenue per year',b)}${radio('size_basis','unknown',"Don't know yet",b)}</div>
-    ${['units','revenue'].map(k=>`<div class="szr" data-for="${k}" ${b===k?'':'hidden'}><div class="chips wrap" style="margin-top:8px">${RANGES[k].map(([r])=>radio('size_range_'+k,r,r,b===k?x.size_range:'')).join('')}</div>
-      <input name="size_exact_${k}" type="number" inputmode="decimal" step="any" placeholder="Exact ${k==='units'?'units / yr':'$ / yr'} (optional)" value="${b===k&&x.size_exact!=null?esc(x.size_exact):''}" style="margin-top:8px"></div>`).join('')}
-    <div class="szr" data-for="units revenue" ${b==='units'||b==='revenue'?'':'hidden'}><label class="l" style="margin-top:10px">How solid is it?</label>
+    <div class="chips wrap">${radio('size_basis','units','Units per year',b)}${radio('size_basis','revenue','Revenue per year',b)}${radio('size_basis','one_time','One-time value ($)',b)}${radio('size_basis','unknown',"Don't know yet",b)}</div>
+    ${['units','revenue','one_time'].map(k=>`<div class="szr" data-for="${k}" ${b===k?'':'hidden'}><div class="chips wrap" style="margin-top:8px">${RANGES[k].map(([r])=>radio('size_range_'+k,r,r,b===k?x.size_range:'')).join('')}</div>
+      <input name="size_exact_${k}" type="number" inputmode="decimal" step="any" placeholder="Exact ${k==='units'?'units / yr':k==='one_time'?'$ one-time (e.g. a design project)':'$ / yr'} (optional)" value="${b===k&&x.size_exact!=null?esc(x.size_exact):''}" style="margin-top:8px"></div>`).join('')}
+    <div class="szr" data-for="units revenue one_time" ${['units','revenue','one_time'].includes(b)?'':'hidden'}><label class="l" style="margin-top:10px">How solid is it?</label>
       <div class="chips wrap">${CONF.map(([k,l])=>radio('confidence',k,l,x.confidence||'')).join('')}</div></div>
   </div>`;
 }
@@ -3184,7 +3642,7 @@ function readCustomer(f){const fd=new FormData(f),c=fd.get('customer_id');return
 /* ---- sheets ---- */
 Object.assign(SHEETS,{
  ideaform(e){
-  const i=e.id?ideaById(e.id):{idea_type:'',program_years:5};if(!i)return null;
+  const i=e.id?ideaById(e.id):{idea_type:'',program_years:null};if(!i)return null;
   const cat=catOf(i)||'',labs=labelsOf(i);
   const prods=e.id?(S.data.idea_links||[]).filter(l=>l.idea_id===i.id&&l.kind==='product').map(l=>l.target_id):(e.product?[e.product]:[]);
   return{title:e.id?'Edit idea':'New idea',right:`<button class="btn ghost" type="submit" form="ideafrm"><b>${e.id?'Save':'Submit'}</b></button>`,body:`
@@ -3203,7 +3661,7 @@ Object.assign(SHEETS,{
     <details ${i.proposed_solution||i.market||e.id?'open':''}><summary class="mut" style="cursor:pointer;margin:6px 0 10px">More detail (optional)</summary>
       <div class="field"><label class="l">Proposed solution</label><textarea name="proposed_solution">${esc(i.proposed_solution||'')}</textarea></div>
       <div class="grid2"><div class="field"><label class="l">Market</label><select name="market"><option value="">—</option>${(S.data.markets||[]).map(m=>`<option ${i.market===m.name?'selected':''}>${esc(m.name)}</option>`).join('')||['Agriculture','Construction','Mining','Marine','Vocational','Utility vehicles'].map(m=>`<option ${i.market===m?'selected':''}>${m}</option>`).join('')}</select></div>
-      <div class="field"><label class="l">Years in production</label><input name="program_years" type="number" min="1" max="30" value="${esc(i.program_years||5)}"></div></div>
+      <div class="field"><label class="l">Program length (years)</label><input name="program_years" type="number" min="1" max="30" placeholder="e.g. 5" value="${esc(i.program_years||'')}"><div class="mut fhint">How many years the customer program runs. Used to work out lifetime revenue; leave empty if unknown.</div></div></div>
     </details>
     <div id="ierr" style="color:var(--bad);font-size:13px"></div>
     <button class="btn pri block">${e.id?'Save changes':'Submit idea'}</button>
@@ -3249,7 +3707,8 @@ Object.assign(SHEETS,{
     link:`linked a ${a.detail?.kind==='dev_item'?'roadmap item':a.detail?.kind||'record'}`,status:`moved it ${a.detail?.from?'from '+(ISM[a.detail.from]?.l||a.detail.from)+' ':''}to <b>${ISM[a.detail?.to]?.l||a.detail?.to}</b>`})[a.action]||esc(a.action);
   const devHint=devs.length&&['accepted','under_review','needs_info','new'].includes(i.status)&&devs.some(x=>x.d.status==='in_progress')?'in_progress':null;
   const isImg=a=>a.kind==='image'||/\.(png|jpe?g|gif|webp|svg)(\?|$)/i.test(a.url);
-  return{title:'Idea',right:`<button class="btn ghost sm" data-act="iwatch" data-id="${i.id}">${watching?'★ Following':'☆ Follow'}</button>`,body:`
+  const editBtn=`<button class="btn ghost sm ied" data-act="im_edit" data-id="${i.id}">${ic('<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m14 6 4 4"/>')} Edit</button>`;
+  return{title:'Idea',right:(canEditI?editBtn:editBtn.replace(/\sdata-act="[^"]*"/,'').replace('<button',`<button disabled title="${i.submitted_by===me()?'You can edit your idea while it is New or waiting on you':'Only the submitter (while New) and editors can edit this idea'}"`))+`<button class="btn ghost sm" data-act="iwatch" data-id="${i.id}">${watching?'★ Following':'☆ Follow'}</button>`,body:`
    <div class="hero"><div class="row" style="flex-wrap:wrap;gap:6px;align-items:flex-start">${iBadge(i.status)}<span>${catChip(i)}</span>${prioTag(i)}</div>
      <h2 style="margin-top:8px">${esc(i.title)}</h2><div class="mut">Submitted by ${esc(who(i.submitted_by))} · ${fmt(String(i.created_at).slice(0,10))}</div></div>
    ${i.status==='needs_info'&&mine?`<div class="banner" style="margin-top:12px">The product team needs more information — reply in the comments below, then <button class="btn sm pri" data-act="ireply" data-id="${i.id}">Send back for review</button></div>`:''}
@@ -3259,8 +3718,9 @@ Object.assign(SHEETS,{
    <div class="card kv">${kvItem('Total volume / year',v.units!=null?'~'+ufmt(v.units)+' units':v.sized?'—':'<span class="needsz">Needs sizing</span>',v.units!=null?'added up from all customers':'')}
      ${kvItem('Revenue / year',v.rev!=null&&v.rev>0?'~'+kfmt(v.rev):'—',v.uOnly&&!isContrib()?'link a product with a list price to value units in $':v.rev?'stated revenue plus units × list price':'')}
      ${kvItem('Customers',String(v.customers||0),v.firm?`${v.firm} firm`:'')}${kvItem('Needed by',i.need_by?fmtMY(i.need_by):'—',i.need_by?relTxt(i.need_by):'')}
-     ${kvItem('Market',esc(i.market||'—'))}${kvItem('Years in production',String(v.years))}</div>
-   ${(()=>{const sz=x=>x.size_basis&&x.size_basis!=='unknown'?`${x.size_basis==='revenue'?(x.size_exact!=null&&x.size_exact!==''?kfmt(+x.size_exact):x.size_range||'')+' per year':(x.size_exact!=null&&x.size_exact!==''?ufmt(+x.size_exact):x.size_range||'')+' units per year'} · ${(CONF.find(c=>c[0]===x.confidence)||[,'Estimate'])[1]}`:'Size not known yet';
+     ${v.once?kvItem('One-time value','~'+kfmt(v.once),'projects and one-off deals'):''}
+     ${kvItem('Market',esc(i.market||'—'))}${kvItem('Program length',v.years?`${v.years} year${v.years>1?'s':''}`:'—',v.years?'':'not entered')}${v.lifetime?kvItem('Lifetime revenue','~'+kfmt(v.lifetime),`${kfmt(v.rev)}/yr × ${v.years} years`):''}</div>
+   ${(()=>{const sz=x=>x.size_basis&&x.size_basis!=='unknown'?`${x.size_basis==='one_time'?(x.size_exact!=null&&x.size_exact!==''?kfmt(+x.size_exact):x.size_range||'')+' one-time':x.size_basis==='revenue'?(x.size_exact!=null&&x.size_exact!==''?kfmt(+x.size_exact):x.size_range||'')+' per year':(x.size_exact!=null&&x.size_exact!==''?ufmt(+x.size_exact):x.size_range||'')+' units per year'} · ${(CONF.find(c=>c[0]===x.confidence)||[,'Estimate'])[1]}`:'Size not known yet';
      const own=i.customer_id||i.customer_name||(i.size_basis&&i.size_basis!=='unknown')?`<div class="ev iopp"><div class="grow"><b>${esc(custName(i.customer_id,i.customer_name)||'Customer not named')}</b> <span class="tag">With the idea</span><div class="mut">${sz(i)}</div><div class="mut" style="font-size:12px">Added by ${esc(who(i.submitted_by))}</div></div>${canEditI?`<button class="btn ghost sm" data-act="ideaedit" data-id="${i.id}">Edit</button>`:''}</div>`:'';
      const rows=votes.map(x=>`<div class="ev iopp"><div class="grow"><b>${esc(custName(x.customer_id,x.customer_name)||'Customer not named')}</b><div class="mut">${sz(x)}</div>${x.note?`<div class="pre" style="font-size:13px;margin-top:2px">${esc(x.note)}</div>`:''}<div class="mut" style="font-size:12px">Added by ${esc(who(x.voter))}</div></div>${x.voter===me()||pm?`<button class="btn ghost sm" data-act="ivote" data-id="${i.id}" data-vote="${x.id}">Edit</button>`:''}</div>`).join('');
      return own||rows?`<div class="card">${own}${rows}</div>`:'<div class="card empty" style="padding:14px">No customer opportunities yet. Add each customer that needs this, with a rough volume per year.</div>'})()}
@@ -3393,7 +3853,7 @@ document.addEventListener('submit',async e=>{
     const sz=readSizing(f);if(sz.err)return fail(sz.err);
     const nb=fd.get('need_by');if(nb&&!/^\d{4}-\d{2}/.test(nb))return fail('Needed by: use YYYY-MM.');
     const o={title:fd.get('title').trim(),problem:fd.get('problem').trim(),idea_type:typeFor(cat,labels),category:cat,labels,...sz,...readCustomer(f),
-      need_by:nb?nb.slice(0,7)+'-01':null,proposed_solution:(fd.get('proposed_solution')||'').trim()||null,market:fd.get('market')||null,program_years:+fd.get('program_years')||5};
+      need_by:nb?nb.slice(0,7)+'-01':null,proposed_solution:(fd.get('proposed_solution')||'').trim()||null,market:fd.get('market')||null,program_years:+fd.get('program_years')||null};
     if(top.id)o.id=top.id;busy(true);
     let out;try{out=await ideaSave('ideas',o,top.id?['edit',{}]:['created',{title:o.title}])}
     catch(x){if(!/category|labels/i.test(x?.message||''))throw x;delete o.category;delete o.labels;   // database without 08_idea_category.sql
@@ -3443,7 +3903,7 @@ document.addEventListener('submit',async e=>{
 function seedIdeas(x){
   const P=re=>(x.products.find(p=>re.test(p.part_number))||x.products[0]||{}).id,C=n=>(x.customers[n]||{}).id||null;
   const day=n=>new Date(Date.now()-n*864e5).toISOString();
-  const I=(o,n)=>({id:uid(),status:'new',program_years:5,created_at:day(n),updated_at:day(Math.max(0,n-3)),...o});
+  const I=(o,n)=>({id:uid(),status:'new',created_at:day(n),updated_at:day(Math.max(0,n-3)),...o});
   const a=I({title:'CAN FD on I/O expansion modules',problem:'OEMs moving to CAN FD backbones want I/O modules that keep up. Today they run a separate classic-CAN segment just for the modules.',idea_type:'hardware',category:'product',labels:['hardware','software'],status:'under_review',size_basis:'units',size_range:'2k–10k',confidence:'stated',customer_id:C(0),need_by:'2027-09-01',market:'Construction',submitted_by:'sales.east@stw-technic.com',pm_priority:'high'},20);
   const b=I({title:'Secure boot on the telematics gateway',problem:'Two customers asked for proof of secure boot and signed firmware as part of their cybersecurity reviews (ISO/SAE 21434).',idea_type:'software',category:'product',labels:['software'],status:'accepted',size_basis:'revenue',size_range:'$100–500k',confidence:'firm',customer_id:C(1),need_by:'2027-03-01',submitted_by:'support@stw-technic.com',pm_priority:'critical',owner:'Product management'},45);
   const c=I({title:'Pre-wired harness kit for display + controller',problem:'Small builders spend days making a harness for a display and controller pair. A ready-to-install kit would shorten their first prototype.',idea_type:'product_kit',category:'product',labels:['product_kit'],status:'needs_info',size_basis:'unknown',submitted_by:'demo@local'},9);
@@ -3591,6 +4051,7 @@ document.addEventListener('submit',async e=>{
       err.textContent=m;return}
     if(data?.user)S.user=data.user;
     f.reset();toast('Password changed');renderAll();return}
+  if(f.id==='frm'&&!canEdit())return;
   if(f.id==='cxsave')return cmpSubmit(f,e.submitter);
   if(f.id==='ownfrm')return ownSubmit(f,e.submitter);
   if(f.id==='login'){const fd=new FormData(f),btn=f.querySelector('button');btn.disabled=true;btn.textContent='Signing in…';
@@ -3691,7 +4152,6 @@ function pfSummary(){
   const ps=S.data.products.filter(p=>passes(p,'ph')),tot=ps.length;
   const risk=[...new Set(riskRows(ps).slice(0,3).flatMap(r=>r[2]))];
   S.hsets={...(S.hsets||{}),atrisk:{l:'At risk (needs action)',ids:risk}};
-  const trn=tvItems().filter(x=>x.st!=='complete').length,ide=(S.data.ideas||[]).filter(i=>IDEA_OPEN.includes(i.status)).length;
   S.upN=upcoming(12,new Set(filtered().map(p=>p.id))).length;
   const H=pfScore(ps),[lv,lc]=hLvl(H.score),C=2*Math.PI*26;
   const ring=`<svg class="pfr" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26"/><circle class="on" cx="32" cy="32" r="26" stroke-dasharray="${C*H.score/100} ${C}"/><text x="32" y="37">${tot?H.score+'%':'—'}</text></svg>`;
@@ -3705,9 +4165,9 @@ function pfSummary(){
   const leg=segs.map(([k,l])=>`<button class="dl ${!sel.length||sel.includes(k)?'':'off'}" data-act="dseg" data-arg="${k}"><i style="background:${PHC[k]}"></i><span class="grow">${l}</span><b>${cnt[k]}</b><span class="mut">(${Math.round(cnt[k]/tot*100)}%)</span></button>`).join('');
   const dist=`<section class="pfc pfdc"><h3>${ic(I.mkt)} Lifecycle distribution <span class="hinfo" title="Click a stage to show only that stage; click again to show all">i</span></h3><div class="pfdw">${tot?donut:''}<div class="pfdl2">${leg||'<span class="mut">No products</span>'}</div></div></section>`;
   const card=(act,arg,ico,c,l,n,sub)=>`<button class="pfc pfsm" data-act="${act}" data-arg="${arg}"><span class="pfi" style="--c:${c}">${ic(ico)}</span><span class="grow"><span class="pfl">${l}</span><b>${n}</b><span class="mut">${sub}</span></span><i class="car rt"></i></button>`;
-  const mini=`<div class="pfmini">${card('hset','atrisk',I.warn,'#DC2626','At risk',risk.length,'Products requiring action')
-    +card('tab','ideas','<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>','#2563EB','Ideas',ide,'Opportunities in pipeline')
-    +card('statgo','mig','<path d="M4 8h13l-3-3M20 16H7l3 3"/>','#2563EB','Transitions',trn,'Active replacements')
+  const pipe=ps.filter(p=>['development','evaluating','onboarding'].includes(phase(p))).length,pc=n=>tot?Math.round(n/tot*100):0;
+  const mini=`<div class="pfmini pfm3">${card('tab','products',ICONS.products,'#141923','Products',tot,`${H.act} active · ${pipe} in development or evaluation`).replace('class="pfc pfsm"','class="pfc pfsm pfprod"')
+    +card('hset','atrisk',I.warn,'#DC2626','At risk',`${risk.length} <small>(${pc(risk.length)}%)</small>`,`of ${tot} products need action`)
     +card('upopen','',ICO_UP,'#D97706','Upcoming',S.upN,'Dates in the next 12 months')}</div>`;
   return`<div class="pfrow">${health}${dist}${mini}</div>`;
 }
@@ -3725,7 +4185,7 @@ function renderUp(){
   const el=$('#updr');if(!el)return;if(!S.updr){el.innerHTML='';return}
   const up=upcoming(12,new Set(filtered().map(p=>p.id)));
   el.innerHTML=`<div class="drw-bg" data-act="upclose"></div><aside class="drw" role="dialog" aria-label="Next 12 months"><div class="drwh"><div class="grow"><h3>Next 12 months</h3><span class="mut">${up.length} date${up.length===1?'':'s'} and event${up.length===1?'':'s'} · follows the current search and filters</span></div>
-    ${canEdit()?`<button class="btn sm" data-act="new" data-arg="events">+ Event</button>`:''}<button class="xbtn" data-act="upclose" aria-label="Close">${ic('<path d="M6 6l12 12M18 6 6 18"/>')}</button></div>
+    ${lk(`<button class="btn sm" data-act="new" data-arg="events">+ Event</button>`)}<button class="xbtn" data-act="upclose" aria-label="Close">${ic('<path d="M6 6l12 12M18 6 6 18"/>')}</button></div>
     <div class="drwb">${up.length?up.map(upItem).join(''):'<div class="empty">Nothing scheduled in the next 12 months.</div>'}</div></aside>`;
 }
 const upBtn=()=>`<button class="btn tb upb" data-act="upopen" title="Dates and events in the next 12 months">${ic(ICO_UP)}<span>Upcoming</span><span class="fcnt" id="upn">${S.upN??''}</span></button>`;
@@ -3773,28 +4233,41 @@ function prodSorted(L){
   const R=L.slice().sort((a,b)=>f(a,b)||nm(a,b));return S.pdir<0?R.reverse():R;
 }
 const catChip2=p=>`<span class="pcat">${ic(CATICO[p.category]||CATICO.other)}${esc(CATS1[p.category]||'Other')}</span>`;
-function prodTable2(L){
+function prodTable2(L,ents){
   const sel=S.psel,all=L.length&&L.every(p=>sel.has(p.id)),k=S.psort||'updated';
   const H=[['name','Product'],['owner','Owner'],['lifecycle','Lifecycle stage'],['cat','Category'],['supplier','Supplier'],['next','Next milestone'],['updated','Last updated']];
   const th=H.map(([c,l])=>`<th class="srt ${k===c?'on':''} pc-${c}" data-act="psortc" data-arg="${c}">${l}${k===c?(S.pdir<0?' ↓':' ↑'):''}</th>`).join('');
   const tr=p=>`<tr data-act="product" data-id="${p.id}" class="${sel.has(p.id)?'rsel':''}"><td class="ckc" data-act="noop">${ckBox('psel',p.id,sel.has(p.id),'Select '+p.part_number)}</td>
-    <td class="pcol"><div class="pcw">${catIc(p,'md')}<div class="pnm"><b title="${esc(p.name)}">${esc(p.part_number)}</b>${pnSel(p)}</div></div></td>
+    <td class="pcol"><div class="pcw">${catIc(p,'md')}<div class="pnm"><b title="${esc(p.name)}">${esc(p.part_number)}</b>${pnSel(p)}${missLine(p)}</div></div></td>
     <td class="pc-owner">${ownerChip(p.owner)}</td><td>${badge(phase(p))}</td><td>${catChip2(p)}</td>
-    <td class="psup pc-supplier">${sup(p)?`<span class="supn">${ic(I.bld)}${esc(sup(p).name)}</span>`:'<span class="mut">—</span>'}</td>
+    <td class="psup pc-supplier">${sup(p)?`<span class="supn">${supFlag(sup(p))||ic(I.bld)}${esc(sup(p).name)}</span>`:'<span class="mut">—</span>'}</td>
     <td class="pc-next">${nmCell(p)}</td><td class="pupd pc-updated">${p.updated_at?fmt(String(p.updated_at).slice(0,10)):'—'}</td>
     <td class="pact"><button class="cxm rmm" data-act="rmmenu" data-id="${p.id}" aria-label="More actions">${ic(ICO_DOTS)}</button></td></tr>`;
-  return`<div class="ptw"><table class="ptab ptab2"><thead><tr><th class="ckc">${ckBox('pselall','',all,'Select all on this page')}</th>${th}<th></th></tr></thead><tbody>${L.map(tr).join('')}</tbody></table></div>`;
+  return`<div class="ptw"><table class="ptab ptab2"><thead><tr><th class="ckc">${ckBox('pselall','',all,'Select all on this page')}</th>${th}<th></th></tr></thead><tbody>${ents?(()=>{let out='',cur;ents.forEach(([k,p,c])=>{if(k!==cur){out+=`<tr class="pgrp2"><td colspan="10"><b>${esc(k)}</b> <span class="mut">· ${c}</span></td></tr>`;cur=k}out+=tr(p)});return out})():L.map(tr).join('')}</tbody></table></div>`;
 }
+const PGROUPS=[['none','None'],['category','Category'],['supplier','Supplier'],['market','Market'],['lifecycle','Lifecycle'],['owner','Owner']];
+/* v2.15: Products page Group by (own setting, S.pgroup); a product in several markets appears in each market group */
+function prodGroups(L){
+  const g=S.pgroup||'none';if(g==='none')return null;
+  if(g==='owner'){const m=new Map();L.forEach(p=>{const k=p.owner?ownName(p.owner):'No owner';if(!m.has(k))m.set(k,[]);m.get(k).push(p)});
+    const keys=[...m.keys()].sort((a,b)=>(a==='No owner')-(b==='No owner')||a.localeCompare(b));return keys.map(k=>[k,m.get(k)])}
+  const sv=S.f.group;S.f.group=g;try{const r=groupMap(L);return r.keys.map(k=>[k,r.map.get(k)])}finally{S.f.group=sv}
+}
+const missLine=p=>{if(!S.incOnly)return'';const c=completeness(p);return c.missing.length?`<div class="miss2">Missing: ${esc(c.missing.join(', '))}</div>`:''};
 function prodBody(ps,pills){
   const sel=S.psel||(S.psel=new Set());[...sel].forEach(id=>{if(!byId('products',id))sel.delete(id)});
   let L=S.incOnly?ps.filter(p=>completeness(p).ratio<1):ps;L=prodSorted(L);
   const miss=ps.filter(p=>completeness(p).ratio<1).length,table=wide()&&S.pView!=='cards',n=L.length,pp=S.ppp??25,pages=pp?Math.max(1,Math.ceil(n/pp)):1;
-  S.ppg=Math.min(S.ppg||0,pages-1);const page=pp?L.slice(S.ppg*pp,S.ppg*pp+pp):L;
-  const bar=`<div class="lbar pbar2"><label class="tg"><input type="checkbox" data-change="incOnly" ${S.incOnly?'checked':''}> Missing data only <span class="mut">(${miss})</span></label><span class="hsp"></span>
+  const G=prodGroups(L);let ents=G?G.flatMap(([k,ps2])=>ps2.map(p=>[k,p,ps2.length])):L.map(p=>[null,p,0]);
+  const nE=ents.length,pagesE=pp?Math.max(1,Math.ceil(nE/pp)):1;
+  S.ppg=Math.min(S.ppg||0,pagesE-1);const pageE=pp?ents.slice(S.ppg*pp,S.ppg*pp+pp):ents,page=pageE.map(e=>e[1]);
+  const bar=`<div class="lbar pbar2"><label class="tg" title="Products where data that applies to their category is missing"><input type="checkbox" data-change="incOnly" ${S.incOnly?'checked':''}> Missing data only <span class="mut">(${miss})</span></label><span class="hsp"></span>
+    <label class="sel">Group by <select id="pgrp">${PGROUPS.map(([k,l])=>`<option value="${k}" ${(S.pgroup||'none')===k?'selected':''}>${l}</option>`).join('')}</select></label>
     <label class="sel">Sort by <select id="psort">${PSORT.map(([v,l])=>`<option value="${v}" ${(S.psort||'updated')===v?'selected':''}>${l}</option>`).join('')}</select></label><span class="mut pcount">${n} product${n===1?'':'s'}</span></div>`;
-  const bulk=sel.size?`<div class="bulk"><b>${sel.size} selected</b><button class="btn sm" data-act="pbcmp">${ic(ICO_CMP)} Compare</button><button class="btn sm" data-act="pbcsv">${ic(I.dl)} Export CSV</button>${canEdit()?`<button class="btn sm" data-act="pbown">${ic(CXI.sup)} Set owner</button>`:''}<button class="btn ghost sm" data-act="pbclr">Clear selection</button></div>`:'';
-  const body=!n?'<div class="card empty">No products match these filters.</div>':table?prodTable2(page):`<div class="pcards">${page.map(pcard).join('')}</div>`;
-  return pills+bar+bulk+body+pager2(n,pp,S.ppg,'ppg','ppp','product',[25,50,100,0]);
+  const bulk=sel.size?`<div class="bulk"><b>${sel.size} selected</b><button class="btn sm" data-act="pbcmp">${ic(ICO_CMP)} Compare</button><button class="btn sm" data-act="pbcsv">${ic(I.dl)} Export CSV</button>${lk(`<button class="btn sm" data-act="pbown">${ic(CXI.sup)} Set owner</button>`)}<button class="btn ghost sm" data-act="pbclr">Clear selection</button></div>`:'';
+  const cardsG=()=>{let out='',cur;pageE.forEach(([k,p,c])=>{if(G&&k!==cur){if(cur!==undefined)out+='</div>';out+=`<h3 class="pgh">${esc(k)} <span class="mut">· ${c}</span></h3><div class="pcards">`;cur=k}out+=pcard(p)});return G?out+'</div>':`<div class="pcards">${out}</div>`};
+  const body=!n?'<div class="card empty">No products match these filters.</div>':table?prodTable2(page,G?pageE:null):cardsG();
+  return pills+bar+bulk+body+pager2(nE,pp,S.ppg,'ppg','ppp','product',[25,50,100,0]);
 }
 
 /* ---------- Transitions page ---------- */
@@ -3810,13 +4283,13 @@ const TVSORT=[['date','Key date (earliest)'],['date_d','Key date (latest)'],['sr
 const TV_PILLS=['planned','in_progress','at_risk','not_started','phasing','complete'];
 function tvKpis(){
   const L=tvItems().filter(x=>tvPass(x,'st')),n=k=>L.filter(x=>x.st===k).length,cur=S.tv.st.length===1?S.tv.st[0]:null;
-  const pill=(k,l,i,c,cnt,on)=>`<button class="tvsp ${on?'on':''} ${k==='all'?'all':''}" data-act="tvstp" data-arg="${k}" style="--c:${c}">${i?ic(i):''}<span>${l} · ${cnt}</span></button>`;
-  return`<b class="tvsbt">Transitions by status</b><div class="tvsps">${pill('all','All',null,'#141923',L.length,!S.tv.st.length)}`
-    +TV_PILLS.map(k=>{const m=TV_STM[k],c=n(k);return c||['planned','in_progress','at_risk','complete'].includes(k)?pill(k,m.l,m.i,m.c,c,S.tv.st.includes(k)&&S.tv.st.length===1):''}).join('')+`</div>`;
+  const pill=(k,l,i,c,cnt,on)=>`<button class="itab tvtab ${on?'on':''}" data-act="tvstp" data-arg="${k}" aria-pressed="${on}">${i?`<span class="itic" style="--c:${c}">${ic(i)}</span>`:''}<span>${l} · ${cnt}</span></button>`;
+  return pill('all','All',null,'#141923',L.length,!S.tv.st.length)
+    +TV_PILLS.map(k=>{const m=TV_STM[k],c=n(k);return c||['planned','in_progress','at_risk','complete'].includes(k)?pill(k,m.l,m.i,m.c,c,S.tv.st.includes(k)&&S.tv.st.length===1):''}).join('');
 }
 function tvFctl(){
   const n=tvCount();
-  return`<button class="btn tb ${S.tvpop==='all'?'open':''}" data-act="tvpop" data-arg="all">${ic('<path d="M3 5h18l-7 8.5V19l-4 2v-7.5z"/>')} Filters${n?`<span class="fcnt">${n}</span>`:''}</button>`
+  return`<button class="btn tb" data-act="fdopen" data-arg="transitions">${ic('<path d="M3 5h18l-7 8.5V19l-4 2v-7.5z"/>')} Filters${n?`<span class="fcnt">${n}</span>`:''}</button>`
     +`<label class="sel isortw tvsortw"><span>Sort:</span><select id="tvsort">${TVSORT.map(([v,l])=>`<option value="${v}" ${(S.tv.sort||'date')===v?'selected':''}>${l}</option>`).join('')}</select></label>`
     +(tvActive()?'<button class="btn ghost sm clr" data-act="tvclr">Clear all</button>':'');
 }
@@ -3835,7 +4308,7 @@ function tvResults(){
   if(!L.length)return tvPills()+'<div class="card empty">No transitions match these filters.</div>';
   if(S.tv.view==='timeline')return tvPills()+tvTimeline(L)+`<div class="mut tvfoot">Showing ${L.length} of ${all} transition${all===1?'':'s'}</div>`;
   const pp=S.tvpp??25,pages=pp?Math.max(1,Math.ceil(L.length/pp)):1;S.tvpg=Math.min(S.tvpg||0,pages-1);const page=pp?L.slice(S.tvpg*pp,S.tvpg*pp+pp):L;
-  const bulk=sel.size?`<div class="bulk"><b>${sel.size} selected</b><button class="btn sm" data-act="tvbcsv">${ic(I.dl)} Export CSV</button>${canEdit()?`<button class="btn sm" data-act="tvbown">${ic(CXI.sup)} Set owner</button>`:''}<button class="btn ghost sm" data-act="tvbclr">Clear selection</button></div>`:'';
+  const bulk=sel.size?`<div class="bulk"><b>${sel.size} selected</b><button class="btn sm" data-act="tvbcsv">${ic(I.dl)} Export CSV</button>${lk(`<button class="btn sm" data-act="tvbown">${ic(CXI.sup)} Set owner</button>`)}<button class="btn ghost sm" data-act="tvbclr">Clear selection</button></div>`:'';
   return tvPills()+bulk+(wide()?tvTable(page):`<div class="tvcards">${page.map(tvCard).join('')}</div>`)+pager2(L.length,pp,S.tvpg,'tvpg','tvpp','transition',[10,25,50,0]);
 }
 function tvTable(L){
@@ -3878,11 +4351,148 @@ document.addEventListener('change',e=>{const t=e.target;
   if(c==='tvselall'){const ids=[...document.querySelectorAll('.tvt2 tbody .rck')].map(x=>x.dataset.id);ids.forEach(id=>t.checked?S.tvsel.add(id):S.tvsel.delete(id));tvRefresh();return}
 });
 
+
+/* v2.13.1: one page scrollbar. The timeline, Portfolio list and Products table no longer scroll inside a box;
+   their header rows are moved down while the page scrolls so the months / column names stay in view. */
+function stickHeads(){
+  const tb=document.querySelector('header.top'),tr=tb&&tb.offsetParent!==null?tb.getBoundingClientRect():null,top=tr&&tr.top<=0.5?tr.bottom:0;
+  document.querySelectorAll('.tl-head,.ltw thead,.ptw thead,.cxw thead').forEach(h=>{const box=h.closest('.tl,.ltw,.ptw,.cxw');if(!box)return;
+    const r=box.getBoundingClientRect(),y=Math.max(0,Math.min(r.height-h.offsetHeight-40,top-r.top));
+    h.style.transform=y>0?`translateY(${y}px)`:'';h.classList.toggle('stuck',y>0)});
+}
+/* v2.14: Compare: a horizontal scrollbar that stays at the bottom of the window while the page scrolls */
+function cxHS(){const w=document.getElementById('cxw'),h=document.getElementById('cxhs');if(!w||!h)return;
+  h.firstElementChild.style.width=w.scrollWidth+'px';h.hidden=w.scrollWidth<=w.clientWidth+1;
+  if(!w._hs){w._hs=1;w.addEventListener('scroll',()=>{if(Math.abs(h.scrollLeft-w.scrollLeft)>1)h.scrollLeft=w.scrollLeft},{passive:true});
+    h.addEventListener('scroll',()=>{if(Math.abs(h.scrollLeft-w.scrollLeft)>1)w.scrollLeft=h.scrollLeft},{passive:true})}
+  h.scrollLeft=w.scrollLeft}
+/* v2.14: the mouse wheel scrolls the open dialog or filter drawer wherever the pointer is (header, footer, dimmed page) */
+document.addEventListener('wheel',e=>{if(e.ctrlKey||e.metaKey||e.defaultPrevented)return;
+  const ov=[['#sheet .sheet','.sheet-b','#sheet'],['.fdr','.fdbody','.fdr,.fdbg'],['.drw','.drwb','.drw']];
+  for(const [o,b,zone] of ov){const O=document.querySelector(o);if(!O)continue;const B=O.querySelector(b);if(!B)continue;
+    if(B.contains(e.target))return;if(!e.target.closest?.(zone))continue;
+    e.preventDefault();B.scrollTop+=e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?B.clientHeight:1);return}},{passive:false});
+addEventListener('scroll',stickHeads,{passive:true});addEventListener('resize',()=>{stickHeads();cxHS()});
+new MutationObserver(()=>requestAnimationFrame(()=>{stickHeads();cxHS()})).observe(document.getElementById('app')||document.body,{childList:true,subtree:true});
 // an item or "+ Event" in the Upcoming panel opens a dialog: close the panel first so the dialog is on top
 document.addEventListener('click',e=>{const a=e.target.closest?.('.drwb [data-act], .drwh [data-act=new]');if(a&&S.updr)setTimeout(()=>{S.updr=false;renderUp()},0)},true);
+/* ---------- v2.12: shared filter drawer (Portfolio, Products, Transitions, Ideas) ----------
+   Each page gives an adapter: its groups, the items, a pass test, and how to apply.
+   The drawer edits a draft copy; nothing changes on the page until "Show n …". ×, Esc and a click outside discard the draft. */
+const FDI={life:I.mkt,sup:I.bld,mkt:'<path d="M4 20V10M9.5 20V6M15 20v-8M20.5 20V4"/>',tag:'<path d="M3.5 12.6V4.5a1 1 0 0 1 1-1h8.1L21 12l-8.5 8.5z"/><circle cx="8" cy="8" r="1.4"/>',
+  can:'<path d="M4 7h16M4 17h16"/><circle cx="8" cy="7" r="2"/><circle cx="16" cy="17" r="2"/>',st:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  type:'<path d="M4 8h13l-3-3M20 16H7l3 3"/>',prio:'<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/>',
+  lab:'<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
+  car:'<path d="m6 9 6 6 6-6"/>',ok:'<path d="m5 12.5 4.5 4.5L19 7.5"/>'};
+const fdG=(k)=>FGROUPS.find(g=>g.k===k);
+const FDA={
+  products:{noun:'product',state:()=>S.F,items:()=>S.data.products,pass:(x,ex)=>passes(x,ex),apply:()=>refreshResults(),
+    groups:()=>[
+      {k:'ph',l:'Lifecycle',i:FDI.life,opts:fdG('ph').opts,val:fdG('ph').val,primary:1},
+      {k:'sup',l:'Supplier',i:FDI.sup,opts:fdG('sup').opts,val:fdG('sup').val,find:1,top:5},
+      {k:'mkt',l:'Market',i:FDI.mkt,opts:fdG('mkt').opts,val:fdG('mkt').val},
+      {k:'cat',l:'Category',i:FDI.tag,opts:()=>fdG('cat').opts().map(([k,l])=>[k,l,null,CATICO[k]]),val:fdG('cat').val},
+      {k:'can',l:'CAN protocol',i:FDI.can,opts:fdG('can').opts,val:fdG('can').val,find:1,top:6}]},
+  transitions:{noun:'transition',state:()=>S.tv,items:()=>tvItems(),pass:(x,ex)=>tvPass(x,ex),apply:()=>{S.tvpg=0;tvRefresh()},
+    groups:()=>{const G=k=>TVG.find(g=>g.k===k);return[
+      {k:'st',l:'Status',i:FDI.st,opts:()=>TV_PILLS.map(k=>[k,TV_STM[k].l,TV_STM[k].c,TV_STM[k].i]),val:G('st').val,primary:1},
+      {k:'type',l:'Transition type',i:FDI.type,opts:G('type').opts,val:G('type').val},
+      {k:'sup',l:'Supplier',i:FDI.sup,opts:G('sup').opts,val:G('sup').val,find:1,top:5},
+      {k:'mkt',l:'Market',i:FDI.mkt,opts:G('mkt').opts,val:G('mkt').val}]}},
+  ideas:{noun:'idea',state:()=>S.iv,items:()=>{const g=ISGM[S.iv.st];return(S.data.ideas||[]).filter(i=>!g||g.s.includes(i.status))},pass:(x,ex)=>ideaMatches(x,ex),apply:()=>refreshIdeas(),
+    groups:()=>[
+      {k:'cat',l:'Category',i:FDI.tag,opts:()=>ICAT.map(([k,l,c,t,i])=>[k,l,c,i]),val:i=>[catOf(i)||'none'],primary:1},
+      {k:'lab',l:'Product labels',i:FDI.lab,opts:()=>ILAB.map(([k,l])=>[k,l]),val:i=>labelsOf(i)},
+      ...(isContrib()?[]:[{k:'prio',l:'Priority',i:FDI.prio,opts:()=>[...PRIO.map(([k,l])=>[k,l]),['none','Not set']],val:i=>[i.pm_priority||'none']}]),
+      {k:'only',l:'Show only',i:FDI.user,bool:['mine','waiting'],opts:()=>[['mine','Mine'],['waiting','Waiting on me']]}]}
+};
+const fdPage=()=>S.tab==='transitions'?'transitions':S.tab==='ideas'?'ideas':'products';
+/* run fn with the draft values in place of the page's filter state (so the page's own pass test sees the draft) */
+function fdWith(ad,draft,fn){
+  const st=ad.state(),keep={};Object.keys(draft).forEach(k=>{keep[k]=st[k];st[k]=draft[k]});
+  try{return fn()}finally{Object.assign(st,keep)}
+}
+function fdOpen(page){
+  const ad=FDA[page],st=ad.state(),draft={};
+  ad.groups().forEach(g=>{if(g.bool)g.bool.forEach(b=>draft[b]=!!st[b]);else draft[g.k]=[...(st[g.k]||[])]});
+  const open=new Set(ad.groups().filter(g=>g.primary||(g.bool?g.bool.some(b=>draft[b]):draft[g.k].length)).map(g=>g.k));
+  S.fd={page,draft,open,more:new Set(),q:'',gq:{}};renderFd();
+  if(wide())setTimeout(()=>$('#fdq')?.focus({preventScroll:true}),40);
+}
+const fdSel=(g,d)=>g.bool?g.bool.filter(b=>d[b]):d[g.k];
+function fdBody(){
+  const F=S.fd,ad=FDA[F.page],items=ad.items(),q=F.q.trim().toLowerCase();let any=false;
+  const html=fdWith(ad,F.draft,()=>ad.groups().map(g=>{
+    let opts=g.opts();if(!opts.length)return'';
+    const sel=fdSel(g,F.draft),gq=(F.gq[g.k]||'').trim().toLowerCase();
+    // counts follow every other filter (contextual); a value with no products is shown but cannot be picked
+    const cnt=g.bool?Object.fromEntries(g.bool.map(b=>[b,fdWith(ad,{[b]:true},()=>items.filter(x=>ad.pass(x)).length)]))
+      :Object.fromEntries(opts.map(([v])=>[v,items.filter(x=>ad.pass(x,g.k)&&g.val(x).includes(v)).length]));
+    if(q){opts=opts.filter(([,l])=>String(l).toLowerCase().includes(q)||g.l.toLowerCase().includes(q));if(!opts.length)return''}
+    if(gq)opts=opts.filter(([,l])=>String(l).toLowerCase().includes(gq));
+    any=true;
+    const open=q||F.open.has(g.k),all=g.top&&!q&&!gq&&!F.more.has(g.k)&&opts.length>g.top+1;
+    let show=opts;
+    if(all){const top=new Set(opts.slice().sort((a,b)=>cnt[b[0]]-cnt[a[0]]).slice(0,g.top).map(o=>o[0]));sel.forEach(v=>top.add(v));show=opts.filter(o=>top.has(o[0]))}
+    const chip=([v,l,c,ico])=>{const on=sel.includes(v),n=cnt[v]??0;
+      return`<button type="button" class="fdo ${on?'on':''}" data-act="fdx" data-arg="${g.k}" data-id="${esc(v)}" ${!n&&!on?'disabled':''} aria-pressed="${on}">
+        <span class="fdcb">${on?ic(FDI.ok):''}</span>${ico?`<span class="fdoi" style="${c?`color:${esc(c)}`:''}">${ic(ico)}</span>`:c?`<i class="fdd" style="background:${esc(c)}"></i>`:''}<span class="fdl">${esc(l)}</span><span class="cnt">${n}</span></button>`};
+    const nOpts=g.opts().length;
+    return`<section class="fds ${open?'open':''} ${g.primary?'pri':''}"><button type="button" class="fdsh" data-act="fdtg" data-arg="${g.k}" aria-expanded="${!!open}">
+        <span class="fdsi">${ic(g.i)}</span><b>${esc(g.l)}</b><span class="mut">${nOpts} option${nOpts===1?'':'s'}</span><span class="grow"></span>
+        <span class="fdsn ${sel.length?'on':''}">${sel.length} selected</span><span class="fdcar">${ic(FDI.car)}</span></button>
+      ${open?`<div class="fdsb">${g.find&&nOpts>g.top+1&&!q?`<div class="tsearch fdgq">${ICO_SEARCH}<input data-fdgq="${g.k}" type="search" placeholder="Search ${esc(g.l.toLowerCase())}…" value="${esc(F.gq[g.k]||'')}" autocomplete="off"></div>`:''}
+        <div class="fdos">${show.map(chip).join('')||'<span class="mut" style="font-size:13px">No match</span>'}</div>
+        ${all?`<button type="button" class="fdmore" data-act="fdmore" data-arg="${g.k}">Show all ${opts.length}</button>`:g.top&&F.more.has(g.k)&&!q&&!gq?`<button type="button" class="fdmore" data-act="fdmore" data-arg="${g.k}">Show fewer</button>`:''}</div>`:''}</section>`}).join(''));
+  return any?html:`<div class="empty" style="padding:24px 8px">No filters match “${esc(F.q)}”.</div>`;
+}
+function fdCount(){const F=S.fd,ad=FDA[F.page];return fdWith(ad,F.draft,()=>ad.items().filter(x=>ad.pass(x)).length)}
+function fdFoot(){const F=S.fd,ad=FDA[F.page],n=fdCount(),any=ad.groups().some(g=>fdSel(g,F.draft).length);
+  return`<button type="button" class="btn ghost" data-act="fdclr" ${any?'':'disabled'}>Clear all</button><span class="hsp"></span><button type="button" class="btn dark" data-act="fdapply">Show ${n} ${ad.noun}${n===1?'':'s'}</button>`}
+function fdSum(){const F=S.fd,ad=FDA[F.page],tot=ad.items().length,n=fdCount();
+  return n===tot?`All ${tot} ${ad.noun}${tot===1?'':'s'}`:`<b>${n}</b> of ${tot} ${ad.noun}${tot===1?'':'s'} match`}
+function renderFd(){
+  let el=$('#fdr');if(!el){el=document.createElement('div');el.id='fdr';document.body.appendChild(el)}
+  if(!S.fd){el.innerHTML='';document.body.classList.remove('fdlock');return}
+  document.body.classList.add('fdlock');
+  el.innerHTML=`<div class="fdbg" data-act="fdcancel"></div><aside class="fdr" role="dialog" aria-modal="true" aria-label="Filters">
+    <header class="fdh"><span class="fdhi">${ic('<path d="M3 5h18l-7 8.5V19l-4 2v-7.5z"/>')}</span><h3>Filters</h3><span class="grow"></span><button type="button" class="xbtn" data-act="fdcancel" aria-label="Close without applying">${ic('<path d="M6 6l12 12M18 6 6 18"/>')}</button></header>
+    <div class="fdtop"><div class="fdsum mut" id="fdsum">${fdSum()}</div>
+      <div class="tsearch">${ICO_SEARCH}<input id="fdq" type="search" placeholder="Search filters (supplier, market, category…)" value="${esc(S.fd.q)}" autocomplete="off"></div></div>
+    <div class="fdbody" id="fdbody">${fdBody()}</div>
+    <footer class="fdf" id="fdf">${fdFoot()}</footer></aside>`;
+}
+function fdUpd(){const b=$('#fdbody');if(!b)return renderFd();const st=b.scrollTop,f=document.activeElement?.dataset?.fdgq;
+  b.innerHTML=fdBody();b.scrollTop=st;$('#fdf').innerHTML=fdFoot();$('#fdsum').innerHTML=fdSum();
+  if(f){const i=b.querySelector(`[data-fdgq="${f}"]`);if(i){i.focus();i.setSelectionRange(i.value.length,i.value.length)}}}
+/* applied filters as removable chips (used above the Ideas list; Portfolio, Products and Transitions already have them) */
+function ideaPills(){
+  const out=[],iv=S.iv;
+  if(iv.q.trim())out.push(`<button class="fpill" data-act="iqx">“${esc(iv.q.trim())}” ✕</button>`);
+  FDA.ideas.groups().forEach(g=>{const m=new Map(g.opts().map(o=>[o[0],o[1]]));
+    if(g.bool)g.bool.forEach(b=>{if(iv[b])out.push(`<button class="fpill" data-act="${b==='mine'?'imine':'iwait'}">${esc(m.get(b))} ✕</button>`)});
+    else(iv[g.k]||[]).forEach(v=>out.push(`<button class="fpill" data-act="ifx" data-arg="${g.k}" data-id="${esc(v)}">${esc(m.get(v)||v)} ✕</button>`))});
+  return out.length?`<div class="fpills"><span class="mut">Filtered:</span>${out.join('')}<button class="btn ghost sm" data-act="ifclrall">Clear all</button></div>`:'';
+}
+Object.assign(A,{
+  fdopen:(id,k)=>{S.fpop=null;S.tvpop=null;S.ipop=false;fdOpen(k||fdPage())},
+  fdcancel:()=>{S.fd=null;renderFd()},
+  fdtg:(id,k)=>{const o=S.fd.open;o.has(k)?o.delete(k):o.add(k);fdUpd()},
+  fdmore:(id,k)=>{const m=S.fd.more;m.has(k)?m.delete(k):m.add(k);fdUpd()},
+  fdx:(v,k)=>{const F=S.fd,g=FDA[F.page].groups().find(x=>x.k===k);if(!g)return;
+    if(g.bool)F.draft[v]=!F.draft[v];else{const L=F.draft[k],i=L.indexOf(v);i>=0?L.splice(i,1):L.push(v)}fdUpd()},
+  fdclr:()=>{const F=S.fd;FDA[F.page].groups().forEach(g=>{if(g.bool)g.bool.forEach(b=>F.draft[b]=false);else F.draft[g.k]=[]});fdUpd()},
+  fdapply:()=>{const F=S.fd,ad=FDA[F.page];Object.assign(ad.state(),F.draft);S.fd=null;renderFd();ad.apply()},
+  iqx:()=>{S.iv.q='';const q=$('#iq');if(q)q.value='';refreshIdeas()}
+});
+document.addEventListener('input',e=>{const t=e.target;if(!S.fd)return;
+  if(t.id==='fdq'){S.fd.q=t.value;const b=$('#fdbody');if(b){b.innerHTML=fdBody()}return}
+  if(t.dataset.fdgq){S.fd.gq[t.dataset.fdgq]=t.value;fdUpd()}});
 
+/* v2.14: Portfolio card tool row: search and Filters on the same line as Show / Group by / Time range */
+function pfBar(){return`<div class="tbar pfbar"><div class="tsearch">${ICO_SEARCH}<input id="q" type="search" placeholder="Search products, part number, supplier or market…" value="${esc(S.F.q)}" autocomplete="off"></div><div id="fctl" class="fctl">${fctl()}</div><div id="popts" class="poptw">${portfolioOpts()}</div><div id="fpop"></div></div>`}
 function rmSwitch(){
-  const seg=[['timeline','Timeline',ICO_TL],['list','List',ICO_LIST],['health','Health',ic('<path d="M5 20V11M10 20V5M15 20v-7M20 20V8"/>')]];
+  const seg=[['timeline','Timeline',ICO_TL],['list','List',ICO_LIST],['health','Health',ic('<path d="M5 20V11M10 20V5M15 20v-7M20 20V8"/>')],['coverage','Coverage',ic(ICO_GRID)]];
   return`<div class="segc vsw tsw">${seg.map(([k,l,i])=>`<button class="${S.rmView===k?'on':''}" data-act="rmview" data-arg="${k}">${i} ${l}</button>`).join('')}</div>`;
 }
 function pager(n,pp,pages){
